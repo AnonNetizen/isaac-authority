@@ -450,10 +450,14 @@ void HostPublisher::set_keyframe_interval(uint32_t frames) { interval_ = frames 
 PublishResult HostPublisher::publish(const NativeCapture& capture) {
     PublishResult result;
     if (const auto checked = precheck_capture(capture); checked != ModelError::ok) { result.error = checked; return result; }
-    if (have_ && capture.frame < previous_.frame) { result.error = ModelError::stale; return result; }
-    if (have_ && capture.frame == previous_.frame && !force_ && capture.room_index == previous_.room_index) {
-        result.error = ModelError::stale;
-        return result;
+    const bool room_changed = have_ && capture.room_index != previous_.room_index;
+    // A restarted run puts the frame counter back near 0. force_keyframe() or a
+    // room change accepts that rollback and forgets the previous snapshot.
+    if (have_ && !force_ && !room_changed && capture.frame <= previous_.frame) { result.error = ModelError::stale; return result; }
+    if (have_ && capture.frame < previous_.frame) {
+        previous_ = {};
+        last_key_frame_ = 0;
+        have_ = false;
     }
     auto map = by_pointer_;
     uint64_t next_id = next_id_;
@@ -563,6 +567,11 @@ void GuestIngress::note_applied(uint32_t sequence) {
 
 void GuestIngress::resync() {
     buffered_.clear();
+    applied_.clear();
+    highest_seq_ = 0;
+    have_ = false;
+    last_frame_ = 0;
+    world_ = {};
     needs_keyframe_ = true;
 }
 
@@ -603,13 +612,12 @@ ModelError GuestIngress::drain() {
 }
 
 ModelError GuestIngress::apply_keyframe(const SnapshotPacket& packet) {
-    if (have_ && packet.full.frame < last_frame_) {
+    // Sequence dedup already happened. A new sequence at this frame is a room
+    // change or a forced refresh and must replace the world. While a keyframe
+    // is required, a restarted host may also send an older frame number.
+    if (have_ && !needs_keyframe_ && packet.full.frame < last_frame_) {
         note_applied(packet.sequence);
         return ModelError::stale;
-    }
-    if (have_ && packet.full.frame == last_frame_ && !needs_keyframe_) {
-        note_applied(packet.sequence);
-        return ModelError::duplicate;
     }
     world_ = packet.full;
     std::sort(world_.players.begin(), world_.players.end(), [](const NetPlayer& a, const NetPlayer& b) { return a.slot < b.slot; });

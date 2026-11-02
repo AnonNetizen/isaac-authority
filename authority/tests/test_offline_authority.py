@@ -107,6 +107,21 @@ class LiveChecklistTests(unittest.TestCase):
             self.assertEqual(completed.returncode, 1)
             self.assertIn("playable_must_stay_false", completed.stdout)
 
+    def test_cli_check_report_non_object_uses_reasons(self):
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / "array.json"
+            path.write_text("[1, 2, 3]", encoding="utf-8")
+            completed = subprocess.run(
+                [sys.executable, str(ROOT / "authority" / "tools" / "live_acceptance.py"), "--check-report", str(path)],
+                check=False,
+                capture_output=True,
+                text=True,
+            )
+            self.assertEqual(completed.returncode, 2)
+            self.assertIn("report is not an object", completed.stdout)
+            self.assertNotIn("AttributeError", completed.stderr)
+            self.assertNotIn("playable_must_stay_false", completed.stdout)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -171,7 +171,7 @@ def main(argv: list[str] | None = None) -> int:
         document = json.loads(args.check_report.read_text(encoding="utf-8"))
         result = evaluate_report(document)
         print(json.dumps(result, indent=2))
-        if document.get("playable") is True:
+        if "playable_must_stay_false" in result["reasons"]:
             return 1
         return 0 if result["schema_ok"] else 2
     chosen = steps(args.game, str(args.pid))

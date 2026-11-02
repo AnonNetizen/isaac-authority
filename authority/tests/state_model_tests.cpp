@@ -159,12 +159,115 @@ int main() {
         GuestIngress resync_guest;
         expect_model(resync_guest.accept(refresh.bytes.data(), refresh.bytes.size()), ModelError::ok, "resync base");
         resync_guest.resync();
-        expect(resync_guest.needs_keyframe(), "resync waits for a keyframe");
-        expect_model(resync_guest.accept(refresh.bytes.data(), refresh.bytes.size()), ModelError::duplicate, "same sequence is not replayed");
+        expect(resync_guest.needs_keyframe() && resync_guest.snapshot() == nullptr, "resync waits for a keyframe");
+        expect_model(resync_guest.accept(refresh.bytes.data(), refresh.bytes.size()), ModelError::ok, "resync resets the sequence window and accepts the keyframe again");
+        expect(!resync_guest.needs_keyframe() && resync_guest.snapshot()->players[0].x == 2.f, "replayed keyframe restored the world");
         stale_pub.force_keyframe();
         auto refresh_again = stale_pub.publish(make_capture(5, 3.f));
         expect_model(resync_guest.accept(refresh_again.bytes.data(), refresh_again.bytes.size()), ModelError::ok, "same-frame keyframe clears the wait");
         expect(!resync_guest.needs_keyframe() && resync_guest.snapshot()->players[0].x == 3.f, "refresh applied without rollback");
+
+        HostPublisher restart_pub;
+        expect_model(restart_pub.publish(make_capture(505, 50.f)).error, ModelError::ok, "publish frame 505");
+        restart_pub.force_keyframe();
+        auto restarted = restart_pub.publish(make_capture(1, 11.f));
+        expect(restarted.error == ModelError::ok && restarted.sent_keyframe && restarted.snapshot.frame == 1 &&
+               restarted.snapshot.players[0].x == 11.f, "force_keyframe accepts a restarted frame counter");
+        auto restarted_next = restart_pub.publish(make_capture(2, 12.f));
+        expect(restarted_next.error == ModelError::ok && !restarted_next.sent_keyframe && restarted_next.snapshot.frame == 2,
+               "motion after a restarted keyframe is a delta");
+        HostPublisher room_rewind;
+        expect_model(room_rewind.publish(make_capture(40, 1.f)).error, ModelError::ok, "room rewind base");
+        auto room_back = room_rewind.publish(make_capture(3, 2.f, 0x3CE6A014u, 0x3CE6B028u, 0x01020304u, true, 80));
+        expect(room_back.error == ModelError::ok && room_back.sent_keyframe && room_back.snapshot.frame == 3 &&
+               room_back.snapshot.room_index == 80, "room change accepts a frame rollback");
+
+        std::vector<std::vector<uint8_t>> old_run;
+        HostPublisher old_host;
+        for (uint32_t frame = 500; frame <= 505; ++frame) {
+            auto published = old_host.publish(make_capture(frame, static_cast<float>(frame)));
+            expect_model(published.error, ModelError::ok, "old host publish");
+            old_run.push_back(std::move(published.bytes));
+        }
+        auto feed_old_run = [&](GuestIngress& guest) {
+            for (const auto& bytes : old_run)
+                expect_model(guest.accept(bytes.data(), bytes.size()), ModelError::ok, "guest follows the old host");
+            expect(guest.frame() == 505, "guest reached frame 505");
+            guest.resync();
+            expect(guest.needs_keyframe() && guest.snapshot() == nullptr, "resync dropped the applied world");
+        };
+        GuestIngress frame1_guest;
+        feed_old_run(frame1_guest);
+        HostPublisher host_frame1;
+        auto seq1_frame1 = host_frame1.publish(make_capture(1, 8.f));
+        expect(seq1_frame1.sequence == 1 && seq1_frame1.sent_keyframe, "new host starts at sequence 1 frame 1");
+        expect_model(frame1_guest.accept(seq1_frame1.bytes.data(), seq1_frame1.bytes.size()), ModelError::ok,
+                     "resync accepts seq 1 frame 1");
+        expect(frame1_guest.frame() == 1 && frame1_guest.snapshot()->players[0].x == 8.f && !frame1_guest.needs_keyframe(),
+               "frame 1 keyframe replaced the old run");
+        GuestIngress frame600_guest;
+        feed_old_run(frame600_guest);
+        HostPublisher host_frame600;
+        auto seq1_frame600 = host_frame600.publish(make_capture(600, 60.f));
+        expect(seq1_frame600.sequence == 1 && seq1_frame600.sent_keyframe, "new host starts at sequence 1 frame 600");
+        expect_model(frame600_guest.accept(seq1_frame600.bytes.data(), seq1_frame600.bytes.size()), ModelError::ok,
+                     "resync accepts seq 1 frame 600");
+        expect(frame600_guest.frame() == 600 && frame600_guest.snapshot()->players[0].x == 60.f && !frame600_guest.needs_keyframe(),
+               "frame 600 keyframe from a new host applied");
+
+        HostPublisher stuck_host;
+        GuestIngress stuck_guest;
+        auto stuck_base = stuck_host.publish(make_capture(20, 4.f));
+        expect_model(stuck_guest.accept(stuck_base.bytes.data(), stuck_base.bytes.size()), ModelError::ok, "stuck base");
+        SnapshotPacket stuck_delta;
+        stuck_delta.sequence = 2;
+        stuck_delta.keyframe = false;
+        stuck_delta.delta.base_frame = 20;
+        stuck_delta.delta.frame = 21;
+        stuck_delta.delta.room_index = 71;
+        stuck_delta.delta.previous_room = 84;
+        stuck_delta.delta.players = stuck_guest.snapshot()->players;
+        stuck_delta.delta.removed.push_back(999);
+        auto stuck_bytes = encode_snapshot(stuck_delta);
+        expect_model(stuck_bytes.error, ModelError::ok, "encode rejected delta");
+        expect_model(stuck_guest.accept(stuck_bytes.bytes.data(), stuck_bytes.bytes.size()), ModelError::needs_keyframe,
+                     "unknown id asks for a keyframe");
+        expect(stuck_guest.needs_keyframe() && stuck_guest.frame() == 20, "rejected delta keeps the last good frame");
+        SnapshotPacket lower_key;
+        lower_key.sequence = 3;
+        lower_key.keyframe = true;
+        lower_key.full.frame = 1;
+        lower_key.full.room_index = 71;
+        lower_key.full.previous_room = 84;
+        lower_key.full.players = stuck_guest.snapshot()->players;
+        lower_key.full.players[0].x = 9.f;
+        auto lower_bytes = encode_snapshot(lower_key);
+        expect_model(lower_bytes.error, ModelError::ok, "encode lower keyframe");
+        expect_model(stuck_guest.accept(lower_bytes.bytes.data(), lower_bytes.bytes.size()), ModelError::ok,
+                     "needs_keyframe accepts a keyframe with any frame");
+        expect(stuck_guest.frame() == 1 && stuck_guest.snapshot()->players[0].x == 9.f && !stuck_guest.needs_keyframe(),
+               "lower keyframe replaced the waiting world");
+
+        HostPublisher same_frame_room;
+        GuestIngress same_frame_guest;
+        auto room71 = same_frame_room.publish(make_capture(10, 10.f));
+        expect_model(room71.error, ModelError::ok, "frame 10 room 71");
+        expect_model(same_frame_guest.accept(room71.bytes.data(), room71.bytes.size()), ModelError::ok, "guest at room 71");
+        auto room72 = same_frame_room.publish(make_capture(10, 15.f, 0x3CE6A014u, 0x3CE6B028u, 0x01020304u, true, 72));
+        expect(room72.error == ModelError::ok && room72.sent_keyframe && room72.sequence != room71.sequence &&
+               room72.snapshot.room_index == 72, "same-frame room change is a new keyframe");
+        expect_model(same_frame_guest.accept(room72.bytes.data(), room72.bytes.size()), ModelError::ok,
+                     "guest applies the same-frame room keyframe");
+        expect(same_frame_guest.snapshot()->room_index == 72 && same_frame_guest.frame() == 10 &&
+               same_frame_guest.snapshot()->players[0].x == 15.f && !same_frame_guest.needs_keyframe(),
+               "room 72 replaced room 71 at frame 10");
+        auto room_delta = same_frame_room.publish(make_capture(11, 16.f, 0x3CE6A014u, 0x3CE6B028u, 0x01020304u, true, 72));
+        expect(room_delta.error == ModelError::ok && !room_delta.sent_keyframe, "motion after the room keyframe is a delta");
+        expect_model(same_frame_guest.accept(room_delta.bytes.data(), room_delta.bytes.size()), ModelError::ok,
+                     "delta after the same-frame room keyframe");
+        expect(same_frame_guest.frame() == 11 && same_frame_guest.snapshot()->room_index == 72 &&
+               same_frame_guest.snapshot()->players[0].x == 16.f && !same_frame_guest.needs_keyframe(),
+               "delta applied on room 72");
 
         auto bad = make_capture(1, 1.f);
         bad.players[0].x = std::numeric_limits<float>::infinity();

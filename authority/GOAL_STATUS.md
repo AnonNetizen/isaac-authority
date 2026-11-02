@@ -65,3 +65,5 @@
 上次清理 UI flow 构建中间文件的原生 PowerShell 请求被自动审批拒绝，理由只有 `blocked by policy`；命令未执行，约29 MiB缓存仍在。记录见 `reports/ui-flow-cleanup-rejected.json`，不要以换工具或隐藏删除操作绕过拒绝。本批没有重试删除，没有启动游戏或改动个人存档，也没有新建 ZIP 或解压副本。
 
 2026-11-02 追加：离线补上指针无关快照、增量/校验和/丢包重排，以及带内存传输的会话握手、输入通道、断线暂停和关键帧恢复。见 `docs/AUTHORITY_P1.md` 的 P1h。`authority-tests` 仍是 38 项，新增 `authority-state-tests` 164 项；两边都打印 `playable=false`。这些测试没有启动游戏，没有第二台机器，也没有把新链路接到 Steam。客机渲染仍只是 `GuestView::plan()` 的逻辑写入计划，不改实体内存。个人界面、存档、解锁和 30 分钟双机验收都没有做。目标继续 active，不可玩。实机还要跑的命令在 `authority/tools/live_acceptance.py`。
+
+2026-11-02 审查修复：主机在 `force_keyframe()` 或换房时接受帧号回退；客机 `resync()` 清空序号窗口，等待关键帧时接受任意帧号；同一帧换房按新序号应用；`--check-report` 遇到非对象 JSON 不再崩溃。复跑 `authority-tests` 38 项，`authority-state-tests` 213 项，`g++ -m32` 结果相同，两边仍打印 `playable=false`。没有启动游戏。

@@ -248,6 +248,8 @@ class GuestIngress {
     ModelError drain();
 public:
     ModelError accept(const uint8_t* data, size_t size);
+    // Drops the sequence window and the applied world. The next keyframe is
+    // accepted at any frame, including a host that restarted at sequence 1.
     void resync();
     const WorldSnapshot* snapshot() const { return have_ ? &world_ : nullptr; }
     bool needs_keyframe() const { return needs_keyframe_; }
