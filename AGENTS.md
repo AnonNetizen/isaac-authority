@@ -283,3 +283,24 @@ They are not in-game results. `playable` stays false.
    frame delta 0, recovery, hook disabled. The high-entity batch adds
    `-PacketRva 0x2fadc0` and is a separate fresh process.
 5. Only then start a new engine-facing change. Keep backups and a disposable save.
+
+## Cursor Cloud specific instructions
+
+Linux cloud agents have no `isaac-ng.exe`, Visual Studio, or Steam workshop
+files. Sections 3–6 and checklist steps 3–4 need a Windows machine with the
+game. On cloud, stop after the portable checks in checklist step 2.
+`playable` stays false.
+
+- If CMake reports `cannot find -lstdc++` or a missing `iostream`, the default
+  `c++` is Clang without libstdc++ headers. Point `cc` at `/usr/bin/gcc` and
+  `c++` at `/usr/bin/g++` with `update-alternatives`, delete the failed build
+  directory, and configure again. The environment install does this.
+- Use `python3 -m pytest -q test_stability_patch.py`, not `py -3`. `lupa==2.6`
+  provides Lua 5.3. Without `ISAAC_LASER_SOURCE` (the workshop `main.lua` is
+  not in this repo), the source-backed tests skip and the compile check
+  passes. That skip is expected here.
+- Host-side demo, still not playable co-op:
+  `python3 authority/tools/run_isolation.py --demo --output /tmp/isolation-demo.json`
+  and `python3 authority/tests/test_isolation.py`.
+- `python3 authority/tests/test_offline_authority.py` checks the offline
+  capture fixture only.
