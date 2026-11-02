@@ -1,0 +1,16 @@
+{
+  "format": "j460-native-capture-v0",
+  "source": "synthetic-schema-example",
+  "in_game_recording": false,
+  "note": "Field values are shaped like the documented low-entity capture (player near 320,380 size 10, room 71). The pointers are host-local stand-ins and must not appear on the guest wire. This file is not a byte-for-byte copy of a live run.",
+  "frame": 120,
+  "room_index": 71,
+  "previous_room": 84,
+  "players": [
+    {"pointer": "0x3CE6A014", "x": 320.0, "y": 380.0, "vx": 0.0, "vy": 0.0, "size": 10.0}
+  ],
+  "entities": [
+    {"pointer": "0x3CE6A014", "type": 1, "variant": 0, "init_seed": "0x11111111", "x": 320.0, "y": 380.0, "vx": 0.0, "vy": 0.0, "size": 10.0},
+    {"pointer": "0x3CE6B028", "type": 1000, "variant": 1, "init_seed": "0x01020304", "x": 100.0, "y": 200.0, "vx": 1.5, "vy": -0.25, "size": 8.0}
+  ]
+}

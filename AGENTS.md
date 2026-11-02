@@ -67,9 +67,15 @@ Summaries: `authority/docs/ENGINE_LAYOUT_P0.md`, `authority/docs/AUTHORITY_P1.md
 
 ### Not done (do not claim otherwise)
 
-- Guest-side render-only mode (host state applied to a guest).
-- Pointer-free state serialization/application and entity identity mapping.
-- Steam state/input networking, reconnect, desync detection.
+- Guest-side render-only mode inside the game. Offline `GuestView::plan()` lists
+  position/velocity/size writes and is unit-tested; it does not write `isaac-ng`
+  memory, and no live process has skipped simulation while applying host state.
+- In-game use of the pointer-free snapshot. The model itself is implemented and
+  tested (`native/state_model.*`: stable ids, deltas, version, checksum,
+  loss/reorder). Host capture bytes still contain pointers; the guest wire does not.
+- Steam wiring. `AuthorityLink` handshake, state/input channels, reconnect, and
+  snapshot recovery are tested on `LoopbackHub` only. `SteamTransport` still
+  speaks the older JSON/CBOR session on channel 197460.
 - Per-player UI/menu/language/position/key/save/unlock isolation.
 - Stage offset, room descriptor/tile state, complete player stats/items/animation.
 - Dual-machine acceptance and 30-minute soak.
@@ -175,18 +181,26 @@ Useful commands:
 
 # Skip the real gameplay update; 0x554cd0 requires ret 4
 ... -SkipProbe -CandidateRva '0x554cd0' -SkipRet 4 -SkipCycles '5000,5000'
+
+# Optional second hook for packet size/time. Not verified in-game after the
+# null-entry fix. 0x2fadc0 is the sub-update, not the skip target.
+... -SkipProbe -CandidateRva '0x554cd0' -SkipRet 4 -SkipCycles '2000,5000,2000' -PacketRva '0x2fadc0'
 ```
 
 `--skip-cycles` is a comma-separated list of milliseconds (500–10000, max 5).
 `--capture-state` and `--capture-packet` require `-CallProbe`.
-`--skip-probe` is one-shot per game process.
+`--packet-rva` requires `-SkipProbe` and must differ from `-CandidateRva`.
+`--skip-probe` is one-shot per game process. The owner checklist is
+`authority/tools/live_acceptance.py`.
 
 ## 6. Current probes and what they write
 
 - `--state-probe` → `state-probe.json` (Lua truth + Game/Level/entity dumps).
 - `--call-probe` → `call-probe.json` (calls/frame, ecx, optional packet stats).
 - `--skip-probe` → `skip-probe.json` (cycles, frame deltas, player displacement,
-  recovery, hook disabled).
+  recovery, hook disabled). With `--packet-rva`, the same file also gets
+  `packet_hook`, `packet_rva`, and `packet_phases`. That combined report has
+  not been produced in-game since the packet hook was made opt-in.
 - `--layout-probe`, `--api-probe`, `--runtime-probe` are older diagnostics; keep
   their documented scope and do not treat them as playable acceptance.
 
@@ -207,18 +221,28 @@ Useful commands:
 
 ## 8. Next work, in priority order
 
-1. **High-entity packet + batch**: finish the combined `--skip-probe` run that also
-   hooks `0x2fadc0` for packet capture; record worst-case bytes/time at 30–60 entities.
-2. **Guest render prototype**: skip `0x554cd0` while keeping rendering; apply host
-   position/room snapshots locally. First single-process, then loopback.
-3. **State model**: stable entity identity (no cross-process pointers), delta
-   encoding, packet version/checksum, loss/reorder handling.
-4. **Networking**: SteamNetworkingMessages session handshake, state/input channels,
-   reconnect and snapshot recovery; keep manifests/version checks.
-5. **Per-player UI/save/unlock isolation**: the hard product gates in
-   `authority/GOAL_STATUS.md`; do not hide/skip them.
-6. **Dual-machine acceptance**: 30 min co-op, combat, room transitions, pickups,
-   death/revive, menus/HUD, save/unlock, reconnect.
+Offline pieces below are implemented and covered by `authority-state-tests`.
+They are not in-game results. `playable` stays false.
+
+1. **High-entity packet + batch** — still needs the owner, on a new game process,
+   in a room with 30–60 entities, window focused. Command is the `skip-packet`
+   step in `authority/tools/live_acceptance.py` (`0x554cd0`, `--skip-ret 4`,
+   `--packet-rva 0x2fadc0`). Do not treat it as done until `skip-probe.json`
+   shows `packet_hook=true` and `normal_before.entities_max >= 30`. The last
+   in-game timing is still the low-entity ~231 µs figure.
+2. **Guest render inside the game** — not implemented. `GuestView` only plans
+   writes. There is no command that writes entity memory.
+3. **State model** — offline model is in `native/state_model.*`. Applying it to
+   a running guest is not done. Animation, items, tiles, and stage are not in
+   the snapshot. A pointer that disappears for one frame gets a new network id.
+4. **Networking** — loopback handshake, channels, pause, reconnect, and keyframe
+   recovery are tested. Steam is not wired to `AuthorityLink`. Two machines
+   have not exchanged packets.
+5. **Per-player UI/save/unlock isolation** — still open. Do not hide or skip
+   these gates.
+6. **Dual-machine acceptance** — 30 min co-op, combat, room transitions, pickups,
+   death/revive, menus/HUD, save/unlock, reconnect. Still open. The printed
+   capture/preview commands only start the old JSON observer.
 
 ## 9. Multi-agent coordination
 
@@ -237,8 +261,12 @@ Useful commands:
 
 1. Read `authority/docs/ENGINE_LAYOUT_P0.md`, `AUTHORITY_P1.md`, `TOOLING_FIXES.md`,
    `GOAL_STATUS.md`.
-2. Build with the game closed; confirm 38 native tests + 49 Python tests pass.
+2. Build with the game closed; confirm `authority-tests` (38) and
+   `authority-state-tests`, plus the 49 Python tests, pass. On a machine without
+   the game, `cmake -S authority -B authority/build-host-tests -DIA_HOST_TESTS=ON`
+   builds the portable tests only.
 3. Run `--state-probe` in a seed run; confirm offsets and room index against Lua truth.
 4. Run `--skip-probe -CandidateRva 0x554cd0 -SkipRet 4`; confirm displacement 0,
-   frame delta 0, recovery, hook disabled.
+   frame delta 0, recovery, hook disabled. The high-entity batch adds
+   `-PacketRva 0x2fadc0` and is a separate fresh process.
 5. Only then start a new engine-facing change. Keep backups and a disposable save.

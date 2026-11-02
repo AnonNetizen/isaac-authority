@@ -24,11 +24,14 @@
 | 跳过实验后看起来“游戏卡死” | 游戏窗口失去焦点，Isaac 自动暂停模拟，帧号不变 | 先检查前台窗口；`GetForegroundWindow` 不是游戏时帧号停滞属正常，不是钩子残留 |
 | skip 在 `0x554cd0` 上一直等不到“进局” | 该函数的 `ecx` 不是 Game*，探针用 `ecx+0x264F8` 读帧得到 0 | 帧号/玩家统一从全局 `Game`（`base+0x871678`）读取，不再依赖 `ecx` |
 | 跳过 `0x2fadc0` 后角色还能移动 | 它只是帧计数/子更新，不是完整模拟入口 | 改用 `0x554cd0`（`ret 4`）作为跳过目标；位置采样确认位移为 0 |
+| 跳过探针若再跑会在 `0x2fadc0` 上调用空函数 | 跳过路径默认 `packet_rva=0x2fadc0`，却没有给 `g_call_probe_entry` 赋值 | 第二把钩子改为 `--packet-rva` 才安装；安装前写入入口。默认关闭。**此修复尚未在游戏内运行** |
+| 组包用钩子 `ecx` 当 `Game*` | `0x554cd0` 的 `ecx` 不是 `Game*` | 采集字节改从全局 `Game*`（`base+0x871678`）读取，序列化走 `NativeCaptureBuilder` |
+| `live_acceptance.py --check-report` 遇到 JSON 数组就崩溃 | 退出码读了 `document.get("playable")`，非对象没有这个方法 | 退出码改看 `result["reasons"]`：含 `playable_must_stay_false` 返回 1，schema 失败返回 2。检查器本身仍不把 `playable` 设为 true |
 
 ## 现在的验证入口
 
 ```powershell
-# 构建 + 原生测试（游戏必须先关闭）
+# 构建 + 原生测试（游戏必须先关闭）。现在会跑 authority-tests.exe 和 authority-state-tests.exe。
 authority\tools\build.ps1 -BuildDirectory build-engine-layout
 
 # 检查 launcher 新开关是否在帮助里

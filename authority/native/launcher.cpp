@@ -97,7 +97,7 @@ int wmain(int argc, wchar_t** argv) {
     try {
         std::map<std::wstring, std::wstring> args;
         const std::set<std::wstring> switches{L"--help", L"--launch", L"--steam-launch", L"--steam-probe", L"--stop", L"--check",L"--object-probe",L"--layout-probe",L"--call-probe",L"--state-probe",L"--capture-state",L"--capture-packet",L"--skip-probe",L"--runtime-probe",L"--api-probe"};
-        const std::set<std::wstring> values{L"--game", L"--out", L"--role", L"--session", L"--peer", L"--manifest", L"--attach",L"--runtime-source",L"--runtime-suite",L"--candidate-rva",L"--probe-ms",L"--wait-ms",L"--skip-ms",L"--skip-cycles",L"--skip-ret"};
+        const std::set<std::wstring> values{L"--game", L"--out", L"--role", L"--session", L"--peer", L"--manifest", L"--attach",L"--runtime-source",L"--runtime-suite",L"--candidate-rva",L"--probe-ms",L"--wait-ms",L"--skip-ms",L"--skip-cycles",L"--skip-ret",L"--packet-rva"};
         for (int i = 1; i < argc; ++i) {
             std::wstring key = argv[i];
             if (args.contains(key)) throw std::runtime_error("Duplicate option");
@@ -116,7 +116,8 @@ int wmain(int argc, wchar_t** argv) {
                 "Field discovery: --state-probe; waits for an active run, dumps Game/Level/entity fields; read-only.\n"
                 "Packet capture: --call-probe --candidate-rva RVA --capture-packet; measures serialized native state packets.\n"
                 "State statistics: --call-probe --candidate-rva RVA --capture-state; records room-index changes and entity-count churn.\n"
-                "Guest-skip dry run: --skip-probe --candidate-rva RVA [--skip-cycles 2000,5000,2000]; freezes Game.Update in cycles, then disables the hook.\n"
+                "Guest-skip dry run: --skip-probe --candidate-rva RVA --skip-ret 4 [--skip-cycles 2000,5000,2000] [--packet-rva 0x2fadc0].\n"
+                "  --packet-rva also hooks that sub-update and records packet size/time. It is off unless set. 0x554cd0 needs --skip-ret 4.\n"
                 "Private mod runtime diagnostic: --runtime-probe --runtime-source RESEARCH_SOURCE_DIR; no native world commit.\n"
                 "Batch diagnostic: --runtime-suite FROZEN_JSON --runtime-source RESEARCH_SOURCE_DIR; one attach and preflight.\n"
                 "Engine resource/metadata diagnostic: --api-probe; requires canonical MCM and EID loaded.\n"
@@ -149,6 +150,7 @@ int wmain(int argc, wchar_t** argv) {
             if(args.contains(L"--peer")||args.contains(L"--role")||args.contains(L"--api-probe")||args.contains(L"--runtime-probe")||args.contains(L"--object-probe")||args.contains(L"--layout-probe")||args.contains(L"--call-probe")||args.contains(L"--state-probe"))throw std::runtime_error("--skip-probe cannot combine other diagnostics/peer/role");
             if(!args.contains(L"--candidate-rva"))throw std::runtime_error("--skip-probe requires --candidate-rva");
         }
+        if(args.contains(L"--packet-rva") && !args.contains(L"--skip-probe"))throw std::runtime_error("--packet-rva requires --skip-probe");
         if(args.contains(L"--state-probe")) {
             if(!(args.contains(L"--attach")||args.contains(L"--launch")||args.contains(L"--steam-launch")))throw std::runtime_error("--state-probe requires attach/launch/steam-launch");
             if(args.contains(L"--peer")||args.contains(L"--role")||args.contains(L"--api-probe")||args.contains(L"--runtime-probe")||args.contains(L"--object-probe")||args.contains(L"--layout-probe")||args.contains(L"--call-probe"))throw std::runtime_error("--state-probe cannot combine other diagnostics/peer/role");
@@ -210,6 +212,13 @@ int wmain(int argc, wchar_t** argv) {
             const auto candidate = std::stoull(args.at(L"--candidate-rva"), nullptr, 0);
             if(candidate == 0 || candidate > 0xffffffffull) throw std::runtime_error("Invalid --candidate-rva");
             config["candidate_rva"]=candidate;
+        }
+        config["packet_rva"]=uint64_t(0);
+        if(args.contains(L"--packet-rva")) {
+            const auto packet_rva = std::stoull(args.at(L"--packet-rva"), nullptr, 0);
+            if(packet_rva == 0 || packet_rva > 0xffffffffull) throw std::runtime_error("Invalid --packet-rva");
+            if(packet_rva == config.at("candidate_rva").get<uint64_t>()) throw std::runtime_error("--packet-rva must differ from --candidate-rva");
+            config["packet_rva"]=packet_rva;
         }
         if(args.contains(L"--call-probe")) {
             uint64_t probe_ms = 10000;
