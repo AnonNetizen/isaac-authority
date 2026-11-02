@@ -37,7 +37,8 @@ inline constexpr int kSteamControlChannel = 197461;
 inline constexpr int kSteamStateChannel = 197462;
 inline constexpr int kSteamInputChannel = 197463;
 
-// Offsets a future in-process guest writer would use. GuestView never writes them.
+// Pose offsets GuestApply writes through a GuestMemory. GuestView::plan() does not
+// write them. +0x38C is a lagging copy and is intentionally not a write offset.
 struct GuestWriteOffsets {
     static constexpr uint32_t position = 0x33C;
     static constexpr uint32_t velocity = 0x360;
