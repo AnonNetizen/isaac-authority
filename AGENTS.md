@@ -1,5 +1,7 @@
 # Agent Handoff — Isaac Co-op Authority Research
 
+Public repository: <https://github.com/AnonNetizen/isaac-authority>
+
 This repository contains two related tracks:
 
 1. **`Watch out, laser!` stability patch v2** — a small, user-facing patch for a
@@ -103,7 +105,9 @@ Not committed on purpose:
 - `authority/reports/` (~31 GB of generated JSON), `authority/runs/` (~177 MB),
   `authority/build-*/`, `authority/artifacts/`, `authority/*.log`;
 - top-level `backups/` (save backups), `artifacts/` (release ZIP), `.tools/`
-  (local Python packages).
+  (local Python packages);
+- `authority/research/slice3_ui_inputs/` — vendored third-party mod sources used only
+  as local input; not redistributed.
 
 A fresh clone is **source + docs + fixtures**, not a copy of the experiment outputs.
 Re-run the probes to reproduce evidence.
