@@ -1,0 +1,2 @@
+# Offline checks. lupa 2.6 provides Lua 5.3 via lupa.lua53.
+lupa==2.6
