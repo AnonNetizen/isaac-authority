@@ -67,9 +67,14 @@ Summaries: `authority/docs/ENGINE_LAYOUT_P0.md`, `authority/docs/AUTHORITY_P1.md
 
 ### Not done (do not claim otherwise)
 
-- Guest-side render-only mode inside the game. Offline `GuestView::plan()` lists
-  position/velocity/size writes and is unit-tested; it does not write `isaac-ng`
-  memory, and no live process has skipped simulation while applying host state.
+- Guest-side render inside the game. Offline `apply_guest_view()`
+  (`native/guest_apply.*`) can apply a `GuestView` plan through a replaceable
+  memory interface: position `+0x33C`, velocity `+0x360`, and size `+0x370`,
+  and only when the bound token is a non-null pointer in the live entity array
+  whose Type `+0x28`, Variant `+0x2C`, and InitSeed `+0x3EC` match the snapshot.
+  Spawn and despawn are reported and not performed. The probe DLL does not call
+  it. No live process has skipped `0x554cd0` while applying host state, and
+  this does not render.
 - In-game use of the pointer-free snapshot. The offline model
   (`native/state_model.*`) keeps a network id across `kIdentityGraceCaptures`
   (3) missed publishes when Type `+0x28`, Variant `+0x2C`, and InitSeed
@@ -234,8 +239,17 @@ They are not in-game results. `playable` stays false.
    `--packet-rva 0x2fadc0`). Do not treat it as done until `skip-probe.json`
    shows `packet_hook=true` and `normal_before.entities_max >= 30`. The last
    in-game timing is still the low-entity ~231 µs figure.
-2. **Guest render inside the game** — not implemented. `GuestView` only plans
-   writes. There is no command that writes entity memory.
+2. **Guest render inside the game** — not implemented. Offline
+   `apply_guest_view()` writes position, velocity, and size through
+   `GuestMemory` and is covered by `authority-state-tests`. It accepts only the
+   measured exe hash `210cade2...3ea4831`. A null, out-of-range, or unmatched
+   token is rejected, and a missing token is not replaced by another entity
+   with the same triple. `Game*` and `Level*` field addresses go through
+   `field_address()`; a sum that does not fit in 32 bits is `out_of_bounds`
+   and writes nothing. `guest_exe_sha256_from_hex` stops at the terminator. Spawn and despawn plans are counted as not performed.
+   There is no launcher switch. `probe.cpp` does not call it. No in-game
+   command writes entity memory, and skipping `0x554cd0` (`ret 4`) while
+   applying a snapshot has not been run.
 3. **State model** — offline model is in `native/state_model.*`. Network ids
    follow Type `+0x28`, Variant `+0x2C`, and InitSeed `+0x3EC` (`+0x3DC` is a
    different field and is not an identity). The host pointer is a tie-break

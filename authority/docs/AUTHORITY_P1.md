@@ -328,6 +328,21 @@ P1f 的“通过”只说明 `0x2fadc0` 可以被跳过并恢复；它**不能�
 
 上面全部来自 `authority-state-tests`。没有启动 `isaac-ng`。InitSeed 在真实连续帧里是否稳定、分配器会不会复用指针，都还没有实机证据。
 
+### 离线客机写入执行层（2026-11-02，没有游戏内验证）
+
+`GuestView::plan()` 仍然只描述写入。真正落笔的是 `apply_guest_view()`（`authority/native/guest_apply.hpp`）。它通过 `GuestMemory` 读写，测试用的是一块按 J460 偏移摆出来的模拟内存，不是 `isaac-ng` 进程。
+
+- 只写位置 `+0x33C`（两个 float）、速度 `+0x360`（两个 float）和大小 `+0x370`（一个 float）。滞后位置 `+0x38C`、房间索引、上一房间、帧计数、实体数组指针和个数都不写。
+- 已绑定实体只写它的 `local_token`。这个地址必须非空，而且出现在 `Level + 0x125C` 的存活指针表里（个数是 `Level + 0x1264`，不能用容量 `+0x1260` 里超出个数的槽）。内存里的 Type `+0x28`、Variant `+0x2C`、InitSeed `+0x3EC` 必须和快照相同。三元组相同的另一个实体不会被拿来代替。
+- 玩家槽位走 `Game + 0x1BAA8` / `+0x1BAAC`。没有对应的玩家别名实体时拒绝，避免在没有三元组的情况下写玩家对象。
+- `Game*` 和从它读出的 `Level*` 都是 32 位地址。`game_level`、玩家向量起止、以及 `Level + 0x125C/0x1260/0x1264` 用 `field_address()` 相加。结果放不进 32 位地址时返回 `out_of_bounds`，不读回绕后的低地址，也不写姿态。
+- 任一姿态目标失败，则一次都不留：还没写的不写，已经写上的按原字节写回。写回也失败时，`dirty_addresses` 列出仍是新值的地址，`pose_committed` 为 false。
+- 同一快照再应用一次，模拟内存字节不变。
+- `plan.spawns` 和 `plan.despawn_ids` 只进入 `spawns_not_performed` / `despawns_not_performed`。`lifecycle` 为 `not_performed`，`lifecycle_performed` 恒为 false。本步不能生成或删除实体，所以有这两类计划时 `complete` 为 false。
+- 主程序哈希必须是已测量布局的 `210cade2a1de98550cef52d012174108189d1a0d3926a22c3a1ec12fb3ae4831`。启动器还接受的备份哈希 `7122ac28...3b3ea4f` 没有这份布局证据，写入会被拒绝。
+- `probe.cpp` 不调用这个函数。没有命令行开关。`AuthorityLink::facts().native_memory_apply` 仍是 false。没有安装或改动钩子，`0x554cd0` 仍是 `ret 4`，`0x2f7ac0` 仍是 `ret 8`，`0x2fadc0` 仍是 `ret`。
+- `in_game` 和 `playable` 恒为 false。客机模拟没有停，画面也没有改成主机状态。
+
 ### 链路
 
 `AuthorityLink` 坐在 `Transport` 后面。当前唯一实现是 `LoopbackHub`（可丢、可重复、可对调相邻两包）。
@@ -353,10 +368,7 @@ P1f 的“通过”只说明 `0x2fadc0` 可以被跳过并恢复；它**不能�
 - `python3 -m pytest -q authority/tests/test_offline_authority.py`：8 通过、0 跳过。
 - `probe.cpp` 里的 MSVC `__declspec(naked)` / `__asm` 不能用 g++ 或 mingw 编译。注入器仍然要在 Windows 上用 MSVC Win32 构建。本环境没有构建 DLL，也没有启动游戏。
 
+同一环境稍后又跑过客机写入执行层。`authority-tests` 仍是 38 项。`authority-state-tests` 是 451 项，输出里有 `"passed":451`、`"guest_apply_in_game":false`、`"playable":false`。`g++ -m32` 编出来的两份也是 38 和 451。`python3 -m pytest -q test_stability_patch.py` 仍是 1 通过、48 跳过；`python3 -m pytest -q authority/tests/test_offline_authority.py` 仍是 8 通过。这次没有把执行层接到 DLL，也没有启动游戏。
 
-
-
-
-
-
+2026-11-02 审查修复：`Game*` / `Level*` 的字段地址不再用会回绕的 `uint32` 加法，回绕返回 `out_of_bounds`。`guest_exe_sha256_from_hex` 在遇到 `'\0'` 时不再多读 1 字节。删掉未使用的 `kOtherSeed`。复跑 `authority-tests` 38 项，`authority-state-tests` 465 项。`g++ -m32` 两边都是 38 和 465。64 位 `IA_HOST_TESTS` 用 g++ 和 Clang 18.1.3（`-Werror`）也是 38 和 465。状态测试输出 `{"passed":465,"guest_apply_in_game":false,"playable":false}`。`test_stability_patch.py` 1 通过、48 跳过，`test_offline_authority.py` 8 通过。没有启动游戏。客机没有停止模拟，也不能渲染主机状态。
 

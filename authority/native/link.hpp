@@ -140,7 +140,8 @@ public:
     AuthorityLink(LinkConfig config, Transport& transport);
     LinkPhase phase() const { return phase_; }
     bool awaiting_keyframe() const { return config_.role == LinkRole::preview && guest_.needs_keyframe(); }
-    // Constants. A live session cannot flip these; native apply and Steam are not done.
+    // Constants. GuestApply can stage pose writes through a test double; this link
+    // still does not call it, and no live session can flip these flags.
     LinkFacts facts() const { return LinkFacts{true, false, false, false, false}; }
     bool playable() const { return false; }
     bool start(uint64_t now_ms);

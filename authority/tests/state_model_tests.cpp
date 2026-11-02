@@ -86,6 +86,7 @@ bool plan_spawn_has(const RenderPlan& plan, uint64_t id) {
     return false;
 }
 }
+unsigned run_guest_apply_tests();
 
 int main() {
     try {
@@ -1035,9 +1036,11 @@ int main() {
                key_after_view.packet.delta.removed.empty() && !snapshot_has_id(key_after.snapshot, key_id),
                "the keyframe omission is the only despawn");
 
+        passed += run_guest_apply_tests();
         std::cout << "{\"passed\":" << passed
                   << ",\"encode_60_us_average\":" << average_us
-                  << ",\"in_game_timing\":false,\"live_game_test\":false,\"two_machine_test\":false,\"playable\":false}\n";
+                  << ",\"in_game_timing\":false,\"live_game_test\":false,\"two_machine_test\":false"
+                  << ",\"guest_apply_in_game\":false,\"playable\":false}\n";
         return 0;
     } catch (const std::exception& error) {
         std::cerr << "FAILED: " << error.what() << " after " << passed << " checks\n";

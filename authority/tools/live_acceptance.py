@@ -84,8 +84,9 @@ def steps(game: str = GAME_PLACEHOLDER, pid: str = PID_PLACEHOLDER) -> list[dict
             "playable": False,
             "implemented_in_game": False,
             "summary": (
-                "No in-game guest render command exists. GuestView only plans position/room writes and is covered by "
-                "authority-state-tests. Do not write entity memory from an untested hook."
+                "No in-game guest render command exists. Offline GuestApply can write position, velocity, and size "
+                "through a replaceable memory interface and reports spawn/despawn as not performed. The probe DLL "
+                "does not call it. Do not write isaac-ng entity memory from an untested hook."
             ),
             "command": None,
         },
