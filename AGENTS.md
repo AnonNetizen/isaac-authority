@@ -70,9 +70,13 @@ Summaries: `authority/docs/ENGINE_LAYOUT_P0.md`, `authority/docs/AUTHORITY_P1.md
 - Guest-side render-only mode inside the game. Offline `GuestView::plan()` lists
   position/velocity/size writes and is unit-tested; it does not write `isaac-ng`
   memory, and no live process has skipped simulation while applying host state.
-- In-game use of the pointer-free snapshot. The model itself is implemented and
-  tested (`native/state_model.*`: stable ids, deltas, version, checksum,
-  loss/reorder). Host capture bytes still contain pointers; the guest wire does not.
+- In-game use of the pointer-free snapshot. The offline model
+  (`native/state_model.*`) keeps a network id across `kIdentityGraceCaptures`
+  (3) missed publishes when Type `+0x28`, Variant `+0x2C`, and InitSeed
+  `+0x3EC` match. The host pointer is only a tie-break hint. Deltas, version,
+  checksum, and loss/reorder are unit-tested. Host capture bytes still contain
+  pointers; the guest wire does not. No live process has confirmed that
+  InitSeed stays stable, or how `isaac-ng` reuses pointers.
 - Steam wiring. `AuthorityLink` handshake, state/input channels, reconnect, and
   snapshot recovery are tested on `LoopbackHub` only. `SteamTransport` still
   speaks the older JSON/CBOR session on channel 197460.
@@ -232,9 +236,18 @@ They are not in-game results. `playable` stays false.
    in-game timing is still the low-entity ~231 µs figure.
 2. **Guest render inside the game** — not implemented. `GuestView` only plans
    writes. There is no command that writes entity memory.
-3. **State model** — offline model is in `native/state_model.*`. Applying it to
-   a running guest is not done. Animation, items, tiles, and stage are not in
-   the snapshot. A pointer that disappears for one frame gets a new network id.
+3. **State model** — offline model is in `native/state_model.*`. Network ids
+   follow Type `+0x28`, Variant `+0x2C`, and InitSeed `+0x3EC` (`+0x3DC` is a
+   different field and is not an identity). The host pointer is a tie-break
+   hint, not the identity. The same triple can miss `kIdentityGraceCaptures`
+   (3) published captures and keep its id; the next miss is one despawn. A
+   reused pointer with a different triple gets a new id. Two live entities
+   with the same triple stay distinct: matching pointer hint, otherwise
+   capture order paired with ascending id. A room change or a new run (the
+   frame counter goes backwards) clears the map. An interval keyframe or
+   `force_keyframe()` does not. Applying this to a running guest is not done.
+   Animation, items, tiles, and stage are not in the snapshot. InitSeed
+   stability across real frames is not verified.
 4. **Networking** — loopback handshake, channels, pause, reconnect, and keyframe
    recovery are tested. Steam is not wired to `AuthorityLink`. Two machines
    have not exchanged packets.
