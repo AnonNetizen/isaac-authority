@@ -444,6 +444,142 @@ DecodedSnapshot decode_snapshot(const uint8_t* data, size_t size) {
     return decoded;
 }
 
+namespace {
+NetEntity entity_from_capture(const NativeEntity& entity, uint64_t id, const std::unordered_map<uint32_t, uint32_t>& slots) {
+    NetEntity net;
+    net.id = id;
+    net.type = entity.type;
+    net.variant = entity.variant;
+    net.init_seed = entity.init_seed;
+    net.x = entity.x;
+    net.y = entity.y;
+    net.vx = entity.vx;
+    net.vy = entity.vy;
+    net.size = entity.size;
+    if (const auto slot = slots.find(entity.pointer); slot != slots.end()) {
+        net.player_alias = true;
+        net.player_slot = slot->second;
+    }
+    return net;
+}
+}
+
+HostPublisher::Assignment HostPublisher::assign_identities(std::vector<Tracked> tracked, uint64_t next_id, const NativeCapture& capture,
+                                                          const std::unordered_map<uint32_t, uint32_t>& slots) {
+    struct Seen {
+        const NativeEntity* entity{nullptr};
+        size_t capture_index{0};
+        bool matched{false};
+        size_t tracked_index{0};
+    };
+    std::vector<Seen> seen;
+    seen.reserve(capture.entities.size());
+    for (size_t index = 0; index < capture.entities.size(); ++index) {
+        if (capture.entities[index].pointer == 0) continue;
+        seen.push_back(Seen{&capture.entities[index], index, false, 0});
+    }
+    struct Pair {
+        size_t seen_index{0};
+        size_t tracked_index{0};
+        int pointer_rank{1};
+        uint64_t tracked_id{0};
+        size_t capture_index{0};
+    };
+    std::vector<Pair> pairs;
+    for (size_t seen_index = 0; seen_index < seen.size(); ++seen_index) {
+        const NativeEntity& entity = *seen[seen_index].entity;
+        for (size_t tracked_index = 0; tracked_index < tracked.size(); ++tracked_index) {
+            const Tracked& slot = tracked[tracked_index];
+            if (slot.type != entity.type || slot.variant != entity.variant || slot.init_seed != entity.init_seed) continue;
+            pairs.push_back(Pair{seen_index, tracked_index, slot.pointer_hint == entity.pointer ? 0 : 1, slot.id,
+                                 seen[seen_index].capture_index});
+        }
+    }
+    std::sort(pairs.begin(), pairs.end(), [](const Pair& left, const Pair& right) {
+        if (left.pointer_rank != right.pointer_rank) return left.pointer_rank < right.pointer_rank;
+        if (left.tracked_id != right.tracked_id) return left.tracked_id < right.tracked_id;
+        if (left.capture_index != right.capture_index) return left.capture_index < right.capture_index;
+        return left.seen_index < right.seen_index;
+    });
+    std::vector<char> used(tracked.size(), 0);
+    for (const Pair& pair : pairs) {
+        if (seen[pair.seen_index].matched || used[pair.tracked_index] != 0) continue;
+        seen[pair.seen_index].matched = true;
+        seen[pair.seen_index].tracked_index = pair.tracked_index;
+        used[pair.tracked_index] = 1;
+    }
+
+    Assignment out;
+    out.next_id = next_id;
+    out.tracked.reserve(tracked.size() + seen.size());
+    out.entities.reserve(tracked.size() + seen.size());
+    std::unordered_set<uint32_t> live_pointers;
+    std::unordered_set<uint32_t> claimed_alias_slots;
+    auto push_live = [&](Tracked slot, const NativeEntity& entity) {
+        slot.type = entity.type;
+        slot.variant = entity.variant;
+        slot.init_seed = entity.init_seed;
+        slot.pointer_hint = entity.pointer;
+        slot.misses = 0;
+        slot.pose = entity_from_capture(entity, slot.id, slots);
+        live_pointers.insert(entity.pointer);
+        if (slot.pose.player_alias) claimed_alias_slots.insert(slot.pose.player_slot);
+        out.tracked.push_back(slot);
+        out.entities.push_back(slot.pose);
+    };
+    for (const Seen& item : seen) {
+        if (!item.matched) continue;
+        push_live(tracked[item.tracked_index], *item.entity);
+    }
+    for (const Seen& item : seen) {
+        if (item.matched) continue;
+        Tracked slot;
+        slot.id = out.next_id++;
+        push_live(slot, *item.entity);
+    }
+    for (size_t index = 0; index < tracked.size(); ++index) {
+        if (used[index] != 0) continue;
+        const Tracked& slot = tracked[index];
+        const bool pointer_reused = slot.pointer_hint != 0 && live_pointers.count(slot.pointer_hint) != 0;
+        const bool alias_taken = slot.pose.player_alias && claimed_alias_slots.count(slot.pose.player_slot) != 0;
+        if (pointer_reused || alias_taken) continue;
+        Tracked held = slot;
+        ++held.misses;
+        if (held.misses > kIdentityGraceCaptures) continue;
+        out.tracked.push_back(held);
+        out.entities.push_back(held.pose);
+    }
+    if (out.entities.size() > kMaxNativeEntities) {
+        std::vector<size_t> grace;
+        for (size_t index = 0; index < out.tracked.size(); ++index)
+            if (out.tracked[index].misses > 0) grace.push_back(index);
+        std::sort(grace.begin(), grace.end(), [&](size_t left, size_t right) {
+            if (out.tracked[left].misses != out.tracked[right].misses) return out.tracked[left].misses > out.tracked[right].misses;
+            return out.tracked[left].id > out.tracked[right].id;
+        });
+        std::unordered_set<uint64_t> drop;
+        size_t kept = out.entities.size();
+        for (size_t index : grace) {
+            if (kept <= kMaxNativeEntities) break;
+            drop.insert(out.tracked[index].id);
+            --kept;
+        }
+        if (!drop.empty()) {
+            std::vector<Tracked> kept_tracked;
+            std::vector<NetEntity> kept_entities;
+            kept_tracked.reserve(kept);
+            kept_entities.reserve(kept);
+            for (const Tracked& slot : out.tracked)
+                if (drop.count(slot.id) == 0) kept_tracked.push_back(slot);
+            for (const NetEntity& entity : out.entities)
+                if (drop.count(entity.id) == 0) kept_entities.push_back(entity);
+            out.tracked = std::move(kept_tracked);
+            out.entities = std::move(kept_entities);
+        }
+    }
+    return out;
+}
+
 HostPublisher::HostPublisher(uint32_t keyframe_interval) : interval_(keyframe_interval == 0 ? 1 : keyframe_interval) {}
 void HostPublisher::set_keyframe_interval(uint32_t frames) { interval_ = frames == 0 ? 1 : frames; }
 
@@ -458,24 +594,18 @@ PublishResult HostPublisher::publish(const NativeCapture& capture) {
         result.error = ModelError::stale;
         return result;
     }
-    if (have_ && capture.frame < previous_.frame) {
+    // A lower frame is a new run. Drop the identity map now: have_ becomes false,
+    // so a later failed encode would otherwise keep the previous run's rows and
+    // hand those ids to the new run. A room change uses a fresh working copy
+    // and only replaces tracked_ after the packet encodes.
+    const bool new_run = have_ && capture.frame < previous_.frame;
+    if (new_run) {
         previous_ = {};
         last_key_frame_ = 0;
         have_ = false;
+        tracked_.clear();
     }
-    auto map = by_pointer_;
-    uint64_t next_id = next_id_;
-    std::unordered_set<uint32_t> seen;
-    auto identify = [&](uint32_t pointer, uint32_t seed) {
-        seen.insert(pointer);
-        if (const auto it = map.find(pointer); it != map.end()) {
-            if (it->second.seed == seed) return it->second.id;
-            map.erase(it);
-        }
-        const uint64_t id = next_id++;
-        map.emplace(pointer, Live{id, seed});
-        return id;
-    };
+    std::vector<Tracked> tracked = (new_run || room_changed) ? std::vector<Tracked>{} : tracked_;
     std::unordered_map<uint32_t, uint32_t> slot_by_pointer;
     WorldSnapshot snapshot;
     snapshot.frame = capture.frame;
@@ -487,22 +617,8 @@ PublishResult HostPublisher::publish(const NativeCapture& capture) {
         slot_by_pointer.emplace(player.pointer, i);
         snapshot.players.push_back(NetPlayer{i, player.x, player.y, player.vx, player.vy, player.size});
     }
-    for (const auto& entity : capture.entities) {
-        if (entity.pointer == 0) continue;
-        NetEntity net;
-        net.id = identify(entity.pointer, entity.init_seed);
-        net.type = entity.type; net.variant = entity.variant; net.init_seed = entity.init_seed;
-        net.x = entity.x; net.y = entity.y; net.vx = entity.vx; net.vy = entity.vy; net.size = entity.size;
-        if (const auto slot = slot_by_pointer.find(entity.pointer); slot != slot_by_pointer.end()) {
-            net.player_alias = true;
-            net.player_slot = slot->second;
-        }
-        snapshot.entities.push_back(net);
-    }
-    for (auto it = map.begin(); it != map.end();) {
-        if (!seen.count(it->first)) it = map.erase(it);
-        else ++it;
-    }
+    auto assigned = assign_identities(std::move(tracked), next_id_, capture, slot_by_pointer);
+    snapshot.entities = std::move(assigned.entities);
     std::sort(snapshot.entities.begin(), snapshot.entities.end(), [](const NetEntity& a, const NetEntity& b) { return a.id < b.id; });
     if (const auto entities = check_entities(snapshot.entities); entities != ModelError::ok) { result.error = entities; return result; }
 
@@ -544,8 +660,8 @@ PublishResult HostPublisher::publish(const NativeCapture& capture) {
     packet.delta = std::move(delta);
     auto encoded = encode_snapshot(packet);
     if (encoded.error != ModelError::ok) { result.error = encoded.error; return result; }
-    by_pointer_ = std::move(map);
-    next_id_ = next_id;
+    tracked_ = std::move(assigned.tracked);
+    next_id_ = assigned.next_id;
     previous_ = snapshot;
     have_ = true;
     force_ = false;

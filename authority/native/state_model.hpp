@@ -23,6 +23,11 @@ inline constexpr size_t kMaxNativePlayers = 8;
 inline constexpr size_t kMaxNativeEntities = 128;
 inline constexpr unsigned kDefaultKeyframeInterval = 30;
 inline constexpr unsigned kIngressWindow = 32;
+// How many published captures an entity may miss and still keep its network id.
+// A capture is one successful HostPublisher::publish() in the same run and room.
+// Misses of 1..kIdentityGraceCaptures stay on the wire under the last pose.
+// The next miss retires the id once. This is not a wire-format field.
+inline constexpr uint32_t kIdentityGraceCaptures = 3;
 // Intended SteamNetworkingMessages channels once the live DLL is wired.
 // SteamTransport still uses kChannel (197460) for the older JSON session only.
 inline constexpr uint8_t kChannelControl = 1;
@@ -212,12 +217,48 @@ struct PublishResult {
     WorldSnapshot snapshot{};
 };
 
-// Host-only. Maps (pointer, init seed) to a monotonic network id. A pointer that
-// disappears for a frame is retired; the same address and seed later get a new id.
-// Player identity is the slot index, never the EntityPlayer*.
+// Host-only identity map.
+//
+// A network id follows the captured triple Type (+0x28), Variant (+0x2C), and
+// InitSeed (+0x3EC). +0x3DC is a different seed and is not part of the triple.
+// The host pointer is not the identity. It is a hint used when several tracked
+// rows share the triple:
+//   1. a row whose hint equals the captured pointer wins that row;
+//   2. otherwise the smaller network id is paired with the earlier capture row.
+// New rows take the next monotonic id in capture order. Ids are not recycled.
+//
+// A tracked row that is absent, and whose pointer hint is not occupied by this
+// capture, may miss kIdentityGraceCaptures publishes and keep its id. The
+// published snapshot keeps the last pose, so the guest does not see a removal
+// plus an add. The following miss drops it. A delta lists that id in `removed`
+// once; a keyframe simply omits it, and the next delta does not list it again.
+// If the hint address shows up on a different row, the old id is retired
+// immediately and is not given to the new row. A player-alias row is retired
+// immediately when its slot is already claimed by a live row. Grace rows that
+// would push the snapshot past kMaxNativeEntities are dropped in that same
+// publish, most misses first and then the highest id.
+//
+// A room change, or a new run (frame number goes backwards), clears the map
+// before assignment. An interval keyframe or force_keyframe() does not.
+// Player slots are still the player identity, never EntityPlayer*.
 class HostPublisher {
-    struct Live { uint64_t id{0}; uint32_t seed{0}; };
-    std::unordered_map<uint32_t, Live> by_pointer_;
+    struct Tracked {
+        uint64_t id{0};
+        uint32_t type{0};
+        uint32_t variant{0};
+        uint32_t init_seed{0};
+        uint32_t pointer_hint{0};
+        uint32_t misses{0};
+        NetEntity pose{};
+    };
+    struct Assignment {
+        std::vector<NetEntity> entities;
+        std::vector<Tracked> tracked;
+        uint64_t next_id{1};
+    };
+    static Assignment assign_identities(std::vector<Tracked> tracked, uint64_t next_id, const NativeCapture& capture,
+                                        const std::unordered_map<uint32_t, uint32_t>& slots);
+    std::vector<Tracked> tracked_;
     uint64_t next_id_{1};
     uint32_t next_seq_{1};
     uint32_t interval_{kDefaultKeyframeInterval};

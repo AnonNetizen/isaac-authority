@@ -8,6 +8,7 @@
 #include <limits>
 #include <stdexcept>
 #include <string>
+#include <vector>
 namespace {
 using namespace ia;
 unsigned passed = 0;
@@ -53,6 +54,36 @@ LinkConfig config_for(LinkRole role, uint8_t mark) {
 }
 void pump(AuthorityLink& left, AuthorityLink& right, uint64_t now) {
     left.poll(now); right.poll(now); left.poll(now); right.poll(now);
+}
+NativeEntity monster_at(uint32_t pointer, uint32_t type, uint32_t variant, uint32_t seed, float x) {
+    return NativeEntity{pointer, type, variant, seed, x, 50.f, 0.f, 0.f, 8.f};
+}
+NativeCapture capture_with(uint32_t frame, uint32_t room, const std::vector<NativeEntity>& monsters,
+                           uint32_t player_ptr = 0xA0000001u, float player_x = 12.f, uint32_t player_seed = 0x11111111u) {
+    NativeCapture capture;
+    capture.frame = frame;
+    capture.room_index = room;
+    capture.previous_room = 0;
+    capture.players.push_back(NativePlayer{player_ptr, player_x, 20.f, 0.f, 0.f, 10.f});
+    capture.entities.push_back(NativeEntity{player_ptr, 1, 0, player_seed, player_x, 20.f, 0.f, 0.f, 10.f});
+    for (const auto& monster : monsters) capture.entities.push_back(monster);
+    return capture;
+}
+bool snapshot_has_id(const WorldSnapshot& world, uint64_t id) {
+    for (const auto& entity : world.entities) if (entity.id == id) return true;
+    return false;
+}
+const NetEntity* find_at_x(const WorldSnapshot& world, float x) {
+    for (const auto& entity : world.entities)
+        if (!entity.player_alias && entity.x == x) return &entity;
+    return nullptr;
+}
+bool removed_is(const DeltaBody& delta, uint64_t id) {
+    return delta.removed.size() == 1 && delta.removed[0] == id && delta.added.empty();
+}
+bool plan_spawn_has(const RenderPlan& plan, uint64_t id) {
+    for (const auto& entity : plan.spawns) if (entity.id == id) return true;
+    return false;
 }
 }
 
@@ -133,16 +164,31 @@ int main() {
         expect(guest.bind(reseeded_monster, 0xABCDu), "bind the new monster id");
 
         auto gone = publisher.publish(make_capture(124, 331.f, 0x89ABCDEFu, 0x3CE6B028u, 0x22222222u, false));
-        expect_model(guest.accept(gone.bytes.data(), gone.bytes.size()), ModelError::ok, "apply removal");
-        plan = guest.plan();
-        expect(plan.despawn_ids.size() == 1 && plan.despawn_ids[0] == reseeded_monster &&
-               plan.despawn_tokens.size() == 1 && plan.despawn_tokens[0] == 0xABCDu, "despawn keeps id and token paired");
-        auto returned = publisher.publish(make_capture(125, 331.f, 0x89ABCDEFu, 0x3CE6B028u, 0x22222222u, true));
-        expect_model(guest.accept(returned.bytes.data(), returned.bytes.size()), ModelError::ok, "apply return");
-        bool reused = false;
+        expect_model(gone.error, ModelError::ok, "publish one-frame gap");
+        expect(!gone.sent_keyframe, "one-frame gap stays a delta");
+        auto gap_view = decode_snapshot(gone.bytes.data(), gone.bytes.size());
+        expect(gap_view.error == ModelError::ok && !gap_view.packet.keyframe && gap_view.packet.delta.removed.empty() &&
+               gap_view.packet.delta.added.empty(),
+               "regression: one-frame gap does not despawn or spawn");
+        expect_model(guest.accept(gone.bytes.data(), gone.bytes.size()), ModelError::ok, "apply one-frame gap");
+        bool held = false;
         for (const auto& entity : guest.snapshot()->entities)
-            if (!entity.player_alias && entity.id == reseed_view.packet.delta.added[0].id) reused = true;
-        expect(!reused, "a pointer that disappeared is not the same network id when it returns");
+            if (entity.id == reseeded_monster && entity.x == 100.f && entity.y == 200.f) held = true;
+        expect(held, "grace keeps the last pose on the guest");
+        plan = guest.plan();
+        expect(plan.despawn_ids.empty() && plan.bound_entities.size() == 1 &&
+               plan.bound_entities[0].network_id == reseeded_monster && plan.bound_entities[0].local_token == 0xABCDu,
+               "guest plan keeps the network id across a one-frame gap");
+        auto returned = publisher.publish(make_capture(125, 331.f, 0x89ABCDEFu, 0x3CE6B028u, 0x22222222u, true));
+        auto return_view = decode_snapshot(returned.bytes.data(), returned.bytes.size());
+        expect(return_view.error == ModelError::ok && return_view.packet.delta.removed.empty() &&
+               return_view.packet.delta.added.empty(),
+               "return inside the grace window is not a spawn");
+        expect_model(guest.accept(returned.bytes.data(), returned.bytes.size()), ModelError::ok, "apply return inside grace");
+        bool kept = false;
+        for (const auto& entity : guest.snapshot()->entities)
+            if (!entity.player_alias && entity.id == reseeded_monster) kept = true;
+        expect(kept, "regression: a pointer missing for one frame keeps its network id");
 
         auto room = publisher.publish(make_capture(126, 10.f, 0x89ABCDEFu, 0x3CE6B028u, 0x22222222u, true, 72));
         expect(room.sent_keyframe, "room change forces a keyframe");
@@ -653,6 +699,341 @@ int main() {
         version_hub.inject(1, kChannelControl, poisoned.bytes);
         version_preview.poll(1);
         expect(version_preview.phase() == LinkPhase::incompatible, "control version mismatch locks");
+
+        const NativeEntity gap_monster = monster_at(0xB100u, 1000, 4, 0xA11CEu, 30.f);
+        for (uint32_t gap = 1; gap <= kIdentityGraceCaptures; ++gap) {
+            HostPublisher gap_pub;
+            GuestView gap_guest;
+            auto opened = gap_pub.publish(capture_with(1, 11, {gap_monster}));
+            expect_model(opened.error, ModelError::ok, "grace window opens");
+            const NetEntity* opened_monster = find_at_x(opened.snapshot, 30.f);
+            if (opened_monster == nullptr) throw std::runtime_error("grace monster missing");
+            const uint64_t gap_id = opened_monster->id;
+            expect_model(gap_guest.accept(opened.bytes.data(), opened.bytes.size()), ModelError::ok, "guest binds the grace monster");
+            expect(gap_guest.bind(gap_id, 0x6000u + gap), "bind grace monster");
+            for (uint32_t miss = 1; miss <= gap; ++miss) {
+                auto missed = gap_pub.publish(capture_with(1 + miss, 11, {}));
+                expect(missed.error == ModelError::ok && !missed.sent_keyframe, "grace miss stays a delta");
+                auto missed_view = decode_snapshot(missed.bytes.data(), missed.bytes.size());
+                expect(missed_view.error == ModelError::ok && missed_view.packet.delta.removed.empty() &&
+                       missed_view.packet.delta.added.empty() && snapshot_has_id(missed.snapshot, gap_id),
+                       "grace miss keeps the id on the wire");
+                const NetEntity* held_pose = find_at_x(missed.snapshot, 30.f);
+                expect(held_pose != nullptr && held_pose->id == gap_id && held_pose->init_seed == 0xA11CEu, "grace pose is unchanged");
+                expect_model(gap_guest.accept(missed.bytes.data(), missed.bytes.size()), ModelError::ok, "guest accepts the grace miss");
+                auto missed_plan = gap_guest.plan();
+                expect(missed_plan.despawn_ids.empty() && !plan_spawn_has(missed_plan, gap_id) &&
+                       missed_plan.bound_entities.size() == 1 && missed_plan.bound_entities[0].network_id == gap_id &&
+                       missed_plan.bound_entities[0].local_token == 0x6000u + gap,
+                       "guest does not see despawn+spawn inside the grace window");
+            }
+            NativeEntity returned_monster = gap_monster;
+            returned_monster.pointer = 0xB200u + gap;
+            returned_monster.x = 34.f;
+            auto came_back = gap_pub.publish(capture_with(2 + gap, 11, {returned_monster}));
+            auto came_back_view = decode_snapshot(came_back.bytes.data(), came_back.bytes.size());
+            expect(came_back.error == ModelError::ok && came_back_view.error == ModelError::ok &&
+                   came_back_view.packet.delta.removed.empty() && came_back_view.packet.delta.added.empty() &&
+                   snapshot_has_id(came_back.snapshot, gap_id),
+                   "regression: the same type variant and InitSeed keeps its id across the grace window");
+            const NetEntity* moved_back = find_at_x(came_back.snapshot, 34.f);
+            expect(moved_back != nullptr && moved_back->id == gap_id, "return updates the pose in place");
+            expect_model(gap_guest.accept(came_back.bytes.data(), came_back.bytes.size()), ModelError::ok, "guest accepts the return");
+            auto back_plan = gap_guest.plan();
+            expect(back_plan.despawn_ids.empty() && !plan_spawn_has(back_plan, gap_id) &&
+                   back_plan.bound_entities.size() == 1 && back_plan.bound_entities[0].network_id == gap_id &&
+                   back_plan.bound_entities[0].x == 34.f,
+                   "GuestView::plan stays keyed by the returned network id");
+        }
+
+        HostPublisher expire_pub;
+        GuestView expire_guest;
+        auto expire_open = expire_pub.publish(capture_with(10, 12, {gap_monster}));
+        const NetEntity* expire_monster = find_at_x(expire_open.snapshot, 30.f);
+        if (expire_monster == nullptr) throw std::runtime_error("expire monster missing");
+        const uint64_t expired_id = expire_monster->id;
+        expect_model(expire_guest.accept(expire_open.bytes.data(), expire_open.bytes.size()), ModelError::ok, "expire guest base");
+        expect(expire_guest.bind(expired_id, 0x70ADu), "bind the expiring monster");
+        for (uint32_t miss = 1; miss <= kIdentityGraceCaptures; ++miss) {
+            auto missed = expire_pub.publish(capture_with(10 + miss, 12, {}));
+            expect(missed.error == ModelError::ok && snapshot_has_id(missed.snapshot, expired_id), "still inside the grace window");
+            auto missed_view = decode_snapshot(missed.bytes.data(), missed.bytes.size());
+            expect(missed_view.error == ModelError::ok && missed_view.packet.delta.removed.empty(), "no removal before the window ends");
+            expect_model(expire_guest.accept(missed.bytes.data(), missed.bytes.size()), ModelError::ok, "guest holds through the window");
+        }
+        auto retired = expire_pub.publish(capture_with(10 + kIdentityGraceCaptures + 1, 12, {}));
+        auto retired_view = decode_snapshot(retired.bytes.data(), retired.bytes.size());
+        expect(retired.error == ModelError::ok && !retired.sent_keyframe && retired_view.error == ModelError::ok &&
+               removed_is(retired_view.packet.delta, expired_id) && !snapshot_has_id(retired.snapshot, expired_id),
+               "the capture after the grace window despawns the id once");
+        expect_model(expire_guest.accept(retired.bytes.data(), retired.bytes.size()), ModelError::ok, "guest applies the one despawn");
+        auto retired_plan = expire_guest.plan();
+        expect(retired_plan.despawn_ids.size() == 1 && retired_plan.despawn_ids[0] == expired_id &&
+               retired_plan.despawn_tokens.size() == 1 && retired_plan.despawn_tokens[0] == 0x70ADu &&
+               !plan_spawn_has(retired_plan, expired_id),
+               "despawn plan is keyed by the network id");
+        auto still_gone = expire_pub.publish(capture_with(10 + kIdentityGraceCaptures + 2, 12, {}));
+        auto still_view = decode_snapshot(still_gone.bytes.data(), still_gone.bytes.size());
+        expect(still_gone.error == ModelError::ok && still_view.error == ModelError::ok && still_view.packet.delta.removed.empty() &&
+               still_view.packet.delta.added.empty() && !snapshot_has_id(still_gone.snapshot, expired_id),
+               "the retired id is not removed a second time");
+        expect_model(expire_guest.accept(still_gone.bytes.data(), still_gone.bytes.size()), ModelError::ok, "guest stays without the id");
+        auto respawned = expire_pub.publish(capture_with(10 + kIdentityGraceCaptures + 3, 12, {gap_monster}));
+        auto respawned_view = decode_snapshot(respawned.bytes.data(), respawned.bytes.size());
+        const NetEntity* respawned_monster = find_at_x(respawned.snapshot, 30.f);
+        expect(respawned.error == ModelError::ok && respawned_monster != nullptr && respawned_monster->id != expired_id &&
+               respawned_view.error == ModelError::ok && respawned_view.packet.delta.removed.empty() &&
+               respawned_view.packet.delta.added.size() == 1 && respawned_view.packet.delta.added[0].id == respawned_monster->id,
+               "a return after the window is a new id");
+
+        auto reuse_field = [&](uint32_t type, uint32_t variant, uint32_t seed, const char* name) {
+            HostPublisher reuse_pub;
+            auto original = reuse_pub.publish(capture_with(1, 13, {monster_at(0xC100u, 1000, 4, 0xBEEFu, 8.f)}));
+            const NetEntity* original_monster = find_at_x(original.snapshot, 8.f);
+            if (original_monster == nullptr) throw std::runtime_error(name);
+            const uint64_t original_id = original_monster->id;
+            auto reused = reuse_pub.publish(capture_with(2, 13, {monster_at(0xC100u, type, variant, seed, 9.f)}));
+            auto reused_view = decode_snapshot(reused.bytes.data(), reused.bytes.size());
+            const NetEntity* reused_monster = find_at_x(reused.snapshot, 9.f);
+            expect(reused.error == ModelError::ok && reused_monster != nullptr && reused_monster->id != original_id &&
+                   !snapshot_has_id(reused.snapshot, original_id) && reused_view.error == ModelError::ok &&
+                   reused_view.packet.delta.removed.size() == 1 && reused_view.packet.delta.removed[0] == original_id &&
+                   reused_view.packet.delta.added.size() == 1 && reused_view.packet.delta.added[0].id == reused_monster->id,
+                   name);
+        };
+        reuse_field(1001, 4, 0xBEEFu, "regression: a reused pointer with a different type gets a new id");
+        reuse_field(1000, 9, 0xBEEFu, "a reused pointer with a different variant gets a new id");
+        reuse_field(1000, 4, 0xBEE0u, "a reused pointer with a different InitSeed gets a new id");
+
+        HostPublisher hint_pub;
+        GuestView hint_guest;
+        auto hinted = hint_pub.publish(capture_with(1, 14, {monster_at(0xD2000100u, 1000, 4, 0xBEEFu, 8.f)}));
+        const NetEntity* hinted_monster = find_at_x(hinted.snapshot, 8.f);
+        if (hinted_monster == nullptr) throw std::runtime_error("hint monster missing");
+        const uint64_t hinted_id = hinted_monster->id;
+        expect_model(hint_guest.accept(hinted.bytes.data(), hinted.bytes.size()), ModelError::ok, "hint guest base");
+        expect(hint_guest.bind(hinted_id, 0x1111u), "bind the hinted monster");
+        auto moved_pointer = hint_pub.publish(capture_with(2, 14, {monster_at(0xD2000200u, 1000, 4, 0xBEEFu, 15.f)}));
+        auto moved_view = decode_snapshot(moved_pointer.bytes.data(), moved_pointer.bytes.size());
+        expect(moved_pointer.error == ModelError::ok && !moved_pointer.sent_keyframe && moved_view.error == ModelError::ok &&
+               moved_view.packet.delta.removed.empty() && moved_view.packet.delta.added.empty() &&
+               snapshot_has_id(moved_pointer.snapshot, hinted_id) && !payload_has_u32(moved_pointer.bytes, 0xD2000200u),
+               "regression: the same identity at a new pointer keeps its network id");
+        expect_model(hint_guest.accept(moved_pointer.bytes.data(), moved_pointer.bytes.size()), ModelError::ok, "guest follows the pointer hint");
+        auto hint_plan = hint_guest.plan();
+        expect(hint_plan.despawn_ids.empty() && !plan_spawn_has(hint_plan, hinted_id) &&
+               hint_plan.bound_entities.size() == 1 && hint_plan.bound_entities[0].network_id == hinted_id &&
+               hint_plan.bound_entities[0].x == 15.f && hint_plan.bound_entities[0].local_token == 0x1111u,
+               "plan follows the network id after the pointer changes");
+        HostPublisher player_seed;
+        auto player_first = player_seed.publish(capture_with(1, 30, {monster_at(0xA1000100u, 1000, 1, 0x77u, 5.f)}));
+        uint64_t old_player_id = 0;
+        uint64_t stable_dup_monster = 0;
+        for (const auto& entity : player_first.snapshot.entities) {
+            if (entity.player_alias) old_player_id = entity.id;
+            if (entity.init_seed == 0x77u) stable_dup_monster = entity.id;
+        }
+        auto player_next = player_seed.publish(capture_with(2, 30, {monster_at(0xA1000100u, 1000, 1, 0x77u, 5.f)}, 0xA0000099u, 18.f, 0x22222222u));
+        uint64_t new_player_id = 0;
+        bool monster_kept = false;
+        for (const auto& entity : player_next.snapshot.entities) {
+            if (entity.player_alias) new_player_id = entity.id;
+            if (entity.id == stable_dup_monster) monster_kept = true;
+        }
+        expect(player_next.error == ModelError::ok && old_player_id != 0 && new_player_id != 0 && new_player_id != old_player_id &&
+               monster_kept && !snapshot_has_id(player_next.snapshot, old_player_id),
+               "a new player InitSeed at a new pointer does not keep the old entity id");
+
+        HostPublisher dup_pub;
+        HostPublisher dup_again;
+        const NativeEntity left = monster_at(0xE100u, 10, 2, 0x42u, 1.f);
+        const NativeEntity right = monster_at(0xE200u, 10, 2, 0x42u, 2.f);
+        auto dup_first = dup_pub.publish(capture_with(1, 15, {left, right}));
+        auto dup_first_again = dup_again.publish(capture_with(1, 15, {left, right}));
+        const NetEntity* left_entity = find_at_x(dup_first.snapshot, 1.f);
+        const NetEntity* right_entity = find_at_x(dup_first.snapshot, 2.f);
+        const NetEntity* left_again = find_at_x(dup_first_again.snapshot, 1.f);
+        const NetEntity* right_again = find_at_x(dup_first_again.snapshot, 2.f);
+        if (left_entity == nullptr || right_entity == nullptr || left_again == nullptr || right_again == nullptr)
+            throw std::runtime_error("duplicate monsters missing");
+        expect(left_entity->id != right_entity->id && left_entity->id < right_entity->id &&
+               left_entity->id == left_again->id && right_entity->id == right_again->id,
+               "duplicate type variant and InitSeed get distinct ids in capture order");
+        auto dup_swapped = dup_pub.publish(capture_with(2, 15, {right, left}));
+        const NetEntity* swapped_left = find_at_x(dup_swapped.snapshot, 1.f);
+        const NetEntity* swapped_right = find_at_x(dup_swapped.snapshot, 2.f);
+        expect(dup_swapped.error == ModelError::ok && swapped_left != nullptr && swapped_right != nullptr &&
+               swapped_left->id == left_entity->id && swapped_right->id == right_entity->id,
+               "pointer hints keep duplicate ids when the capture order flips");
+        auto dup_moved = dup_pub.publish(capture_with(3, 15, {monster_at(0xE300u, 10, 2, 0x42u, 1.f), monster_at(0xE400u, 10, 2, 0x42u, 2.f)}));
+        const NetEntity* moved_left = find_at_x(dup_moved.snapshot, 1.f);
+        const NetEntity* moved_right = find_at_x(dup_moved.snapshot, 2.f);
+        expect(dup_moved.error == ModelError::ok && moved_left != nullptr && moved_right != nullptr &&
+               moved_left->id == left_entity->id && moved_right->id == right_entity->id,
+               "when both pointer hints miss, earlier capture order keeps the smaller id");
+        HostPublisher dup_tie;
+        expect_model(dup_tie.publish(capture_with(1, 15, {left, right})).error, ModelError::ok, "tie-break setup");
+        auto tie_break = dup_tie.publish(capture_with(2, 15, {monster_at(0xE400u, 10, 2, 0x42u, 2.f), monster_at(0xE300u, 10, 2, 0x42u, 1.f)}));
+        const NetEntity* tie_left = find_at_x(tie_break.snapshot, 1.f);
+        const NetEntity* tie_right = find_at_x(tie_break.snapshot, 2.f);
+        expect(tie_break.error == ModelError::ok && tie_left != nullptr && tie_right != nullptr &&
+               tie_right->id == left_entity->id && tie_left->id == right_entity->id,
+               "when both pointer hints miss, the earlier capture row gets the smaller network id");
+
+        HostPublisher room_ids;
+        GuestView room_guest;
+        const NativeEntity room_a = monster_at(0xF100u, 1000, 1, 0x99u, 4.f);
+        const NativeEntity room_b = monster_at(0xF200u, 1000, 1, 0x9Au, 6.f);
+        auto room_old = room_ids.publish(capture_with(5, 71, {room_a, room_b}));
+        const NetEntity* room_a_entity = find_at_x(room_old.snapshot, 4.f);
+        const NetEntity* room_b_entity = find_at_x(room_old.snapshot, 6.f);
+        if (room_a_entity == nullptr || room_b_entity == nullptr) throw std::runtime_error("room monsters missing");
+        const uint64_t room_a_id = room_a_entity->id;
+        const uint64_t room_b_id = room_b_entity->id;
+        expect_model(room_guest.accept(room_old.bytes.data(), room_old.bytes.size()), ModelError::ok, "room guest base");
+        expect(room_guest.bind(room_a_id, 0xA1u) && room_guest.bind(room_b_id, 0xB1u), "bind both room monsters");
+        auto room_gap = room_ids.publish(capture_with(6, 71, {room_a}));
+        expect(room_gap.error == ModelError::ok && snapshot_has_id(room_gap.snapshot, room_a_id) &&
+               snapshot_has_id(room_gap.snapshot, room_b_id),
+               "the old room holds the absent monster through grace");
+        expect_model(room_guest.accept(room_gap.bytes.data(), room_gap.bytes.size()), ModelError::ok, "guest holds the old room");
+        auto room_new = room_ids.publish(capture_with(7, 72, {room_a}));
+        const NetEntity* room_new_entity = find_at_x(room_new.snapshot, 4.f);
+        expect(room_new.error == ModelError::ok && room_new.sent_keyframe && room_new_entity != nullptr &&
+               room_new_entity->id != room_a_id && !snapshot_has_id(room_new.snapshot, room_a_id) &&
+               !snapshot_has_id(room_new.snapshot, room_b_id) && room_new.snapshot.entities.size() == 2,
+               "a room change clears the map and does not carry grace ids");
+        expect_model(room_guest.accept(room_new.bytes.data(), room_new.bytes.size()), ModelError::ok, "guest applies the room keyframe");
+        auto room_plan = room_guest.plan();
+        expect(room_plan.despawn_ids.size() == 2 && room_plan.despawn_ids[0] == room_a_id && room_plan.despawn_ids[1] == room_b_id &&
+               plan_spawn_has(room_plan, room_new_entity->id) && !plan_spawn_has(room_plan, room_a_id),
+               "guest plan drops old-room network ids");
+        auto room_stay = room_ids.publish(capture_with(8, 72, {room_a}));
+        const NetEntity* room_stay_entity = find_at_x(room_stay.snapshot, 4.f);
+        expect(room_stay.error == ModelError::ok && !room_stay.sent_keyframe && room_stay_entity != nullptr &&
+               room_stay_entity->id == room_new_entity->id,
+               "the new room keeps the id it assigned");
+
+        HostPublisher run_ids;
+        auto run_old = run_ids.publish(capture_with(50, 9, {monster_at(0xF100u, 1000, 1, 0x99u, 4.f)}));
+        const NetEntity* run_old_entity = find_at_x(run_old.snapshot, 4.f);
+        if (run_old_entity == nullptr) throw std::runtime_error("new-run monster missing");
+        const uint64_t run_old_id = run_old_entity->id;
+        auto run_gap = run_ids.publish(capture_with(51, 9, {}));
+        expect(run_gap.error == ModelError::ok && snapshot_has_id(run_gap.snapshot, run_old_id), "new run starts from a grace hold");
+        auto run_new = run_ids.publish(capture_with(2, 9, {monster_at(0xF100u, 1000, 1, 0x99u, 4.f)}));
+        const NetEntity* run_new_entity = find_at_x(run_new.snapshot, 4.f);
+        expect(run_new.error == ModelError::ok && run_new.sent_keyframe && run_new_entity != nullptr &&
+               run_new_entity->id != run_old_id && !snapshot_has_id(run_new.snapshot, run_old_id),
+               "a same-room frame rollback clears the identity map");
+        auto run_next = run_ids.publish(capture_with(3, 9, {monster_at(0xF100u, 1000, 1, 0x99u, 4.f)}));
+        const NetEntity* run_next_entity = find_at_x(run_next.snapshot, 4.f);
+        expect(run_next.error == ModelError::ok && !run_next.sent_keyframe && run_next_entity != nullptr &&
+               run_next_entity->id == run_new_entity->id,
+               "the new run keeps the id assigned after the reset");
+
+        HostPublisher interval_ids;
+        uint64_t interval_monster = 0;
+        for (uint32_t frame = 1; frame <= 31; ++frame) {
+            auto published = interval_ids.publish(capture_with(frame, 21, {monster_at(0xF300u, 1000, 3, 0x55u, 4.f)}));
+            const NetEntity* entity = find_at_x(published.snapshot, 4.f);
+            if (published.error != ModelError::ok || entity == nullptr) throw std::runtime_error("interval identity publish");
+            if (frame == 1) {
+                interval_monster = entity->id;
+                expect(published.sent_keyframe, "interval identity starts on a keyframe");
+            } else if (frame == 31) {
+                expect(published.sent_keyframe && entity->id == interval_monster, "an interval keyframe does not reset network ids");
+            } else if (entity->id != interval_monster) {
+                throw std::runtime_error("interval identity changed");
+            }
+        }
+        HostPublisher forced_ids;
+        auto forced_base = forced_ids.publish(capture_with(8, 22, {monster_at(0xF300u, 1000, 3, 0x55u, 4.f)}));
+        const NetEntity* forced_entity = find_at_x(forced_base.snapshot, 4.f);
+        if (forced_entity == nullptr) throw std::runtime_error("forced monster missing");
+        const uint64_t forced_id = forced_entity->id;
+        forced_ids.force_keyframe();
+        auto forced = forced_ids.publish(capture_with(8, 22, {monster_at(0xF300u, 1000, 3, 0x55u, 4.f)}));
+        const NetEntity* forced_again = find_at_x(forced.snapshot, 4.f);
+        expect(forced.error == ModelError::ok && forced.sent_keyframe && forced_again != nullptr && forced_again->id == forced_id,
+               "force_keyframe does not reset network ids");
+
+        HostPublisher across_key;
+        auto across_open = across_key.publish(capture_with(1, 23, {monster_at(0xF400u, 77, 1, 0x66u, 4.f)}));
+        const NetEntity* across_entity = find_at_x(across_open.snapshot, 4.f);
+        if (across_entity == nullptr) throw std::runtime_error("keyframe grace monster missing");
+        const uint64_t across_id = across_entity->id;
+        for (uint32_t frame = 2; frame <= 28; ++frame) {
+            auto published = across_key.publish(capture_with(frame, 23, {monster_at(0xF400u, 77, 1, 0x66u, 4.f)}));
+            if (published.error != ModelError::ok || !snapshot_has_id(published.snapshot, across_id))
+                throw std::runtime_error("keyframe grace lead-in");
+        }
+        for (uint32_t frame = 29; frame <= 31; ++frame) {
+            auto missed = across_key.publish(capture_with(frame, 23, {}));
+            expect(missed.error == ModelError::ok && snapshot_has_id(missed.snapshot, across_id), "grace survives up to the interval keyframe");
+            if (frame == 31) expect(missed.sent_keyframe, "frame 31 is still the interval keyframe while the id is held");
+        }
+        auto across_back = across_key.publish(capture_with(32, 23, {monster_at(0xF400u, 77, 1, 0x66u, 4.f)}));
+        auto across_view = decode_snapshot(across_back.bytes.data(), across_back.bytes.size());
+        expect(across_back.error == ModelError::ok && !across_back.sent_keyframe && snapshot_has_id(across_back.snapshot, across_id) &&
+               across_view.error == ModelError::ok && across_view.packet.delta.removed.empty() && across_view.packet.delta.added.empty(),
+               "the id held across an interval keyframe is not respawned");
+
+        HostPublisher full_pub;
+        NativeCapture full = capture_with(1, 4, {});
+        full.entities.clear();
+        full.entities.push_back(NativeEntity{0x10u, 1, 0, 0x11111111u, 1.f, 2.f, 0.f, 0.f, 10.f});
+        full.players[0].pointer = 0x10u;
+        for (uint32_t i = 0; i < 127; ++i)
+            full.entities.push_back(monster_at(0x2000u + i, 40, 1, 0x50000000u + i, static_cast<float>(i + 1)));
+        auto full_first = full_pub.publish(full);
+        expect(full_first.error == ModelError::ok && full_first.snapshot.entities.size() == 128, "full capture publishes");
+        uint64_t full_player = 0;
+        uint64_t full_monster = 0;
+        for (const auto& entity : full_first.snapshot.entities) {
+            if (entity.player_alias) full_player = entity.id;
+            if (entity.init_seed == 0x50000000u) full_monster = entity.id;
+        }
+        expect(full_player != 0 && full_monster != 0, "full capture has a player and the first monster");
+        NativeCapture replaced = capture_with(2, 4, {}, 0x11u, 1.f, 0x11111111u);
+        replaced.players[0].pointer = 0x11u;
+        replaced.entities[0].pointer = 0x11u;
+        for (uint32_t i = 0; i < 127; ++i)
+            replaced.entities.push_back(monster_at(0x9000u + i, 41, 1, 0x60000000u + i, static_cast<float>(i + 1)));
+        auto full_next = full_pub.publish(replaced);
+        expect(full_next.error == ModelError::ok && full_next.snapshot.entities.size() == kMaxNativeEntities, "grace holds do not overflow the snapshot");
+        bool player_kept = false;
+        for (const auto& entity : full_next.snapshot.entities)
+            if (entity.id == full_player && entity.player_alias) player_kept = true;
+        expect(player_kept && !snapshot_has_id(full_next.snapshot, full_monster), "a full capture drops grace rows and keeps the player id");
+        auto full_view = decode_snapshot(full_next.bytes.data(), full_next.bytes.size());
+        bool monster_removed_once = false;
+        if (full_view.error == ModelError::ok)
+            for (uint64_t id : full_view.packet.delta.removed)
+                if (id == full_monster) monster_removed_once = true;
+        expect(full_view.error == ModelError::ok && monster_removed_once && full_view.packet.delta.removed.size() == 127,
+               "entities that do not fit are removed once instead of failing the publish");
+
+        HostPublisher key_expire(4);
+        auto key_open = key_expire.publish(capture_with(1, 40, {gap_monster}));
+        const NetEntity* key_monster = find_at_x(key_open.snapshot, 30.f);
+        if (key_monster == nullptr) throw std::runtime_error("keyframe expiry monster missing");
+        const uint64_t key_id = key_monster->id;
+        for (uint32_t frame = 2; frame <= 4; ++frame) {
+            auto missed = key_expire.publish(capture_with(frame, 40, {}));
+            expect(missed.error == ModelError::ok && !missed.sent_keyframe && snapshot_has_id(missed.snapshot, key_id),
+                   "grace still holds before the keyframe expiry");
+        }
+        auto key_dead = key_expire.publish(capture_with(5, 40, {}));
+        auto key_dead_view = decode_snapshot(key_dead.bytes.data(), key_dead.bytes.size());
+        expect(key_dead.error == ModelError::ok && key_dead.sent_keyframe && !snapshot_has_id(key_dead.snapshot, key_id) &&
+               key_dead_view.error == ModelError::ok && key_dead_view.packet.keyframe,
+               "a grace expiry on a keyframe omits the id from that keyframe");
+        auto key_after = key_expire.publish(capture_with(6, 40, {}));
+        auto key_after_view = decode_snapshot(key_after.bytes.data(), key_after.bytes.size());
+        expect(key_after.error == ModelError::ok && !key_after.sent_keyframe && key_after_view.error == ModelError::ok &&
+               key_after_view.packet.delta.removed.empty() && !snapshot_has_id(key_after.snapshot, key_id),
+               "the keyframe omission is the only despawn");
 
         std::cout << "{\"passed\":" << passed
                   << ",\"encode_60_us_average\":" << average_us

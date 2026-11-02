@@ -292,13 +292,41 @@ P1f 的“通过”只说明 `0x2fadc0` 可以被跳过并恢复；它**不能�
 
 `NativeCaptureBuilder`（`authority/native/state_model.hpp`）生成和 `probe.cpp` 相同的原生采集字节。采集包**仍然包含主机进程内指针**。`HostPublisher` 才把指针去掉：
 
-- 玩家身份是玩家向量槽位，不是 `EntityPlayer*`。
-- 实体身份是主机侧 `(pointer, InitSeed)` 映射出的递增网络 id。指针只要缺席一帧，即使后来地址和种子都相同，也会分配新 id。
-- 线上包魔数 `IAW1`、版本 1、CRC-32（IEEE），关键帧或增量二选一。换房，或距离上一关键帧满 30 帧，强制关键帧。帧号变小就是新一局，即使房间号不变，也会重置上一快照和上一关键帧帧号并发出关键帧。同一帧、没有 `force_keyframe()`、也没有换房，仍是 `stale`。
+- 玩家身份是玩家向量槽位，不是 `EntityPlayer*`。玩家实体那一行的网络 id 另算，见下面的身份规则。
+- 实体网络 id 按 Type（`+0x28`）、Variant（`+0x2C`）、InitSeed（`+0x3EC`）维持。指针只是提示。同一身份可以连续缺席 3 次已发布采集而不换 id；第 4 次才退役一次。规则在下一小节。
+- 线上包魔数 `IAW1`、版本 1、CRC-32（IEEE），关键帧或增量二选一。换房，或距离上一关键帧满 30 帧，强制关键帧。帧号变小就是新一局，即使房间号不变，也会重置上一快照、上一关键帧帧号和身份映射，并发出关键帧。同一帧、没有 `force_keyframe()`、也没有换房，仍是 `stale`。间隔关键帧和 `force_keyframe()` 不重置网络 id。
 - `GuestIngress` 按序号丢掉重复包，最多缓冲 32 个尚未接上的增量；缺包时不跳帧。关键帧再按序号排序：`highest_seq_ != 0` 且序号更小的关键帧是 `stale`，不会把房间滚回去，正在等待关键帧时也一样。序号更大的关键帧就是更新的一帧，帧号变小也应用，所以同一房间重开不必先 `resync()`。应用该关键帧时丢掉缓冲里序号更小的包；之后序号更小的增量也是 `stale`，旧局增量不会在新局帧号追上时被接上。`resync()` 清空序号窗口和已应用世界，并把 `highest_seq_` 清零，所以另一台从序号 1 开始的主机仍可接受，帧号不限。同一帧换房的更新序号关键帧会应用。
 - `GuestView::plan()` 只列出位置（`+0x33C`）、速度（`+0x360`）和大小（`+0x370`）的逻辑写入。它不写进程内存。动画、道具、房间格子、Stage、实体关联都不在包里。
 
 合成夹具 `authority/fixtures/state/native_capture_room_start.bin` 用了文档里的低实体形状（玩家约 `(320, 380)`、Size 10、房间 71）。它是模式样例，不是某次实机抓包的原字节。
+
+### 实体网络 id 的宽限（2026-11-02，没有游戏内验证）
+
+身份用采集包里已经有的三个字段，不用指针，也不读 `+0x3DC`：
+
+- Type，实体 `+0x28`
+- Variant，实体 `+0x2C`
+- InitSeed，实体 `+0x3EC`
+
+`probe.cpp` 本来就从 `+0x3EC` 写入 InitSeed。这次没有改钩子，也没有改 `0x554cd0` 的 `ret 4`、`0x2f7ac0` 的 `ret 8`、`0x2fadc0` 的 `ret`。
+
+主机指针只在多行共享同一个三元组时打破平局：
+
+1. 提示指针和这次采集到的指针相同的那一行优先。
+2. 提示对不上时，较小的网络 id 配采集数组里更靠前的那一行。
+3. 全新的一行按采集顺序领取下一个递增 id。id 不回收。
+
+所以两个活着的、type / variant / InitSeed 都相同的实体仍然有不同 id。指针不变时，采集顺序颠倒也不会对调它们的 id。两个指针都换了、提示都对不上时，采集数组里更靠前的那一行拿到较小的已有 id。
+
+宽限是 `kIdentityGraceCaptures = 3`。一次成功的 `HostPublisher::publish()` 算一次采集。帧号中间跳过的帧不会被补出来。同一局、同一房间里，一个身份连续缺席 1、2 或 3 次采集时，网络 id 不变，快照保留上一姿态。增量里既没有 `removed` 也没有 `added`。客机 `GuestView::plan()` 继续按这个网络 id 找绑定，窗口内看不到 despawn 再 spawn。
+
+第 4 次仍然缺席就退役。那一包若是增量，`removed` 里这个 id 出现恰好一次，下一包不再列它。若退役正好落在关键帧上，关键帧直接不包含它，后面的增量也不再把它放进 `removed`。窗口过了以后，同一个三元组再出现是新 id。
+
+指针被另一行占上时（type、variant、InitSeed 有任一不同，或者同一三元组里别的行赢得了这个提示），旧 id 立刻退役，不会交给新行。玩家实体的槽位如果已经被这一帧的活实体占了，这一行也不进入宽限，避免两个 alias 挤在同一个槽位。宽限行如果会让快照超过 128 个实体，按缺席次数多的优先、再按 id 大的优先丢掉，并在这一包里移除。这是 `kMaxNativeEntities` 的上限，不是把宽限加长。
+
+换房，或帧号变小（新的一局，房间号可以相同），在分配之前清空映射。旧房间的 id 和还在宽限里的行都不会配给新房间里三元组相同的实体。间隔关键帧和 `force_keyframe()` 不清这个映射。
+
+上面全部来自 `authority-state-tests`。没有启动 `isaac-ng`。InitSeed 在真实连续帧里是否稳定、分配器会不会复用指针，都还没有实机证据。
 
 ### 链路
 
@@ -318,9 +346,11 @@ P1f 的“通过”只说明 `0x2fadc0` 可以被跳过并恢复；它**不能�
 
 ### 本环境实际跑过的测试
 
-- `authority-tests`：38 项，和原来的协议测试相同。`live_game_test=false`。
-- `authority-state-tests`：245 项，含同房间重开后客机不调用 `resync()` 跟上新一局，以及更小序号关键帧不能把房间滚回去。输出里 `playable=false`、`in_game_timing=false`、`two_machine_test=false`。
-- 同一套测试用 `g++ -m32` 编成 i686 后再跑过一遍，仍是 38 项和 245 项。
+- `authority-tests`：38 项，和原来的协议测试相同。摘要是 `passed=38`、`live_game_test=false`、`two_machine_test=false`。这组摘要里没有 `playable` 字段；不可玩断言仍在用例里。
+- `authority-state-tests`：361 项。其中包含宽限窗口、指针复用、相同三元组的并列、宽限到期只退役一次、换房和新局清空映射，以及原来的同房间重开和更小序号关键帧。输出里有 `"passed":361`、`"playable":false`、`"in_game_timing":false`、`"two_machine_test":false`。同一行的 `encode_60_us_average` 是该次进程的离线计时，不是契约。
+- 同一套测试用 `g++ -m32` 编成 i686 后再跑过一遍，仍是 38 项和 361 项，状态测试仍打印 `"playable":false`。
+- `python3 -m pytest -q test_stability_patch.py`：1 通过、48 跳过。跳过原因是没有 lupa、没有 “Watch out, laser!” 源码、没有 PowerShell。
+- `python3 -m pytest -q authority/tests/test_offline_authority.py`：8 通过、0 跳过。
 - `probe.cpp` 里的 MSVC `__declspec(naked)` / `__asm` 不能用 g++ 或 mingw 编译。注入器仍然要在 Windows 上用 MSVC Win32 构建。本环境没有构建 DLL，也没有启动游戏。
 
 
