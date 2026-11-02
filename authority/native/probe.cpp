@@ -1,4 +1,5 @@
 #include "platform.hpp"
+#include "state_model.hpp"
 #include "steam.hpp"
 #include "bootstrap.hpp"
 #include "lua_bridge.hpp"
@@ -608,7 +609,8 @@ unsigned long g_state_entity_base{}, g_state_entity_base_changes{};
 unsigned long g_state_player_base{}, g_state_player_base_changes{};
 unsigned long g_state_position_mismatch{}, g_state_first_mismatch_frame{};
 float g_state_first_pos1[2]{}, g_state_first_pos2[2]{};
-bool packet_capture{};
+std::atomic<bool> packet_capture{false};
+std::atomic<unsigned> g_packet_sample_limit{120};
 unsigned long long g_packet_count{};
 unsigned long long g_packet_bytes_min{0xffffffffffffffffull}, g_packet_bytes_max{};
 unsigned long long g_packet_bytes_total{};
@@ -641,17 +643,6 @@ void probe_log_call(const char* event, const Json& data) {
 float probe_read_float(uintptr_t address) {
     float value{};
     return engine_read(address, &value, 4) ? value : 0.0f;
-}
-
-void packet_put_u32(std::vector<uint8_t>& out, uint32_t value) {
-    const auto* bytes = reinterpret_cast<const uint8_t*>(&value);
-    out.insert(out.end(), bytes, bytes + 4);
-}
-
-void packet_put_float(std::vector<uint8_t>& out, float value) {
-    uint32_t bits{};
-    std::memcpy(&bits, &value, 4);
-    packet_put_u32(out, bits);
 }
 
 uint32_t buffer_u32(const uint8_t* data, size_t offset) {
@@ -733,47 +724,48 @@ void probe_call_entry(unsigned long this_ptr) {
             }
         }
     }
-    if (packet_capture && this_ptr && g_packet_count < 120) {
+    // Packet bytes come from the global Game*, not this hook's ecx. 0x2fadc0's ecx
+    // happens to be Game*; 0x554cd0's is not. NativeCaptureBuilder is the shared layout.
+    if (packet_capture.load(std::memory_order_acquire) && g_packet_count < g_packet_sample_limit.load(std::memory_order_relaxed)) {
+        const auto module_base = reinterpret_cast<uintptr_t>(GetModuleHandleW(nullptr));
+        const auto game = static_cast<uintptr_t>(probe_read_u32(module_base + 0x871678));
+        if (game) {
         const auto begin = std::chrono::steady_clock::now();
-        std::vector<uint8_t> packet;
-        packet.reserve(4096);
-        const auto game = static_cast<uintptr_t>(this_ptr);
+        NativeCaptureBuilder builder;
         const auto level = probe_read_u32(game + 0x18300);
-        packet_put_u32(packet, frame);
-        packet_put_u32(packet, probe_read_u32(game + 0x18304));
-        packet_put_u32(packet, probe_read_u32(game + 0x18308));
+        builder.set_header(probe_read_u32(game + 0x264f8), probe_read_u32(game + 0x18304), probe_read_u32(game + 0x18308));
         const auto players_start = probe_read_u32(game + 0x1BAA8);
         const auto players_end = probe_read_u32(game + 0x1BAAC);
-        const uint32_t player_count = players_start && players_end >= players_start ? (players_end - players_start) / 4 : 0;
-        packet_put_u32(packet, player_count);
+        uint32_t player_count = players_start && players_end >= players_start ? (players_end - players_start) / 4 : 0;
+        if (player_count > kMaxNativePlayers) player_count = static_cast<uint32_t>(kMaxNativePlayers);
         std::array<uint8_t, 0x400> block{};
-        for (uint32_t i = 0; i < player_count && i < 8; ++i) {
+        for (uint32_t i = 0; i < player_count; ++i) {
             const auto player = probe_read_u32(players_start + i * 4);
-            packet_put_u32(packet, player);
             const bool readable = player && engine_read(player, block.data(), block.size());
-            packet_put_float(packet, readable ? buffer_float(block.data(), 0x33C) : 0.0f);
-            packet_put_float(packet, readable ? buffer_float(block.data(), 0x340) : 0.0f);
-            packet_put_float(packet, readable ? buffer_float(block.data(), 0x360) : 0.0f);
-            packet_put_float(packet, readable ? buffer_float(block.data(), 0x364) : 0.0f);
-            packet_put_float(packet, readable ? buffer_float(block.data(), 0x370) : 0.0f);
+            builder.add_player(player,
+                readable ? buffer_float(block.data(), 0x33C) : 0.0f,
+                readable ? buffer_float(block.data(), 0x340) : 0.0f,
+                readable ? buffer_float(block.data(), 0x360) : 0.0f,
+                readable ? buffer_float(block.data(), 0x364) : 0.0f,
+                readable ? buffer_float(block.data(), 0x370) : 0.0f);
         }
         const auto entities_base = level ? probe_read_u32(level + 0x125C) : 0;
         uint32_t entity_count = level ? probe_read_u32(level + 0x1264) : 0;
-        if (entity_count > 128) entity_count = 128;
-        packet_put_u32(packet, entity_count);
+        if (entity_count > kMaxNativeEntities) entity_count = static_cast<uint32_t>(kMaxNativeEntities);
         for (uint32_t i = 0; i < entity_count && entities_base; ++i) {
             const auto entity = probe_read_u32(entities_base + i * 4);
-            packet_put_u32(packet, entity);
             const bool readable = entity && engine_read(entity, block.data(), block.size());
-            packet_put_u32(packet, readable ? buffer_u32(block.data(), 0x28) : 0);
-            packet_put_u32(packet, readable ? buffer_u32(block.data(), 0x2C) : 0);
-            packet_put_u32(packet, readable ? buffer_u32(block.data(), 0x3EC) : 0);
-            packet_put_float(packet, readable ? buffer_float(block.data(), 0x33C) : 0.0f);
-            packet_put_float(packet, readable ? buffer_float(block.data(), 0x340) : 0.0f);
-            packet_put_float(packet, readable ? buffer_float(block.data(), 0x360) : 0.0f);
-            packet_put_float(packet, readable ? buffer_float(block.data(), 0x364) : 0.0f);
-            packet_put_float(packet, readable ? buffer_float(block.data(), 0x370) : 0.0f);
+            builder.add_entity(entity,
+                readable ? buffer_u32(block.data(), 0x28) : 0,
+                readable ? buffer_u32(block.data(), 0x2C) : 0,
+                readable ? buffer_u32(block.data(), 0x3EC) : 0,
+                readable ? buffer_float(block.data(), 0x33C) : 0.0f,
+                readable ? buffer_float(block.data(), 0x340) : 0.0f,
+                readable ? buffer_float(block.data(), 0x360) : 0.0f,
+                readable ? buffer_float(block.data(), 0x364) : 0.0f,
+                readable ? buffer_float(block.data(), 0x370) : 0.0f);
         }
+        const auto packet = builder.finish();
         const auto elapsed = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::steady_clock::now() - begin).count();
         const auto bytes = packet.size();
         if (bytes < g_packet_bytes_min) g_packet_bytes_min = bytes;
@@ -785,6 +777,7 @@ void probe_call_entry(unsigned long this_ptr) {
         if (g_packet_count == 0) g_packet_first_hex = engine_hex_bytes(packet.data(), packet.size());
         g_packet_last_hex = engine_hex_bytes(packet.data(), packet.size());
         ++g_packet_count;
+        }
     }
 }
 
@@ -843,7 +836,7 @@ void finish_call_probe() {
         first["pos_0x38c"] = Json::array({g_state_first_pos2[0], g_state_first_pos2[1]});
         report["first_position_mismatch"] = first;
     }
-    if (packet_capture) {
+    if (packet_capture.load()) {
         const auto frames = g_packet_count;
         report["packet_capture"] = true;
         report["packet_frames"] = frames;
@@ -917,7 +910,8 @@ Json probe_game_update_call(lua_State* L) {
     g_state_position_mismatch = 0; g_state_first_mismatch_frame = 0;
     g_state_first_pos1[0] = g_state_first_pos1[1] = 0.0f;
     g_state_first_pos2[0] = g_state_first_pos2[1] = 0.0f;
-    packet_capture = false;
+    packet_capture.store(false);
+    g_packet_sample_limit.store(120);
     g_packet_count = 0;
     g_packet_bytes_min = 0xffffffffffffffffull; g_packet_bytes_max = 0; g_packet_bytes_total = 0;
     g_packet_time_total_us = 0;
@@ -1060,11 +1054,21 @@ Json probe_game_update_skip(lua_State* L) {
     }
     bool packet_hook = false;
     void* packet_target = nullptr;
-    const auto packet_rva = config.value("packet_rva", uint64_t(0x2fadc0));
-    if (packet_rva) {
-        packet_target = reinterpret_cast<void*>(base + packet_rva);
-        const auto packet_created = MH_CreateHook(packet_target, reinterpret_cast<void*>(probe_call_detour), &g_call_probe_original);
-        if (packet_created == MH_OK) packet_hook = MH_EnableHook(packet_target) == MH_OK;
+    // Opt-in. The previous default of 0x2fadc0 installed probe_call_detour without
+    // assigning g_call_probe_entry, which would call a null function pointer.
+    const auto packet_rva = config.value("packet_rva", uint64_t(0));
+    g_call_probe_entry = probe_call_entry;
+    if (packet_rva && packet_rva != rva) {
+        packet_target = reinterpret_cast<void*>(base + static_cast<uintptr_t>(packet_rva));
+        MEMORY_BASIC_INFORMATION packet_memory{};
+        if (VirtualQuery(packet_target, &packet_memory, sizeof(packet_memory)) && packet_memory.AllocationBase == module &&
+            packet_memory.State == MEM_COMMIT && (packet_memory.Protect & (PAGE_EXECUTE | PAGE_EXECUTE_READ | PAGE_EXECUTE_READWRITE))) {
+            const auto packet_created = MH_CreateHook(packet_target, reinterpret_cast<void*>(probe_call_detour), &g_call_probe_original);
+            if (packet_created == MH_OK) {
+                packet_hook = MH_EnableHook(packet_target) == MH_OK;
+                if (!packet_hook) MH_RemoveHook(packet_target);
+            }
+        }
     }
     report["packet_hook"] = packet_hook;
     const auto wait_ms = config.value("skip_wait_ms", 600000);
@@ -1086,7 +1090,7 @@ Json probe_game_update_skip(lua_State* L) {
     }
     if (skip_cycles.empty()) skip_cycles.push_back(2000);
     if (skip_cycles.size() > 5) skip_cycles.resize(5);
-    std::thread([skip_cycles, wait_ms, recovery_ms, target, packet_target, packet_hook] {
+    std::thread([skip_cycles, wait_ms, recovery_ms, target, packet_target, packet_hook, packet_rva] {
         Json out = {{"probe_passed", false}, {"native_game_used", true}, {"playable", false}};
         try {
             const auto wait_begin = GetTickCount64();
@@ -1111,17 +1115,20 @@ Json probe_game_update_skip(lua_State* L) {
                 g_packet_time_total_us = 0;
                 g_packet_entities_min = 0xffffffff; g_packet_entities_max = 0;
                 g_packet_first_hex.clear(); g_packet_last_hex.clear();
-                packet_capture = true;
+                g_packet_sample_limit.store(2048, std::memory_order_relaxed);
+                packet_capture.store(true, std::memory_order_release);
                 Sleep(ms);
-                packet_capture = false;
+                packet_capture.store(false, std::memory_order_release);
                 Sleep(50);
                 const auto frames = g_packet_count;
+                const auto limit = g_packet_sample_limit.load();
                 return Json{{"name", name}, {"frames", frames},
                             {"bytes_min", frames ? g_packet_bytes_min : 0}, {"bytes_max", g_packet_bytes_max},
                             {"bytes_average", frames ? static_cast<double>(g_packet_bytes_total) / frames : 0.0},
                             {"entities_min", g_packet_entities_min == 0xffffffff ? 0 : g_packet_entities_min},
                             {"entities_max", g_packet_entities_max},
-                            {"time_average_us", frames ? static_cast<double>(g_packet_time_total_us) / frames : 0.0}};
+                            {"time_average_us", frames ? static_cast<double>(g_packet_time_total_us) / frames : 0.0},
+                            {"sample_limit", limit}, {"sample_capped", frames >= limit}};
             };
             Json packet_phases = Json::array();
             while (!stopped && GetTickCount64() - wait_begin < wait_ms) {
@@ -1186,6 +1193,8 @@ Json probe_game_update_skip(lua_State* L) {
             const auto disabled = MH_DisableHook(target);
             bool packet_disabled = true;
             if (packet_hook && packet_target) packet_disabled = MH_DisableHook(packet_target) == MH_OK || MH_DisableHook(packet_target) == MH_ERROR_DISABLED;
+            out["packet_rva"] = packet_rva;
+            out["packet_hook"] = packet_hook;
             out["packet_phases"] = packet_phases;
             out["packet_hook_disabled"] = packet_disabled;
             out["gameplay_observed"] = gameplay;
@@ -1202,6 +1211,7 @@ Json probe_game_update_skip(lua_State* L) {
             out["error"] = error.what();
             skip_active = false;
             MH_DisableHook(target);
+            if (packet_hook && packet_target) MH_DisableHook(packet_target);
         }
         try {
             const auto out_dir = std::filesystem::path(wide(config.at("output").get<std::string>()));
@@ -1211,6 +1221,8 @@ Json probe_game_update_skip(lua_State* L) {
         stopped = true;
     }).detach();
     report["target_rva"] = engine_hex(rva);
+    report["packet_rva"] = packet_rva;
+    report["packet_hook"] = packet_hook;
     report["skip_ret"] = skip_ret;
     report["skip_cycles"] = config.value("skip_cycles", std::string("2000,5000,2000"));
     report["probe_passed"] = true;
@@ -1409,7 +1421,8 @@ DWORD WINAPI worker(void*) {
                     g_state_entity_base = 0; g_state_entity_base_changes = 0;
                     g_state_player_base = 0; g_state_player_base_changes = 0;
                     g_state_position_mismatch = 0; g_state_first_mismatch_frame = 0;
-                    packet_capture = config.value("capture_packet", false);
+                    g_packet_sample_limit.store(120);
+                    packet_capture.store(config.value("capture_packet", false));
                     g_packet_count = 0;
                     g_packet_bytes_min = 0xffffffffffffffffull; g_packet_bytes_max = 0; g_packet_bytes_total = 0;
                     g_packet_time_total_us = 0;

@@ -28,4 +28,6 @@ if ($LASTEXITCODE -ne 0) { throw 'Native build failed.' }
 if (-not $SkipTests) {
     & (Join-Path $taskRuntimeOutput 'authority-tests.exe')
     if ($LASTEXITCODE -ne 0) { throw 'Native tests failed.' }
+    & (Join-Path $taskRuntimeOutput 'authority-state-tests.exe')
+    if ($LASTEXITCODE -ne 0) { throw 'State model tests failed.' }
 }

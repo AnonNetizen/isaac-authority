@@ -20,6 +20,7 @@ param(
     [switch]$SkipProbe,
     [string]$SkipCycles = '2000,5000,2000',
     [uint32]$SkipRet = 0,
+    [string]$PacketRva,
     [switch]$RuntimeProbe,
     [string]$RuntimeSuite,
     [switch]$ApiProbe
@@ -49,6 +50,7 @@ if ($CaptureState -and -not $CallProbe) { throw 'Capture state requires -CallPro
 if ($CapturePacket -and -not $CallProbe) { throw 'Capture packet requires -CallProbe.' }
 if ($SkipProbe -and $Mode -notin @('attach','steam-launch')) { throw 'Skip probe requires attach or steam-launch.' }
 if ($SkipProbe -and -not $CandidateRva) { throw 'Skip probe requires -CandidateRva.' }
+if ($PacketRva -and -not $SkipProbe) { throw 'Packet RVA requires -SkipProbe.' }
 if ($CallProbe -and -not $CandidateRva) { throw 'Call probe requires -CandidateRva.' }
 if (@($ObjectProbe, $LayoutProbe, $CallProbe, $StateProbe, $SkipProbe, $RuntimeProbe, $ApiProbe | Where-Object { $_ }).Count -gt 1) { throw 'Choose one diagnostic.' }
 if ($RuntimeProbe -and $Mode -notin @('attach','steam-launch')) { throw 'Runtime probe requires attach or steam-launch.' }
@@ -69,6 +71,7 @@ if ($Mode -eq 'attach' -or $Mode -eq 'steam-launch') {
     } elseif ($SkipProbe) {
         if ($Peer -or $Role -ne 'capture') { throw 'Skip probe cannot combine peer/preview observation.' }
         $taskArguments += @('--skip-probe', '--candidate-rva', $CandidateRva, '--skip-cycles', $SkipCycles, '--skip-ret', [string]$SkipRet)
+        if ($PacketRva) { $taskArguments += @('--packet-rva', $PacketRva) }
     } elseif ($StateProbe) {
         if ($Peer -or $Role -ne 'capture') { throw 'State probe cannot combine peer/preview observation.' }
         $taskArguments += '--state-probe'
