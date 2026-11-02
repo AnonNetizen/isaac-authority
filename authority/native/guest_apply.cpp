@@ -101,6 +101,12 @@ bool field_address(uint32_t base, uint32_t offset, uint32_t& out) {
     return true;
 }
 
+bool read_field_u32(GuestMemory& memory, uint32_t base, uint32_t offset, uint32_t& out) {
+    uint32_t address = 0;
+    if (!field_address(base, offset, address)) return false;
+    return read_u32(memory, address, out);
+}
+
 bool stage_bytes(std::vector<StagedWrite>& staged, GuestMemory& memory, uint32_t address, const uint8_t* data,
                  uint8_t size, GuestApplyError& error) {
     if (!range_ok(address, size)) {
@@ -190,22 +196,25 @@ bool guest_build_accepted(const uint8_t sha256[32]) {
 
 bool guest_exe_sha256_from_hex(const char* hex, uint8_t out[32]) {
     if (hex == nullptr || out == nullptr) return false;
+    // Stop at the terminator. A short or odd string must not load the byte after '\0'.
+    const volatile char* text = hex;
+    for (int i = 0; i < 64; ++i) {
+        if (text[i] == '\0') return false;
+    }
+    if (text[64] != '\0') return false;
+    auto nibble = [](char c) -> int {
+        if (c >= '0' && c <= '9') return c - '0';
+        if (c >= 'a' && c <= 'f') return c - 'a' + 10;
+        if (c >= 'A' && c <= 'F') return c - 'A' + 10;
+        return -1;
+    };
     for (int i = 0; i < 32; ++i) {
-        const char high = hex[i * 2];
-        const char low = hex[i * 2 + 1];
-        if (high == '\0' || low == '\0') return false;
-        auto nibble = [](char c) -> int {
-            if (c >= '0' && c <= '9') return c - '0';
-            if (c >= 'a' && c <= 'f') return c - 'a' + 10;
-            if (c >= 'A' && c <= 'F') return c - 'A' + 10;
-            return -1;
-        };
-        const int hi = nibble(high);
-        const int lo = nibble(low);
+        const int hi = nibble(static_cast<char>(text[i * 2]));
+        const int lo = nibble(static_cast<char>(text[i * 2 + 1]));
         if (hi < 0 || lo < 0) return false;
         out[i] = static_cast<uint8_t>((hi << 4) | lo);
     }
-    return hex[64] == '\0';
+    return true;
 }
 
 GuestApplyReport apply_guest_view(const GuestView& guest, GuestMemory& memory, uint32_t game, const uint8_t exe_sha256[32]) {
@@ -247,7 +256,7 @@ GuestApplyReport apply_guest_view(const GuestView& guest, GuestMemory& memory, u
     }
 
     uint32_t level = 0;
-    if (!read_u32(memory, game + J460GuestLayout::game_level, level)) {
+    if (!read_field_u32(memory, game, J460GuestLayout::game_level, level)) {
         report.error = GuestApplyError::out_of_bounds;
         return seal(report, plan);
     }
@@ -258,9 +267,9 @@ GuestApplyReport apply_guest_view(const GuestView& guest, GuestMemory& memory, u
     uint32_t entity_array = 0;
     uint32_t capacity_bytes = 0;
     uint32_t entity_count = 0;
-    if (!read_u32(memory, level + J460GuestLayout::level_entities, entity_array) ||
-        !read_u32(memory, level + J460GuestLayout::level_entity_capacity_bytes, capacity_bytes) ||
-        !read_u32(memory, level + J460GuestLayout::level_entity_count, entity_count)) {
+    if (!read_field_u32(memory, level, J460GuestLayout::level_entities, entity_array) ||
+        !read_field_u32(memory, level, J460GuestLayout::level_entity_capacity_bytes, capacity_bytes) ||
+        !read_field_u32(memory, level, J460GuestLayout::level_entity_count, entity_count)) {
         report.error = GuestApplyError::out_of_bounds;
         return seal(report, plan);
     }
@@ -284,8 +293,8 @@ GuestApplyReport apply_guest_view(const GuestView& guest, GuestMemory& memory, u
 
     uint32_t players_begin = 0;
     uint32_t players_end = 0;
-    if (!read_u32(memory, game + J460GuestLayout::game_players_begin, players_begin) ||
-        !read_u32(memory, game + J460GuestLayout::game_players_end, players_end)) {
+    if (!read_field_u32(memory, game, J460GuestLayout::game_players_begin, players_begin) ||
+        !read_field_u32(memory, game, J460GuestLayout::game_players_end, players_end)) {
         report.error = GuestApplyError::out_of_bounds;
         return seal(report, plan);
     }

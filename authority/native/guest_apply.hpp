@@ -101,6 +101,9 @@ bool guest_exe_sha256_from_hex(const char* hex, uint8_t out[32]);
 // observed. A null hash, the unverified backup hash, or any other value is
 // unknown_build and writes nothing.
 //
+// `game` and the Level* loaded from it are 32-bit addresses. A field offset
+// that does not fit above that base is out_of_bounds, and the apply writes nothing.
+//
 // Bound entities are written only at their local token, and only when that
 // token is a non-null pointer in the live entity array and the memory triple
 // Type +0x28 / Variant +0x2C / InitSeed +0x3EC matches the snapshot. A missing

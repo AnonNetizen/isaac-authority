@@ -244,7 +244,9 @@ They are not in-game results. `playable` stays false.
    `GuestMemory` and is covered by `authority-state-tests`. It accepts only the
    measured exe hash `210cade2...3ea4831`. A null, out-of-range, or unmatched
    token is rejected, and a missing token is not replaced by another entity
-   with the same triple. Spawn and despawn plans are counted as not performed.
+   with the same triple. `Game*` and `Level*` field addresses go through
+   `field_address()`; a sum that does not fit in 32 bits is `out_of_bounds`
+   and writes nothing. `guest_exe_sha256_from_hex` stops at the terminator. Spawn and despawn plans are counted as not performed.
    There is no launcher switch. `probe.cpp` does not call it. No in-game
    command writes entity memory, and skipping `0x554cd0` (`ret 4`) while
    applying a snapshot has not been run.

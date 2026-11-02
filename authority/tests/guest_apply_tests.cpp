@@ -5,6 +5,15 @@
 #include <stdexcept>
 #include <string>
 #include <vector>
+#if defined(_WIN32)
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+#include <windows.h>
+#else
+#include <sys/mman.h>
+#include <unistd.h>
+#endif
 
 namespace {
 using namespace ia;
@@ -19,7 +28,6 @@ constexpr uint32_t kOther = 0x40002000u;
 constexpr uint32_t kStray = 0x40003000u;
 constexpr uint32_t kPlayerSeed = 0x11111111u;
 constexpr uint32_t kMonsterSeed = 0x01020304u;
-constexpr uint32_t kOtherSeed = 0x0A0B0C0Du;
 
 class SimMemory : public GuestMemory {
 public:
@@ -180,6 +188,65 @@ NativeCapture capture_pair(uint32_t frame, float player_x, float monster_x, bool
 
 Pose player_pose(float x) { return Pose{x, 380.f, 1.5f, -0.5f, 11.f}; }
 Pose monster_pose(float x) { return Pose{x, 200.f, 0.25f, 0.5f, 8.f}; }
+
+bool bind_player_77(GuestView& guest) {
+    HostPublisher publisher;
+    if (!accept_publish(guest, publisher.publish(capture_pair(10, 77.f, 0.f, false)))) return false;
+    const auto* player = by_seed(*guest.snapshot(), kPlayerSeed);
+    return player != nullptr && guest.bind(player->id, kPlayer);
+}
+
+void plant_live_player(SimMemory& memory) {
+    memory.fill(kPlayerVector, 4, 0);
+    memory.fill(kEntityArray, 4, 0);
+    set_slot(memory, kPlayerVector, 0, kPlayer);
+    set_slot(memory, kEntityArray, 0, kPlayer);
+    plant(memory, kPlayer, 1, 0, kPlayerSeed, player_pose(1.f));
+}
+
+// "21\0" sits in the last three bytes of a readable page. The next page is
+// inaccessible, so a parser that loads the byte after the terminator faults.
+bool short_hex_stops_at_terminator() {
+    uint8_t out[32];
+    std::memset(out, 0x5A, sizeof(out));
+#if defined(_WIN32)
+    SYSTEM_INFO info{};
+    GetSystemInfo(&info);
+    const size_t page = info.dwPageSize;
+    if (page < 4) return false;
+    auto* region = static_cast<uint8_t*>(VirtualAlloc(nullptr, page * 2, MEM_RESERVE | MEM_COMMIT, PAGE_READWRITE));
+    if (region == nullptr) return false;
+    DWORD previous = 0;
+    if (VirtualProtect(region + page, page, PAGE_NOACCESS, &previous) == 0) {
+        VirtualFree(region, 0, MEM_RELEASE);
+        return false;
+    }
+    char* hex = reinterpret_cast<char*>(region + page - 3);
+    hex[0] = '2';
+    hex[1] = '1';
+    hex[2] = '\0';
+    const bool rejected = !guest_exe_sha256_from_hex(hex, out);
+    VirtualFree(region, 0, MEM_RELEASE);
+    return rejected;
+#else
+    const long page = sysconf(_SC_PAGESIZE);
+    if (page < 4) return false;
+    void* region = mmap(nullptr, static_cast<size_t>(page) * 2, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+    if (region == MAP_FAILED) return false;
+    auto* bytes = static_cast<uint8_t*>(region);
+    if (mprotect(bytes + page, static_cast<size_t>(page), PROT_NONE) != 0) {
+        munmap(region, static_cast<size_t>(page) * 2);
+        return false;
+    }
+    char* hex = reinterpret_cast<char*>(bytes + page - 3);
+    hex[0] = '2';
+    hex[1] = '1';
+    hex[2] = '\0';
+    const bool rejected = !guest_exe_sha256_from_hex(hex, out);
+    munmap(region, static_cast<size_t>(page) * 2);
+    return rejected;
+#endif
+}
 }
 
 unsigned run_guest_apply_tests() {
@@ -211,6 +278,12 @@ unsigned run_guest_apply_tests() {
     expect(guest_exe_sha256_from_hex("7122ac28779925b24e23e2416f231322b1470388bd25e2c08665ad8d53b3ea4f", backup) &&
                !guest_build_accepted(backup) && !guest_build_accepted(nullptr),
            "unverified backup hash is rejected");
+    expect(!guest_exe_sha256_from_hex("21", parsed) && !guest_exe_sha256_from_hex("", parsed) &&
+               !guest_exe_sha256_from_hex("210", parsed) && !guest_exe_sha256_from_hex(nullptr, parsed) &&
+               !guest_exe_sha256_from_hex("210cade2a1de98550cef52d012174108189d1a0d3926a22c3a1ec12fb3ae483", parsed) &&
+               !guest_exe_sha256_from_hex("210cade2a1de98550cef52d012174108189d1a0d3926a22c3a1ec12fb3ae4831a", parsed),
+           "short, odd, and overlong hex is rejected");
+    expect(short_hex_stops_at_terminator(), "short hex does not read past the terminator");
     parsed[31] ^= 0x01;
     expect(!guest_build_accepted(parsed), "flipped hash is rejected");
 
@@ -663,6 +736,74 @@ unsigned run_guest_apply_tests() {
         auto null_game = apply_measured(guest, memory, 0);
         expect_error(null_game.error, GuestApplyError::null_pointer, "null Game*");
         expect(memory.reads == reads && memory.writes == 0 && !null_game.playable && !null_game.in_game, "null Game* is refused before any read");
+    }
+
+    // uint32 base+offset wraps into the low addresses planted below. The old
+    // apply treated that as a live header and wrote the player x to 77.
+    auto expect_wrap_rejected = [&](SimMemory& memory, GuestView& guest, uint32_t game, const char* name) {
+        const auto before = memory.image();
+        auto report = apply_measured(guest, memory, game);
+        expect_error(report.error, GuestApplyError::out_of_bounds, name);
+        expect(!report.pose_committed && report.entities_written == 0 && memory.writes == 0 && memory.image() == before &&
+                   pose_is(memory, kPlayer, player_pose(1.f)) && !report.playable && !report.in_game,
+               name);
+    };
+    {
+        SimMemory memory;
+        constexpr uint32_t game = 0xFFFFF000u;
+        memory.put_u32(game + J460GuestLayout::game_level, kLevel);
+        memory.put_u32(game + J460GuestLayout::game_players_begin, kPlayerVector);
+        memory.put_u32(game + J460GuestLayout::game_players_end, kPlayerVector + 4);
+        memory.put_u32(kLevel + J460GuestLayout::level_entities, kEntityArray);
+        memory.put_u32(kLevel + J460GuestLayout::level_entity_capacity_bytes, 4);
+        memory.put_u32(kLevel + J460GuestLayout::level_entity_count, 1);
+        plant_live_player(memory);
+        GuestView guest;
+        expect(bind_player_77(guest), "Game* near 4GB setup");
+        expect_wrap_rejected(memory, guest, game, "Game* near 4GB is out of bounds");
+    }
+    {
+        SimMemory memory;
+        constexpr uint32_t game = 0xFFFE5000u;
+        memory.put_u32(game + J460GuestLayout::game_level, kLevel);
+        memory.put_u32(game + J460GuestLayout::game_players_begin, kPlayerVector);
+        memory.put_u32(game + J460GuestLayout::game_players_end, kPlayerVector + 4);
+        memory.put_u32(kLevel + J460GuestLayout::level_entities, kEntityArray);
+        memory.put_u32(kLevel + J460GuestLayout::level_entity_capacity_bytes, 4);
+        memory.put_u32(kLevel + J460GuestLayout::level_entity_count, 1);
+        plant_live_player(memory);
+        GuestView guest;
+        expect(bind_player_77(guest), "player vector near 4GB setup");
+        expect_wrap_rejected(memory, guest, game, "player vector near 4GB is out of bounds");
+    }
+    {
+        SimMemory memory;
+        constexpr uint32_t level = 0xFFFFF000u;
+        memory.put_u32(kGame + J460GuestLayout::game_level, level);
+        memory.put_u32(kGame + J460GuestLayout::game_players_begin, kPlayerVector);
+        memory.put_u32(kGame + J460GuestLayout::game_players_end, kPlayerVector + 4);
+        memory.put_u32(level + J460GuestLayout::level_entities, kEntityArray);
+        memory.put_u32(level + J460GuestLayout::level_entity_capacity_bytes, 4);
+        memory.put_u32(level + J460GuestLayout::level_entity_count, 1);
+        plant_live_player(memory);
+        GuestView guest;
+        expect(bind_player_77(guest), "Level* near 4GB setup");
+        expect_wrap_rejected(memory, guest, kGame, "Level* near 4GB is out of bounds");
+    }
+    {
+        // The entity-array pointer itself still fits. Capacity and count do not.
+        SimMemory memory;
+        constexpr uint32_t level = 0xFFFFEDA0u;
+        memory.put_u32(kGame + J460GuestLayout::game_level, level);
+        memory.put_u32(kGame + J460GuestLayout::game_players_begin, kPlayerVector);
+        memory.put_u32(kGame + J460GuestLayout::game_players_end, kPlayerVector + 4);
+        memory.put_u32(level + J460GuestLayout::level_entities, kEntityArray);
+        memory.put_u32(level + J460GuestLayout::level_entity_capacity_bytes, 4);
+        memory.put_u32(level + J460GuestLayout::level_entity_count, 1);
+        plant_live_player(memory);
+        GuestView guest;
+        expect(bind_player_77(guest), "level capacity near 4GB setup");
+        expect_wrap_rejected(memory, guest, kGame, "level capacity near 4GB is out of bounds");
     }
 
     return passed;
