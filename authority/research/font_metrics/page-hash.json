@@ -1,0 +1,535 @@
+{
+  "schema": "frozen-font-metrics-1",
+  "game_root": "E:/SteamLibrary/steamapps/common/The Binding of Isaac Rebirth",
+  "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+  "width_wrapper": {
+    "first": 308,
+    "last": 310,
+    "sha256": "70bd01ae3de0b849194136ebbf78aea626ed3b82d83a3aa0b3f57cc90b137a49"
+  },
+  "fonts": [
+    {
+      "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/fusion-pixel-font/10.fnt",
+      "aliases": [
+        "mcm_cn_font/fusion-pixel-font/10.fnt"
+      ],
+      "files": [
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/fusion-pixel-font/10.fnt",
+          "sha256": "f1e33d209761d68769a521abe3c64691ee324fcdeaae2398dbf49395f92f143f",
+          "bytes": 138694
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/fusion-pixel-font/10_0.png",
+          "sha256": "c4478472312564d31a5347158b317d34f1c9fd45933b2b1d1d19a498ec17fce1",
+          "bytes": 156408
+        }
+      ],
+      "metrics": {
+        "line_height": 10,
+        "baseline": 9,
+        "glyphs": 6930,
+        "metrics_sha256": "731698101b5996eb43fe7e1ae70400465a7aa99992c01ba23d191b1fd147cf94",
+        "pages": [
+          "10_0.png"
+        ]
+      },
+      "canonical_width": 65,
+      "native_canonical_width": 65
+    },
+    {
+      "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/fusion-pixel-font/12.fnt",
+      "aliases": [
+        "mcm_cn_font/fusion-pixel-font/12.fnt"
+      ],
+      "files": [
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/fusion-pixel-font/12.fnt",
+          "sha256": "9b1b92d7a7015061fe0d865c0dcdedff89063ad64361a445fcd6da4405716a24",
+          "bytes": 164603
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/fusion-pixel-font/12_0.png",
+          "sha256": "6a4134eeb3260e3be6eadd6fcc3eba9ca6806cc392297cf087ffb88dcab61cd7",
+          "bytes": 210316
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/fusion-pixel-font/12_1.png",
+          "sha256": "d50d4e915ceef3fd34b64c7dc8977b0bb95985be44925a779c2f9c833cb17aa2",
+          "bytes": 43987
+        }
+      ],
+      "metrics": {
+        "line_height": 12,
+        "baseline": 10,
+        "glyphs": 8225,
+        "metrics_sha256": "4cc5c0768abc42f21f7b2fcfd3e4963ddf161ef25ddf8b13b5f92df9ce6b244c",
+        "pages": [
+          "12_0.png",
+          "12_1.png"
+        ]
+      },
+      "canonical_width": 78,
+      "native_canonical_width": 78
+    },
+    {
+      "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/12.fnt",
+      "aliases": [
+        "mcm_cn_font/kaiti/12.fnt"
+      ],
+      "files": [
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/12.fnt",
+          "sha256": "659b630043d55794e5ce0ad7cdc2e899a36dcddcf796e36874f92cbfa7495b6c",
+          "bytes": 176318
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/12_0.png",
+          "sha256": "2506c3bf9de0a711fc7de9741d0000ed176e8db7b733ce477f224bbe9b53fb97",
+          "bytes": 1518742
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/12_1.png",
+          "sha256": "4d7002677a7a323110ab0126f46349a8f7c470f4ee8b36ef3d2856e8368e138f",
+          "bytes": 493430
+        }
+      ],
+      "metrics": {
+        "line_height": 12,
+        "baseline": 10,
+        "glyphs": 8812,
+        "metrics_sha256": "46c023f36543e0f94fa079342af383859b7f552ddc52e00aaddb07b1a465452c",
+        "pages": [
+          "12_0.png",
+          "12_1.png"
+        ]
+      },
+      "canonical_width": 78,
+      "native_canonical_width": 78
+    },
+    {
+      "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/14.fnt",
+      "aliases": [
+        "mcm_cn_font/kaiti/14.fnt"
+      ],
+      "files": [
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/14.fnt",
+          "sha256": "0d32148f1faa25da1ea7341edecaecd6948354474a495fc4002d8694c925fd9d",
+          "bytes": 176318
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/14_0.png",
+          "sha256": "102835d38f4c92f0d004aefa00a0aa60fa047907638a11fdbb389431e828ad16",
+          "bytes": 1393961
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/14_1.png",
+          "sha256": "d711c2af08c902d9d97af33e4f3ff128e6eec65d4f15c0349174356a3c4db39c",
+          "bytes": 990036
+        }
+      ],
+      "metrics": {
+        "line_height": 14,
+        "baseline": 12,
+        "glyphs": 8812,
+        "metrics_sha256": "f3782326b4ef7b0f050ef55867f1240af6664d3b6c24e44e88e4c66d64976894",
+        "pages": [
+          "14_0.png",
+          "14_1.png"
+        ]
+      },
+      "canonical_width": 91,
+      "native_canonical_width": 91
+    },
+    {
+      "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/16.fnt",
+      "aliases": [
+        "mcm_cn_font/kaiti/16.fnt"
+      ],
+      "files": [
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/16.fnt",
+          "sha256": "d3c6663ac0384cada0644758807f0391dd87a50a65eaebf145440378c205447f",
+          "bytes": 176327
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/16_0.png",
+          "sha256": "414cef61aed045491c6863e027e8a62120bfba53fa3517998c4c554277c5abde",
+          "bytes": 1190085
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/16_1.png",
+          "sha256": "17ba3c0733b9a177ba08aab0ea4e2badd37bc4889f9d48540ef677f56662239a",
+          "bytes": 1215546
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/16_2.png",
+          "sha256": "002b4c9b0bf7f3e928c2ce667fc72039a9efc3f7a1d167bdb39890efd077b38c",
+          "bytes": 244258
+        }
+      ],
+      "metrics": {
+        "line_height": 16,
+        "baseline": 14,
+        "glyphs": 8812,
+        "metrics_sha256": "3821646dc084cfdd6388818b3851f23533affad994e0be7dc39faaad1bf9c53e",
+        "pages": [
+          "16_0.png",
+          "16_1.png",
+          "16_2.png"
+        ]
+      },
+      "canonical_width": 104,
+      "native_canonical_width": 104
+    },
+    {
+      "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/pftempestasevencondensed.fnt",
+      "aliases": [
+        "mcm_cn_font/pftempestasevencondensed.fnt"
+      ],
+      "files": [
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/pftempestasevencondensed.fnt",
+          "sha256": "b9bf9e034fbfee0f7bdd3f6de9d8671d9fbd971e6cc0bc5c31341110f871e3c7",
+          "bytes": 154762
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/pftempestasevencondensed_0.png",
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "bytes": 539984
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/pftempestasevencondensed-0.png",
+          "sha256": "d2b80df049d9014734b2712f6ce5b31bdc1135aacfe0bd687292c3a8002e9bf7",
+          "bytes": 12328
+        }
+      ],
+      "metrics": {
+        "line_height": 12,
+        "baseline": 10,
+        "glyphs": 7732,
+        "metrics_sha256": "16553d93a5494aafb0eb0174b2e396c8d9f38a3e3bdb4f145f449e488d66dc44",
+        "pages": [
+          "pftempestasevencondensed_0.png",
+          "PFTempestaSevenCondensed-0.png"
+        ]
+      },
+      "canonical_width": 67,
+      "native_canonical_width": 67
+    },
+    {
+      "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/12.fnt",
+      "aliases": [
+        "mcm_cn_font/songti/12.fnt"
+      ],
+      "files": [
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/12.fnt",
+          "sha256": "0f111f77a0d5f68f04f4cc72ef7757b49b1a3abba3aa208f6b2d6a49f3810c1b",
+          "bytes": 179038
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/12_0.png",
+          "sha256": "312f0d0bf07e656bb26798bec2a42a5882285b1c345c7c17294f37f603eb93a6",
+          "bytes": 227957
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/12_1.png",
+          "sha256": "8e8b6330b2ff0ff531cbc46cce9e73ca88b357d1f513f66ba170d664dbbfe76d",
+          "bytes": 69020
+        }
+      ],
+      "metrics": {
+        "line_height": 12,
+        "baseline": 10,
+        "glyphs": 8948,
+        "metrics_sha256": "49218d91dc0b8a955e18b12f5089ba7f6ece06abfa7b0a33716a155a47b24938",
+        "pages": [
+          "12_0.png",
+          "12_1.png"
+        ]
+      },
+      "canonical_width": 78,
+      "native_canonical_width": 78
+    },
+    {
+      "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/14.fnt",
+      "aliases": [
+        "mcm_cn_font/songti/14.fnt"
+      ],
+      "files": [
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/14.fnt",
+          "sha256": "e0be285dc6d96065100d0973051f02a7a2e3734b8aa05e5eea62ad3d69d81bb0",
+          "bytes": 179038
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/14_0.png",
+          "sha256": "2689d893085ba08b7c70a95ab042eadfb0a30bb06579eeaa0f5ac3fb6e7c0746",
+          "bytes": 211239
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/14_1.png",
+          "sha256": "aff7c479dbaef4b95f3877f33b92f1060c76f3566ff28d7348e12083bf2a754c",
+          "bytes": 155145
+        }
+      ],
+      "metrics": {
+        "line_height": 14,
+        "baseline": 12,
+        "glyphs": 8948,
+        "metrics_sha256": "bcd9f9e71e1924a6d3d36b9f12227beb12c541d2bf14146d56cfadfdd4721780",
+        "pages": [
+          "14_0.png",
+          "14_1.png"
+        ]
+      },
+      "canonical_width": 91,
+      "native_canonical_width": 91
+    },
+    {
+      "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/16.fnt",
+      "aliases": [
+        "mcm_cn_font/songti/16.fnt"
+      ],
+      "files": [
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/16.fnt",
+          "sha256": "2d28b5649b9ed13b536dc5961a212306e61868180a88645fe066e7dc8e60d4bc",
+          "bytes": 179047
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/16_0.png",
+          "sha256": "9f7fc85549cc8cebd3412f56303c6760010b12e78a3333fbb328eef02cf3a758",
+          "bytes": 197779
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/16_1.png",
+          "sha256": "ffa8fbc24060d73cd1f13a136e163448ea6f638b26dc932889efce63ffdcdd32",
+          "bytes": 202073
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/16_2.png",
+          "sha256": "338f78cdfc48e487b0ff6279af9d29e10e533f330270990de2a80d3724e3b26f",
+          "bytes": 38922
+        }
+      ],
+      "metrics": {
+        "line_height": 16,
+        "baseline": 14,
+        "glyphs": 8948,
+        "metrics_sha256": "6bc84517452b9169da9aeb6777d8a31bc9fafb3e8711d6d08faf1edec3aea506",
+        "pages": [
+          "16_0.png",
+          "16_1.png",
+          "16_2.png"
+        ]
+      },
+      "canonical_width": 104,
+      "native_canonical_width": 104
+    },
+    {
+      "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont10.fnt",
+      "aliases": [
+        "mcm_cn_font/teammeatfont10.fnt"
+      ],
+      "files": [
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont10.fnt",
+          "sha256": "a67e74b625900b897db63f4d1900c4951b5dfb62d7fa4f35b6beb98b0080dd83",
+          "bytes": 143072
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont10_0.png",
+          "sha256": "d29900a0385549e53164bf56ab0a197147aa3e3469d31631cec428a565e9516f",
+          "bytes": 1716599
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont10-0.png",
+          "sha256": "750c7efcbbb7940ebcbd5264247b30729b6b26ffba84f501a84152ad0a66fe76",
+          "bytes": 5652
+        }
+      ],
+      "metrics": {
+        "line_height": 16,
+        "baseline": 13,
+        "glyphs": 7148,
+        "metrics_sha256": "f10cd7966b4434b47fa9a1b63ee3263b6209ee56da10e146f022466ddd2d5b3c",
+        "pages": [
+          "teammeatfont10_0.png",
+          "TeamMeatFont10-0.png"
+        ]
+      },
+      "canonical_width": 80,
+      "native_canonical_width": 80
+    },
+    {
+      "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont12.fnt",
+      "aliases": [
+        "mcm_cn_font/teammeatfont12.fnt"
+      ],
+      "files": [
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont12.fnt",
+          "sha256": "270510e2d31598f506a5f8cefd80459b78e618a5fea2fd4798519bd757b3e2c4",
+          "bytes": 143072
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont12_0.png",
+          "sha256": "b91ed914e396e9446a94afbfd8b142bba5bf1d767da3b84bedc6d0a58dc54185",
+          "bytes": 1923485
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont12-0.png",
+          "sha256": "85420960c71b6fd2df4806686d698643e1fb90a5635b1bf62cd98ea3197203ca",
+          "bytes": 5977
+        }
+      ],
+      "metrics": {
+        "line_height": 18,
+        "baseline": 14,
+        "glyphs": 7148,
+        "metrics_sha256": "deec6c21b5d75ef43449feb64cb876e5bfd1b96d7725e1e75f0e1e942d86a14f",
+        "pages": [
+          "teammeatfont12_0.png",
+          "TeamMeatFont12-0.png"
+        ]
+      },
+      "canonical_width": 95,
+      "native_canonical_width": 95
+    },
+    {
+      "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont16bold.fnt",
+      "aliases": [
+        "mcm_cn_font/teammeatfont16bold.fnt"
+      ],
+      "files": [
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont16bold.fnt",
+          "sha256": "5d72cb877f4179d2154f95d2ee58428132bba0fa391e991a2b7e8c11320d979b",
+          "bytes": 151747
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont16bold_0.png",
+          "sha256": "bee01c71f81016457ccee617482470d21729f9060adb961d47378485dcd7da0a",
+          "bytes": 2408214
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont16bold_1.png",
+          "sha256": "b2a220e2545ee8ed48ffe240012bddf732a3a0b97de885516e996d6b7da56721",
+          "bytes": 31015
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont16bold-0.png",
+          "sha256": "30444806b528393d5210a2c9a7216197e11a5976c16a2edd859f92681e0a91ec",
+          "bytes": 9828
+        }
+      ],
+      "metrics": {
+        "line_height": 24,
+        "baseline": 19,
+        "glyphs": 7580,
+        "metrics_sha256": "b3cec4be5bf1f5b67020a87fa6cafd557f406208f82ac674fa1b710a2dc880e9",
+        "pages": [
+          "teammeatfont16bold_0.png",
+          "teammeatfont16bold_1.png",
+          "TeamMeatFont16Bold-0.png"
+        ]
+      },
+      "canonical_width": 139,
+      "native_canonical_width": 139
+    },
+    {
+      "path": "mods/external item descriptions_836319872/resources/font/eid_default.fnt",
+      "aliases": [
+        "font/eid_default.fnt"
+      ],
+      "files": [
+        {
+          "path": "mods/external item descriptions_836319872/resources/font/eid_default.fnt",
+          "sha256": "f0865eb462b76a608558bfc1b9991d6e8258fdb343ad42380afbd9c210571341",
+          "bytes": 147362
+        },
+        {
+          "path": "mods/external item descriptions_836319872/resources/font/eid_default_0.png",
+          "sha256": "0a3aeec5bb3dc069c723d64ee4a3d507721c53b3c08dd9bea8950e319f5c24ca",
+          "bytes": 239075
+        },
+        {
+          "path": "mods/external item descriptions_836319872/resources/font/eid_default_1.png",
+          "sha256": "34b0230ab6f1bd47579f06e98d377cda135896a57f1ab1d17ef187a0b217d3fa",
+          "bytes": 35001
+        }
+      ],
+      "metrics": {
+        "line_height": 11,
+        "baseline": 9,
+        "glyphs": 7363,
+        "metrics_sha256": "788e0e94107862e77e006511099f3e29713f9c997fefca2ba3750c53e515c6ea",
+        "pages": [
+          "eid_default_0.png",
+          "eid_default_1.png"
+        ]
+      },
+      "canonical_width": 65,
+      "native_canonical_width": 65
+    },
+    {
+      "path": "mods/external item descriptions_836319872/resources/font/eid_cn_alt.fnt",
+      "aliases": [
+        "font/eid_cn_alt.fnt"
+      ],
+      "files": [
+        {
+          "path": "mods/external item descriptions_836319872/resources/font/eid_cn_alt.fnt",
+          "sha256": "4d5658d2b2c5f76cde3b26035ecdd2f633b90c71260ccaa325a24cbb32e5cf74",
+          "bytes": 256459
+        },
+        {
+          "path": "mods/external item descriptions_836319872/resources/font/eid_cn_alt_0.png",
+          "sha256": "03745e3e5800d8c3ecb9d0bebec5ed0c8bb94981ca21a153aabc55feb39e498f",
+          "bytes": 466998
+        },
+        {
+          "path": "mods/external item descriptions_836319872/resources/font/eid_cn_fix_0.png",
+          "sha256": "5702062e6159942b82ff3c1b8916b70890d09d780195a5e2a96beb1442dc73a3",
+          "bytes": 115
+        }
+      ],
+      "metrics": {
+        "line_height": 10,
+        "baseline": 9,
+        "glyphs": 12817,
+        "metrics_sha256": "9c3d2f3e74f457e75ec9b482e65476e7b7eff922596787bfe81452dd6ed73aab",
+        "pages": [
+          "eid_cn_alt_0.png",
+          "eid_cn_fix_0.png"
+        ]
+      },
+      "canonical_width": 65,
+      "native_canonical_width": 65
+    }
+  ],
+  "evidence": [
+    {
+      "path": "research/resource_catalog.json",
+      "sha256": "90c40f9510c62981b2e87996e2b40a5686b12b4ab8b8b9a09796fe7f0d85b9f7"
+    },
+    {
+      "path": "runs/runtime-suite-final-j460-20261010/mod-runtime.json",
+      "sha256": "b71d26dfa3f264d8b3c6c025d495705dd32591360767c19b95e8d18e999af7bd"
+    },
+    {
+      "path": "native/engine_api.cpp",
+      "sha256": "288f53043cd8c93cd3083c344a3130b249d954f20e92592a91c1f75ed7e0952a"
+    },
+    {
+      "path": "tools/freeze_font_metrics.py",
+      "sha256": "dd0621bb49dc4b9b88e021534d605e708c150586975e2602308409eb4a6ff6c1"
+    }
+  ],
+  "default_missing_behavior_verified": false,
+  "complete_native_equivalence_verified": false,
+  "rendering_verified": false
+}

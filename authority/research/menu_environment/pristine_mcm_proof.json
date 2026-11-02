@@ -1,0 +1,14 @@
+{
+  "schema": "pristine-mcm-baseline-1",
+  "backup_path": "E:\\SteamLibrary\\steamapps\\common\\The Binding of Isaac Rebirth\\mods\\mod_config_menu_cn_2494192799\\scripts\\modconfig.lua.iodg.bak",
+  "backup_sha256": "19a0366d7db6faae98a94dd46c5111f5ec4e5d4dc1bc456cb7fd3cacac3ffaf2",
+  "historical_frozen_sha256": "3ace42aed3a2a74fa6d8dbc1b225aa2470b6cbcd92204b800187811fe0ea37ce",
+  "executed_source": "research/menu_environment/pristine_modconfig.lua",
+  "executed_sha256": "19a0366d7db6faae98a94dd46c5111f5ec4e5d4dc1bc456cb7fd3cacac3ffaf2",
+  "difference": "historical frozen file has exactly one inserted experimental online-menu-guard block",
+  "inserted_bytes": 442,
+  "inserted_sha256": "e42abb60c304af41b25f7ad659175a8d0addb27736bd331ccb2b21f4d2bf4672",
+  "source_bytes_copied": 138433,
+  "game_files_written": 0,
+  "upstream_distribution_proven": false
+}

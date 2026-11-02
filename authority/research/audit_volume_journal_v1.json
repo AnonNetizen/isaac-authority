@@ -1,0 +1,103 @@
+{
+  "schema": "audit-volume-journal-1",
+  "work_limit": 10000000,
+  "case_timeout_seconds": 5,
+  "batch_timeout_seconds": 60,
+  "buffer_capacity": 262144,
+  "harness_sha256": "a96a9f48fef1a2bbd07f582bdf4f70bbad1012174179228ced4464ff32ef06ab",
+  "derived_harness_sha256": "fb6d41b7a9ee136b5ea42d8d2586a41253d2bc8fccd1f93b6d8937eed919335a",
+  "cases": [
+    {
+      "id": "empty-close",
+      "exit": 0
+    },
+    {
+      "id": "byte-parity",
+      "exit": 0
+    },
+    {
+      "id": "boundaries",
+      "exit": 0
+    },
+    {
+      "id": "large-stream",
+      "exit": 0
+    },
+    {
+      "id": "read-then-append",
+      "exit": 0
+    },
+    {
+      "id": "execution-read-guard",
+      "exit": 0
+    },
+    {
+      "id": "quota",
+      "exit": 0
+    },
+    {
+      "id": "work-budget",
+      "exit": 0
+    },
+    {
+      "id": "short-write",
+      "exit": 0
+    },
+    {
+      "id": "partial-write",
+      "exit": 0
+    },
+    {
+      "id": "flush-failure",
+      "exit": 0
+    },
+    {
+      "id": "close-failure",
+      "exit": 0
+    },
+    {
+      "id": "corruption",
+      "exit": 0
+    },
+    {
+      "id": "thread-guard",
+      "exit": 0
+    },
+    {
+      "id": "recovery-save",
+      "exit": 0
+    },
+    {
+      "id": "recovery-private",
+      "exit": 0
+    },
+    {
+      "id": "recovery-draw",
+      "exit": 0
+    },
+    {
+      "id": "duplicates",
+      "exit": 0
+    },
+    {
+      "id": "abort-unsealed",
+      "exit": 0
+    },
+    {
+      "id": "kill-pending",
+      "exit": 73
+    },
+    {
+      "id": "record-limit",
+      "exit": 0
+    },
+    {
+      "id": "exact-file-quota",
+      "exit": 0
+    },
+    {
+      "id": "both-limits",
+      "exit": 0
+    }
+  ]
+}

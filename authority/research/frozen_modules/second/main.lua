@@ -1,0 +1,1 @@
+-- A second frozen root, not automatically executed.

@@ -1,0 +1,85 @@
+{
+  "schema": "compact-value-benchmark-1",
+  "work_limit": 10000000,
+  "timeout_seconds": 5,
+  "derived_from": "build-bound-measurement/source/million-reads.lua",
+  "derived_source_sha256": "380e8572413d80418d0e6b9549f9f30621c062745f1de79a34fa5d29c178bc40",
+  "cases": [
+    {
+      "id": "reads-20000-off",
+      "source": "research/compact_values/reads_20000.lua",
+      "source_sha256": "8293d84addca1d97aa24446790de4d821c54006e2fe6fc2527a0e8ddefb2530d",
+      "count": 20000,
+      "bindings": false,
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ]
+    },
+    {
+      "id": "reads-20000-on",
+      "source": "research/compact_values/reads_20000.lua",
+      "source_sha256": "8293d84addca1d97aa24446790de4d821c54006e2fe6fc2527a0e8ddefb2530d",
+      "count": 20000,
+      "bindings": true,
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_bindings",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ]
+    },
+    {
+      "id": "reads-200000-off",
+      "source": "research/compact_values/reads_200000.lua",
+      "source_sha256": "5432d02cddcc54b929920636a73bab13f82106be79ecec5f0f2295bfc8feb912",
+      "count": 200000,
+      "bindings": false,
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ]
+    },
+    {
+      "id": "reads-200000-on",
+      "source": "research/compact_values/reads_200000.lua",
+      "source_sha256": "5432d02cddcc54b929920636a73bab13f82106be79ecec5f0f2295bfc8feb912",
+      "count": 200000,
+      "bindings": true,
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_bindings",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ]
+    }
+  ]
+}

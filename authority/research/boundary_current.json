@@ -1,0 +1,18 @@
+{
+  "schema": "current-boundary-research-1",
+  "abi": "ia-lua533-boundary-reads-1",
+  "executable": "build-read-set/Release/authority-reads.exe",
+  "executable_sha256": "d636d4395cc04c653ebe09ca9b16e56910fc0235040ae9f6495f966d59f4947e",
+  "suite": "research/boundary_reads_v5.json",
+  "driver": "tools/run_boundary_reads.py",
+  "verifier": "tools/verify_boundary_reads.py",
+  "results": "docs/BOUNDARY_READ_SET_RESULTS.md",
+  "work_limit": 10000000,
+  "child_timeout_seconds": 5,
+  "legacy_write_runtime_unsafe": true,
+  "legacy_reason": "settt_ double-evaluates side-effecting destination; nil/constant initialization may corrupt GC traversal",
+  "legacy_role": "preserved offline fault comparison only",
+  "consumer_cache_enabled": false,
+  "automatic_projection_passed": false,
+  "real_mod_initialization_verified": false
+}

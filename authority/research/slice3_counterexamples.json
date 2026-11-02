@@ -1,0 +1,201 @@
+{
+  "schema": "isaac-runtime-suite-1",
+  "view_rule": "personal-settings-authority-hud-v1",
+  "purpose": "Original ambiguity cases under the fixed global dual-view rule",
+  "cases": [
+    {
+      "id": "slice3-slice_setting_ambiguity-1-2",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice_setting_ambiguity",
+          "sha256": {
+            "main.lua": "18e65786e297e525f9b3494fcfc8f127a19bede4d72235c7bf3b7f54c0b0e556"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Slice Setting Ambiguity": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Slice Setting Ambiguity": "{\"amount\": 2, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 1,
+              "/draws/1/0/x": 124,
+              "/stores/1/Slice Setting Ambiguity": "{\"amount\": 2, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+            },
+            "texts": [
+              [
+                "zh|amount=1"
+              ],
+              [
+                "en|amount=1"
+              ]
+            ]
+          }
+        }
+      ],
+      "case_kind": "functional"
+    },
+    {
+      "id": "slice3-slice_setting_ambiguity-2-1",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice_setting_ambiguity",
+          "sha256": {
+            "main.lua": "18e65786e297e525f9b3494fcfc8f127a19bede4d72235c7bf3b7f54c0b0e556"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Slice Setting Ambiguity": "{\"amount\": 2, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Slice Setting Ambiguity": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 2,
+              "/draws/1/0/x": 124,
+              "/stores/1/Slice Setting Ambiguity": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+            },
+            "texts": [
+              [
+                "zh|amount=2"
+              ],
+              [
+                "en|amount=2"
+              ]
+            ]
+          }
+        }
+      ],
+      "case_kind": "functional"
+    },
+    {
+      "id": "slice3-slice2_setting_control-1-2",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice2_setting_control",
+          "sha256": {
+            "main.lua": "07d005c9e17663eea8c64dc8f608056b0a377f462b9923d4c6cd921b1224476d"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Slice2 Setting Control": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Slice2 Setting Control": "{\"amount\": 2, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 1,
+              "/draws/1/0/x": 124,
+              "/stores/1/Slice2 Setting Control": "{\"amount\": 2, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+            },
+            "texts": [
+              [
+                "other"
+              ],
+              [
+                "other"
+              ]
+            ]
+          }
+        }
+      ],
+      "case_kind": "functional"
+    },
+    {
+      "id": "slice3-slice2_setting_control-2-1",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice2_setting_control",
+          "sha256": {
+            "main.lua": "07d005c9e17663eea8c64dc8f608056b0a377f462b9923d4c6cd921b1224476d"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Slice2 Setting Control": "{\"amount\": 2, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Slice2 Setting Control": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 2,
+              "/draws/1/0/x": 124,
+              "/stores/1/Slice2 Setting Control": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+            },
+            "texts": [
+              [
+                "branch"
+              ],
+              [
+                "branch"
+              ]
+            ]
+          }
+        }
+      ],
+      "case_kind": "functional"
+    }
+  ],
+  "bootstrap_sha256": "8d3b03f1e9ee9a95775b8a2aefada880a3f8331e9ee2d5193af490bc4f0c778e",
+  "enums_sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+}

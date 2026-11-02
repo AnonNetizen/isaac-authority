@@ -1,0 +1,1523 @@
+{
+  "schema": "native-pressure-source-reclamation-bounded-stress-1",
+  "work_limit": 10000000,
+  "timeout_seconds": 5,
+  "cases": [
+    {
+      "id": "serialization-ten-frame-changes",
+      "source": "research/settings_value/serialization-mod/main.lua",
+      "source_sha256": "f7a506e9622c8aba436885545d39ccf062876ddd4620eef3036bd2166dc0c4eb",
+      "modules": {
+        "entry": 1,
+        "roots": [
+          {
+            "root": "research/slice3_ui_inputs/mods/mod_config_menu_cn_2494192799",
+            "display": "mods/mod_config_menu_cn_2494192799",
+            "sha256": {
+              "main.lua": "f50703317053cf5e7e8b13639f48d66bd4559846d3f267ce778db5f0697cbbde",
+              "scripts/customcallbacks.lua": "4e10ddf8fcfa4c83551d629329165c6c8644bdbf1271231abbf9b05465c1e95c",
+              "scripts/filepathhelper.lua": "0d39e9ae976154a6f42bb6b257d4ccf05cbbc7dd84fa2b2cf31b47665b2b8f3a",
+              "scripts/inputhelper.lua": "9ba9c7cdfdaee96d5d75ca3929c7fe88d42b5cb637c9972eb99658669ae52858",
+              "scripts/modconfig.lua": "19a0366d7db6faae98a94dd46c5111f5ec4e5d4dc1bc456cb7fd3cacac3ffaf2",
+              "scripts/modconfigoldcompatibility.lua": "79f3dcf78563b69619864089616b070126a04ae55b913a1ea08ac3c6008588e3",
+              "scripts/savehelper.lua": "345980c5ccca5a5e9d3ec9855b6e4a997edef0dc33d6424201919f8092f1096f",
+              "scripts/screenhelper.lua": "a08cd198e82bce9a711477e48d7a2ba8399689d058c89595c40a7bb576fd3584"
+            },
+            "source_paths": {
+              "scripts/modconfig.lua": "research/menu_environment/pristine_modconfig.lua"
+            }
+          },
+          {
+            "root": "research/settings_value/serialization-mod",
+            "display": "mods/settings-value-fixture",
+            "sha256": {
+              "main.lua": "f7a506e9622c8aba436885545d39ccf062876ddd4620eef3036bd2166dc0c4eb"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "steps": [
+        {
+          "op": "dispatch",
+          "frame_id": 1,
+          "event": 451,
+          "phase": "authority",
+          "role": "host",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "frame_id": 1,
+          "event": 452,
+          "phase": "presentation",
+          "role": "personal",
+          "input": {
+            "device": {
+              "controllers": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "unlisted_released": true,
+              "buttons": {
+                "0": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "1": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "2": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "3": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "4": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                }
+              },
+              "actions": {},
+              "mouse_world": [
+                100,
+                120
+              ],
+              "mouse_screen": [
+                212,
+                118
+              ]
+            }
+          }
+        },
+        {
+          "op": "dispatch",
+          "frame_id": 2,
+          "event": 2,
+          "phase": "presentation",
+          "role": "personal",
+          "input": {
+            "device": {
+              "controllers": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "unlisted_released": true,
+              "buttons": {
+                "0": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  },
+                  "76": {
+                    "pressed": true,
+                    "triggered": true,
+                    "value": 1
+                  }
+                },
+                "1": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "2": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "3": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "4": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                }
+              },
+              "actions": {},
+              "mouse_world": [
+                100,
+                120
+              ],
+              "mouse_screen": [
+                212,
+                118
+              ]
+            }
+          }
+        },
+        {
+          "op": "dispatch",
+          "frame_id": 3,
+          "event": 2,
+          "phase": "presentation",
+          "role": "personal",
+          "input": {
+            "device": {
+              "controllers": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "unlisted_released": true,
+              "buttons": {
+                "0": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "1": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "2": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "3": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "4": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                }
+              },
+              "actions": {
+                "0": {
+                  "3": {
+                    "pressed": true,
+                    "triggered": true,
+                    "value": 0.5
+                  }
+                }
+              },
+              "mouse_world": [
+                100,
+                120
+              ],
+              "mouse_screen": [
+                212,
+                118
+              ]
+            }
+          }
+        },
+        {
+          "op": "dispatch",
+          "frame_id": 4,
+          "event": 2,
+          "phase": "presentation",
+          "role": "personal",
+          "input": {
+            "device": {
+              "controllers": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "unlisted_released": true,
+              "buttons": {
+                "0": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "1": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "2": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "3": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "4": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                }
+              },
+              "actions": {
+                "0": {
+                  "3": {
+                    "pressed": true,
+                    "triggered": true,
+                    "value": 0.5
+                  }
+                }
+              },
+              "mouse_world": [
+                100,
+                120
+              ],
+              "mouse_screen": [
+                212,
+                118
+              ]
+            }
+          }
+        },
+        {
+          "op": "dispatch",
+          "frame_id": 5,
+          "event": 2,
+          "phase": "presentation",
+          "role": "personal",
+          "input": {
+            "device": {
+              "controllers": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "unlisted_released": true,
+              "buttons": {
+                "0": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "1": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "2": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "3": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "4": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                }
+              },
+              "actions": {
+                "0": {
+                  "1": {
+                    "pressed": true,
+                    "triggered": true,
+                    "value": 0.5
+                  }
+                }
+              },
+              "mouse_world": [
+                100,
+                120
+              ],
+              "mouse_screen": [
+                212,
+                118
+              ]
+            }
+          }
+        },
+        {
+          "op": "dispatch",
+          "frame_id": 6,
+          "event": 2,
+          "phase": "presentation",
+          "role": "personal",
+          "input": {
+            "device": {
+              "controllers": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "unlisted_released": true,
+              "buttons": {
+                "0": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "1": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "2": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "3": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "4": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                }
+              },
+              "actions": {
+                "0": {
+                  "1": {
+                    "pressed": true,
+                    "triggered": true,
+                    "value": 0.5
+                  }
+                }
+              },
+              "mouse_world": [
+                100,
+                120
+              ],
+              "mouse_screen": [
+                212,
+                118
+              ]
+            }
+          }
+        },
+        {
+          "op": "dispatch",
+          "frame_id": 7,
+          "event": 2,
+          "phase": "presentation",
+          "role": "personal",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "frame_id": 8,
+          "event": 2,
+          "phase": "presentation",
+          "role": "personal",
+          "input": {
+            "device": {
+              "controllers": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "unlisted_released": true,
+              "buttons": {
+                "0": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "1": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "2": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "3": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "4": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                }
+              },
+              "actions": {
+                "0": {
+                  "1": {
+                    "pressed": true,
+                    "triggered": true,
+                    "value": 0.5
+                  }
+                }
+              },
+              "mouse_world": [
+                100,
+                120
+              ],
+              "mouse_screen": [
+                212,
+                118
+              ]
+            }
+          }
+        },
+        {
+          "op": "dispatch",
+          "frame_id": 9,
+          "event": 2,
+          "phase": "presentation",
+          "role": "personal",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "frame_id": 10,
+          "event": 2,
+          "phase": "presentation",
+          "role": "personal",
+          "input": {
+            "device": {
+              "controllers": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "unlisted_released": true,
+              "buttons": {
+                "0": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "1": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "2": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "3": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "4": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                }
+              },
+              "actions": {
+                "0": {
+                  "1": {
+                    "pressed": true,
+                    "triggered": true,
+                    "value": 0.5
+                  }
+                }
+              },
+              "mouse_world": [
+                100,
+                120
+              ],
+              "mouse_screen": [
+                212,
+                118
+              ]
+            }
+          }
+        },
+        {
+          "op": "dispatch",
+          "frame_id": 11,
+          "event": 2,
+          "phase": "presentation",
+          "role": "personal",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "frame_id": 12,
+          "event": 2,
+          "phase": "presentation",
+          "role": "personal",
+          "input": {
+            "device": {
+              "controllers": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "unlisted_released": true,
+              "buttons": {
+                "0": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "1": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "2": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "3": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "4": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                }
+              },
+              "actions": {
+                "0": {
+                  "1": {
+                    "pressed": true,
+                    "triggered": true,
+                    "value": 0.5
+                  }
+                }
+              },
+              "mouse_world": [
+                100,
+                120
+              ],
+              "mouse_screen": [
+                212,
+                118
+              ]
+            }
+          }
+        },
+        {
+          "op": "dispatch",
+          "frame_id": 13,
+          "event": 2,
+          "phase": "presentation",
+          "role": "personal",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "frame_id": 14,
+          "event": 2,
+          "phase": "presentation",
+          "role": "personal",
+          "input": {
+            "device": {
+              "controllers": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "unlisted_released": true,
+              "buttons": {
+                "0": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "1": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "2": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "3": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "4": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                }
+              },
+              "actions": {
+                "0": {
+                  "1": {
+                    "pressed": true,
+                    "triggered": true,
+                    "value": 0.5
+                  }
+                }
+              },
+              "mouse_world": [
+                100,
+                120
+              ],
+              "mouse_screen": [
+                212,
+                118
+              ]
+            }
+          }
+        },
+        {
+          "op": "dispatch",
+          "frame_id": 15,
+          "event": 2,
+          "phase": "presentation",
+          "role": "personal",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "frame_id": 16,
+          "event": 2,
+          "phase": "presentation",
+          "role": "personal",
+          "input": {
+            "device": {
+              "controllers": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "unlisted_released": true,
+              "buttons": {
+                "0": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "1": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "2": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "3": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "4": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                }
+              },
+              "actions": {
+                "0": {
+                  "1": {
+                    "pressed": true,
+                    "triggered": true,
+                    "value": 0.5
+                  }
+                }
+              },
+              "mouse_world": [
+                100,
+                120
+              ],
+              "mouse_screen": [
+                212,
+                118
+              ]
+            }
+          }
+        },
+        {
+          "op": "dispatch",
+          "frame_id": 17,
+          "event": 2,
+          "phase": "presentation",
+          "role": "personal",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "frame_id": 18,
+          "event": 2,
+          "phase": "presentation",
+          "role": "personal",
+          "input": {
+            "device": {
+              "controllers": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "unlisted_released": true,
+              "buttons": {
+                "0": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "1": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "2": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "3": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "4": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                }
+              },
+              "actions": {
+                "0": {
+                  "1": {
+                    "pressed": true,
+                    "triggered": true,
+                    "value": 0.5
+                  }
+                }
+              },
+              "mouse_world": [
+                100,
+                120
+              ],
+              "mouse_screen": [
+                212,
+                118
+              ]
+            }
+          }
+        },
+        {
+          "op": "dispatch",
+          "frame_id": 19,
+          "event": 2,
+          "phase": "presentation",
+          "role": "personal",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "frame_id": 20,
+          "event": 2,
+          "phase": "presentation",
+          "role": "personal",
+          "input": {
+            "device": {
+              "controllers": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "unlisted_released": true,
+              "buttons": {
+                "0": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "1": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "2": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "3": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "4": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                }
+              },
+              "actions": {
+                "0": {
+                  "1": {
+                    "pressed": true,
+                    "triggered": true,
+                    "value": 0.5
+                  }
+                }
+              },
+              "mouse_world": [
+                100,
+                120
+              ],
+              "mouse_screen": [
+                212,
+                118
+              ]
+            }
+          }
+        },
+        {
+          "op": "dispatch",
+          "frame_id": 21,
+          "event": 2,
+          "phase": "presentation",
+          "role": "personal",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "frame_id": 22,
+          "event": 2,
+          "phase": "presentation",
+          "role": "personal",
+          "input": {
+            "device": {
+              "controllers": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "unlisted_released": true,
+              "buttons": {
+                "0": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "1": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "2": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "3": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "4": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                }
+              },
+              "actions": {
+                "0": {
+                  "1": {
+                    "pressed": true,
+                    "triggered": true,
+                    "value": 0.5
+                  }
+                }
+              },
+              "mouse_world": [
+                100,
+                120
+              ],
+              "mouse_screen": [
+                212,
+                118
+              ]
+            }
+          }
+        },
+        {
+          "op": "dispatch",
+          "frame_id": 23,
+          "event": 2,
+          "phase": "presentation",
+          "role": "personal",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "frame_id": 24,
+          "event": 2,
+          "phase": "presentation",
+          "role": "personal",
+          "input": {
+            "device": {
+              "controllers": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "unlisted_released": true,
+              "buttons": {
+                "0": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "1": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "2": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "3": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "4": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                }
+              },
+              "actions": {
+                "0": {
+                  "1": {
+                    "pressed": true,
+                    "triggered": true,
+                    "value": 0.5
+                  }
+                }
+              },
+              "mouse_world": [
+                100,
+                120
+              ],
+              "mouse_screen": [
+                212,
+                118
+              ]
+            }
+          }
+        },
+        {
+          "op": "dispatch",
+          "frame_id": 25,
+          "event": 453,
+          "phase": "presentation",
+          "role": "personal",
+          "input": {
+            "device": {
+              "controllers": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "unlisted_released": true,
+              "buttons": {
+                "0": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "1": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "2": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "3": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                },
+                "4": {
+                  "-1": {
+                    "pressed": false,
+                    "triggered": false,
+                    "value": 0
+                  }
+                }
+              },
+              "actions": {},
+              "mouse_world": [
+                100,
+                120
+              ],
+              "mouse_screen": [
+                212,
+                118
+              ]
+            }
+          }
+        },
+        {
+          "op": "evaluate",
+          "code": "return ValuesConfig.amount,ValuesConfig.private,ValuesConfig.x"
+        }
+      ],
+      "kind": "required-function-probe",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true,
+          "REPENTANCE": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2,
+          "is_paused": false
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/mod_config_menu_cn_2494192799": "{}",
+            "mods/settings-value-fixture": "{\"amount\":1,\"private\":0,\"x\":137,\"language\":\"zh\",\"mode\":\"second-frame\"}"
+          },
+          {
+            "mods/mod_config_menu_cn_2494192799": "{}",
+            "mods/settings-value-fixture": "{\"amount\":2,\"private\":0,\"x\":137,\"language\":\"zh\",\"mode\":\"second-frame\"}"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "font_profile": {
+        "path": "research/font_metrics/profile.json",
+        "sha256": "2577a0bd2510e4fa02e04dedcbec2ac7fbc4ca8f068505a44c506ea3fa25d720"
+      },
+      "font_capture_profile": {
+        "path": "research/font_capture/profile.json",
+        "sha256": "3b0f26a142c8464bac5323c24991cd2ebef172e43e6a96ec4a8f4a341df141ce"
+      },
+      "ui_flow_profile": {
+        "path": "research/ui_flow/profile.json",
+        "sha256": "37d57a373b836dd8a5b6ee78778ffea22c4b20ad9409eecf21ce9c119ae03d9f"
+      },
+      "menu_profile": {
+        "path": "research/world_view/menu-v2.json",
+        "sha256": "35833b4a3f488c8e9f699215266aed9dac29b3c916c803d1e62fc1dbb5ea4d8f"
+      },
+      "world_view_profile": {
+        "path": "research/world_view/profile-v2.json",
+        "sha256": "695ba192ce06cccce8444fe3e24fab7aa021b3da4c67a1b7d831053eaec34012"
+      },
+      "settings_profile": {
+        "path": "research/trusted_settings/profile-v2.json",
+        "sha256": "44a9c876529e3b529df0529f6fa81e25774a10808a613adae1b1a96d736dd9fa"
+      },
+      "fork": true,
+      "change": true,
+      "swap": false,
+      "duplicate": false,
+      "rebuild": false,
+      "required_compatibility": true,
+      "compact_audit": true,
+      "authority_timeline": {
+        "schema": "authority-state-timeline-1",
+        "branch_views": true,
+        "links": {
+          "personal:presentation:452:1": {
+            "authority": "host:authority:451:1",
+            "view": "end",
+            "project_hud": true
+          },
+          "personal:presentation:2:2": {
+            "authority": "host:authority:451:1",
+            "view": "end",
+            "project_hud": true
+          },
+          "personal:presentation:2:3": {
+            "authority": "host:authority:451:1",
+            "view": "end",
+            "project_hud": true
+          },
+          "personal:presentation:2:4": {
+            "authority": "host:authority:451:1",
+            "view": "end",
+            "project_hud": true
+          },
+          "personal:presentation:2:5": {
+            "authority": "host:authority:451:1",
+            "view": "end",
+            "project_hud": true
+          },
+          "personal:presentation:2:6": {
+            "authority": "host:authority:451:1",
+            "view": "end",
+            "project_hud": true
+          },
+          "personal:presentation:2:7": {
+            "authority": "host:authority:451:1",
+            "view": "end",
+            "project_hud": true
+          },
+          "personal:presentation:2:8": {
+            "authority": "host:authority:451:1",
+            "view": "end",
+            "project_hud": true
+          },
+          "personal:presentation:2:9": {
+            "authority": "host:authority:451:1",
+            "view": "end",
+            "project_hud": true
+          },
+          "personal:presentation:2:10": {
+            "authority": "host:authority:451:1",
+            "view": "end",
+            "project_hud": true
+          },
+          "personal:presentation:2:11": {
+            "authority": "host:authority:451:1",
+            "view": "end",
+            "project_hud": true
+          },
+          "personal:presentation:2:12": {
+            "authority": "host:authority:451:1",
+            "view": "end",
+            "project_hud": true
+          },
+          "personal:presentation:2:13": {
+            "authority": "host:authority:451:1",
+            "view": "end",
+            "project_hud": true
+          },
+          "personal:presentation:2:14": {
+            "authority": "host:authority:451:1",
+            "view": "end",
+            "project_hud": true
+          },
+          "personal:presentation:2:15": {
+            "authority": "host:authority:451:1",
+            "view": "end",
+            "project_hud": true
+          },
+          "personal:presentation:2:16": {
+            "authority": "host:authority:451:1",
+            "view": "end",
+            "project_hud": true
+          },
+          "personal:presentation:2:17": {
+            "authority": "host:authority:451:1",
+            "view": "end",
+            "project_hud": true
+          },
+          "personal:presentation:2:18": {
+            "authority": "host:authority:451:1",
+            "view": "end",
+            "project_hud": true
+          },
+          "personal:presentation:2:19": {
+            "authority": "host:authority:451:1",
+            "view": "end",
+            "project_hud": true
+          },
+          "personal:presentation:2:20": {
+            "authority": "host:authority:451:1",
+            "view": "end",
+            "project_hud": true
+          },
+          "personal:presentation:2:21": {
+            "authority": "host:authority:451:1",
+            "view": "end",
+            "project_hud": true
+          },
+          "personal:presentation:2:22": {
+            "authority": "host:authority:451:1",
+            "view": "end",
+            "project_hud": true
+          },
+          "personal:presentation:2:23": {
+            "authority": "host:authority:451:1",
+            "view": "end",
+            "project_hud": true
+          },
+          "personal:presentation:2:24": {
+            "authority": "host:authority:451:1",
+            "view": "end",
+            "project_hud": true
+          },
+          "personal:presentation:453:25": {
+            "authority": "host:authority:451:1",
+            "view": "end",
+            "project_hud": true
+          }
+        }
+      },
+      "save_mode": "second-frame",
+      "expected_changes": 10,
+      "source_reclamation": true,
+      "native_value_pressure": true
+    }
+  ]
+}

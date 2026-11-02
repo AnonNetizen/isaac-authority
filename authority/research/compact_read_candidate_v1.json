@@ -1,0 +1,17 @@
+{
+  "schema": "compact-read-candidate-1",
+  "abi": "ia-lua533-compact-reads-1",
+  "executable": "build-compact-read/Release/authority-compact-reads.exe",
+  "executable_sha256": "f568e94fd9881317aff32de785238c2d7d1af0be32b629f2b03f432a4cab7d72",
+  "verifier": "tools/verify_compact_reads.py",
+  "suite": "research/compact_reads_v2.json",
+  "draw_suite": "research/draw_plans_v3.json",
+  "results": "docs/COMPACT_READ_RESULTS.md",
+  "work_limit": 10000000,
+  "child_timeout_seconds": 5,
+  "bindings_verified": false,
+  "consumer_cache_enabled": false,
+  "automatic_projection_passed": false,
+  "real_mod_initialization_verified": false,
+  "stable_baseline": "research/boundary_current.json"
+}

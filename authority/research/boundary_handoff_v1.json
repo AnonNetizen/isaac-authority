@@ -1,0 +1,820 @@
+{
+  "schema": "boundary-handoff-frozen-1",
+  "work_limit": 10000000,
+  "timeout_seconds": 5,
+  "batch_timeout_seconds": 60,
+  "view_rule": "personal-settings-authority-hud-v1",
+  "unit": "prepaid 64 VM instructions plus API/observation/encoding work; not the old full-trace unit",
+  "lua_source_manifest_sha256": "a33e8a3c98d2d219b66b5d34ceb2d851c72aa4033ce4a3b2c5f3fc2ddc53326e",
+  "cases": [
+    {
+      "id": "configuration-closure-cache",
+      "source": "research/boundary_handoff/handoff.lua",
+      "source_sha256": "ff68e6f17c53c4d27a933f3bf25197d812033e85cad44ed30f4ee791e8ec8727",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect",
+          "callback": 2,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language"
+          ]
+        },
+        {
+          "op": "inspect",
+          "callback": 2,
+          "upvalue": "alias",
+          "fields": [
+            "amount",
+            "x",
+            "language"
+          ]
+        },
+        {
+          "op": "inspect",
+          "callback": 3,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language"
+          ]
+        },
+        {
+          "op": "inspect",
+          "callback": 2,
+          "upvalue": "get",
+          "fields": []
+        },
+        {
+          "op": "dispatch",
+          "role": "host",
+          "event": 1,
+          "phase": "authority",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "role": "host",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "move": true
+          }
+        },
+        {
+          "op": "inspect",
+          "callback": 2,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language"
+          ]
+        },
+        {
+          "op": "inspect",
+          "callback": 3,
+          "upvalue": "count",
+          "fields": []
+        },
+        {
+          "op": "inspect",
+          "callback": 2,
+          "upvalue": "count",
+          "fields": []
+        },
+        {
+          "op": "gc"
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect",
+          "callback": 2,
+          "upvalue": "reader",
+          "fields": []
+        }
+      ],
+      "kind": "handoff",
+      "assertions": "continuity"
+    },
+    {
+      "id": "configuration-swapped",
+      "source": "research/boundary_handoff/handoff.lua",
+      "source_sha256": "ff68e6f17c53c4d27a933f3bf25197d812033e85cad44ed30f4ee791e8ec8727",
+      "stores": [
+        "{\"amount\":2,\"language\":\"zh\",\"x\":17}",
+        "{\"amount\":1,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect",
+          "callback": 2,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language"
+          ]
+        },
+        {
+          "op": "inspect",
+          "callback": 2,
+          "upvalue": "alias",
+          "fields": [
+            "amount",
+            "x",
+            "language"
+          ]
+        },
+        {
+          "op": "inspect",
+          "callback": 3,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language"
+          ]
+        },
+        {
+          "op": "inspect",
+          "callback": 2,
+          "upvalue": "get",
+          "fields": []
+        },
+        {
+          "op": "dispatch",
+          "role": "host",
+          "event": 1,
+          "phase": "authority",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "role": "host",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "move": true
+          }
+        },
+        {
+          "op": "inspect",
+          "callback": 2,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language"
+          ]
+        },
+        {
+          "op": "inspect",
+          "callback": 3,
+          "upvalue": "count",
+          "fields": []
+        },
+        {
+          "op": "inspect",
+          "callback": 2,
+          "upvalue": "count",
+          "fields": []
+        },
+        {
+          "op": "gc"
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect",
+          "callback": 2,
+          "upvalue": "reader",
+          "fields": []
+        }
+      ],
+      "kind": "handoff",
+      "assertions": "continuity"
+    },
+    {
+      "id": "saved-reload",
+      "source": "research/boundary_handoff/handoff.lua",
+      "source_sha256": "ff68e6f17c53c4d27a933f3bf25197d812033e85cad44ed30f4ee791e8ec8727",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "dispatch",
+          "role": "host",
+          "event": 1,
+          "phase": "authority",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "move": true
+          }
+        },
+        {
+          "op": "reload_saved"
+        },
+        {
+          "op": "inspect",
+          "callback": 2,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "handoff",
+      "assertions": "reload"
+    },
+    {
+      "id": "rebuild-history",
+      "source": "research/boundary_handoff/handoff.lua",
+      "source_sha256": "ff68e6f17c53c4d27a933f3bf25197d812033e85cad44ed30f4ee791e8ec8727",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "dispatch",
+          "role": "host",
+          "event": 1,
+          "phase": "authority",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "move": true
+          }
+        },
+        {
+          "op": "rebuild"
+        },
+        {
+          "op": "inspect",
+          "callback": 2,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "handoff",
+      "assertions": "reload"
+    },
+    {
+      "id": "shared-upvalue-factory",
+      "source": "research/boundary_handoff/upvalues.lua",
+      "source_sha256": "d3bb386749a3e8e6e1ca7422d9e8785a783aeb26a0c7ea650cec48132b14afec",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect",
+          "callback": 1,
+          "upvalue": "counter",
+          "fields": []
+        },
+        {
+          "op": "inspect",
+          "callback": 2,
+          "upvalue": "counter",
+          "fields": []
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "change": true
+          }
+        },
+        {
+          "op": "inspect",
+          "callback": 1,
+          "upvalue": "counter",
+          "fields": []
+        },
+        {
+          "op": "inspect",
+          "callback": 2,
+          "upvalue": "counter",
+          "fields": []
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "handoff",
+      "assertions": "shared"
+    },
+    {
+      "id": "remove-gc-reregister",
+      "source": "research/boundary_handoff/lifecycle.lua",
+      "source_sha256": "4075149d2af93108534fbb59c707cc81f71ec16e767d1c050fc9ed0603e32546",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect",
+          "callback": 1,
+          "upvalue": "value",
+          "fields": []
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "gc"
+        },
+        {
+          "op": "inspect",
+          "callback": 3,
+          "upvalue": "value",
+          "fields": []
+        },
+        {
+          "op": "inspect",
+          "callback": 1,
+          "upvalue": "value",
+          "fields": [],
+          "expect_error": "retired"
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "handoff",
+      "assertions": "lifecycle"
+    },
+    {
+      "id": "stale-context-handle",
+      "source": "research/boundary_handoff/handoff.lua",
+      "source_sha256": "ff68e6f17c53c4d27a933f3bf25197d812033e85cad44ed30f4ee791e8ec8727",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "rebuild"
+        },
+        {
+          "op": "stale_handle",
+          "generation": 2,
+          "expect_error": "Stale context generation"
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "handoff",
+      "assertions": "stale"
+    },
+    {
+      "id": "rollback-write",
+      "source": "research/boundary_handoff/rejection.lua",
+      "source_sha256": "ef144403bb0d954c365ab8643b3045482313b93137403e432f633b7d01870ccf",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "dispatch",
+          "role": "host",
+          "event": 1,
+          "phase": "authority",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "write": true
+          },
+          "expect_error": "World write requires authority phase"
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "boundary-rejection",
+      "assertions": "rollback"
+    },
+    {
+      "id": "rollback-random",
+      "source": "research/boundary_handoff/rejection.lua",
+      "source_sha256": "ef144403bb0d954c365ab8643b3045482313b93137403e432f633b7d01870ccf",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "dispatch",
+          "role": "host",
+          "event": 1,
+          "phase": "authority",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "random": true
+          },
+          "expect_error": "Random result has no proven authority reference"
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "boundary-rejection",
+      "assertions": "rollback"
+    },
+    {
+      "id": "rollback-error",
+      "source": "research/boundary_handoff/rejection.lua",
+      "source_sha256": "ef144403bb0d954c365ab8643b3045482313b93137403e432f633b7d01870ccf",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "dispatch",
+          "role": "host",
+          "event": 1,
+          "phase": "authority",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "error": true
+          },
+          "expect_error": "injected callback failure"
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "boundary-rejection",
+      "assertions": "rollback"
+    },
+    {
+      "id": "rollback-unknown",
+      "source": "research/boundary_handoff/rejection.lua",
+      "source_sha256": "ef144403bb0d954c365ab8643b3045482313b93137403e432f633b7d01870ccf",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "dispatch",
+          "role": "host",
+          "event": 1,
+          "phase": "authority",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "unknown": true
+          },
+          "expect_error": "Unknown module contract"
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "boundary-rejection",
+      "assertions": "rollback"
+    },
+    {
+      "id": "opaque-table-128",
+      "source": "research/boundary_handoff/large.lua",
+      "source_sha256": "62afec70709a6c835d062ff4c6073c823585266da361f6a52d62ea5558907219",
+      "stores": [
+        "{\"amount\":2,\"bulk\":128,\"language\":\"en\",\"x\":137}",
+        "{\"amount\":2,\"bulk\":128,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "handoff",
+      "assertions": "large",
+      "bulk": 128
+    },
+    {
+      "id": "opaque-table-4096",
+      "source": "research/boundary_handoff/large.lua",
+      "source_sha256": "62afec70709a6c835d062ff4c6073c823585266da361f6a52d62ea5558907219",
+      "stores": [
+        "{\"amount\":2,\"bulk\":4096,\"language\":\"en\",\"x\":137}",
+        "{\"amount\":2,\"bulk\":4096,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "handoff",
+      "assertions": "large",
+      "bulk": 4096
+    },
+    {
+      "id": "opaque-table-32768",
+      "source": "research/boundary_handoff/large.lua",
+      "source_sha256": "62afec70709a6c835d062ff4c6073c823585266da361f6a52d62ea5558907219",
+      "stores": [
+        "{\"amount\":2,\"bulk\":32768,\"language\":\"en\",\"x\":137}",
+        "{\"amount\":2,\"bulk\":32768,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "handoff",
+      "assertions": "large",
+      "bulk": 32768
+    },
+    {
+      "id": "observation-is-not-write-version",
+      "source": "research/boundary_handoff/handoff.lua",
+      "source_sha256": "ff68e6f17c53c4d27a933f3bf25197d812033e85cad44ed30f4ee791e8ec8727",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect",
+          "callback": 2,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "aba": true
+          }
+        },
+        {
+          "op": "inspect",
+          "callback": 2,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language"
+          ]
+        }
+      ],
+      "kind": "known-limitation",
+      "assertions": "aba"
+    },
+    {
+      "id": "ordinary-bytes-false-nil",
+      "source": "research/boundary_handoff/handoff.lua",
+      "source_sha256": "ff68e6f17c53c4d27a933f3bf25197d812033e85cad44ed30f4ee791e8ec8727",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "return false,nil,string.char(0,255),string.sub('abcd',2,3)"
+        }
+      ],
+      "kind": "handoff",
+      "assertions": "bytes"
+    },
+    {
+      "id": "unproven-mixed-rejected",
+      "source": "research/boundary_handoff/mixed.lua",
+      "source_sha256": "bde94d4c33a7b8f5f446aca5bdc781af9b774a8cf86e4ab581532158dae27dd3",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "dispatch",
+          "role": "host",
+          "event": 1,
+          "phase": "authority",
+          "input": {}
+        },
+        {
+          "op": "projection_gate",
+          "expect_error": "Mixed callback projection not implemented"
+        }
+      ],
+      "kind": "compatibility-not-implemented",
+      "assertions": "mixed"
+    },
+    {
+      "id": "work-limit",
+      "source": "research/boundary_handoff/budget.lua",
+      "source_sha256": "aa7226164420b51bc6f33abebef7c6ada822269c3119b2bcd1cffa167d7a5bb8",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [],
+      "kind": "process-rejection",
+      "process_error": "Boundary work limit exceeded"
+    }
+  ]
+}

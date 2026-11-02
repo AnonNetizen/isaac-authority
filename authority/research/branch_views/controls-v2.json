@@ -1,0 +1,3702 @@
+{
+  "schema": "branch-views-controls-1",
+  "work_limit": 10000000,
+  "timeout_seconds": 5,
+  "cases": [
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2,
+          "is_paused": false
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/authority-timeline-fixture": "{\"amount\":1,\"x\":17,\"language\":\"en\",\"extra\":false,\"cosmetic\":1}"
+          },
+          {
+            "mods/authority-timeline-fixture": "{\"amount\":2,\"x\":137,\"language\":\"zh\",\"extra\":true,\"cosmetic\":2}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "font_profile": {
+        "path": "research/font_metrics/profile.json",
+        "sha256": "2577a0bd2510e4fa02e04dedcbec2ac7fbc4ca8f068505a44c506ea3fa25d720"
+      },
+      "font_capture_profile": {
+        "path": "research/font_capture/profile.json",
+        "sha256": "3b0f26a142c8464bac5323c24991cd2ebef172e43e6a96ec4a8f4a341df141ce"
+      },
+      "ui_flow_profile": {
+        "path": "research/ui_flow/profile.json",
+        "sha256": "37d57a373b836dd8a5b6ee78778ffea22c4b20ad9409eecf21ce9c119ae03d9f"
+      },
+      "source": "research/authority_timeline/main-v4.lua",
+      "source_sha256": "010d7a77cc7bbfc3082f909577ea8afff20142a635c849961a4b480bab7046df",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/authority_timeline",
+            "display": "mods/authority-timeline-fixture",
+            "sha256": {
+              "main.lua": "010d7a77cc7bbfc3082f909577ea8afff20142a635c849961a4b480bab7046df"
+            },
+            "source_paths": {
+              "main.lua": "research/authority_timeline/main-v4.lua"
+            }
+          }
+        ]
+      },
+      "menu_profile": {
+        "path": "research/world_view/menu-v2.json",
+        "sha256": "35833b4a3f488c8e9f699215266aed9dac29b3c916c803d1e62fc1dbb5ea4d8f"
+      },
+      "world_view_profile": {
+        "path": "research/world_view/profile-v2.json",
+        "sha256": "695ba192ce06cccce8444fe3e24fab7aa021b3da4c67a1b7d831053eaec34012"
+      },
+      "id": "original-reward-controlled-hud-source-now-selects-host-one",
+      "steps": [
+        {
+          "op": "dispatch",
+          "frame_id": 1,
+          "event": 41,
+          "phase": "authority",
+          "role": "host",
+          "input": {}
+        }
+      ],
+      "custom": true,
+      "owner": "mods/authority-timeline-fixture",
+      "settings": {
+        "amount": 2,
+        "x": 137,
+        "language": "zh",
+        "extra": true,
+        "cosmetic": 2
+      },
+      "expected_frames": [
+        [
+          "one"
+        ]
+      ],
+      "branch_source_unchanged": true
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2,
+          "is_paused": false
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/authority-timeline-fixture": "{\"amount\":2,\"x\":17,\"language\":\"en\",\"extra\":false,\"cosmetic\":1}"
+          },
+          {
+            "mods/authority-timeline-fixture": "{\"amount\":1,\"x\":137,\"language\":\"zh\",\"extra\":true,\"cosmetic\":2}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "font_profile": {
+        "path": "research/font_metrics/profile.json",
+        "sha256": "2577a0bd2510e4fa02e04dedcbec2ac7fbc4ca8f068505a44c506ea3fa25d720"
+      },
+      "font_capture_profile": {
+        "path": "research/font_capture/profile.json",
+        "sha256": "3b0f26a142c8464bac5323c24991cd2ebef172e43e6a96ec4a8f4a341df141ce"
+      },
+      "ui_flow_profile": {
+        "path": "research/ui_flow/profile.json",
+        "sha256": "37d57a373b836dd8a5b6ee78778ffea22c4b20ad9409eecf21ce9c119ae03d9f"
+      },
+      "source": "research/authority_timeline/main-v4.lua",
+      "source_sha256": "010d7a77cc7bbfc3082f909577ea8afff20142a635c849961a4b480bab7046df",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/authority_timeline",
+            "display": "mods/authority-timeline-fixture",
+            "sha256": {
+              "main.lua": "010d7a77cc7bbfc3082f909577ea8afff20142a635c849961a4b480bab7046df"
+            },
+            "source_paths": {
+              "main.lua": "research/authority_timeline/main-v4.lua"
+            }
+          }
+        ]
+      },
+      "menu_profile": {
+        "path": "research/world_view/menu-v2.json",
+        "sha256": "35833b4a3f488c8e9f699215266aed9dac29b3c916c803d1e62fc1dbb5ea4d8f"
+      },
+      "world_view_profile": {
+        "path": "research/world_view/profile-v2.json",
+        "sha256": "695ba192ce06cccce8444fe3e24fab7aa021b3da4c67a1b7d831053eaec34012"
+      },
+      "id": "original-source-settings-swapped-select-host-other",
+      "steps": [
+        {
+          "op": "dispatch",
+          "frame_id": 1,
+          "event": 41,
+          "phase": "authority",
+          "role": "host",
+          "input": {}
+        }
+      ],
+      "custom": true,
+      "owner": "mods/authority-timeline-fixture",
+      "settings": {
+        "amount": 1,
+        "x": 137,
+        "language": "zh",
+        "extra": true,
+        "cosmetic": 2
+      },
+      "expected_frames": [
+        [
+          "other"
+        ]
+      ],
+      "branch_source_unchanged": true
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2,
+          "is_paused": false
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/branch-views-fixture": "{\"amount\":1,\"x\":17,\"language\":\"en\"}"
+          },
+          {
+            "mods/branch-views-fixture": "{\"amount\":2,\"x\":137,\"language\":\"zh\"}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "font_profile": {
+        "path": "research/font_metrics/profile.json",
+        "sha256": "2577a0bd2510e4fa02e04dedcbec2ac7fbc4ca8f068505a44c506ea3fa25d720"
+      },
+      "font_capture_profile": {
+        "path": "research/font_capture/profile.json",
+        "sha256": "3b0f26a142c8464bac5323c24991cd2ebef172e43e6a96ec4a8f4a341df141ce"
+      },
+      "ui_flow_profile": {
+        "path": "research/ui_flow/profile.json",
+        "sha256": "37d57a373b836dd8a5b6ee78778ffea22c4b20ad9409eecf21ce9c119ae03d9f"
+      },
+      "source": "research/branch_views/main.lua",
+      "source_sha256": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/branch_views",
+            "display": "mods/branch-views-fixture",
+            "sha256": {
+              "main.lua": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38"
+            }
+          }
+        ]
+      },
+      "menu_profile": {
+        "path": "research/world_view/menu-v2.json",
+        "sha256": "35833b4a3f488c8e9f699215266aed9dac29b3c916c803d1e62fc1dbb5ea4d8f"
+      },
+      "world_view_profile": {
+        "path": "research/world_view/profile-v2.json",
+        "sha256": "695ba192ce06cccce8444fe3e24fab7aa021b3da4c67a1b7d831053eaec34012"
+      },
+      "id": "divergent-ui-branch-keeps-personal-state-and-config",
+      "steps": [
+        {
+          "op": "dispatch",
+          "frame_id": 1,
+          "event": 201,
+          "phase": "authority",
+          "role": "host",
+          "input": {}
+        }
+      ],
+      "owner": "mods/branch-views-fixture",
+      "settings": {
+        "amount": 2,
+        "x": 137,
+        "language": "zh"
+      },
+      "expected_frames": [
+        [
+          "zh|amount=1|ui=one|hits=1|count=1"
+        ]
+      ],
+      "ordinary_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 137
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 1
+        },
+        {
+          "type": "string",
+          "hex": "6f74686572"
+        },
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 1
+        }
+      ],
+      "presentation_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 137
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 1
+        },
+        {
+          "type": "string",
+          "hex": "6f6e65"
+        },
+        {
+          "type": "integer",
+          "value": 1
+        },
+        {
+          "type": "integer",
+          "value": 1
+        }
+      ],
+      "expected_x": [
+        137
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2,
+          "is_paused": false
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/branch-views-fixture": "{\"amount\":1,\"x\":17,\"language\":\"en\"}"
+          },
+          {
+            "mods/branch-views-fixture": "{\"amount\":2,\"x\":137,\"language\":\"zh\"}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "font_profile": {
+        "path": "research/font_metrics/profile.json",
+        "sha256": "2577a0bd2510e4fa02e04dedcbec2ac7fbc4ca8f068505a44c506ea3fa25d720"
+      },
+      "font_capture_profile": {
+        "path": "research/font_capture/profile.json",
+        "sha256": "3b0f26a142c8464bac5323c24991cd2ebef172e43e6a96ec4a8f4a341df141ce"
+      },
+      "ui_flow_profile": {
+        "path": "research/ui_flow/profile.json",
+        "sha256": "37d57a373b836dd8a5b6ee78778ffea22c4b20ad9409eecf21ce9c119ae03d9f"
+      },
+      "source": "research/branch_views/main.lua",
+      "source_sha256": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/branch_views",
+            "display": "mods/branch-views-fixture",
+            "sha256": {
+              "main.lua": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38"
+            }
+          }
+        ]
+      },
+      "menu_profile": {
+        "path": "research/world_view/menu-v2.json",
+        "sha256": "35833b4a3f488c8e9f699215266aed9dac29b3c916c803d1e62fc1dbb5ea4d8f"
+      },
+      "world_view_profile": {
+        "path": "research/world_view/profile-v2.json",
+        "sha256": "695ba192ce06cccce8444fe3e24fab7aa021b3da4c67a1b7d831053eaec34012"
+      },
+      "id": "personal-input-and-save-survive-display-branch-selection",
+      "steps": [
+        {
+          "op": "dispatch",
+          "frame_id": 1,
+          "event": 201,
+          "phase": "authority",
+          "role": "host",
+          "input": {}
+        }
+      ],
+      "owner": "mods/branch-views-fixture",
+      "settings": {
+        "amount": 2,
+        "x": 137,
+        "language": "zh"
+      },
+      "expected_frames": [
+        [
+          "zh|amount=1|ui=one|hits=1|count=1"
+        ]
+      ],
+      "ordinary_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 147
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 1
+        },
+        {
+          "type": "string",
+          "hex": "6f74686572"
+        },
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 1
+        }
+      ],
+      "presentation_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 147
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 1
+        },
+        {
+          "type": "string",
+          "hex": "6f6e65"
+        },
+        {
+          "type": "integer",
+          "value": 1
+        },
+        {
+          "type": "integer",
+          "value": 1
+        }
+      ],
+      "saved": {
+        "amount": 2,
+        "x": 147,
+        "language": "zh"
+      },
+      "expected_x": [
+        147
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2,
+          "is_paused": false
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/branch-views-fixture": "{\"amount\":1,\"x\":17,\"language\":\"en\"}"
+          },
+          {
+            "mods/branch-views-fixture": "{\"amount\":2,\"x\":137,\"language\":\"zh\"}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "font_profile": {
+        "path": "research/font_metrics/profile.json",
+        "sha256": "2577a0bd2510e4fa02e04dedcbec2ac7fbc4ca8f068505a44c506ea3fa25d720"
+      },
+      "font_capture_profile": {
+        "path": "research/font_capture/profile.json",
+        "sha256": "3b0f26a142c8464bac5323c24991cd2ebef172e43e6a96ec4a8f4a341df141ce"
+      },
+      "ui_flow_profile": {
+        "path": "research/ui_flow/profile.json",
+        "sha256": "37d57a373b836dd8a5b6ee78778ffea22c4b20ad9409eecf21ce9c119ae03d9f"
+      },
+      "source": "research/branch_views/main.lua",
+      "source_sha256": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/branch_views",
+            "display": "mods/branch-views-fixture",
+            "sha256": {
+              "main.lua": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38"
+            }
+          }
+        ]
+      },
+      "menu_profile": {
+        "path": "research/world_view/menu-v2.json",
+        "sha256": "35833b4a3f488c8e9f699215266aed9dac29b3c916c803d1e62fc1dbb5ea4d8f"
+      },
+      "world_view_profile": {
+        "path": "research/world_view/profile-v2.json",
+        "sha256": "695ba192ce06cccce8444fe3e24fab7aa021b3da4c67a1b7d831053eaec34012"
+      },
+      "id": "two-persistent-private-views-survive-next-callback",
+      "steps": [
+        {
+          "op": "dispatch",
+          "frame_id": 1,
+          "event": 201,
+          "phase": "authority",
+          "role": "host",
+          "input": {}
+        }
+      ],
+      "owner": "mods/branch-views-fixture",
+      "settings": {
+        "amount": 2,
+        "x": 137,
+        "language": "zh"
+      },
+      "expected_frames": [
+        [
+          "zh|amount=1|ui=one|hits=1|count=1"
+        ],
+        [
+          "zh|amount=1|ui=one|hits=1|count=1"
+        ]
+      ],
+      "ordinary_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 137
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 1
+        },
+        {
+          "type": "string",
+          "hex": "6f74686572"
+        },
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 1
+        }
+      ],
+      "presentation_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 137
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 1
+        },
+        {
+          "type": "string",
+          "hex": "6f6e65"
+        },
+        {
+          "type": "integer",
+          "value": 1
+        },
+        {
+          "type": "integer",
+          "value": 1
+        }
+      ],
+      "expected_x": [
+        137,
+        137
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2,
+          "is_paused": false
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/branch-views-fixture": "{\"amount\":1,\"x\":17,\"language\":\"en\"}"
+          },
+          {
+            "mods/branch-views-fixture": "{\"amount\":2,\"x\":137,\"language\":\"zh\"}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "font_profile": {
+        "path": "research/font_metrics/profile.json",
+        "sha256": "2577a0bd2510e4fa02e04dedcbec2ac7fbc4ca8f068505a44c506ea3fa25d720"
+      },
+      "font_capture_profile": {
+        "path": "research/font_capture/profile.json",
+        "sha256": "3b0f26a142c8464bac5323c24991cd2ebef172e43e6a96ec4a8f4a341df141ce"
+      },
+      "ui_flow_profile": {
+        "path": "research/ui_flow/profile.json",
+        "sha256": "37d57a373b836dd8a5b6ee78778ffea22c4b20ad9409eecf21ce9c119ae03d9f"
+      },
+      "source": "research/branch_views/main.lua",
+      "source_sha256": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/branch_views",
+            "display": "mods/branch-views-fixture",
+            "sha256": {
+              "main.lua": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38"
+            }
+          }
+        ]
+      },
+      "menu_profile": {
+        "path": "research/world_view/menu-v2.json",
+        "sha256": "35833b4a3f488c8e9f699215266aed9dac29b3c916c803d1e62fc1dbb5ea4d8f"
+      },
+      "world_view_profile": {
+        "path": "research/world_view/profile-v2.json",
+        "sha256": "695ba192ce06cccce8444fe3e24fab7aa021b3da4c67a1b7d831053eaec34012"
+      },
+      "id": "cross-frame-display-state-and-personal-input-remain-independent",
+      "steps": [
+        {
+          "op": "dispatch",
+          "frame_id": 1,
+          "event": 201,
+          "phase": "authority",
+          "role": "host",
+          "input": {}
+        }
+      ],
+      "owner": "mods/branch-views-fixture",
+      "settings": {
+        "amount": 2,
+        "x": 137,
+        "language": "zh"
+      },
+      "expected_frames": [
+        [
+          "zh|amount=1|ui=one|hits=1|count=1"
+        ],
+        [
+          "zh|amount=1|ui=one|hits=2|count=2"
+        ],
+        [
+          "zh|amount=1|ui=one|hits=2|count=2"
+        ]
+      ],
+      "ordinary_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 147
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "string",
+          "hex": "6f74686572"
+        },
+        {
+          "type": "integer",
+          "value": 4
+        },
+        {
+          "type": "integer",
+          "value": 2
+        }
+      ],
+      "presentation_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 147
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "string",
+          "hex": "6f6e65"
+        },
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 2
+        }
+      ],
+      "saved": {
+        "amount": 2,
+        "x": 147,
+        "language": "zh"
+      },
+      "expected_x": [
+        137,
+        147,
+        147
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2,
+          "is_paused": false
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/branch-views-fixture": "{\"amount\":1,\"x\":17,\"language\":\"en\"}"
+          },
+          {
+            "mods/branch-views-fixture": "{\"amount\":2,\"x\":137,\"language\":\"zh\"}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "font_profile": {
+        "path": "research/font_metrics/profile.json",
+        "sha256": "2577a0bd2510e4fa02e04dedcbec2ac7fbc4ca8f068505a44c506ea3fa25d720"
+      },
+      "font_capture_profile": {
+        "path": "research/font_capture/profile.json",
+        "sha256": "3b0f26a142c8464bac5323c24991cd2ebef172e43e6a96ec4a8f4a341df141ce"
+      },
+      "ui_flow_profile": {
+        "path": "research/ui_flow/profile.json",
+        "sha256": "37d57a373b836dd8a5b6ee78778ffea22c4b20ad9409eecf21ce9c119ae03d9f"
+      },
+      "source": "research/branch_views/main.lua",
+      "source_sha256": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/branch_views",
+            "display": "mods/branch-views-fixture",
+            "sha256": {
+              "main.lua": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38"
+            }
+          }
+        ]
+      },
+      "menu_profile": {
+        "path": "research/world_view/menu-v2.json",
+        "sha256": "35833b4a3f488c8e9f699215266aed9dac29b3c916c803d1e62fc1dbb5ea4d8f"
+      },
+      "world_view_profile": {
+        "path": "research/world_view/profile-v2.json",
+        "sha256": "695ba192ce06cccce8444fe3e24fab7aa021b3da4c67a1b7d831053eaec34012"
+      },
+      "id": "reward-controls-layout-with-personal-coordinate-base",
+      "steps": [
+        {
+          "op": "dispatch",
+          "frame_id": 1,
+          "event": 201,
+          "phase": "authority",
+          "role": "host",
+          "input": {}
+        }
+      ],
+      "owner": "mods/branch-views-fixture",
+      "settings": {
+        "amount": 2,
+        "x": 137,
+        "language": "zh"
+      },
+      "expected_frames": [
+        [
+          "zh|amount=1|ui=one|hits=0|count=0"
+        ]
+      ],
+      "ordinary_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 139
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "string",
+          "hex": "6f74686572"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "nil"
+        }
+      ],
+      "presentation_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 138
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "string",
+          "hex": "6f6e65"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "nil"
+        }
+      ],
+      "saved": {
+        "amount": 2,
+        "x": 139,
+        "language": "zh"
+      },
+      "expected_x": [
+        138
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2,
+          "is_paused": false
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/branch-views-fixture": "{\"amount\":1,\"x\":17,\"language\":\"en\"}"
+          },
+          {
+            "mods/branch-views-fixture": "{\"amount\":2,\"x\":137,\"language\":\"zh\"}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "font_profile": {
+        "path": "research/font_metrics/profile.json",
+        "sha256": "2577a0bd2510e4fa02e04dedcbec2ac7fbc4ca8f068505a44c506ea3fa25d720"
+      },
+      "font_capture_profile": {
+        "path": "research/font_capture/profile.json",
+        "sha256": "3b0f26a142c8464bac5323c24991cd2ebef172e43e6a96ec4a8f4a341df141ce"
+      },
+      "ui_flow_profile": {
+        "path": "research/ui_flow/profile.json",
+        "sha256": "37d57a373b836dd8a5b6ee78778ffea22c4b20ad9409eecf21ce9c119ae03d9f"
+      },
+      "source": "research/branch_views/main.lua",
+      "source_sha256": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/branch_views",
+            "display": "mods/branch-views-fixture",
+            "sha256": {
+              "main.lua": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38"
+            }
+          }
+        ]
+      },
+      "menu_profile": {
+        "path": "research/world_view/menu-v2.json",
+        "sha256": "35833b4a3f488c8e9f699215266aed9dac29b3c916c803d1e62fc1dbb5ea4d8f"
+      },
+      "world_view_profile": {
+        "path": "research/world_view/profile-v2.json",
+        "sha256": "695ba192ce06cccce8444fe3e24fab7aa021b3da4c67a1b7d831053eaec34012"
+      },
+      "id": "branch-local-setting-writes-never-publish-shadow-save",
+      "steps": [
+        {
+          "op": "dispatch",
+          "frame_id": 1,
+          "event": 201,
+          "phase": "authority",
+          "role": "host",
+          "input": {}
+        }
+      ],
+      "owner": "mods/branch-views-fixture",
+      "settings": {
+        "amount": 2,
+        "x": 137,
+        "language": "zh"
+      },
+      "expected_frames": [
+        [
+          "zh|amount=1|ui=one|hits=0|count=0"
+        ]
+      ],
+      "ordinary_values": [
+        {
+          "type": "integer",
+          "value": 202
+        },
+        {
+          "type": "integer",
+          "value": 137
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "string",
+          "hex": "6f74686572"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "nil"
+        }
+      ],
+      "presentation_values": [
+        {
+          "type": "integer",
+          "value": 102
+        },
+        {
+          "type": "integer",
+          "value": 137
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "string",
+          "hex": "6f6e65"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "nil"
+        }
+      ],
+      "saved": {
+        "amount": 202,
+        "x": 137,
+        "language": "zh"
+      },
+      "expected_x": [
+        137
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2,
+          "is_paused": false
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/branch-views-fixture": "{\"amount\":1,\"x\":17,\"language\":\"en\"}"
+          },
+          {
+            "mods/branch-views-fixture": "{\"amount\":2,\"x\":137,\"language\":\"zh\"}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "font_profile": {
+        "path": "research/font_metrics/profile.json",
+        "sha256": "2577a0bd2510e4fa02e04dedcbec2ac7fbc4ca8f068505a44c506ea3fa25d720"
+      },
+      "font_capture_profile": {
+        "path": "research/font_capture/profile.json",
+        "sha256": "3b0f26a142c8464bac5323c24991cd2ebef172e43e6a96ec4a8f4a341df141ce"
+      },
+      "ui_flow_profile": {
+        "path": "research/ui_flow/profile.json",
+        "sha256": "37d57a373b836dd8a5b6ee78778ffea22c4b20ad9409eecf21ce9c119ae03d9f"
+      },
+      "source": "research/branch_views/main.lua",
+      "source_sha256": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/branch_views",
+            "display": "mods/branch-views-fixture",
+            "sha256": {
+              "main.lua": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38"
+            }
+          }
+        ]
+      },
+      "menu_profile": {
+        "path": "research/world_view/menu-v2.json",
+        "sha256": "35833b4a3f488c8e9f699215266aed9dac29b3c916c803d1e62fc1dbb5ea4d8f"
+      },
+      "world_view_profile": {
+        "path": "research/world_view/profile-v2.json",
+        "sha256": "695ba192ce06cccce8444fe3e24fab7aa021b3da4c67a1b7d831053eaec34012"
+      },
+      "id": "aliased-table-helper-return-selects-game-view",
+      "steps": [
+        {
+          "op": "dispatch",
+          "frame_id": 1,
+          "event": 201,
+          "phase": "authority",
+          "role": "host",
+          "input": {}
+        }
+      ],
+      "owner": "mods/branch-views-fixture",
+      "settings": {
+        "amount": 2,
+        "x": 137,
+        "language": "zh"
+      },
+      "expected_frames": [
+        [
+          "zh|amount=1|ui=one|hits=0|count=0"
+        ]
+      ],
+      "ordinary_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 137
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "string",
+          "hex": "6f74686572"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "nil"
+        }
+      ],
+      "presentation_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 137
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "string",
+          "hex": "6f6e65"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "nil"
+        }
+      ],
+      "expected_x": [
+        137
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2,
+          "is_paused": false
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/branch-views-fixture": "{\"amount\":1,\"x\":17,\"language\":\"en\"}"
+          },
+          {
+            "mods/branch-views-fixture": "{\"amount\":2,\"x\":137,\"language\":\"zh\"}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "font_profile": {
+        "path": "research/font_metrics/profile.json",
+        "sha256": "2577a0bd2510e4fa02e04dedcbec2ac7fbc4ca8f068505a44c506ea3fa25d720"
+      },
+      "font_capture_profile": {
+        "path": "research/font_capture/profile.json",
+        "sha256": "3b0f26a142c8464bac5323c24991cd2ebef172e43e6a96ec4a8f4a341df141ce"
+      },
+      "ui_flow_profile": {
+        "path": "research/ui_flow/profile.json",
+        "sha256": "37d57a373b836dd8a5b6ee78778ffea22c4b20ad9409eecf21ce9c119ae03d9f"
+      },
+      "source": "research/branch_views/main.lua",
+      "source_sha256": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/branch_views",
+            "display": "mods/branch-views-fixture",
+            "sha256": {
+              "main.lua": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38"
+            }
+          }
+        ]
+      },
+      "menu_profile": {
+        "path": "research/world_view/menu-v2.json",
+        "sha256": "35833b4a3f488c8e9f699215266aed9dac29b3c916c803d1e62fc1dbb5ea4d8f"
+      },
+      "world_view_profile": {
+        "path": "research/world_view/profile-v2.json",
+        "sha256": "695ba192ce06cccce8444fe3e24fab7aa021b3da4c67a1b7d831053eaec34012"
+      },
+      "id": "ordinary-language-input-is-not-overwritten-by-game-view",
+      "steps": [
+        {
+          "op": "dispatch",
+          "frame_id": 1,
+          "event": 201,
+          "phase": "authority",
+          "role": "host",
+          "input": {}
+        }
+      ],
+      "owner": "mods/branch-views-fixture",
+      "settings": {
+        "amount": 2,
+        "x": 137,
+        "language": "zh"
+      },
+      "expected_frames": [
+        [
+          "custom|amount=1|ui=one|hits=0|count=0"
+        ]
+      ],
+      "ordinary_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 147
+        },
+        {
+          "type": "string",
+          "hex": "637573746f6d"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "string",
+          "hex": "6f74686572"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "nil"
+        }
+      ],
+      "presentation_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 147
+        },
+        {
+          "type": "string",
+          "hex": "637573746f6d"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "string",
+          "hex": "6f6e65"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "nil"
+        }
+      ],
+      "saved": {
+        "amount": 2,
+        "x": 147,
+        "language": "custom"
+      },
+      "expected_x": [
+        147
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2,
+          "is_paused": false
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/branch-views-fixture": "{\"amount\":1,\"x\":17,\"language\":\"en\"}"
+          },
+          {
+            "mods/branch-views-fixture": "{\"amount\":2,\"x\":137,\"language\":\"zh\"}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "font_profile": {
+        "path": "research/font_metrics/profile.json",
+        "sha256": "2577a0bd2510e4fa02e04dedcbec2ac7fbc4ca8f068505a44c506ea3fa25d720"
+      },
+      "font_capture_profile": {
+        "path": "research/font_capture/profile.json",
+        "sha256": "3b0f26a142c8464bac5323c24991cd2ebef172e43e6a96ec4a8f4a341df141ce"
+      },
+      "ui_flow_profile": {
+        "path": "research/ui_flow/profile.json",
+        "sha256": "37d57a373b836dd8a5b6ee78778ffea22c4b20ad9409eecf21ce9c119ae03d9f"
+      },
+      "source": "research/branch_views/main.lua",
+      "source_sha256": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/branch_views",
+            "display": "mods/branch-views-fixture",
+            "sha256": {
+              "main.lua": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38"
+            }
+          }
+        ]
+      },
+      "menu_profile": {
+        "path": "research/world_view/menu-v2.json",
+        "sha256": "35833b4a3f488c8e9f699215266aed9dac29b3c916c803d1e62fc1dbb5ea4d8f"
+      },
+      "world_view_profile": {
+        "path": "research/world_view/profile-v2.json",
+        "sha256": "695ba192ce06cccce8444fe3e24fab7aa021b3da4c67a1b7d831053eaec34012"
+      },
+      "id": "duplicate-frame-caches-both-view-results",
+      "steps": [
+        {
+          "op": "dispatch",
+          "frame_id": 1,
+          "event": 201,
+          "phase": "authority",
+          "role": "host",
+          "input": {}
+        }
+      ],
+      "owner": "mods/branch-views-fixture",
+      "settings": {
+        "amount": 2,
+        "x": 137,
+        "language": "zh"
+      },
+      "expected_frames": [
+        [
+          "zh|amount=1|ui=one|hits=1|count=1"
+        ],
+        [
+          "zh|amount=1|ui=one|hits=1|count=1"
+        ]
+      ],
+      "ordinary_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 147
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 1
+        },
+        {
+          "type": "string",
+          "hex": "6f74686572"
+        },
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 1
+        }
+      ],
+      "presentation_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 147
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 1
+        },
+        {
+          "type": "string",
+          "hex": "6f6e65"
+        },
+        {
+          "type": "integer",
+          "value": 1
+        },
+        {
+          "type": "integer",
+          "value": 1
+        }
+      ],
+      "saved": {
+        "amount": 2,
+        "x": 147,
+        "language": "zh"
+      },
+      "expected_x": [
+        147,
+        147
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2,
+          "is_paused": false
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/branch-views-fixture": "{\"amount\":1,\"x\":17,\"language\":\"en\"}"
+          },
+          {
+            "mods/branch-views-fixture": "{\"amount\":2,\"x\":137,\"language\":\"zh\"}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "font_profile": {
+        "path": "research/font_metrics/profile.json",
+        "sha256": "2577a0bd2510e4fa02e04dedcbec2ac7fbc4ca8f068505a44c506ea3fa25d720"
+      },
+      "font_capture_profile": {
+        "path": "research/font_capture/profile.json",
+        "sha256": "3b0f26a142c8464bac5323c24991cd2ebef172e43e6a96ec4a8f4a341df141ce"
+      },
+      "ui_flow_profile": {
+        "path": "research/ui_flow/profile.json",
+        "sha256": "37d57a373b836dd8a5b6ee78778ffea22c4b20ad9409eecf21ce9c119ae03d9f"
+      },
+      "source": "research/branch_views/main.lua",
+      "source_sha256": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/branch_views",
+            "display": "mods/branch-views-fixture",
+            "sha256": {
+              "main.lua": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38"
+            }
+          }
+        ]
+      },
+      "menu_profile": {
+        "path": "research/world_view/menu-v2.json",
+        "sha256": "35833b4a3f488c8e9f699215266aed9dac29b3c916c803d1e62fc1dbb5ea4d8f"
+      },
+      "world_view_profile": {
+        "path": "research/world_view/profile-v2.json",
+        "sha256": "695ba192ce06cccce8444fe3e24fab7aa021b3da4c67a1b7d831053eaec34012"
+      },
+      "id": "history-rebuild-restores-both-private-views",
+      "steps": [
+        {
+          "op": "dispatch",
+          "frame_id": 1,
+          "event": 201,
+          "phase": "authority",
+          "role": "host",
+          "input": {}
+        }
+      ],
+      "owner": "mods/branch-views-fixture",
+      "settings": {
+        "amount": 2,
+        "x": 137,
+        "language": "zh"
+      },
+      "expected_frames": [
+        [
+          "zh|amount=1|ui=one|hits=1|count=1"
+        ],
+        [
+          "zh|amount=1|ui=one|hits=1|count=1"
+        ]
+      ],
+      "ordinary_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 137
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 1
+        },
+        {
+          "type": "string",
+          "hex": "6f74686572"
+        },
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 1
+        }
+      ],
+      "presentation_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 137
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 1
+        },
+        {
+          "type": "string",
+          "hex": "6f6e65"
+        },
+        {
+          "type": "integer",
+          "value": 1
+        },
+        {
+          "type": "integer",
+          "value": 1
+        }
+      ],
+      "expected_x": [
+        137,
+        137
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2,
+          "is_paused": false
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/branch-views-fixture": "{\"amount\":1,\"x\":17,\"language\":\"en\"}"
+          },
+          {
+            "mods/branch-views-fixture": "{\"amount\":2,\"x\":137,\"language\":\"zh\"}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "font_profile": {
+        "path": "research/font_metrics/profile.json",
+        "sha256": "2577a0bd2510e4fa02e04dedcbec2ac7fbc4ca8f068505a44c506ea3fa25d720"
+      },
+      "font_capture_profile": {
+        "path": "research/font_capture/profile.json",
+        "sha256": "3b0f26a142c8464bac5323c24991cd2ebef172e43e6a96ec4a8f4a341df141ce"
+      },
+      "ui_flow_profile": {
+        "path": "research/ui_flow/profile.json",
+        "sha256": "37d57a373b836dd8a5b6ee78778ffea22c4b20ad9409eecf21ce9c119ae03d9f"
+      },
+      "source": "research/branch_views/main.lua",
+      "source_sha256": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/branch_views",
+            "display": "mods/branch-views-fixture",
+            "sha256": {
+              "main.lua": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38"
+            }
+          }
+        ]
+      },
+      "menu_profile": {
+        "path": "research/world_view/menu-v2.json",
+        "sha256": "35833b4a3f488c8e9f699215266aed9dac29b3c916c803d1e62fc1dbb5ea4d8f"
+      },
+      "world_view_profile": {
+        "path": "research/world_view/profile-v2.json",
+        "sha256": "695ba192ce06cccce8444fe3e24fab7aa021b3da4c67a1b7d831053eaec34012"
+      },
+      "id": "configuration-reload-without-sidecar-remains-rejected",
+      "steps": [
+        {
+          "op": "dispatch",
+          "frame_id": 1,
+          "event": 201,
+          "phase": "authority",
+          "role": "host",
+          "input": {}
+        }
+      ],
+      "owner": "mods/branch-views-fixture",
+      "settings": {
+        "amount": 2,
+        "x": 137,
+        "language": "zh"
+      },
+      "expected_frames": [
+        [
+          "zh|amount=1|ui=one|hits=1|count=1"
+        ],
+        [
+          "zh|amount=1|ui=one|hits=1|count=1"
+        ]
+      ],
+      "ordinary_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 147
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 1
+        },
+        {
+          "type": "string",
+          "hex": "6f74686572"
+        },
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 1
+        }
+      ],
+      "presentation_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 147
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 1
+        },
+        {
+          "type": "string",
+          "hex": "6f6e65"
+        },
+        {
+          "type": "integer",
+          "value": 1
+        },
+        {
+          "type": "integer",
+          "value": 1
+        }
+      ],
+      "saved": {
+        "amount": 2,
+        "x": 147,
+        "language": "zh"
+      },
+      "expected_x": [
+        147,
+        147
+      ],
+      "boundary": true
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2,
+          "is_paused": false
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/branch-views-fixture": "{\"amount\":1,\"x\":17,\"language\":\"en\"}"
+          },
+          {
+            "mods/branch-views-fixture": "{\"amount\":2,\"x\":137,\"language\":\"zh\"}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "font_profile": {
+        "path": "research/font_metrics/profile.json",
+        "sha256": "2577a0bd2510e4fa02e04dedcbec2ac7fbc4ca8f068505a44c506ea3fa25d720"
+      },
+      "font_capture_profile": {
+        "path": "research/font_capture/profile.json",
+        "sha256": "3b0f26a142c8464bac5323c24991cd2ebef172e43e6a96ec4a8f4a341df141ce"
+      },
+      "ui_flow_profile": {
+        "path": "research/ui_flow/profile.json",
+        "sha256": "37d57a373b836dd8a5b6ee78778ffea22c4b20ad9409eecf21ce9c119ae03d9f"
+      },
+      "source": "research/branch_views/main.lua",
+      "source_sha256": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/branch_views",
+            "display": "mods/branch-views-fixture",
+            "sha256": {
+              "main.lua": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38"
+            }
+          }
+        ]
+      },
+      "menu_profile": {
+        "path": "research/world_view/menu-v2.json",
+        "sha256": "35833b4a3f488c8e9f699215266aed9dac29b3c916c803d1e62fc1dbb5ea4d8f"
+      },
+      "world_view_profile": {
+        "path": "research/world_view/profile-v2.json",
+        "sha256": "695ba192ce06cccce8444fe3e24fab7aa021b3da4c67a1b7d831053eaec34012"
+      },
+      "id": "presentation-failure-restores-both-lanes-and-save",
+      "steps": [
+        {
+          "op": "dispatch",
+          "frame_id": 1,
+          "event": 201,
+          "phase": "authority",
+          "role": "host",
+          "input": {}
+        }
+      ],
+      "owner": "mods/branch-views-fixture",
+      "settings": {
+        "amount": 2,
+        "x": 137,
+        "language": "zh"
+      },
+      "expected_frames": [
+        [
+          "zh|amount=1|ui=initial|hits=0|count=0"
+        ]
+      ],
+      "ordinary_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 137
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "string",
+          "hex": "696e697469616c"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "nil"
+        }
+      ],
+      "presentation_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 137
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "string",
+          "hex": "696e697469616c"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "nil"
+        }
+      ],
+      "expected_x": [
+        137
+      ],
+      "boundary": true,
+      "allow_no_choice": true
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2,
+          "is_paused": false
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/branch-views-fixture": "{\"amount\":1,\"x\":17,\"language\":\"en\"}"
+          },
+          {
+            "mods/branch-views-fixture": "{\"amount\":2,\"x\":137,\"language\":\"zh\"}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "font_profile": {
+        "path": "research/font_metrics/profile.json",
+        "sha256": "2577a0bd2510e4fa02e04dedcbec2ac7fbc4ca8f068505a44c506ea3fa25d720"
+      },
+      "font_capture_profile": {
+        "path": "research/font_capture/profile.json",
+        "sha256": "3b0f26a142c8464bac5323c24991cd2ebef172e43e6a96ec4a8f4a341df141ce"
+      },
+      "ui_flow_profile": {
+        "path": "research/ui_flow/profile.json",
+        "sha256": "37d57a373b836dd8a5b6ee78778ffea22c4b20ad9409eecf21ce9c119ae03d9f"
+      },
+      "source": "research/branch_views/main.lua",
+      "source_sha256": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/branch_views",
+            "display": "mods/branch-views-fixture",
+            "sha256": {
+              "main.lua": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38"
+            }
+          }
+        ]
+      },
+      "menu_profile": {
+        "path": "research/world_view/menu-v2.json",
+        "sha256": "35833b4a3f488c8e9f699215266aed9dac29b3c916c803d1e62fc1dbb5ea4d8f"
+      },
+      "world_view_profile": {
+        "path": "research/world_view/profile-v2.json",
+        "sha256": "695ba192ce06cccce8444fe3e24fab7aa021b3da4c67a1b7d831053eaec34012"
+      },
+      "id": "ambiguous-world-contributions-do-not-select-a-branch",
+      "steps": [
+        {
+          "op": "dispatch",
+          "frame_id": 1,
+          "event": 208,
+          "phase": "authority",
+          "role": "host",
+          "input": {}
+        }
+      ],
+      "owner": "mods/branch-views-fixture",
+      "settings": {
+        "amount": 2,
+        "x": 137,
+        "language": "zh"
+      },
+      "expected_frames": [],
+      "ordinary_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 137
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "string",
+          "hex": "696e697469616c"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "nil"
+        }
+      ],
+      "presentation_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 137
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "string",
+          "hex": "696e697469616c"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "nil"
+        }
+      ],
+      "expected_x": [],
+      "boundary": true,
+      "allow_no_choice": true
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2,
+          "is_paused": false
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/branch-views-fixture": "{\"amount\":1,\"x\":17,\"language\":\"en\"}"
+          },
+          {
+            "mods/branch-views-fixture": "{\"amount\":2,\"x\":137,\"language\":\"zh\"}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "font_profile": {
+        "path": "research/font_metrics/profile.json",
+        "sha256": "2577a0bd2510e4fa02e04dedcbec2ac7fbc4ca8f068505a44c506ea3fa25d720"
+      },
+      "font_capture_profile": {
+        "path": "research/font_capture/profile.json",
+        "sha256": "3b0f26a142c8464bac5323c24991cd2ebef172e43e6a96ec4a8f4a341df141ce"
+      },
+      "ui_flow_profile": {
+        "path": "research/ui_flow/profile.json",
+        "sha256": "37d57a373b836dd8a5b6ee78778ffea22c4b20ad9409eecf21ce9c119ae03d9f"
+      },
+      "source": "research/branch_views/main.lua",
+      "source_sha256": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/branch_views",
+            "display": "mods/branch-views-fixture",
+            "sha256": {
+              "main.lua": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38"
+            }
+          }
+        ]
+      },
+      "menu_profile": {
+        "path": "research/world_view/menu-v2.json",
+        "sha256": "35833b4a3f488c8e9f699215266aed9dac29b3c916c803d1e62fc1dbb5ea4d8f"
+      },
+      "world_view_profile": {
+        "path": "research/world_view/profile-v2.json",
+        "sha256": "695ba192ce06cccce8444fe3e24fab7aa021b3da4c67a1b7d831053eaec34012"
+      },
+      "id": "unknown-branch-operand-is-not-assumed-a-constant",
+      "steps": [
+        {
+          "op": "dispatch",
+          "frame_id": 1,
+          "event": 201,
+          "phase": "authority",
+          "role": "host",
+          "input": {}
+        }
+      ],
+      "owner": "mods/branch-views-fixture",
+      "settings": {
+        "amount": 2,
+        "x": 137,
+        "language": "zh"
+      },
+      "expected_frames": [
+        [
+          "zh|amount=1|ui=initial|hits=0|count=0"
+        ]
+      ],
+      "ordinary_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 137
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "string",
+          "hex": "696e697469616c"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "nil"
+        }
+      ],
+      "presentation_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 137
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "string",
+          "hex": "696e697469616c"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "nil"
+        }
+      ],
+      "expected_x": [
+        137
+      ],
+      "boundary": true,
+      "allow_no_choice": true
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2,
+          "is_paused": false
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/branch-views-fixture": "{\"amount\":1,\"x\":17,\"language\":\"en\"}"
+          },
+          {
+            "mods/branch-views-fixture": "{\"amount\":2,\"x\":137,\"language\":\"zh\"}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "font_profile": {
+        "path": "research/font_metrics/profile.json",
+        "sha256": "2577a0bd2510e4fa02e04dedcbec2ac7fbc4ca8f068505a44c506ea3fa25d720"
+      },
+      "font_capture_profile": {
+        "path": "research/font_capture/profile.json",
+        "sha256": "3b0f26a142c8464bac5323c24991cd2ebef172e43e6a96ec4a8f4a341df141ce"
+      },
+      "ui_flow_profile": {
+        "path": "research/ui_flow/profile.json",
+        "sha256": "37d57a373b836dd8a5b6ee78778ffea22c4b20ad9409eecf21ce9c119ae03d9f"
+      },
+      "source": "research/branch_views/main.lua",
+      "source_sha256": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/branch_views",
+            "display": "mods/branch-views-fixture",
+            "sha256": {
+              "main.lua": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38"
+            }
+          }
+        ]
+      },
+      "menu_profile": {
+        "path": "research/world_view/menu-v2.json",
+        "sha256": "35833b4a3f488c8e9f699215266aed9dac29b3c916c803d1e62fc1dbb5ea4d8f"
+      },
+      "world_view_profile": {
+        "path": "research/world_view/profile-v2.json",
+        "sha256": "695ba192ce06cccce8444fe3e24fab7aa021b3da4c67a1b7d831053eaec34012"
+      },
+      "id": "changed-branch-budget-restores-all-pending-effects",
+      "steps": [
+        {
+          "op": "dispatch",
+          "frame_id": 1,
+          "event": 201,
+          "phase": "authority",
+          "role": "host",
+          "input": {}
+        }
+      ],
+      "owner": "mods/branch-views-fixture",
+      "settings": {
+        "amount": 2,
+        "x": 137,
+        "language": "zh"
+      },
+      "expected_frames": [
+        [
+          "zh|amount=1|ui=initial|hits=0|count=0"
+        ]
+      ],
+      "ordinary_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 137
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "string",
+          "hex": "696e697469616c"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "nil"
+        }
+      ],
+      "presentation_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 137
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "string",
+          "hex": "696e697469616c"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "nil"
+        }
+      ],
+      "expected_x": [
+        137
+      ],
+      "boundary": true,
+      "allow_no_choice": true
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2,
+          "is_paused": false
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/branch-views-fixture": "{\"amount\":1,\"x\":17,\"language\":\"en\"}"
+          },
+          {
+            "mods/branch-views-fixture": "{\"amount\":2,\"x\":137,\"language\":\"zh\"}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "font_profile": {
+        "path": "research/font_metrics/profile.json",
+        "sha256": "2577a0bd2510e4fa02e04dedcbec2ac7fbc4ca8f068505a44c506ea3fa25d720"
+      },
+      "font_capture_profile": {
+        "path": "research/font_capture/profile.json",
+        "sha256": "3b0f26a142c8464bac5323c24991cd2ebef172e43e6a96ec4a8f4a341df141ce"
+      },
+      "ui_flow_profile": {
+        "path": "research/ui_flow/profile.json",
+        "sha256": "37d57a373b836dd8a5b6ee78778ffea22c4b20ad9409eecf21ce9c119ae03d9f"
+      },
+      "source": "research/branch_views/main.lua",
+      "source_sha256": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/branch_views",
+            "display": "mods/branch-views-fixture",
+            "sha256": {
+              "main.lua": "8ba8b3ff4632fc522ca86ce21976d14687fd52db4d9e5caa4ccd6b54ab8bcb38"
+            }
+          }
+        ]
+      },
+      "menu_profile": {
+        "path": "research/world_view/menu-v2.json",
+        "sha256": "35833b4a3f488c8e9f699215266aed9dac29b3c916c803d1e62fc1dbb5ea4d8f"
+      },
+      "world_view_profile": {
+        "path": "research/world_view/profile-v2.json",
+        "sha256": "695ba192ce06cccce8444fe3e24fab7aa021b3da4c67a1b7d831053eaec34012"
+      },
+      "id": "lua-pcall-cannot-hide-projection-evidence-failure",
+      "steps": [
+        {
+          "op": "dispatch",
+          "frame_id": 1,
+          "event": 201,
+          "phase": "authority",
+          "role": "host",
+          "input": {}
+        }
+      ],
+      "owner": "mods/branch-views-fixture",
+      "settings": {
+        "amount": 2,
+        "x": 137,
+        "language": "zh"
+      },
+      "expected_frames": [
+        [
+          "zh|amount=1|ui=initial|hits=0|count=0"
+        ]
+      ],
+      "ordinary_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 137
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "string",
+          "hex": "696e697469616c"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "nil"
+        }
+      ],
+      "presentation_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 137
+        },
+        {
+          "type": "string",
+          "hex": "7a68"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "string",
+          "hex": "696e697469616c"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "nil"
+        }
+      ],
+      "expected_x": [
+        137
+      ],
+      "boundary": true,
+      "allow_no_choice": true
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2,
+          "is_paused": false
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/reward-timeline-fixture": "{\"amount\":1,\"x\":17,\"language\":\"en\",\"low\":1,\"high\":9,\"seed\":123,\"draw\":false}"
+          },
+          {
+            "mods/reward-timeline-fixture": "{\"amount\":2,\"x\":137,\"language\":\"zh\",\"low\":21,\"high\":29,\"seed\":999,\"draw\":true}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "font_profile": {
+        "path": "research/font_metrics/profile.json",
+        "sha256": "2577a0bd2510e4fa02e04dedcbec2ac7fbc4ca8f068505a44c506ea3fa25d720"
+      },
+      "font_capture_profile": {
+        "path": "research/font_capture/profile.json",
+        "sha256": "3b0f26a142c8464bac5323c24991cd2ebef172e43e6a96ec4a8f4a341df141ce"
+      },
+      "ui_flow_profile": {
+        "path": "research/ui_flow/profile.json",
+        "sha256": "37d57a373b836dd8a5b6ee78778ffea22c4b20ad9409eecf21ce9c119ae03d9f"
+      },
+      "source": "research/reward_timeline/main-v2.lua",
+      "source_sha256": "7a55856b67f316f67797a31fd81db01810a3c1244bbd8922c1f339e8de2d3c29",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/reward_timeline",
+            "display": "mods/reward-timeline-fixture",
+            "sha256": {
+              "main.lua": "7a55856b67f316f67797a31fd81db01810a3c1244bbd8922c1f339e8de2d3c29"
+            },
+            "source_paths": {
+              "main.lua": "research/reward_timeline/main-v2.lua"
+            }
+          }
+        ]
+      },
+      "menu_profile": {
+        "path": "research/world_view/menu-v2.json",
+        "sha256": "35833b4a3f488c8e9f699215266aed9dac29b3c916c803d1e62fc1dbb5ea4d8f"
+      },
+      "world_view_profile": {
+        "path": "research/world_view/profile-v2.json",
+        "sha256": "695ba192ce06cccce8444fe3e24fab7aa021b3da4c67a1b7d831053eaec34012"
+      },
+      "id": "three-lane-seeded-integer-host-bounds-personal-settings-independent",
+      "steps": [
+        {
+          "op": "dispatch",
+          "frame_id": 1,
+          "event": 101,
+          "phase": "authority",
+          "role": "host",
+          "input": {}
+        },
+        {
+          "op": "evaluate",
+          "code": "return RewardValue,RewardSecond,SeedReturns",
+          "role": "host"
+        }
+      ],
+      "settings": {
+        "amount": 2,
+        "x": 137,
+        "language": "zh",
+        "low": 21,
+        "high": 29,
+        "seed": 999,
+        "draw": true
+      },
+      "event": 101,
+      "expected_draw_calls": 1,
+      "expected_seed_calls": 1,
+      "expected_refs": 1,
+      "expected_seed_refs": 1,
+      "reward_model": true,
+      "allow_no_choice": true
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2,
+          "is_paused": false
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/reward-timeline-fixture": "{\"amount\":1,\"x\":17,\"language\":\"en\",\"low\":1,\"high\":9,\"seed\":123,\"draw\":false}"
+          },
+          {
+            "mods/reward-timeline-fixture": "{\"amount\":2,\"x\":137,\"language\":\"zh\",\"low\":21,\"high\":29,\"seed\":999,\"draw\":true}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "font_profile": {
+        "path": "research/font_metrics/profile.json",
+        "sha256": "2577a0bd2510e4fa02e04dedcbec2ac7fbc4ca8f068505a44c506ea3fa25d720"
+      },
+      "font_capture_profile": {
+        "path": "research/font_capture/profile.json",
+        "sha256": "3b0f26a142c8464bac5323c24991cd2ebef172e43e6a96ec4a8f4a341df141ce"
+      },
+      "ui_flow_profile": {
+        "path": "research/ui_flow/profile.json",
+        "sha256": "37d57a373b836dd8a5b6ee78778ffea22c4b20ad9409eecf21ce9c119ae03d9f"
+      },
+      "source": "research/reward_timeline/main-v2.lua",
+      "source_sha256": "7a55856b67f316f67797a31fd81db01810a3c1244bbd8922c1f339e8de2d3c29",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/reward_timeline",
+            "display": "mods/reward-timeline-fixture",
+            "sha256": {
+              "main.lua": "7a55856b67f316f67797a31fd81db01810a3c1244bbd8922c1f339e8de2d3c29"
+            },
+            "source_paths": {
+              "main.lua": "research/reward_timeline/main-v2.lua"
+            }
+          }
+        ]
+      },
+      "menu_profile": {
+        "path": "research/world_view/menu-v2.json",
+        "sha256": "35833b4a3f488c8e9f699215266aed9dac29b3c916c803d1e62fc1dbb5ea4d8f"
+      },
+      "world_view_profile": {
+        "path": "research/world_view/profile-v2.json",
+        "sha256": "695ba192ce06cccce8444fe3e24fab7aa021b3da4c67a1b7d831053eaec34012"
+      },
+      "id": "three-lane-resolved-random-comparison-has-same-hud-path",
+      "steps": [
+        {
+          "op": "dispatch",
+          "frame_id": 1,
+          "event": 107,
+          "phase": "authority",
+          "role": "host",
+          "input": {}
+        },
+        {
+          "op": "evaluate",
+          "code": "return RewardValue,RewardSecond,SeedReturns",
+          "role": "host"
+        }
+      ],
+      "settings": {
+        "amount": 2,
+        "x": 137,
+        "language": "zh",
+        "low": 21,
+        "high": 29,
+        "seed": 999,
+        "draw": true
+      },
+      "event": 107,
+      "expected_draw_calls": 1,
+      "expected_seed_calls": 0,
+      "expected_refs": 1,
+      "expected_seed_refs": 0,
+      "branch_proof": true,
+      "reward_model": true,
+      "allow_no_choice": true
+    }
+  ]
+}

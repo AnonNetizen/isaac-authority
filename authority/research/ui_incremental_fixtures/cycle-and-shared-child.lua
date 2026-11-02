@@ -1,0 +1,1 @@
+local child={x=2};local a={child=child};local b={child=child};a.self=a;b.other=a;__tag(a,'a');__tag(b,'b');child.x=9;__tag(a,'a');__tag(b,'b');return child.x,a.child.x,b.child.x

@@ -1,0 +1,4023 @@
+{
+  "schema": "sprite-state-contracts-1",
+  "work_limit": 10000000,
+  "timeout_seconds": 5,
+  "cases": [
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "native-frame-controls-0",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "SP:Load(\"gfx/ui/modconfig/menu.anm2\",false);local out={};SP:SetFrame(\"Idle\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"Idle\",0);out[#out+1]=\"Idle\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Cursor\",4);local named=SP:GetFrame();SP:SetFrame(4);local numeric=SP:GetFrame();SP:SetFrame(\"Cursor\",0);out[#out+1]=\"Cursor\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Slider1\",10);local named=SP:GetFrame();SP:SetFrame(10);local numeric=SP:GetFrame();SP:SetFrame(\"Slider1\",0);out[#out+1]=\"Slider1\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Slider2\",10);local named=SP:GetFrame();SP:SetFrame(10);local numeric=SP:GetFrame();SP:SetFrame(\"Slider2\",0);out[#out+1]=\"Slider2\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Popup\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"Popup\",0);out[#out+1]=\"Popup\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Offset\",3);local named=SP:GetFrame();SP:SetFrame(3);local numeric=SP:GetFrame();SP:SetFrame(\"Offset\",0);out[#out+1]=\"Offset\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Strikeout\",199);local named=SP:GetFrame();SP:SetFrame(199);local numeric=SP:GetFrame();SP:SetFrame(\"Strikeout\",0);out[#out+1]=\"Strikeout\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"BackSelect\",3);local named=SP:GetFrame();SP:SetFrame(3);local numeric=SP:GetFrame();SP:SetFrame(\"BackSelect\",0);out[#out+1]=\"BackSelect\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Divider\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"Divider\",0);out[#out+1]=\"Divider\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"IdleOverlay\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"IdleOverlay\",0);out[#out+1]=\"IdleOverlay\"..':'..named..':'..numeric..':'..SP:GetFrame();return table.concat(out,'|')"
+        }
+      ],
+      "kind": "functional",
+      "native_animations": 10,
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "49646c653a303a303a307c437572736f723a303a303a307c536c69646572313a31303a31303a307c536c69646572323a31303a31303a307c506f7075703a303a303a307c4f66667365743a303a303a307c537472696b656f75743a3139393a3139393a307c4261636b53656c6563743a303a303a307c446976696465723a303a303a307c49646c654f7665726c61793a303a303a30"
+        }
+      ]
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "native-frame-controls-1",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "SP:Load(\"gfx/eid_transform_icons.anm2\",false);local out={};SP:SetFrame(\"active\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"active\",0);out[#out+1]=\"active\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"familiar\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"familiar\",0);out[#out+1]=\"familiar\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Transformation1\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"Transformation1\",0);out[#out+1]=\"Transformation1\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Transformation2\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"Transformation2\",0);out[#out+1]=\"Transformation2\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Transformation3\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"Transformation3\",0);out[#out+1]=\"Transformation3\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Transformation4\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"Transformation4\",0);out[#out+1]=\"Transformation4\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Transformation5\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"Transformation5\",0);out[#out+1]=\"Transformation5\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Transformation6\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"Transformation6\",0);out[#out+1]=\"Transformation6\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Transformation7\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"Transformation7\",0);out[#out+1]=\"Transformation7\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Transformation8\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"Transformation8\",0);out[#out+1]=\"Transformation8\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Transformation9\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"Transformation9\",0);out[#out+1]=\"Transformation9\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Transformation10\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"Transformation10\",0);out[#out+1]=\"Transformation10\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Transformation11\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"Transformation11\",0);out[#out+1]=\"Transformation11\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Transformation12\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"Transformation12\",0);out[#out+1]=\"Transformation12\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Transformation13\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"Transformation13\",0);out[#out+1]=\"Transformation13\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Transformation14\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"Transformation14\",0);out[#out+1]=\"Transformation14\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Transformation15\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"Transformation15\",0);out[#out+1]=\"Transformation15\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Transformation16\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"Transformation16\",0);out[#out+1]=\"Transformation16\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"CurseOfBlind\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"CurseOfBlind\",0);out[#out+1]=\"CurseOfBlind\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Arrow\",47);local named=SP:GetFrame();SP:SetFrame(47);local numeric=SP:GetFrame();SP:SetFrame(\"Arrow\",0);out[#out+1]=\"Arrow\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"TransformationCustom\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"TransformationCustom\",0);out[#out+1]=\"TransformationCustom\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"boundingBox\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"boundingBox\",0);out[#out+1]=\"boundingBox\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Cursor\",1);local named=SP:GetFrame();SP:SetFrame(1);local numeric=SP:GetFrame();SP:SetFrame(\"Cursor\",0);out[#out+1]=\"Cursor\"..':'..named..':'..numeric..':'..SP:GetFrame();return table.concat(out,'|')"
+        }
+      ],
+      "kind": "functional",
+      "native_animations": 23,
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "6163746976653a303a303a307c66616d696c6961723a303a303a307c5472616e73666f726d6174696f6e313a303a303a307c5472616e73666f726d6174696f6e323a303a303a307c5472616e73666f726d6174696f6e333a303a303a307c5472616e73666f726d6174696f6e343a303a303a307c5472616e73666f726d6174696f6e353a303a303a307c5472616e73666f726d6174696f6e363a303a303a307c5472616e73666f726d6174696f6e373a303a303a307c5472616e73666f726d6174696f6e383a303a303a307c5472616e73666f726d6174696f6e393a303a303a307c5472616e73666f726d6174696f6e31303a303a303a307c5472616e73666f726d6174696f6e31313a303a303a307c5472616e73666f726d6174696f6e31323a303a303a307c5472616e73666f726d6174696f6e31333a303a303a307c5472616e73666f726d6174696f6e31343a303a303a307c5472616e73666f726d6174696f6e31353a303a303a307c5472616e73666f726d6174696f6e31363a303a303a307c43757273654f66426c696e643a303a303a307c4172726f773a34373a34373a307c5472616e73666f726d6174696f6e437573746f6d3a303a303a307c626f756e64696e67426f783a303a303a307c437572736f723a313a313a30"
+        }
+      ]
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "native-frame-controls-2",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "SP:Load(\"gfx/eid_inline_icons.anm2\",false);local out={};SP:SetFrame(\"numbers\",13);local named=SP:GetFrame();SP:SetFrame(13);local numeric=SP:GetFrame();SP:SetFrame(\"numbers\",0);out[#out+1]=\"numbers\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"ERROR\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"ERROR\",0);out[#out+1]=\"ERROR\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"hearts\",24);local named=SP:GetFrame();SP:SetFrame(24);local numeric=SP:GetFrame();SP:SetFrame(\"hearts\",0);out[#out+1]=\"hearts\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"ArrowUp\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"ArrowUp\",0);out[#out+1]=\"ArrowUp\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"ArrowDown\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"ArrowDown\",0);out[#out+1]=\"ArrowDown\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Warning\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"Warning\",0);out[#out+1]=\"Warning\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"ArrowGray\",3);local named=SP:GetFrame();SP:SetFrame(3);local numeric=SP:GetFrame();SP:SetFrame(\"ArrowGray\",0);out[#out+1]=\"ArrowGray\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"pickups\",14);local named=SP:GetFrame();SP:SetFrame(14);local numeric=SP:GetFrame();SP:SetFrame(\"pickups\",0);out[#out+1]=\"pickups\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"roomicons\",36);local named=SP:GetFrame();SP:SetFrame(36);local numeric=SP:GetFrame();SP:SetFrame(\"roomicons\",0);out[#out+1]=\"roomicons\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Collectible\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"Collectible\",0);out[#out+1]=\"Collectible\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Trinket\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"Trinket\",0);out[#out+1]=\"Trinket\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"roomshape\",12);local named=SP:GetFrame();SP:SetFrame(12);local numeric=SP:GetFrame();SP:SetFrame(\"roomshape\",0);out[#out+1]=\"roomshape\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"ItemIcon\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"ItemIcon\",0);out[#out+1]=\"ItemIcon\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Blank\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"Blank\",0);out[#out+1]=\"Blank\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Behavior\",1);local named=SP:GetFrame();SP:SetFrame(1);local numeric=SP:GetFrame();SP:SetFrame(\"Behavior\",0);out[#out+1]=\"Behavior\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Crafting\",30);local named=SP:GetFrame();SP:SetFrame(30);local numeric=SP:GetFrame();SP:SetFrame(\"Crafting\",0);out[#out+1]=\"Crafting\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Quality\",4);local named=SP:GetFrame();SP:SetFrame(4);local numeric=SP:GetFrame();SP:SetFrame(\"Quality\",0);out[#out+1]=\"Quality\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"XboxOne\",29);local named=SP:GetFrame();SP:SetFrame(29);local numeric=SP:GetFrame();SP:SetFrame(\"XboxOne\",0);out[#out+1]=\"XboxOne\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Stats\",41);local named=SP:GetFrame();SP:SetFrame(41);local numeric=SP:GetFrame();SP:SetFrame(\"Stats\",0);out[#out+1]=\"Stats\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"StatusEffects\",17);local named=SP:GetFrame();SP:SetFrame(17);local numeric=SP:GetFrame();SP:SetFrame(\"StatusEffects\",0);out[#out+1]=\"StatusEffects\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Curses\",15);local named=SP:GetFrame();SP:SetFrame(15);local numeric=SP:GetFrame();SP:SetFrame(\"Curses\",0);out[#out+1]=\"Curses\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Misc\",20);local named=SP:GetFrame();SP:SetFrame(20);local numeric=SP:GetFrame();SP:SetFrame(\"Misc\",0);out[#out+1]=\"Misc\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Chests\",10);local named=SP:GetFrame();SP:SetFrame(10);local numeric=SP:GetFrame();SP:SetFrame(\"Chests\",0);out[#out+1]=\"Chests\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Beggars\",5);local named=SP:GetFrame();SP:SetFrame(5);local numeric=SP:GetFrame();SP:SetFrame(\"Beggars\",0);out[#out+1]=\"Beggars\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"machines\",8);local named=SP:GetFrame();SP:SetFrame(8);local numeric=SP:GetFrame();SP:SetFrame(\"machines\",0);out[#out+1]=\"machines\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Boss\",21);local named=SP:GetFrame();SP:SetFrame(21);local numeric=SP:GetFrame();SP:SetFrame(\"Boss\",0);out[#out+1]=\"Boss\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"PoopSpells\",11);local named=SP:GetFrame();SP:SetFrame(11);local numeric=SP:GetFrame();SP:SetFrame(\"PoopSpells\",0);out[#out+1]=\"PoopSpells\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"ItemPools\",30);local named=SP:GetFrame();SP:SetFrame(30);local numeric=SP:GetFrame();SP:SetFrame(\"ItemPools\",0);out[#out+1]=\"ItemPools\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"ArrowUpDown\",0);local named=SP:GetFrame();SP:SetFrame(0);local numeric=SP:GetFrame();SP:SetFrame(\"ArrowUpDown\",0);out[#out+1]=\"ArrowUpDown\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Wisps\",4);local named=SP:GetFrame();SP:SetFrame(4);local numeric=SP:GetFrame();SP:SetFrame(\"Wisps\",0);out[#out+1]=\"Wisps\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Poop\",6);local named=SP:GetFrame();SP:SetFrame(6);local numeric=SP:GetFrame();SP:SetFrame(\"Poop\",0);out[#out+1]=\"Poop\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"DiceFaces\",5);local named=SP:GetFrame();SP:SetFrame(5);local numeric=SP:GetFrame();SP:SetFrame(\"DiceFaces\",0);out[#out+1]=\"DiceFaces\"..':'..named..':'..numeric..':'..SP:GetFrame();return table.concat(out,'|')"
+        }
+      ],
+      "kind": "functional",
+      "native_animations": 32,
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "6e756d626572733a31333a31333a307c4552524f523a303a303a307c6865617274733a31393a31393a307c4172726f7755703a303a303a307c4172726f77446f776e3a303a303a307c5761726e696e673a303a303a307c4172726f77477261793a333a333a307c7069636b7570733a31303a31303a307c726f6f6d69636f6e733a33303a33303a307c436f6c6c65637469626c653a303a303a307c5472696e6b65743a303a303a307c726f6f6d73686170653a31313a31313a307c4974656d49636f6e3a303a303a307c426c616e6b3a303a303a307c4265686176696f723a303a303a307c4372616674696e673a32363a32363a307c5175616c6974793a343a343a307c58626f784f6e653a32393a32393a307c53746174733a34313a34313a307c537461747573456666656374733a31333a31333a307c4375727365733a303a303a307c4d6973633a303a303a307c4368657374733a303a303a307c426567676172733a303a303a307c6d616368696e65733a303a303a307c426f73733a303a303a307c506f6f705370656c6c733a303a303a307c4974656d506f6f6c733a33303a33303a307c4172726f775570446f776e3a303a303a307c57697370733a303a303a307c506f6f703a303a303a307c4469636546616365733a353a353a30"
+        }
+      ]
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "native-frame-controls-3",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "SP:Load(\"gfx/eid_cardspills.anm2\",false);local out={};SP:SetFrame(\"Pills\",13);local named=SP:GetFrame();SP:SetFrame(13);local numeric=SP:GetFrame();SP:SetFrame(\"Pills\",0);out[#out+1]=\"Pills\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Cards\",96);local named=SP:GetFrame();SP:SetFrame(96);local numeric=SP:GetFrame();SP:SetFrame(\"Cards\",0);out[#out+1]=\"Cards\"..':'..named..':'..numeric..':'..SP:GetFrame();return table.concat(out,'|')"
+        }
+      ],
+      "kind": "functional",
+      "native_animations": 2,
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "50696c6c733a31333a31333a307c43617264733a39363a39363a30"
+        }
+      ]
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "native-frame-controls-4",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "SP:Load(\"gfx/eid_player_icons.anm2\",false);local out={};SP:SetFrame(\"Players\",59);local named=SP:GetFrame();SP:SetFrame(59);local numeric=SP:GetFrame();SP:SetFrame(\"Players\",0);out[#out+1]=\"Players\"..':'..named..':'..numeric..':'..SP:GetFrame();return table.concat(out,'|')"
+        }
+      ],
+      "kind": "functional",
+      "native_animations": 1,
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "506c61796572733a35393a35393a30"
+        }
+      ]
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "native-frame-controls-5",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "SP:Load(\"gfx/005.100_collectible.anm2\",false);local out={};SP:SetFrame(\"Idle\",19);local named=SP:GetFrame();SP:SetFrame(19);local numeric=SP:GetFrame();SP:SetFrame(\"Idle\",0);out[#out+1]=\"Idle\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Empty\",19);local named=SP:GetFrame();SP:SetFrame(19);local numeric=SP:GetFrame();SP:SetFrame(\"Empty\",0);out[#out+1]=\"Empty\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"ShopIdle\",2);local named=SP:GetFrame();SP:SetFrame(2);local numeric=SP:GetFrame();SP:SetFrame(\"ShopIdle\",0);out[#out+1]=\"ShopIdle\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"PlayerPickup\",2);local named=SP:GetFrame();SP:SetFrame(2);local numeric=SP:GetFrame();SP:SetFrame(\"PlayerPickup\",0);out[#out+1]=\"PlayerPickup\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"PlayerPickupSparkle\",35);local named=SP:GetFrame();SP:SetFrame(35);local numeric=SP:GetFrame();SP:SetFrame(\"PlayerPickupSparkle\",0);out[#out+1]=\"PlayerPickupSparkle\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Alternates\",19);local named=SP:GetFrame();SP:SetFrame(19);local numeric=SP:GetFrame();SP:SetFrame(\"Alternates\",0);out[#out+1]=\"Alternates\"..':'..named..':'..numeric..':'..SP:GetFrame();return table.concat(out,'|')"
+        }
+      ],
+      "kind": "functional",
+      "native_animations": 6,
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "49646c653a31393a31393a307c456d7074793a303a303a307c53686f7049646c653a323a323a307c506c617965725069636b75703a323a323a307c506c617965725069636b7570537061726b6c653a33353a33353a307c416c7465726e617465733a31393a31393a30"
+        }
+      ]
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "native-frame-controls-6",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "SP:Load(\"gfx/ui/buttons.anm2\",false);local out={};SP:SetFrame(\"PS4\",25);local named=SP:GetFrame();SP:SetFrame(25);local numeric=SP:GetFrame();SP:SetFrame(\"PS4\",0);out[#out+1]=\"PS4\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"PS5\",25);local named=SP:GetFrame();SP:SetFrame(25);local numeric=SP:GetFrame();SP:SetFrame(\"PS5\",0);out[#out+1]=\"PS5\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"XboxOne\",23);local named=SP:GetFrame();SP:SetFrame(23);local numeric=SP:GetFrame();SP:SetFrame(\"XboxOne\",0);out[#out+1]=\"XboxOne\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Vita\",23);local named=SP:GetFrame();SP:SetFrame(23);local numeric=SP:GetFrame();SP:SetFrame(\"Vita\",0);out[#out+1]=\"Vita\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"WiiU\",23);local named=SP:GetFrame();SP:SetFrame(23);local numeric=SP:GetFrame();SP:SetFrame(\"WiiU\",0);out[#out+1]=\"WiiU\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Switch\",23);local named=SP:GetFrame();SP:SetFrame(23);local numeric=SP:GetFrame();SP:SetFrame(\"Switch\",0);out[#out+1]=\"Switch\"..':'..named..':'..numeric..':'..SP:GetFrame();SP:SetFrame(\"Switch_SingleJoyCon\",23);local named=SP:GetFrame();SP:SetFrame(23);local numeric=SP:GetFrame();SP:SetFrame(\"Switch_SingleJoyCon\",0);out[#out+1]=\"Switch_SingleJoyCon\"..':'..named..':'..numeric..':'..SP:GetFrame();return table.concat(out,'|')"
+        }
+      ],
+      "kind": "functional",
+      "native_animations": 7,
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "5053343a303a303a307c5053353a303a303a307c58626f784f6e653a303a303a307c566974613a303a303a307c576969553a303a303a307c5377697463683a303a303a307c5377697463685f53696e676c654a6f79436f6e3a303a303a30"
+        }
+      ]
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "requested-frame-preserved",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "return SP:GetFrame(),SP:GetAnimation()"
+        }
+      ],
+      "kind": "functional",
+      "requested_frame": 4,
+      "root_frame": 0,
+      "expected_values": [
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "string",
+          "hex": "437572736f72"
+        }
+      ]
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "numeric-wrapper-ignores-extra-arg",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "SP:SetFrame(2,999);return SP:GetFrame(),SP:GetAnimation()"
+        }
+      ],
+      "kind": "functional",
+      "requested_frame": 2,
+      "root_frame": 0,
+      "expected_values": [
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "string",
+          "hex": "437572736f72"
+        }
+      ]
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "cached-wrapper",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local set=SP.SetFrame;set(SP,'Slider1',7);set(SP,4);return SP:GetFrame(),SP:GetAnimation()"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "integer",
+          "value": 4
+        },
+        {
+          "type": "string",
+          "hex": "536c6964657231"
+        }
+      ]
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "original-load-wrapper",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "SP:Load('gfx/ui/modconfig/menu.anm2',nil);SP:SetFrame('Idle',0);return SP:GetDefaultAnimationName(),SP:IsLoaded()"
+        }
+      ],
+      "kind": "functional",
+      "graphics_requested": true,
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "49646c65"
+        },
+        {
+          "type": "boolean",
+          "value": true
+        }
+      ]
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "original-load-wrapper-nonfalse",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "SP:Load('gfx/ui/modconfig/menu.anm2',1);return SP:GetLayerCount()"
+        }
+      ],
+      "kind": "functional",
+      "graphics_requested": true,
+      "expected_values": [
+        {
+          "type": "integer",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "initial-and-forced-play",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "SP:Load('gfx/eid_transform_icons.anm2',false);SP:Play('Arrow');local f=SP:GetFrame();SP:SetFrame('Cursor',1);SP:Play('Arrow',true);return f,SP:GetFrame(),SP:GetAnimation()"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "string",
+          "hex": "4172726f77"
+        }
+      ]
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "color-recorded-separately",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "SP.Color=Color(1,0.5,0.25,0.5);return SP:GetFrame()"
+        }
+      ],
+      "kind": "functional",
+      "color": [
+        1,
+        0.5,
+        0.25,
+        0.5,
+        0,
+        0,
+        0
+      ],
+      "expected_values": [
+        {
+          "type": "integer",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "independent-settings-and-sprites",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation",
+          "role": "host"
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "move": true
+          }
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation",
+          "role": "host"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "en|x=17|coins=0|root=0"
+        ],
+        [
+          "zh|x=147|coins=0|root=0"
+        ],
+        [
+          "en|x=17|coins=0|root=0"
+        ]
+      ],
+      "requested_by_role": [
+        4,
+        1
+      ]
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "authority-coins-personal-state",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": 1,
+          "phase": "authority",
+          "role": "host"
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "move": true
+          }
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "zh|x=147|coins=1|root=0"
+        ]
+      ],
+      "expected_coins": 1
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "save-reload",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "move": true
+          }
+        },
+        {
+          "op": "reload_saved"
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "zh|x=147|coins=0|root=0"
+        ],
+        [
+          "zh|x=147|coins=0|root=0"
+        ]
+      ]
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "rollback-save-sprite-and-draw",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "move": true
+          }
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "fail": true
+          },
+          "expect_error": "sprite-injected"
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "zh|x=147|coins=0|root=0"
+        ],
+        [
+          "zh|x=147|coins=0|root=0"
+        ]
+      ],
+      "requested_frame": 1,
+      "root_frame": 0,
+      "forbidden_animation": "Slider1"
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "name-read-ignores-numeric-frame",
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 3,
+          "phase": "presentation"
+        },
+        {
+          "op": "evaluate",
+          "code": "SP:SetFrame(2)"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 3
+        }
+      ],
+      "kind": "functional",
+      "valid_status": [
+        true
+      ]
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "name-write-invalidates",
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 3,
+          "phase": "presentation"
+        },
+        {
+          "op": "evaluate",
+          "code": "SP:SetFrame('Slider1',2)"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 3
+        }
+      ],
+      "kind": "functional",
+      "valid_status": [
+        false
+      ]
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "frame-write-aba",
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 4,
+          "phase": "presentation"
+        },
+        {
+          "op": "evaluate",
+          "code": "SP:SetFrame(1);SP:SetFrame(4)"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 4
+        }
+      ],
+      "kind": "functional",
+      "valid_status": [
+        false
+      ]
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "frame-read-ignores-color",
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 4,
+          "phase": "presentation"
+        },
+        {
+          "op": "evaluate",
+          "code": "SP.Color=Color(0,1,0)"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 4
+        }
+      ],
+      "kind": "functional",
+      "valid_status": [
+        true
+      ]
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "load-invalidates-frame",
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 4,
+          "phase": "presentation"
+        },
+        {
+          "op": "evaluate",
+          "code": "SP:Load('gfx/ui/modconfig/menu.anm2');SP:SetFrame('Cursor',4)"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 4
+        }
+      ],
+      "kind": "functional",
+      "valid_status": [
+        false
+      ]
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "retire-sprite-operation-records",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "for i=1,128 do local s=Sprite();s:Load('gfx/ui/modconfig/menu.anm2',false);s:SetFrame('Cursor',i%5);if i%16==0 then collectgarbage('collect')end end;collectgarbage('collect')"
+        },
+        {
+          "op": "sprite_state"
+        }
+      ],
+      "kind": "functional",
+      "live_states": 1
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "packed-proof-reused",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "SP:Load('gfx/005.100_collectible.anm2',false);SP:SetFrame('Idle',0);SP:Load('gfx/005.100_collectible.anm2',false);SP:SetFrame('ShopIdle',1);return SP:GetFrame()"
+        }
+      ],
+      "kind": "functional",
+      "packed_cached": true,
+      "expected_values": [
+        {
+          "type": "integer",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "reject-unknown-animation",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "SP:SetFrame('NotRegistered',0)",
+          "expect_error": "Unregistered sprite animation"
+        },
+        {
+          "op": "dispatch",
+          "event": 3,
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "Cursor"
+        ]
+      ],
+      "requested_frame": 4,
+      "root_frame": 0
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "reject-frame-range",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "SP:SetFrame('Cursor',5)",
+          "expect_error": "Unverified sprite frame range"
+        },
+        {
+          "op": "dispatch",
+          "event": 3,
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "Cursor"
+        ]
+      ],
+      "requested_frame": 4,
+      "root_frame": 0
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "reject-negative-frame",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "SP:SetFrame('Cursor',-1)",
+          "expect_error": "Unverified sprite frame range"
+        },
+        {
+          "op": "dispatch",
+          "event": 3,
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "Cursor"
+        ]
+      ],
+      "requested_frame": 4,
+      "root_frame": 0
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "reject-unknown-postload-frame",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "SP:Load('gfx/ui/modconfig/menu.anm2');return SP:GetFrame()",
+          "expect_error": "Sprite animation selection unknown after Load"
+        },
+        {
+          "op": "dispatch",
+          "event": 3,
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "Cursor"
+        ]
+      ],
+      "requested_frame": 4,
+      "root_frame": 0
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "reject-numeric-without-selection",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "SP:Load('gfx/ui/modconfig/menu.anm2');SP:SetFrame(0)",
+          "expect_error": "Numeric SetFrame has no selected animation"
+        },
+        {
+          "op": "dispatch",
+          "event": 3,
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "Cursor"
+        ]
+      ],
+      "requested_frame": 4,
+      "root_frame": 0
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "reject-play-continuation",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "SP:Play('Cursor',false)",
+          "expect_error": "Sprite.Play continuation contract unverified"
+        },
+        {
+          "op": "dispatch",
+          "event": 3,
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "Cursor"
+        ]
+      ],
+      "requested_frame": 4,
+      "root_frame": 0
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "reject-unknown-update",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "SP:Update()",
+          "expect_error": "Sprite.Update contract not implemented"
+        },
+        {
+          "op": "dispatch",
+          "event": 3,
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "Cursor"
+        ]
+      ],
+      "requested_frame": 4,
+      "root_frame": 0
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "reject-unknown-render",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "SP:Render(Vector(0,0))",
+          "expect_error": "Sprite.Render contract not implemented"
+        },
+        {
+          "op": "dispatch",
+          "event": 3,
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "Cursor"
+        ]
+      ],
+      "requested_frame": 4,
+      "root_frame": 0
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "reject-unknown-color-alias",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "return SP.Color",
+          "expect_error": "Sprite.Color contract not implemented"
+        },
+        {
+          "op": "dispatch",
+          "event": 3,
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "Cursor"
+        ]
+      ],
+      "requested_frame": 4,
+      "root_frame": 0
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "reject-foreign-color",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "SP.Color=KColor(1,1,1,1)",
+          "expect_error": "Foreign or retired value receiver"
+        },
+        {
+          "op": "dispatch",
+          "event": 3,
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "Cursor"
+        ]
+      ],
+      "requested_frame": 4,
+      "root_frame": 0
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "reject-cached-wrong-receiver",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "SP.SetFrame(Game(),'Cursor',0)",
+          "expect_error": "Foreign or stale object receiver"
+        },
+        {
+          "op": "dispatch",
+          "event": 3,
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "Cursor"
+        ]
+      ],
+      "requested_frame": 4,
+      "root_frame": 0
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "reject-operation-cap",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "for i=1,129 do SP:SetFrame('Cursor',0)end"
+        }
+      ],
+      "kind": "process-rejection",
+      "error": "Sprite operation capacity exceeded"
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/range-hash.json",
+        "sha256": "37af6898547052573c7546b4a00ec09d8c256ae14c68a0417bd19a7f7af4685b"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "reject-range-hash",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "SP:Load('gfx/005.100_collectible.anm2',false)",
+          "expect_error": "Packed sprite range hash mismatch"
+        },
+        {
+          "op": "dispatch",
+          "event": 3,
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "Cursor"
+        ]
+      ],
+      "requested_frame": 4,
+      "root_frame": 0
+    },
+    {
+      "source": "research/sprite_state/main.lua",
+      "source_sha256": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/sprite_state",
+            "display": "mods/sprite-state-fixture",
+            "sha256": {
+              "main.lua": "333f76fa8461ac3db6fe604d77b6e2b672a30dfc5333337803b3d5b38b0e8740"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sprite-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/sprite-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/conflicting-range.json",
+        "sha256": "459f6cb4d95b815024e9120e7cc2e5ad2caf06bbcc5fd0f56b4e8e7ee80f6684"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "reject-conflicting-range",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "SP:Load('gfx/005.100_collectible.anm2',false)",
+          "expect_error": "Conflicting packed range proof"
+        },
+        {
+          "op": "dispatch",
+          "event": 3,
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "Cursor"
+        ]
+      ],
+      "requested_frame": 4,
+      "root_frame": 0
+    }
+  ]
+}

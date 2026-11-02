@@ -1,0 +1,221 @@
+{
+  "schema": "draw-plans-frozen-1",
+  "work_limit": 10000000,
+  "timeout_seconds": 5,
+  "batch_timeout_seconds": 60,
+  "bindings_verified": false,
+  "projection_allowed": false,
+  "cases": [
+    {
+      "id": "ordered-operands-shared-producer",
+      "source": "research/compact_reads/draw_templates.lua",
+      "source_sha256": "322712f767713f8061a68f9b4e2cdaa78680fc7ee82ab827628f539211c37718",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_plans",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "check": "operands"
+    },
+    {
+      "id": "helper-parameters",
+      "source": "research/compact_reads/draw_helper.lua",
+      "source_sha256": "ce68817ff5cc7f9e7aaa29310c5f602b21d22429e7f8104ca4d06108c70c9f2d",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_plans",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "check": "parameters"
+    },
+    {
+      "id": "helper-result-unresolved",
+      "source": "research/compact_reads/draw_return.lua",
+      "source_sha256": "7843d3be09acb1a8cf7dae8863eb435324b15403f527513f8415803d9b6d22ae",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_plans",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "check": "unresolved",
+      "reason": "call-result"
+    },
+    {
+      "id": "branch-false",
+      "source": "research/compact_reads/draw_branch.lua",
+      "source_sha256": "77a68e9e7e0eb8fbe2c04bda4d2d164bf514ad3a6d64f8ba4959c708ce0d4557",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_plans",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "branch": false
+          }
+        }
+      ],
+      "check": "unresolved",
+      "reason": "control-flow"
+    },
+    {
+      "id": "branch-true",
+      "source": "research/compact_reads/draw_branch.lua",
+      "source_sha256": "77a68e9e7e0eb8fbe2c04bda4d2d164bf514ad3a6d64f8ba4959c708ce0d4557",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_plans",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "branch": true
+          }
+        }
+      ],
+      "check": "unresolved",
+      "reason": "control-flow"
+    },
+    {
+      "id": "loop-unresolved",
+      "source": "research/compact_reads/draw_loop.lua",
+      "source_sha256": "df05a65a90f3f442b1d3761d573413fb07ff24bbe6002ef593f6ec14629aa3d4",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_plans",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "check": "unresolved",
+      "reason": "control-flow"
+    },
+    {
+      "id": "C-trampoline-unresolved",
+      "source": "research/compact_reads/draw_trampoline.lua",
+      "source_sha256": "db326d7acb013fc61787baa94c4e2cbf978df0496b6d0f5e1d6b8abff24f24ac",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_plans",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "check": "unresolved",
+      "reason": "C-trampoline"
+    },
+    {
+      "id": "tail-call-site",
+      "source": "research/compact_reads/draw_tail.lua",
+      "source_sha256": "8bfa0504b2157a7711f5bc1acb163ddd63661aca8e7f11bce30fa5496318cce4",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_plans",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "check": "tail"
+    },
+    {
+      "id": "site-limit",
+      "source": "research/compact_reads/draw_limit.lua",
+      "source_sha256": "dd368950caa2ebfb700afa56c74a4e30057c6f061dfc5a54a925aa0f3f960cc0",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_plans",
+          "event": 2,
+          "phase": "presentation",
+          "input": {},
+          "expect_error": "Draw plan site capacity exceeded"
+        }
+      ],
+      "check": "rejected",
+      "error": "Draw plan site capacity exceeded"
+    },
+    {
+      "id": "captured-local-write-unresolved",
+      "source": "research/compact_reads/draw_captured_write.lua",
+      "source_sha256": "390b5b0325b9662cc358d0048a3dbe8e0bcfecbcbb26465e69f2687849c47373",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_plans",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "check": "unresolved",
+      "reason": "captured-register"
+    },
+    {
+      "id": "global-node-limit",
+      "source": "research/compact_reads/draw_node_limit.lua",
+      "source_sha256": "c7dabfed1f8279c5bdb875d643f8a90c63966188a5cb3806a374c7b77f366421",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_plans",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "check": "analysis-rejected",
+      "reason": "global node capacity exceeded"
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+#pragma once
+namespace ia { inline constexpr char resource_catalog_source[]=@RESOURCE_CATALOG_LITERALS@; }

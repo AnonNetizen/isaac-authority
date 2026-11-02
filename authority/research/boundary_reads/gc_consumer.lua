@@ -1,0 +1,5 @@
+local mod=RegisterMod('GC Consumer Token',1)
+mod:AddCallback(2,function()
+    collectgarbage('collect')
+    Isaac.RenderText('collected',0,0)
+end)

@@ -1,0 +1,10 @@
+# Consumer read-set gate
+
+Continue from the verified write-barrier candidate without changing its source, binaries or reports. Build an independent x86 `ia-lua533-boundary-reads-1` command-line candidate. Use the existing 10,000,000 ledger cap, 5-second child timeout, 1-GiB process cap, and bounded native metadata. Do not start the game or the full tracer.
+
+1. Instrument logical table reads and captured-cell reads during an explicitly captured, actual registered callback. Auto-register only the fields/cells actually read, including nested helper closures. Missing keys are dependencies too. Keep one latest read set per consumer, deduplicate repeated reads, and retain no instruction/value history.
+2. Include table membership for iteration/length, exact metatable bindings and consulted metamethod fields, and registered native API dependencies (individual input keys, coins revision, private load/has-data). Unknown native operations must reject. Raw accesses must not acquire irrelevant metatable dependencies.
+3. Compare the recorded versions against current live versions. Verify A→B→A invalidates; sibling fields and relocation do not. Detect retirement, changed bindings, dynamic read-set replacement, self-modification and mixed read times. Removing/replacing a consumer releases its extra watches without removing callback-owned roots.
+4. Test ordinary behavior against stock Lua, repeated output, nesting/cached functions, table aliases, GC, failure reconstruction and caps with bounded CLI batches. Run the previous write-barrier and handoff cases unchanged. Deliver reports, hash checks and only one current uncompressed report; clean this candidate's generated objects.
+
+Read-set validity is diagnostic evidence, not permission to skip callbacks. Minimal expression projection, cross-frame provenance, actual UI isolation and host reward references remain separate gates. No cache executes, publishes or saves on the basis of these sets. Old mod source stays unchanged, personal stores stay separate and only host authority callbacks may mutate the model world.

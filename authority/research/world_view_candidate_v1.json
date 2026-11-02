@@ -1,0 +1,27 @@
+{
+  "schema": "world-view-candidate-1",
+  "abi": "ia-lua533-world-view-1",
+  "parent": "research/menu_environment_candidate_v1.json",
+  "entry": "build-world-view/Release/authority-world-view.exe",
+  "cli": "--world-view-suite ROOT MANIFEST CASE boundary|reference",
+  "manifests": [
+    "research/world_view_v6.json",
+    "research/world_view_real_v6.json",
+    "research/world_view_required_projection_v3.json",
+    "research/world_view_required_mixed_v1.json"
+  ],
+  "policy": "personal-settings-authority-hud-v1",
+  "api_layer_passed": true,
+  "user_rule_gate_passed": false,
+  "stage_exit": "failed required HUD projection and mixed-callback gates",
+  "work_limit": 10000000,
+  "timeout_seconds": 5,
+  "private_memory_limit_bytes": 1073741824,
+  "old_mod_source_changes": 0,
+  "native_equivalence_verified": false,
+  "personal_intents_publishable": false,
+  "full_ui_gate_passed": false,
+  "game_attach_supported": false,
+  "playable": false,
+  "results": "docs/WORLD_VIEW_RESULTS.md"
+}

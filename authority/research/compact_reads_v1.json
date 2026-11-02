@@ -1,0 +1,718 @@
+{
+  "schema": "compact-read-frozen-1",
+  "work_limit": 10000000,
+  "timeout_seconds": 5,
+  "batch_timeout_seconds": 60,
+  "view_rule": "personal-settings-authority-hud-v1",
+  "prior_manifest_sha256": "277fb5ff61f9ea0410a9278737e90ee3e28b9f0946305fb3fd3cc55d1ade14aa",
+  "cases": [
+    {
+      "id": "shared-long-sibling",
+      "source": "research/compact_reads/long_keys.lua",
+      "source_sha256": "6d5026205532414089d073f8fdac2633124270550ff5e742c061f396d8221f6f",
+      "stores": [
+        "{\"amount\":1,\"consumers\":12,\"key_bytes\":1024,\"keys\":128,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"consumers\":12,\"key_bytes\":1024,\"keys\":128,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "field_dictionary"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 1,
+          "compact": true
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 12,
+          "compact": true
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "sibling": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 1,
+          "compact": true
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 12,
+          "compact": true
+        }
+      ],
+      "check": "long",
+      "kind": "functional",
+      "configuration": {
+        "keys": 128,
+        "key_bytes": 1024,
+        "consumers": 12
+      },
+      "expected_valid": true
+    },
+    {
+      "id": "shared-long-aba",
+      "source": "research/compact_reads/long_keys.lua",
+      "source_sha256": "6d5026205532414089d073f8fdac2633124270550ff5e742c061f396d8221f6f",
+      "stores": [
+        "{\"amount\":1,\"consumers\":12,\"key_bytes\":1024,\"keys\":128,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"consumers\":12,\"key_bytes\":1024,\"keys\":128,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "field_dictionary"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 1,
+          "compact": true
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 12,
+          "compact": true
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "aba": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 1,
+          "compact": true
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 12,
+          "compact": true
+        }
+      ],
+      "check": "long",
+      "kind": "functional",
+      "configuration": {
+        "keys": 128,
+        "key_bytes": 1024,
+        "consumers": 12
+      },
+      "expected_valid": false
+    },
+    {
+      "id": "independent-swapped",
+      "source": "research/compact_reads/long_keys.lua",
+      "source_sha256": "6d5026205532414089d073f8fdac2633124270550ff5e742c061f396d8221f6f",
+      "stores": [
+        "{\"amount\":2,\"consumers\":12,\"key_bytes\":1024,\"keys\":128,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":1,\"consumers\":12,\"key_bytes\":1024,\"keys\":128,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "field_dictionary"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 1,
+          "compact": true
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 12,
+          "compact": true
+        }
+      ],
+      "check": "long",
+      "kind": "functional",
+      "configuration": {
+        "keys": 128,
+        "key_bytes": 1024,
+        "consumers": 12
+      },
+      "expected_valid": true
+    },
+    {
+      "id": "maximum-key",
+      "source": "research/compact_reads/long_keys.lua",
+      "source_sha256": "6d5026205532414089d073f8fdac2633124270550ff5e742c061f396d8221f6f",
+      "stores": [
+        "{\"amount\":1,\"consumers\":12,\"key_bytes\":4096,\"keys\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"consumers\":12,\"key_bytes\":4096,\"keys\":1,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "field_dictionary"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 1,
+          "compact": true
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 12,
+          "compact": true
+        }
+      ],
+      "check": "long",
+      "kind": "functional",
+      "configuration": {
+        "keys": 1,
+        "key_bytes": 4096,
+        "consumers": 12
+      },
+      "expected_valid": true
+    },
+    {
+      "id": "key-limit-rejected",
+      "source": "research/compact_reads/long_keys.lua",
+      "source_sha256": "6d5026205532414089d073f8fdac2633124270550ff5e742c061f396d8221f6f",
+      "stores": [
+        "{\"amount\":1,\"consumers\":1,\"key_bytes\":4097,\"keys\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"consumers\":1,\"key_bytes\":4097,\"keys\":1,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {},
+          "expect_error": "Read key capacity exceeded"
+        },
+        {
+          "op": "field_dictionary"
+        }
+      ],
+      "check": "rejected",
+      "kind": "safety-rejection",
+      "configuration": {
+        "keys": 1,
+        "key_bytes": 4097,
+        "consumers": 1
+      }
+    },
+    {
+      "id": "replace-1",
+      "source": "research/compact_reads/long_keys.lua",
+      "source_sha256": "6d5026205532414089d073f8fdac2633124270550ff5e742c061f396d8221f6f",
+      "stores": [
+        "{\"amount\":1,\"consumers\":1,\"key_bytes\":1024,\"keys\":128,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"consumers\":1,\"key_bytes\":1024,\"keys\":128,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "field_dictionary"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 1,
+          "compact": true
+        }
+      ],
+      "check": "replacement",
+      "kind": "functional",
+      "configuration": {
+        "keys": 128,
+        "key_bytes": 1024,
+        "consumers": 1
+      }
+    },
+    {
+      "id": "replace-12",
+      "source": "research/compact_reads/long_keys.lua",
+      "source_sha256": "6d5026205532414089d073f8fdac2633124270550ff5e742c061f396d8221f6f",
+      "stores": [
+        "{\"amount\":1,\"consumers\":12,\"key_bytes\":1024,\"keys\":128,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"consumers\":12,\"key_bytes\":1024,\"keys\":128,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "field_dictionary"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 1,
+          "compact": true
+        }
+      ],
+      "check": "replacement",
+      "kind": "functional",
+      "configuration": {
+        "keys": 128,
+        "key_bytes": 1024,
+        "consumers": 12
+      }
+    },
+    {
+      "id": "rollback-index",
+      "source": "research/compact_reads/long_keys.lua",
+      "source_sha256": "6d5026205532414089d073f8fdac2633124270550ff5e742c061f396d8221f6f",
+      "stores": [
+        "{\"amount\":1,\"consumers\":12,\"key_bytes\":1024,\"keys\":128,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"consumers\":12,\"key_bytes\":1024,\"keys\":128,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "field_dictionary"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 1,
+          "compact": true
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "fail": true
+          },
+          "expect_error": "compact-injected"
+        },
+        {
+          "op": "field_dictionary"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 1,
+          "compact": true
+        }
+      ],
+      "check": "rollback",
+      "kind": "safety-rejection",
+      "configuration": {
+        "keys": 128,
+        "key_bytes": 1024,
+        "consumers": 12
+      }
+    },
+    {
+      "id": "retired-and-recreated",
+      "source": "research/compact_reads/ephemeral.lua",
+      "source_sha256": "848f67e84560a8658900aa7c198a9d1b4815ecc559be861f7c13762588c3cc2e",
+      "stores": [
+        "{\"amount\":1,\"consumers\":12,\"key_bytes\":1024,\"keys\":128,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"consumers\":12,\"key_bytes\":1024,\"keys\":128,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "field_dictionary"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 1,
+          "compact": true
+        },
+        {
+          "op": "gc"
+        },
+        {
+          "op": "field_dictionary"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 1,
+          "compact": true
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "field_dictionary"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 1,
+          "compact": true
+        }
+      ],
+      "check": "retirement",
+      "kind": "functional",
+      "configuration": {
+        "keys": 128,
+        "key_bytes": 1024,
+        "consumers": 12
+      }
+    },
+    {
+      "id": "typed-and-nul",
+      "source": "research/compact_reads/typed.lua",
+      "source_sha256": "4a05ba04514e7d07054f7d2eb83f22c366323c55e295a171fc7c6fcc7a845af5",
+      "stores": [
+        "{\"amount\":1,\"consumers\":12,\"key_bytes\":1024,\"keys\":128,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"consumers\":12,\"key_bytes\":1024,\"keys\":128,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "field_dictionary"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 1,
+          "compact": true
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 1,
+          "compact": true
+        }
+      ],
+      "check": "typed",
+      "kind": "functional",
+      "configuration": {
+        "keys": 128,
+        "key_bytes": 1024,
+        "consumers": 12
+      }
+    },
+    {
+      "id": "rebuild-generation",
+      "source": "research/compact_reads/long_keys.lua",
+      "source_sha256": "6d5026205532414089d073f8fdac2633124270550ff5e742c061f396d8221f6f",
+      "stores": [
+        "{\"amount\":1,\"consumers\":12,\"key_bytes\":1024,\"keys\":128,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"consumers\":12,\"key_bytes\":1024,\"keys\":128,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "field_dictionary"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 1,
+          "compact": true
+        },
+        {
+          "op": "rebuild"
+        },
+        {
+          "op": "stale_handle",
+          "generation": 2,
+          "expect_error": "Stale context generation"
+        },
+        {
+          "op": "field_dictionary"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 1,
+          "compact": true
+        }
+      ],
+      "check": "generation",
+      "kind": "functional",
+      "configuration": {
+        "keys": 128,
+        "key_bytes": 1024,
+        "consumers": 12
+      }
+    }
+  ]
+}

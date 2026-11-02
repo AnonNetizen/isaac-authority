@@ -1,0 +1,1 @@
+local target={};local proxy=setmetatable({},{__newindex=function(_,k,v) target[k]=v end});__tag(target,'config');proxy.x=__tag(6,'world');__tag(target,'config');return target.x,proxy.x

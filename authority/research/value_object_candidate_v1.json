@@ -1,0 +1,22 @@
+{
+  "schema": "value-object-candidate-1",
+  "abi": "ia-lua533-value-objects-1",
+  "gate_passed": false,
+  "model_contracts_passed": true,
+  "real_mod_initialization_passed": false,
+  "authority_projection_passed": false,
+  "executable": "build-value-objects/Release/authority-values.exe",
+  "executable_sha256": "16fe167bcf6c8de3e55570cf7a64bca796ee3a3d28453bd96899112b633d7c87",
+  "reference": "build-value-objects/Release/authority-values-reference.exe",
+  "reference_sha256": "f0f2204118d5874d523d8e3395d63e71a743092b803a3a81cbeb85c72dc6ff4a",
+  "suite": "research/value_objects_v2.json",
+  "real_suite": "research/value_objects_real_v1.json",
+  "verifier": "tools/verify_value_objects.py",
+  "results": "docs/VALUE_OBJECT_RESULTS.md",
+  "work_limit": 10000000,
+  "child_timeout_seconds": 5,
+  "process_private_limit_bytes": 1073741824,
+  "consumer_cache_enabled": false,
+  "native_numeric_equivalence_verified": false,
+  "prior": "research/mod_sdk_candidate_v1.json"
+}

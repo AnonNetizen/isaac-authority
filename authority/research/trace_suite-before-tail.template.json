@@ -1,0 +1,2078 @@
+{
+  "schema": "isaac-runtime-suite-1",
+  "purpose": "Standalone execution-dependency coin-model research; no game integration",
+  "cases": [
+    {
+      "id": "original-mixed-strict",
+      "mode": "strict",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/legacy_chaos"
+        }
+      ],
+      "stores": [
+        {
+          "Authority Research Legacy Chaos Fixture": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Authority Research Legacy Chaos Fixture": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/effects/1/amount": 1,
+              "/draws/0/0/x": 24,
+              "/draws/1/0/x": 124
+            },
+            "text_templates": [
+              [
+                "zh|1|1000|${/effects/0/amount}"
+              ],
+              [
+                "en|1|1000|${/effects/0/amount}"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "original-mixed-presentation",
+      "mode": "presentation",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/legacy_chaos"
+        }
+      ],
+      "stores": [
+        {
+          "Authority Research Legacy Chaos Fixture": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Authority Research Legacy Chaos Fixture": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/effects/1/amount": 1,
+              "/draws/0/0/x": 24,
+              "/draws/1/0/x": 124
+            },
+            "text_templates": [
+              [
+                "zh|1|1000|${/effects/0/amount}"
+              ],
+              [
+                "en|1|1000|${/effects/0/amount}"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "strict-personal-config-boundary",
+      "mode": "strict",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/config_drives_world"
+        }
+      ],
+      "stores": [
+        {
+          "Config Drives World Fixture": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Config Drives World Fixture": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|1"
+              ],
+              [
+                "en|1"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 1
+            }
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "gate_required": false,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "divergent authority world call"
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|2"
+              ],
+              [
+                "en|2"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "presentation-original-config-counterexample",
+      "mode": "presentation",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/config_drives_world"
+        }
+      ],
+      "stores": [
+        {
+          "Config Drives World Fixture": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Config Drives World Fixture": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|1"
+              ],
+              [
+                "en|1"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 1
+            }
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|2"
+              ],
+              [
+                "en|2"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "presentation-config-extra-writes-cached-query-dedup",
+      "mode": "presentation",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/presentation_gate"
+        }
+      ],
+      "stores": [
+        {
+          "Presentation Gate Fixture": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Presentation Gate Fixture": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|coins=1|count=1"
+              ],
+              [
+                "en|coins=1|count=1"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 1
+            }
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|coins=2|count=2"
+              ],
+              [
+                "en|coins=2|count=2"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 2,
+              "/draws/1/0/x": 125,
+              "/personal_options/1/Language": "fr",
+              "/suppressed/0/args/1": 2
+            }
+          }
+        },
+        {
+          "frame": 3,
+          "time_ms": 1032,
+          "inputs": [
+            {},
+            {
+              "pressed": [
+                88
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|coins=3|count=3"
+              ],
+              [
+                "en|coins=3|count=3"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 3,
+              "/suppressed/1/args/1": 2
+            }
+          }
+        },
+        {
+          "frame": 3,
+          "time_ms": 1032,
+          "inputs": [
+            {},
+            {
+              "pressed": [
+                88
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|coins=3|count=3"
+              ],
+              [
+                "en|coins=3|count=3"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 3,
+              "/duplicate": true
+            }
+          }
+        },
+        {
+          "frame": 3,
+          "time_ms": 1032,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "gate_required": false,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "Duplicate model frame payload changed"
+          }
+        },
+        {
+          "frame": 4,
+          "time_ms": 1048,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|coins=4|count=4"
+              ],
+              [
+                "en|coins=4|count=4"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 4,
+              "/personal_options/1/Language": "fr"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "presentation-fresh-context-personal-config",
+      "mode": "presentation",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/presentation_gate"
+        }
+      ],
+      "stores": [
+        {
+          "Presentation Gate Fixture": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Presentation Gate Fixture": "{\"amount\": 2, \"key\": 77, \"language\": \"en\", \"x\": 125}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|coins=1|count=1"
+              ],
+              [
+                "en|coins=1|count=1"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 1,
+              "/draws/1/0/x": 125,
+              "/suppressed/0/args/1": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "strict-read-write-read",
+      "mode": "strict",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/presentation_transition"
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "0->1|count=1"
+              ],
+              [
+                "0->1|count=1"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "presentation-read-write-read-semantic-boundary",
+      "mode": "presentation",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/presentation_transition"
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "gate_required": true,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "Semantic oracle mismatch",
+            "texts": [
+              [
+                "0->1|count=1"
+              ],
+              [
+                "0->1|count=1"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "gate_required": true,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "Semantic oracle mismatch",
+            "texts": [
+              [
+                "0->1|count=1"
+              ],
+              [
+                "0->1|count=1"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "presentation-random-time-cached-functions",
+      "mode": "presentation",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/presentation_random"
+        }
+      ],
+      "stores": [
+        {
+          "Random Gate Fixture": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Random Gate Fixture": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/frame": 1,
+              "/world/time_ms": 1000,
+              "/personal_options/1/Language": "en",
+              "/draws/1/0/x": 124
+            },
+            "text_templates": [
+              [
+                "zh|v=${/transcript/0/result}|t=1000|clock=1.0|count=1"
+              ],
+              [
+                "en|v=${/transcript/0/result}|t=1000|clock=1.0|count=1"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/frame": 2,
+              "/world/time_ms": 1016,
+              "/personal_options/1/Language": "en",
+              "/draws/1/0/x": 124
+            },
+            "text_templates": [
+              [
+                "zh|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ],
+              [
+                "en|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/frame": 2,
+              "/world/time_ms": 1016,
+              "/personal_options/1/Language": "en",
+              "/draws/1/0/x": 124,
+              "/duplicate": true
+            },
+            "text_templates": [
+              [
+                "zh|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ],
+              [
+                "en|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "presentation-return-mutation-mismatch-recovery",
+      "mode": "presentation",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/presentation_random"
+        }
+      ],
+      "stores": [
+        {
+          "Random Gate Fixture": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Random Gate Fixture": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/frame": 1,
+              "/world/time_ms": 1000,
+              "/personal_options/1/Language": "en",
+              "/draws/1/0/x": 124
+            },
+            "text_templates": [
+              [
+                "zh|v=${/transcript/0/result}|t=1000|clock=1.0|count=1"
+              ],
+              [
+                "en|v=${/transcript/0/result}|t=1000|clock=1.0|count=1"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "gate_required": true,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "Unmatched return-bearing world mutation"
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/frame": 2,
+              "/world/time_ms": 1016,
+              "/personal_options/1/Language": "en",
+              "/draws/1/0/x": 124
+            },
+            "text_templates": [
+              [
+                "zh|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ],
+              [
+                "en|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/frame": 2,
+              "/world/time_ms": 1016,
+              "/personal_options/1/Language": "en",
+              "/draws/1/0/x": 124,
+              "/duplicate": true
+            },
+            "text_templates": [
+              [
+                "zh|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ],
+              [
+                "en|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "presentation-extra-return-mutation-no-reuse",
+      "mode": "presentation",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/presentation_random"
+        }
+      ],
+      "stores": [
+        {
+          "Random Gate Fixture": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Random Gate Fixture": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/frame": 1,
+              "/world/time_ms": 1000,
+              "/personal_options/1/Language": "en",
+              "/draws/1/0/x": 124
+            },
+            "text_templates": [
+              [
+                "zh|v=${/transcript/0/result}|t=1000|clock=1.0|count=1"
+              ],
+              [
+                "en|v=${/transcript/0/result}|t=1000|clock=1.0|count=1"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "pressed": [
+                99
+              ]
+            }
+          ],
+          "gate_required": true,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "Unmatched return-bearing world mutation"
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/frame": 2,
+              "/world/time_ms": 1016,
+              "/personal_options/1/Language": "en",
+              "/draws/1/0/x": 124
+            },
+            "text_templates": [
+              [
+                "zh|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ],
+              [
+                "en|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "presentation-identical-return-arguments-ambiguous",
+      "mode": "presentation",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/presentation_random_alias"
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "gate_required": true,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "Semantic oracle mismatch",
+            "text_templates": [
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ],
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ]
+            ]
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ]
+    },
+    {
+      "id": "unchanged-mcm-eid-two-language-initialization",
+      "mode": "strict",
+      "native_roots": true,
+      "load_enums": true,
+      "mods": [
+        {
+          "base": "game",
+          "root": "mods/mod_config_menu_cn_2494192799"
+        },
+        {
+          "base": "game",
+          "root": "mods/external item descriptions_836319872"
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ],
+      "inspect": [
+        {
+          "slot": 0,
+          "code": "assert(EID:getLanguage()=='zh_cn');return true",
+          "expected": [
+            {
+              "t": "boolean",
+              "v": true
+            }
+          ]
+        },
+        {
+          "slot": 1,
+          "code": "assert(EID:getLanguage()=='en_us');return true",
+          "expected": [
+            {
+              "t": "boolean",
+              "v": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trace-original-mixed-presentation",
+      "mode": "trace",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/legacy_chaos"
+        }
+      ],
+      "stores": [
+        {
+          "Authority Research Legacy Chaos Fixture": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Authority Research Legacy Chaos Fixture": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/effects/1/amount": 1,
+              "/draws/0/0/x": 24,
+              "/draws/1/0/x": 124
+            },
+            "text_templates": [
+              [
+                "zh|1|1000|${/effects/0/amount}"
+              ],
+              [
+                "en|1|1000|${/effects/0/amount}"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "trace-presentation-original-config-counterexample",
+      "mode": "trace",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/config_drives_world"
+        }
+      ],
+      "stores": [
+        {
+          "Config Drives World Fixture": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Config Drives World Fixture": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|1"
+              ],
+              [
+                "en|1"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 1
+            }
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|2"
+              ],
+              [
+                "en|2"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "trace-presentation-config-extra-writes-cached-query-dedup",
+      "mode": "trace",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/presentation_gate"
+        }
+      ],
+      "stores": [
+        {
+          "Presentation Gate Fixture": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Presentation Gate Fixture": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|coins=1|count=1"
+              ],
+              [
+                "en|coins=1|count=1"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 1
+            }
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|coins=2|count=2"
+              ],
+              [
+                "en|coins=2|count=2"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 2,
+              "/draws/1/0/x": 125,
+              "/personal_options/1/Language": "fr",
+              "/suppressed/0/args/1": 2
+            }
+          }
+        },
+        {
+          "frame": 3,
+          "time_ms": 1032,
+          "inputs": [
+            {},
+            {
+              "pressed": [
+                88
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|coins=3|count=3"
+              ],
+              [
+                "en|coins=3|count=3"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 3,
+              "/suppressed/1/args/1": 2
+            }
+          }
+        },
+        {
+          "frame": 3,
+          "time_ms": 1032,
+          "inputs": [
+            {},
+            {
+              "pressed": [
+                88
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|coins=3|count=3"
+              ],
+              [
+                "en|coins=3|count=3"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 3,
+              "/duplicate": true
+            }
+          }
+        },
+        {
+          "frame": 3,
+          "time_ms": 1032,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "gate_required": false,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "Duplicate model frame payload changed"
+          }
+        },
+        {
+          "frame": 4,
+          "time_ms": 1048,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|coins=4|count=4"
+              ],
+              [
+                "en|coins=4|count=4"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 4,
+              "/personal_options/1/Language": "fr"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "trace-presentation-fresh-context-personal-config",
+      "mode": "trace",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/presentation_gate"
+        }
+      ],
+      "stores": [
+        {
+          "Presentation Gate Fixture": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Presentation Gate Fixture": "{\"amount\": 2, \"key\": 77, \"language\": \"en\", \"x\": 125}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|coins=1|count=1"
+              ],
+              [
+                "en|coins=1|count=1"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 1,
+              "/draws/1/0/x": 125,
+              "/suppressed/0/args/1": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "trace-presentation-random-time-cached-functions",
+      "mode": "trace",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/presentation_random"
+        }
+      ],
+      "stores": [
+        {
+          "Random Gate Fixture": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Random Gate Fixture": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/frame": 1,
+              "/world/time_ms": 1000,
+              "/personal_options/1/Language": "en",
+              "/draws/1/0/x": 124
+            },
+            "text_templates": [
+              [
+                "zh|v=${/transcript/0/result}|t=1000|clock=1.0|count=1"
+              ],
+              [
+                "en|v=${/transcript/0/result}|t=1000|clock=1.0|count=1"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/frame": 2,
+              "/world/time_ms": 1016,
+              "/personal_options/1/Language": "en",
+              "/draws/1/0/x": 124
+            },
+            "text_templates": [
+              [
+                "zh|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ],
+              [
+                "en|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/frame": 2,
+              "/world/time_ms": 1016,
+              "/personal_options/1/Language": "en",
+              "/draws/1/0/x": 124,
+              "/duplicate": true
+            },
+            "text_templates": [
+              [
+                "zh|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ],
+              [
+                "en|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "trace-presentation-return-mutation-mismatch-recovery",
+      "mode": "trace",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/presentation_random"
+        }
+      ],
+      "stores": [
+        {
+          "Random Gate Fixture": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Random Gate Fixture": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/frame": 1,
+              "/world/time_ms": 1000,
+              "/personal_options/1/Language": "en",
+              "/draws/1/0/x": 124
+            },
+            "text_templates": [
+              [
+                "zh|v=${/transcript/0/result}|t=1000|clock=1.0|count=1"
+              ],
+              [
+                "en|v=${/transcript/0/result}|t=1000|clock=1.0|count=1"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "gate_required": true,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "Unmatched trace return/query"
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/frame": 2,
+              "/world/time_ms": 1016,
+              "/personal_options/1/Language": "en",
+              "/draws/1/0/x": 124
+            },
+            "text_templates": [
+              [
+                "zh|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ],
+              [
+                "en|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/frame": 2,
+              "/world/time_ms": 1016,
+              "/personal_options/1/Language": "en",
+              "/draws/1/0/x": 124,
+              "/duplicate": true
+            },
+            "text_templates": [
+              [
+                "zh|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ],
+              [
+                "en|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "trace-presentation-extra-return-mutation-no-reuse",
+      "mode": "trace",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/presentation_random"
+        }
+      ],
+      "stores": [
+        {
+          "Random Gate Fixture": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Random Gate Fixture": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/frame": 1,
+              "/world/time_ms": 1000,
+              "/personal_options/1/Language": "en",
+              "/draws/1/0/x": 124
+            },
+            "text_templates": [
+              [
+                "zh|v=${/transcript/0/result}|t=1000|clock=1.0|count=1"
+              ],
+              [
+                "en|v=${/transcript/0/result}|t=1000|clock=1.0|count=1"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "pressed": [
+                99
+              ]
+            }
+          ],
+          "gate_required": true,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "Unmatched trace return/query"
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/frame": 2,
+              "/world/time_ms": 1016,
+              "/personal_options/1/Language": "en",
+              "/draws/1/0/x": 124
+            },
+            "text_templates": [
+              [
+                "zh|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ],
+              [
+                "en|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "trace-read-write-read",
+      "mode": "trace",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/presentation_transition"
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "0->1|count=1"
+              ],
+              [
+                "0->1|count=1"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 1
+            }
+          }
+        },
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "0->1|count=1"
+              ],
+              [
+                "0->1|count=1"
+              ]
+            ],
+            "values": {
+              "/duplicate": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "trace-authority-award-presentation-random-alias",
+      "mode": "trace",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/presentation_random_alias"
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "text_templates": [
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ],
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ]
+            ]
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ]
+    },
+    {
+      "id": "trace-authority-award-trace-same-line",
+      "mode": "trace",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/trace_same_line"
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "text_templates": [
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ],
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ]
+            ]
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ]
+    },
+    {
+      "id": "trace-authority-award-trace-helper",
+      "mode": "trace",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/trace_helper"
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "text_templates": [
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ],
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ]
+            ]
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ]
+    },
+    {
+      "id": "trace-authority-award-trace-cached",
+      "mode": "trace",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/trace_cached"
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "text_templates": [
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ],
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ]
+            ]
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ]
+    },
+    {
+      "id": "trace-authority-award-trace-tail",
+      "mode": "trace",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/trace_tail"
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "text_templates": [
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ],
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ]
+            ]
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ]
+    },
+    {
+      "id": "trace-authority-award-trace-dynamic",
+      "mode": "trace",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/trace_dynamic"
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "text_templates": [
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ],
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ]
+            ]
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ]
+    },
+    {
+      "id": "trace-personal-loop-cardinality",
+      "mode": "trace",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/trace_loop"
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "gate_required": true,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "Unmatched trace return/query"
+          }
+        },
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "gate_required": true,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "Unmatched trace return/query"
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ]
+    },
+    {
+      "id": "trace-generic-loop-unresolved",
+      "mode": "trace",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/trace_generic_loop"
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "gate_required": true,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "Ambiguous trace dynamic context"
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ]
+    },
+    {
+      "id": "trace-config-save-roundtrip",
+      "mode": "trace",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/trace_serialization"
+        }
+      ],
+      "stores": [
+        {
+          "Trace Serialization Fixture": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Trace Serialization Fixture": "{\"amount\": 2, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|previous=0|0->1|count=1"
+              ],
+              [
+                "en|previous=0|0->1|count=1"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 1
+            }
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|previous=1|1->2|count=2"
+              ],
+              [
+                "en|previous=1|1->2|count=2"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 2,
+              "/draws/1/0/x": 125
+            }
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|previous=1|1->2|count=2"
+              ],
+              [
+                "en|previous=1|1->2|count=2"
+              ]
+            ],
+            "values": {
+              "/duplicate": true,
+              "/world/coins/0": 2
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

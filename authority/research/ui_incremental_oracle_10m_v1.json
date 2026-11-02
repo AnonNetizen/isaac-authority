@@ -1,0 +1,133 @@
+{
+  "schema": "isaac-incremental-oracle-suite-1",
+  "mode": "ui-incremental",
+  "work_limit": 10000000,
+  "cases": [
+    {
+      "id": "field-alias-delete-reinsert",
+      "file": "research/ui_incremental_fixtures/field-alias-delete-reinsert.lua",
+      "sha256": "4b0d21555cc742c31f39bcee80a7d25ca8315b2b92b9f53856f2b961cbe2e462"
+    },
+    {
+      "id": "structure-resize",
+      "file": "research/ui_incremental_fixtures/structure-resize.lua",
+      "sha256": "4bf8a9c7c661cc83414c328c0d8815a1b54867f6cbe1c78396fa91ee647aa37c"
+    },
+    {
+      "id": "cycle-and-shared-child",
+      "file": "research/ui_incremental_fixtures/cycle-and-shared-child.lua",
+      "sha256": "9df89ec460397705c4ef911dfe5b9a33e0d8a153dac6eeeedfff18cebc2d34ba"
+    },
+    {
+      "id": "open-upvalue-scalar",
+      "file": "research/ui_incremental_fixtures/open-upvalue-scalar.lua",
+      "sha256": "b3cddb8076213ffdab0a835c0db299f1ee15ae20d3c21b4bf2a41bf73a98d577"
+    },
+    {
+      "id": "closed-shared-upvalue",
+      "file": "research/ui_incremental_fixtures/closed-shared-upvalue.lua",
+      "sha256": "bab6f31fac9744a19fd9b7610e9e98758a2b21f1db30d4928f60e4a1f24653be"
+    },
+    {
+      "id": "native-table-effects",
+      "file": "research/ui_incremental_fixtures/native-table-effects.lua",
+      "sha256": "a5eeb2eb1dc17f1004098a27e6a86209b8fa6b6e435ee53c06780a9d0574a02e"
+    },
+    {
+      "id": "metamethod-actual-target",
+      "file": "research/ui_incremental_fixtures/metamethod-actual-target.lua",
+      "sha256": "0f1d9815df90d58d2aaa79d23275dd7fb67d05efdeed80535822f123f056478a"
+    },
+    {
+      "id": "cached-dynamic-function",
+      "file": "research/ui_incremental_fixtures/cached-dynamic-function.lua",
+      "sha256": "6e0812a762daafb669e0121c0d8ac426580e4a80463d277703adafc333b19eff"
+    },
+    {
+      "id": "stack-relocation-closed-upvalue",
+      "file": "research/ui_incremental_fixtures/stack-relocation-closed-upvalue.lua",
+      "sha256": "8e21ab44a0d954dd21c467df11c844be3d7c26378ca70ffad72df2313ee3a621",
+      "case_kind": "safety",
+      "expected_unsupported": "Trace tail context limit",
+      "note": "40 tail frames hit preserved 32-frame trace bound; diagnostic only, not compatibility"
+    },
+    {
+      "id": "ordinary-error-and-bytes",
+      "file": "research/ui_incremental_fixtures/ordinary-error-and-bytes.lua",
+      "sha256": "4e56358d367b2d918472d828c47a81d78333b4ba6e2f07cb1d607581e8ee7274"
+    },
+    {
+      "id": "stack-growth-nontail",
+      "file": "research/ui_incremental_fixtures/stack-growth-nontail.lua",
+      "sha256": "1101c125f9ca71e951e1b6140fc78182b66164569f49176a099f657e6d4e7f8b"
+    },
+    {
+      "id": "branch-live-local",
+      "file": "research/ui_incremental_fixtures/branch-live-local.lua",
+      "sha256": "df93c7753c96358905526990b19e7ac2f72fc8b6a8476a1650e1cd4d4956a2dc"
+    },
+    {
+      "id": "escaping-upvalue",
+      "file": "research/ui_incremental_fixtures/escaping-upvalue.lua",
+      "sha256": "306d7270763cebad0d0693159099f86e5102d3dcfe17aca899a11f4f05f9416a"
+    },
+    {
+      "id": "expression-temporary",
+      "file": "research/ui_incremental_fixtures/expression-temporary.lua",
+      "sha256": "0b463f0fd7eed36058fbf874874f09c333032cbada4e053bc94afd8da290c685"
+    },
+    {
+      "id": "recursive-closure-overwrite",
+      "file": "research/ui_incremental_fixtures/recursive-closure-overwrite.lua",
+      "sha256": "2acb4d27545b2a4bb6a7910ef79f6dd046386604dba4683e28385d6c5e533f44"
+    },
+    {
+      "id": "monotone-table-coverage",
+      "file": "research/ui_incremental_fixtures/monotone-table-coverage.lua",
+      "sha256": "e55b7a7f1b01c51d9a88d4811fbad9b31e8d388853c22d37f2c9adf7560374d8"
+    },
+    {
+      "id": "monotone-upvalue-coverage",
+      "file": "research/ui_incremental_fixtures/monotone-upvalue-coverage.lua",
+      "sha256": "170acc7c1d31b72fa15df6b6cdaa7332fd2810f05201913405a3c08b32b76e0e"
+    },
+    {
+      "id": "monotone-cycle-rebind",
+      "file": "research/ui_incremental_fixtures/monotone-cycle-rebind.lua",
+      "sha256": "3fec18adfde2315976e4241ee07a2b524e86b7e59ee4d19b5125bbb20c8cfa83"
+    },
+    {
+      "id": "monotone-scalar-overwrite",
+      "file": "research/ui_incremental_fixtures/monotone-scalar-overwrite.lua",
+      "sha256": "ba5f3a58ecd49c6361554dc89bfa277dd6c51e511fe80b6ea4b3f906de5a667f"
+    },
+    {
+      "id": "scalar-leaf-siblings",
+      "file": "research/ui_incremental_fixtures/scalar-leaf-siblings.lua",
+      "sha256": "81b9c019373038c31e827ed4e437b4949296734e228504ad75887b3219a4dc4c",
+      "minimum_scalar_leaf_hits": 1
+    },
+    {
+      "id": "scalar-leaf-shared-upvalue",
+      "file": "research/ui_incremental_fixtures/scalar-leaf-shared-upvalue.lua",
+      "sha256": "ae11b9813d2267840ed6ab0eae1d9b0d01173df0dea2970cd31c3dbed3406e08",
+      "minimum_scalar_leaf_hits": 1
+    },
+    {
+      "id": "scalar-leaf-rebind-layout",
+      "file": "research/ui_incremental_fixtures/scalar-leaf-rebind-layout.lua",
+      "sha256": "8909bfc271db9d37002c2dc5615ab4db07919901b8fea8708da9cc65b1a6e348",
+      "minimum_scalar_leaf_hits": 1
+    },
+    {
+      "id": "scalar-leaf-cycle-shared",
+      "file": "research/ui_incremental_fixtures/scalar-leaf-cycle-shared.lua",
+      "sha256": "36e1374d6b59a1c1c7d8c633b9e58156d2f67ce9dfc54454a4466c1b56a106fa",
+      "minimum_scalar_leaf_hits": 1
+    }
+  ],
+  "previous_sha256": "64944d94f425823ef632f6070b707ceaa8925c40ebbf570826516ff15939f97a",
+  "optimization": "complete-scalar-leaf-coverage-v1",
+  "purpose": "Original 19 cases unchanged; scalar table and scalar-upvalue closure leaves reuse complete coverage; logical limits retained.",
+  "budget_profile_note": "Only the authorized work cap changes from 5M to 10M; all original programs, expectations and structural limits are unchanged."
+}

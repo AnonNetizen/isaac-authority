@@ -1,0 +1,31 @@
+{
+  "schema": "frozen-font-capture-1",
+  "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+  "metrics_sha256": "2577a0bd2510e4fa02e04dedcbec2ac7fbc4ca8f068505a44c506ea3fa25d720",
+  "wrapper": {
+    "first": 304,
+    "last": 351,
+    "sha256": "88cb4925c1c34ad434a8db245255a66b694a67e3c34a2ec31734193f6176b026"
+  },
+  "settings_witness": {
+    "path": "runs/j460-final-ready/native.jsonl",
+    "offset": 2019,
+    "bytes": 7066,
+    "sha256": "42c1dfe2e7b6a16f4508b0e1eb2159e0f0a08b13efebee6b61c3b87b5f3d7bb2",
+    "command_index": 12
+  },
+  "observed_defaults": {
+    "alignment": null,
+    "auto_wrap": false,
+    "line_height": 1.0,
+    "max_characters": 65535,
+    "missing_character": 4294967295,
+    "truncation": false
+  },
+  "default_alignment_verified": false,
+  "default_basis": "J460 legacy wrapper creates fresh settings, sets only alignment; native getters witness other five fields",
+  "api_docs": [
+    "https://wofsauge.github.io/IsaacDocs/rep/FontRenderSettings.html",
+    "https://wofsauge.github.io/IsaacDocs/rep/Font.html"
+  ]
+}

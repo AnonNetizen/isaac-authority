@@ -1,0 +1,6 @@
+{
+  "schema": "mutable-research-pointer-1",
+  "candidate": "research/frozen_module_candidate_v1.json",
+  "gate_passed": false,
+  "note": "Partial research: Sprite/Game interfaces missing. Previous compact-value baseline remains verified."
+}

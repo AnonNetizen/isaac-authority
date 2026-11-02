@@ -1,0 +1,164 @@
+{
+  "schema": "frozen-object-resources-1",
+  "game_root": "E:/SteamLibrary/steamapps/common/The Binding of Isaac Rebirth",
+  "source_manifest_sha256": "1cb4d400a3c4f2e2d0a7d168be96a2b4b7a7a5e7bf45853db170171f935d150f",
+  "metadata_extractor": "Python ElementTree over hash-pinned original ANM2",
+  "sprites": [
+    {
+      "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/menu.anm2",
+      "aliases": [
+        "gfx/ui/modconfig/menu.anm2"
+      ],
+      "default_animation": "Idle",
+      "layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "files": [
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/menu.anm2",
+          "sha256": "d59b42706ddc939c477808bdc790962ed3c5cb28ed07754fd45d62968dbed810"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/menu.png",
+          "sha256": "a7ac34f24aea4746b03c1bcdb780c16746ea53abc3ed780bbbf474cb7a0c816d"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/popup_thin_small.png",
+          "sha256": "705610fa091515c694c70f65f060fdd4e75d1dca6516ad4840edfe021dd19596"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/backselect.png",
+          "sha256": "a9afc2d09cbb7c2ad89d51908d4c2910c3ddd326715a7b8daabf14a053fd3464"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/black.png",
+          "sha256": "af7822aea330f0c3a4943197f93963f9d0710efeceb07d5f087f960be0e33ea6"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/arrows.png",
+          "sha256": "d12ba4cbcccdd95c2935cfdbb5b0cce5c59d4280f590123e1b20287e17183662"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/slider.png",
+          "sha256": "bc6d3ef01316a3e6afae1cc1452e523ebc878130a445801284ebb121ebed27ee"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/offset.png",
+          "sha256": "e9db3f27b501008688639e23c7d0860b72a6f1822a2dceceb5064546425640a4"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/strike.png",
+          "sha256": "722adbe802b5bec4a4bbf4dfccc8c97f310304035ee984dc704ae1007f8f4a20"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/menu_overlay.png",
+          "sha256": "2c64312093186b70ea331563b96e4327d6863211893aedab8f815d7be927bc53"
+        }
+      ]
+    },
+    {
+      "path": "mods/external item descriptions_836319872/resources/gfx/eid_transform_icons.anm2",
+      "aliases": [
+        "gfx/eid_transform_icons.anm2"
+      ],
+      "default_animation": "active",
+      "layers": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "files": [
+        {
+          "path": "mods/external item descriptions_836319872/resources/gfx/eid_transform_icons.anm2",
+          "sha256": "804a11eaeb1602387849f76981e5ee6f4cb4d1a322a304f6d72db2f6ed7e4fb7"
+        },
+        {
+          "path": "mods/external item descriptions_836319872/resources/gfx/eid_transform_icons.png",
+          "sha256": "5d2816bfe172c50382d2531cced428aea76474ae8cc68911abd09af0563bb8c0"
+        }
+      ]
+    },
+    {
+      "path": "mods/external item descriptions_836319872/resources/gfx/eid_inline_icons.anm2",
+      "aliases": [
+        "gfx/eid_inline_icons.anm2"
+      ],
+      "default_animation": "ERROR",
+      "layers": [
+        0,
+        1
+      ],
+      "files": [
+        {
+          "path": "mods/external item descriptions_836319872/resources/gfx/eid_inline_icons.anm2",
+          "sha256": "90391550d64c406a5730934d2e9186d6a0f53f1c537e34c8bddaeb0a893fd105"
+        },
+        {
+          "path": "mods/external item descriptions_836319872/resources/gfx/eid_inline_icons.png",
+          "sha256": "45999e3a87d39d56cb2731c6028ed63f94b0e49b77c7082e72a6a7d374200f8c"
+        }
+      ]
+    },
+    {
+      "path": "mods/external item descriptions_836319872/resources/gfx/eid_cardspills.anm2",
+      "aliases": [
+        "gfx/eid_cardspills.anm2"
+      ],
+      "default_animation": "Cards",
+      "layers": [
+        0
+      ],
+      "files": [
+        {
+          "path": "mods/external item descriptions_836319872/resources/gfx/eid_cardspills.anm2",
+          "sha256": "961e3aa0412a5fbc6add76a2762482b9c4888723ef5e31706dd07d73d151d69d"
+        },
+        {
+          "path": "mods/external item descriptions_836319872/resources/gfx/eid_cardspills.png",
+          "sha256": "f2911e044b6480a59a54457910475f31ad5719434488c578bae383f45d9fe593"
+        }
+      ]
+    },
+    {
+      "path": "mods/external item descriptions_836319872/resources/gfx/eid_player_icons.anm2",
+      "aliases": [
+        "gfx/eid_player_icons.anm2"
+      ],
+      "default_animation": "Players",
+      "layers": [
+        0,
+        1
+      ],
+      "files": [
+        {
+          "path": "mods/external item descriptions_836319872/resources/gfx/eid_player_icons.anm2",
+          "sha256": "9d1b2eaf3865bfc65789eb77aabc47df531e5ebae26bcdc70fcde1a6709d370a"
+        },
+        {
+          "path": "mods/external item descriptions_836319872/resources/gfx/eid_player_icons.png",
+          "sha256": "a431402d2c9966b7a969cbf22b16c8982f1270e7ae9a22a5660d455fc7498338"
+        }
+      ]
+    }
+  ],
+  "omitted": [
+    {
+      "path": "resources/gfx/005.100_collectible.anm2",
+      "reason": "packed resource contract not installed"
+    },
+    {
+      "path": "resources/gfx/ui/buttons.anm2",
+      "reason": "packed resource contract not installed"
+    }
+  ]
+}

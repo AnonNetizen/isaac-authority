@@ -1,0 +1,43 @@
+ISAAC Coop Stability v2 — Watch out, laser! 联机兼容补丁
+
+快速上手（双方都要做）：
+1. 退出游戏。
+2. 双击 install.cmd，看到 "status": "patched_verified" 即安装成功。
+3. 双击 verify.cmd，把 PATCH FINGERPRINT 和队友对比，必须完全一致。
+4. 启动游戏，进入联机合作，新开一局。
+5. 游戏日志 log.txt 中应出现 [ISAAC-STABILITY] v2 ... indicators=disabled。
+
+常用命令：
+  双击 status.cmd    查看当前状态
+  双击 verify.cmd    显示双方需要对比的指纹
+  双击 diagnose.cmd  统计日志与联机 desync 会话，辅助判断是否生效
+  双击 restore.cmd   精确还原原始 main.lua（备份保留）
+
+Python 命令行替代方式（需要 Python 3；玩家用 .cmd 即可）：
+  py -3 patch_watch_out_laser.py status
+  py -3 patch_watch_out_laser.py install
+  py -3 patch_watch_out_laser.py verify
+  py -3 patch_watch_out_laser.py diagnose
+  py -3 patch_watch_out_laser.py restore
+
+这个补丁做什么：
+Watch out, laser! 在合作模式中会生成 1000.198.0（GENERIC_TRACER）与激光预警实体，
+历史 desync 记录里出现过约 0.001 的坐标差。补丁在合作模式中关闭该模组的预警实体
+生成与更新，从而消掉这一条已定位的 desync 来源；单人模式保留预警，也不关闭官方
+desync 检查。
+
+重要限制（请务必阅读）：
+- 这是针对性缓解，不是通用免 desync 补丁；其他模组、原版或网络问题造成的 desync 不在范围内。
+- 双方都必须安装，且 PATCH FINGERPRINT 一致；只装一边会比不装更糟。
+- 合作模式中该模组的激光预警视觉会被关闭，这是本方案的代价。
+- 真实掉线改善仍需双方联机实测；离线测试不能替代双机验证。
+- 安装/还原前必须退出游戏；Steam 更新模组后补丁会失效，重新运行 install.cmd 即可。
+- 默认只接受已验证的模组版本；若提示 unsupported_version，说明模组已更新，请查阅
+  README.md 的“常见问题”，确认结构后用 -AllowUnreviewed 安装。
+
+文件与备份：
+安装器会在模组目录保留 main.lua.isaac-stability-v1.backup 和 isaac-stability.json。
+restore.cmd 使用该备份精确还原，备份不会被删除；旧版 isaac-stability-v1.json 原样保留。
+如果 Steam 更新导致备份与当前版本不符，旧备份会被自动改名保留，不会删除。
+
+详细说明、状态含义、诊断方法与开发者命令见 README.md。

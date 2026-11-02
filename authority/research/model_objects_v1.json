@@ -1,0 +1,1483 @@
+{
+  "schema": "model-object-contracts-1",
+  "work_limit": 10000000,
+  "timeout_seconds": 5,
+  "cases": [
+    {
+      "id": "constructor-and-model-identity",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local a=Sprite();local b=Sprite();return type(a),rawequal(a,b),rawequal(Game(),Game()),REPENTANCE_PLUS"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "7573657264617461"
+        },
+        {
+          "type": "boolean",
+          "value": false
+        },
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "unloaded-metadata",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local a=Sprite();return a:GetFilename(),a:GetDefaultAnimationName(),a:GetLayerCount(),a:IsLoaded()"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": ""
+        },
+        {
+          "type": "string",
+          "hex": ""
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "boolean",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "actual-menu-metadata",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "return ObjectSprite:GetFilename(),ObjectSprite:GetDefaultAnimationName(),ObjectSprite:GetLayerCount(),ObjectSprite:IsLoaded()"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "6766782f75692f6d6f64636f6e6669672f6d656e752e616e6d32"
+        },
+        {
+          "type": "string",
+          "hex": "49646c65"
+        },
+        {
+          "type": "integer",
+          "value": 10
+        },
+        {
+          "type": "boolean",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "asset-menu",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local s=Sprite();s:Load(\"gfx/ui/modconfig/menu.anm2\",true);return s:GetDefaultAnimationName(),s:GetLayerCount()"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "49646c65"
+        },
+        {
+          "type": "integer",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": "asset-eid_transform_icons",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local s=Sprite();s:Load(\"gfx/eid_transform_icons.anm2\",true);return s:GetDefaultAnimationName(),s:GetLayerCount()"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "616374697665"
+        },
+        {
+          "type": "integer",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "id": "asset-eid_inline_icons",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local s=Sprite();s:Load(\"gfx/eid_inline_icons.anm2\",true);return s:GetDefaultAnimationName(),s:GetLayerCount()"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "4552524f52"
+        },
+        {
+          "type": "integer",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "asset-eid_cardspills",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local s=Sprite();s:Load(\"gfx/eid_cardspills.anm2\",true);return s:GetDefaultAnimationName(),s:GetLayerCount()"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "4361726473"
+        },
+        {
+          "type": "integer",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "asset-eid_player_icons",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local s=Sprite();s:Load(\"gfx/eid_player_icons.anm2\",true);return s:GetDefaultAnimationName(),s:GetLayerCount()"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "506c6179657273"
+        },
+        {
+          "type": "integer",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "cached-method-current-receiver",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local f=ObjectSprite.GetDefaultAnimationName;OtherSprite:Load('gfx/eid_transform_icons.anm2',false);return f(ObjectSprite),f(OtherSprite),rawequal(f,OtherSprite.GetDefaultAnimationName)"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "49646c65"
+        },
+        {
+          "type": "string",
+          "hex": "616374697665"
+        },
+        {
+          "type": "boolean",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "cached-load-current-receiver",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local f=ObjectSprite.Load;f(OtherSprite,'gfx/eid_transform_icons.anm2',false);return ObjectSprite:GetDefaultAnimationName(),OtherSprite:GetDefaultAnimationName()"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "49646c65"
+        },
+        {
+          "type": "string",
+          "hex": "616374697665"
+        }
+      ]
+    },
+    {
+      "id": "explicit-scene-values",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local g=Game();return g:GetFrameCount(),g:GetNumPlayers()"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "integer",
+          "value": 42
+        },
+        {
+          "type": "integer",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "private-config-resource-state",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {},
+          "role": "host"
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "move": true,
+            "change": true
+          }
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {},
+          "role": "host"
+        }
+      ],
+      "kind": "draws",
+      "expected_draws": [
+        [
+          "en|amount=1|default=Idle|players=2",
+          17,
+          42
+        ],
+        [
+          "zh|amount=2|default=active|players=2",
+          147,
+          42
+        ],
+        [
+          "en|amount=1|default=Idle|players=2",
+          17,
+          42
+        ]
+      ]
+    },
+    {
+      "id": "save-reload-resource-state",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "move": true,
+            "change": true
+          }
+        },
+        {
+          "op": "reload_saved"
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "draws",
+      "expected_draws": [
+        [
+          "zh|amount=2|default=active|players=2",
+          147,
+          42
+        ],
+        [
+          "zh|amount=2|default=Idle|players=2",
+          147,
+          42
+        ]
+      ]
+    },
+    {
+      "id": "object-write-aba",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "evaluate",
+          "code": "ObjectSprite:Load('gfx/eid_transform_icons.anm2',false);ObjectSprite:Load('gfx/ui/modconfig/menu.anm2',false)"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "kind": "versions",
+      "valid_status": [
+        true,
+        false
+      ]
+    },
+    {
+      "id": "other-object-write-isolated",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "evaluate",
+          "code": "OtherSprite:Load('gfx/eid_transform_icons.anm2',false)"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "kind": "versions",
+      "valid_status": [
+        true
+      ]
+    },
+    {
+      "id": "scene-field-precision",
+      "source": "research/model_objects/frame.lua",
+      "source_sha256": "ce7dbfbd7f8b87fd8ea9a5d2dfd9ae01d6d4398c49370d79cacc754e1e859ea2",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "set_scene",
+          "scene": {
+            "revision": 2,
+            "frame_count": 42,
+            "num_players": 1
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 1
+        },
+        {
+          "op": "set_scene",
+          "scene": {
+            "revision": 3,
+            "frame_count": 43,
+            "num_players": 1
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 1
+        }
+      ],
+      "kind": "versions",
+      "valid_status": [
+        true,
+        false
+      ]
+    },
+    {
+      "id": "scene-field-aba",
+      "source": "research/model_objects/frame.lua",
+      "source_sha256": "ce7dbfbd7f8b87fd8ea9a5d2dfd9ae01d6d4398c49370d79cacc754e1e859ea2",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "set_scene",
+          "scene": {
+            "revision": 2,
+            "frame_count": 43,
+            "num_players": 2
+          }
+        },
+        {
+          "op": "set_scene",
+          "scene": {
+            "revision": 3,
+            "frame_count": 42,
+            "num_players": 2
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 1
+        }
+      ],
+      "kind": "versions",
+      "valid_status": [
+        false
+      ]
+    },
+    {
+      "id": "scene-history-recovery",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "set_scene",
+          "scene": {
+            "revision": 2,
+            "frame_count": 51,
+            "num_players": 2
+          }
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "move": true,
+            "change": true
+          }
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "fail": true
+          },
+          "expect_error": "object-injected"
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "rollback",
+      "expected_draws": [
+        [
+          "zh|amount=2|default=active|players=2",
+          147,
+          51
+        ],
+        [
+          "zh|amount=2|default=active|players=2",
+          147,
+          51
+        ]
+      ]
+    },
+    {
+      "id": "object-gc-retirement",
+      "source": "research/model_objects/ephemeral.lua",
+      "source_sha256": "b06c86f89bce9a4b6ee2bfd876dffb1a7fe635f8fee83370f230134cee906666",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 1
+        },
+        {
+          "op": "gc"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 1
+        },
+        {
+          "op": "object_status"
+        },
+        {
+          "op": "evaluate",
+          "code": "local s=Sprite();s:Load('gfx/ui/modconfig/menu.anm2',false)"
+        },
+        {
+          "op": "gc"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 1
+        },
+        {
+          "op": "object_status"
+        }
+      ],
+      "kind": "gc",
+      "valid_status": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "bounded-gc-churn",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "for i=1,4096 do local s=Sprite();s:Load('gfx/ui/modconfig/menu.anm2',false);if i%32==0 then collectgarbage('collect')end end;collectgarbage('collect')"
+        },
+        {
+          "op": "object_status"
+        }
+      ],
+      "kind": "churn"
+    },
+    {
+      "id": "reject-wrong-receiver",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "ObjectSprite.Load({},'gfx/ui/modconfig/menu.anm2',false)",
+          "expect_error": "Foreign or stale object receiver"
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "recovery"
+    },
+    {
+      "id": "reject-wrong-object-kind",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "ObjectSprite.Load(Game(),'gfx/ui/modconfig/menu.anm2',false)",
+          "expect_error": "Foreign or stale object receiver"
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "recovery"
+    },
+    {
+      "id": "reject-unknown-method",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "pcall(function()ObjectSprite:Reset()end)",
+          "expect_error": "Sprite.Reset contract not implemented"
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "recovery"
+    },
+    {
+      "id": "reject-property-write",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "ObjectSprite.FlipX=true",
+          "expect_error": "Object property write contract not implemented"
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "recovery"
+    },
+    {
+      "id": "reject-missing-resource",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "ObjectSprite:Load('gfx/not-registered.anm2',false)",
+          "expect_error": "Unregistered Sprite resource"
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "recovery"
+    },
+    {
+      "id": "reject-resource-path-escape",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "ObjectSprite:Load('../outside.anm2',false)",
+          "expect_error": "Frozen module path outside registered roots"
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "recovery"
+    },
+    {
+      "id": "reject-bad-graphics-flag",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "ObjectSprite:Load('gfx/ui/modconfig/menu.anm2',1)",
+          "expect_error": "Sprite.Load graphics flag must be boolean"
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "recovery"
+    },
+    {
+      "id": "reject-bad-constructor",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Sprite(1)",
+          "expect_error": "Zero-argument object constructor required"
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "recovery"
+    },
+    {
+      "id": "reject-unknown-game-query",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Game():GetRoom()",
+          "expect_error": "Game.GetRoom contract not implemented"
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "recovery"
+    },
+    {
+      "id": "reject-scene-revision",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "set_scene",
+          "scene": {
+            "revision": 1,
+            "frame_count": 42,
+            "num_players": 2
+          },
+          "expect_error": "Scene revision must increase"
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "recovery"
+    },
+    {
+      "id": "reject-personal-scene",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "set_scene",
+          "scene": {
+            "revision": 2,
+            "frame_count": 42,
+            "num_players": 2
+          },
+          "role": "personal",
+          "expect_error": "Scene snapshots require authority role"
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "recovery"
+    },
+    {
+      "id": "reject-missing-scene-field",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "return Game():GetFrameCount()",
+          "expect_error": "Missing authoritative scene field"
+        }
+      ],
+      "kind": "recovery"
+    },
+    {
+      "id": "reject-live-object-cap",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "held={};for i=1,1025 do held[i]=Sprite()end"
+        }
+      ],
+      "kind": "process-rejection",
+      "error": "Live object capacity exceeded"
+    },
+    {
+      "id": "reject-object-work-budget",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "while true do local s=Sprite();collectgarbage('collect')end"
+        }
+      ],
+      "kind": "process-rejection",
+      "error": "Boundary work limit exceeded"
+    },
+    {
+      "id": "reject-catalog-hash",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [],
+      "kind": "process-rejection",
+      "error": "Object resource catalog hash mismatch"
+    },
+    {
+      "id": "reject-dependency-hash",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/dependency-hash.json",
+        "catalog_sha256": "101f608be1f83579ff108b3750f42e333e46dfed6f09a7b43802423861b0a30b",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [],
+      "kind": "process-rejection",
+      "error": "Object resource dependency hash mismatch"
+    },
+    {
+      "id": "reject-alias-collision",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/alias-collision.json",
+        "catalog_sha256": "2e30cfa01191ab1a97cb78d3e1f54da7d2dd06ffecefdafad2dea6e01de54554",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [],
+      "kind": "process-rejection",
+      "error": "Ambiguous object resource alias"
+    }
+  ]
+}

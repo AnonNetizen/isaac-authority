@@ -1,0 +1,1 @@
+local f;for i=1,3 do local function g(n) if n==0 then return i end return g(n-1) end;f=g end;return f(2)

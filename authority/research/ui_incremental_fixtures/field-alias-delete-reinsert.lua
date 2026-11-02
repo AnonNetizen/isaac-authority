@@ -1,0 +1,1 @@
+local t={x=1};local a=t;__tag(t,'personal');__tag(t,'personal');a.x=nil;rawset(a,'x',__tag(7,'world'));a.y={z=8};__tag(t,'personal');return t.x,t.y.z,rawlen(t)

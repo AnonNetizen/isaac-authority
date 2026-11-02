@@ -1,0 +1,165 @@
+{
+  "schema": "model-object-native-gc-contracts-1",
+  "work_limit": 10000000,
+  "timeout_seconds": 5,
+  "cases": [
+    {
+      "id": "original-collector-returns",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local f=collectgarbage;local a=f('collect');local b=f('isrunning');local ok,e=pcall(f,'not-an-option');return a,b,ok,type(e)"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": false
+        },
+        {
+          "type": "string",
+          "hex": "737472696e67"
+        }
+      ]
+    },
+    {
+      "id": "collector-cached-identity",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local f=collectgarbage;collectgarbage=function()return 17 end;local a=collectgarbage();local b=f('collect');return a,b"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "integer",
+          "value": 17
+        },
+        {
+          "type": "integer",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "collector-count-and-control",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local a=collectgarbage('count');collectgarbage('stop');local b=collectgarbage('isrunning');collectgarbage('restart');return type(a),a>=0,b,collectgarbage('isrunning')"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "6e756d626572"
+        },
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": false
+        },
+        {
+          "type": "boolean",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "collector-error-bytes",
+      "source": "research/model_objects/main.lua",
+      "source_sha256": "b2b237126834d07adf3df5023968ea547be878591b31b90a82abee68d787aaf4",
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local f=collectgarbage;local ok,e=pcall(f,{});return ok,e"
+        }
+      ],
+      "kind": "functional"
+    }
+  ]
+}

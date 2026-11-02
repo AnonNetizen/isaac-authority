@@ -1,0 +1,3050 @@
+{
+  "schema": "mod-sdk-contracts-3",
+  "work_limit": 10000000,
+  "timeout_seconds": 5,
+  "contract_correction": "Lua 5.3 section 3.4.4 permits closure identity to vary with caching. Keep original diagnostics; test distinct mod tables and cached methods with actual receivers, plus an actual Name change.",
+  "cases": [
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "registered-tables-and-cached-receivers",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local f=A.LoadData;return A.Name,B.Name,rawequal(A,B),type(f),f(A),f(B)"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "536861726564204e616d65"
+        },
+        {
+          "type": "string",
+          "hex": "536861726564204e616d65"
+        },
+        {
+          "type": "boolean",
+          "value": false
+        },
+        {
+          "type": "string",
+          "hex": "66756e6374696f6e"
+        },
+        {
+          "type": "string",
+          "hex": "7061"
+        },
+        {
+          "type": "string",
+          "hex": "7062"
+        }
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "same-folder-helper-shares-data",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "AHelper:SaveData('from-helper');return A:LoadData(),AHelper:LoadData(),B:LoadData()"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "66726f6d2d68656c706572"
+        },
+        {
+          "type": "string",
+          "hex": "66726f6d2d68656c706572"
+        },
+        {
+          "type": "string",
+          "hex": "7062"
+        }
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "foreign-helper-keeps-origin",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "BViaHelper:SaveData('from-b-helper');return A:LoadData(),B:LoadData(),BViaHelper:LoadData()"
+        },
+        {
+          "op": "sdk_status"
+        }
+      ],
+      "kind": "functional",
+      "expected_roots": [
+        "mods/sdk-a",
+        "mods/sdk-a",
+        "mods/sdk-b",
+        "mods/sdk-b"
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "name-mutation-keeps-origin",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "A.Name=B.Name;A:SaveData('renamed');return A:LoadData(),B:LoadData()"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "72656e616d6564"
+        },
+        {
+          "type": "string",
+          "hex": "7062"
+        }
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "original-isaac-register-void",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Manual={Name='Manual'};local result=Isaac.RegisterMod(Manual,'Manual',1);Isaac.SaveModData(Manual,'manual');return result,A:LoadData(),Isaac.LoadModData(Manual)"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "nil"
+        },
+        {
+          "type": "string",
+          "hex": "6d616e75616c"
+        },
+        {
+          "type": "string",
+          "hex": "6d616e75616c"
+        }
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "per-player-stores",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": 2,
+          "role": "host",
+          "phase": "presentation"
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "role": "personal",
+          "phase": "presentation",
+          "input": {
+            "save": true
+          }
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "role": "host",
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "A:ha|n=1",
+          "B:hb"
+        ],
+        [
+          "A:saved-a|n=1",
+          "B:pb"
+        ],
+        [
+          "A:ha|n=2",
+          "B:hb"
+        ]
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "save-and-reload",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": 2,
+          "role": "personal",
+          "phase": "presentation",
+          "input": {
+            "save": true
+          }
+        },
+        {
+          "op": "reload_saved"
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "role": "personal",
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "A:saved-a|n=1",
+          "B:pb"
+        ],
+        [
+          "A:saved-a|n=1",
+          "B:pb"
+        ]
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "empty-versus-absent",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "A:RemoveData();local a,b=A:HasData(),A:LoadData();A:SaveData('');local c,d=A:HasData(),A:LoadData();A:RemoveData();return a,b,c,d,A:HasData(),A:LoadData()"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": false
+        },
+        {
+          "type": "string",
+          "hex": ""
+        },
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "string",
+          "hex": ""
+        },
+        {
+          "type": "boolean",
+          "value": false
+        },
+        {
+          "type": "string",
+          "hex": ""
+        }
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "raw-bytes-and-cached-method",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local save,read=A.SaveData,A.LoadData;save(B,string.char(0,255));return read(A),read(B)"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "7061"
+        },
+        {
+          "type": "string",
+          "hex": "00ff"
+        }
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "callback-removal-is-owned",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "A:RemoveCallback(20,SharedCallback)"
+        },
+        {
+          "op": "dispatch",
+          "event": 20,
+          "role": "personal",
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "shared-b"
+        ]
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "callback-priorities",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": 21,
+          "role": "personal",
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "priority-helper",
+          "priority-b",
+          "priority-a"
+        ]
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "callback-false-stops",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": 23,
+          "role": "personal",
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "stop-false"
+        ]
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "callback-filter-equal",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": 22,
+          "role": "personal",
+          "phase": "presentation",
+          "filter": 7,
+          "arguments": [
+            "yes"
+          ]
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "filtered:yes"
+        ]
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "callback-filter-mismatch",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": 22,
+          "role": "personal",
+          "phase": "presentation",
+          "filter": 8,
+          "arguments": [
+            "no"
+          ]
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        []
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "callback-filter-nil-wildcard",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": 22,
+          "role": "personal",
+          "phase": "presentation",
+          "arguments": [
+            "nil"
+          ]
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "filtered:nil"
+        ]
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "callback-filter-minus-one",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": 22,
+          "role": "personal",
+          "phase": "presentation",
+          "filter": -1,
+          "arguments": [
+            "wild"
+          ]
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "filtered:wild"
+        ]
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "callback-helper-root-inheritance",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": 30,
+          "role": "personal",
+          "phase": "presentation"
+        },
+        {
+          "op": "sdk_status"
+        }
+      ],
+      "kind": "functional",
+      "expected_roots": [
+        "mods/sdk-a",
+        "mods/sdk-a",
+        "mods/sdk-b",
+        "mods/sdk-b",
+        "mods/sdk-b"
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "selected-store-precision",
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 26,
+          "phase": "presentation"
+        },
+        {
+          "op": "evaluate",
+          "code": "B:SaveData('other')"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 8
+        },
+        {
+          "op": "evaluate",
+          "code": "A:SaveData('changed')"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 8
+        }
+      ],
+      "kind": "functional",
+      "valid_status": [
+        true,
+        false
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "selected-store-aba",
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 26,
+          "phase": "presentation"
+        },
+        {
+          "op": "evaluate",
+          "code": "A:SaveData('changed');A:SaveData('pa')"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 8
+        }
+      ],
+      "kind": "functional",
+      "valid_status": [
+        false
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "presence-precision-and-aba",
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 25,
+          "phase": "presentation"
+        },
+        {
+          "op": "evaluate",
+          "code": "A:SaveData('content-only')"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 7
+        },
+        {
+          "op": "evaluate",
+          "code": "A:RemoveData();A:SaveData('pa')"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 7
+        }
+      ],
+      "kind": "functional",
+      "valid_status": [
+        true,
+        false
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "rollback-all-mods-and-private-state",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": 2,
+          "role": "personal",
+          "phase": "presentation"
+        },
+        {
+          "op": "dispatch",
+          "event": 24,
+          "role": "personal",
+          "phase": "presentation",
+          "expect_error": "sdk-injected"
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "role": "personal",
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "A:pa|n=1",
+          "B:pb"
+        ],
+        [
+          "A:pa|n=2",
+          "B:pb"
+        ]
+      ],
+      "expected_stores": [
+        {
+          "mods/sdk-a": "ha",
+          "mods/sdk-b": "hb"
+        },
+        {
+          "mods/sdk-a": "pa",
+          "mods/sdk-b": "pb"
+        }
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "authority-write-only",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": 1,
+          "role": "host",
+          "phase": "authority"
+        },
+        {
+          "op": "dispatch",
+          "event": 1,
+          "role": "personal",
+          "phase": "authority",
+          "expect_error": "Personal context cannot execute authority phase"
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "role": "personal",
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "A:pa|n=1",
+          "B:pb"
+        ]
+      ],
+      "expected_coins": 1
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "actual-enum-values",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "return Keyboard.KEY_L,Keyboard.KEY_F2,ModCallbacks.MC_POST_RENDER,CallbackPriority.EARLY,RoomDescriptor.DISPLAY_ALL,ItemConfig.CHARGE_SPECIAL,TearFlags.TEAR_SPECTRAL.l,TearFlags.TEAR_CREEP_TRAIL.l,TearFlags.TEAR_PUNCH.h"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "integer",
+          "value": 76
+        },
+        {
+          "type": "integer",
+          "value": 291
+        },
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": -100
+        },
+        {
+          "type": "integer",
+          "value": 5
+        },
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "integer",
+          "value": 1
+        },
+        {
+          "type": "integer",
+          "value": -9223372036854775808
+        },
+        {
+          "type": "integer",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "full-frozen-enum-bytes",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local rows={};for _,name in ipairs({\"ActionTriggers\",\"ActiveSlot\",\"BabySubType\",\"BackdropType\",\"BatterySubType\",\"BedSubType\",\"BombSubType\",\"BombVariant\",\"ButtonAction\",\"CacheFlag\",\"CallbackPriority\",\"Card\",\"Challenge\",\"ChampionColor\",\"ChestSubType\",\"CoinSubType\",\"CollectibleType\",\"DamageFlag\",\"Difficulty\",\"Direction\",\"DoorSlot\",\"DoorState\",\"DoorVariant\",\"DrawStringAlignment\",\"EffectVariant\",\"EntityCollisionClass\",\"EntityFlag\",\"EntityGridCollisionClass\",\"EntityPartition\",\"EntityType\",\"FamiliarVariant\",\"GameStateFlag\",\"GridCollisionClass\",\"GridEntityType\",\"GridRooms\",\"HeartSubType\",\"InputHook\",\"ItemConfig\",\"ItemPoolType\",\"ItemType\",\"KeySubType\",\"Keyboard\",\"LaserOffset\",\"LaserSubType\",\"LaserVariant\",\"LevelCurse\",\"LevelStage\",\"LevelStateFlag\",\"LocustSubtypes\",\"ModCallbacks\",\"Mouse\",\"Music\",\"NpcState\",\"NullItemID\",\"PickupPrice\",\"PickupVariant\",\"PillColor\",\"PillEffect\",\"PlayerForm\",\"PlayerSpriteLayer\",\"PlayerType\",\"PoopPickupSubType\",\"PoopSpellType\",\"ProjectileFlags\",\"ProjectileVariant\",\"RenderMode\",\"RoomDescriptor\",\"RoomShape\",\"RoomTransitionAnim\",\"RoomType\",\"SackSubType\",\"SeedEffect\",\"SkinColor\",\"SortingLayer\",\"SoundEffect\",\"StageType\",\"TearFlags\",\"TearVariant\",\"TrinketType\",\"UseFlag\",\"WeaponType\"})do for k,v in pairs(_G[name])do local t=type(v);if t=='userdata'then rows[#rows+1]=name..'.'..k..'='..v.l..','..v.h elseif t=='number'then rows[#rows+1]=name..'.'..k..'='..tostring(v)else error('unknown enum type '..t)end end end;table.sort(rows);return table.concat(rows,'\\n')"
+        }
+      ],
+      "kind": "functional",
+      "enum_dump": true
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "personal-enum-table-independent",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Keyboard.KEY_L=999"
+        },
+        {
+          "op": "evaluate",
+          "code": "return Keyboard.KEY_L"
+        },
+        {
+          "op": "evaluate",
+          "code": "return Keyboard.KEY_L",
+          "role": "host"
+        }
+      ],
+      "kind": "functional",
+      "enum_values": [
+        999,
+        76
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "reject-forged-receiver",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local fake={Name=A.Name,LoadData=A.LoadData};return fake:LoadData()",
+          "expect_error": "Unregistered mod receiver"
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "role": "personal",
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "A:pa|n=1",
+          "B:pb"
+        ]
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "reject-duplicate-table",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Isaac.RegisterMod(A,'again',1)",
+          "expect_error": "Mod table already registered"
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "role": "personal",
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "A:pa|n=1",
+          "B:pb"
+        ]
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "reject-api-version",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "RegisterMod('Bad',2)",
+          "expect_error": "Mod API version unsupported"
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "role": "personal",
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "A:pa|n=1",
+          "B:pb"
+        ]
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "reject-unknown-bit-field",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "return TearFlags.TEAR_NORMAL.Unknown",
+          "expect_error": "BitSet128 operation contract unsupported"
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "role": "personal",
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "A:pa|n=1",
+          "B:pb"
+        ]
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "reject-bit-field-write",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "TearFlags.TEAR_NORMAL.l=4",
+          "expect_error": "BitSet128 writes not implemented"
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "role": "personal",
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "A:pa|n=1",
+          "B:pb"
+        ]
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "reject-unknown-namespace",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "return ItemConfig.GetCollectibles",
+          "expect_error": "Enum namespace operation not implemented"
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "role": "personal",
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "A:pa|n=1",
+          "B:pb"
+        ]
+      ]
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "reject-sdk-source-hash",
+      "steps": [],
+      "kind": "process-rejection",
+      "error": "Frozen SDK source hash mismatch"
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "reject-sdk-fragment-hash",
+      "steps": [],
+      "kind": "process-rejection",
+      "error": "Frozen registration fragment hash mismatch"
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb",
+            "mods/unknown": "x"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "reject-unregistered-seed",
+      "steps": [],
+      "kind": "process-rejection",
+      "error": "SDK seed uses unregistered mod root"
+    },
+    {
+      "source": "research/mod_sdk/a/main.lua",
+      "source_sha256": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/mod_sdk/a",
+            "display": "mods/sdk-a",
+            "sha256": {
+              "main.lua": "ff9f776ea0b497496c5a560fae1c931532ae6f0c1dde88f059d229631dac51bf"
+            }
+          },
+          {
+            "root": "research/mod_sdk/b",
+            "display": "mods/sdk-b",
+            "sha256": {
+              "main.lua": "799f7aeeb724d785af694a99541b7f9b9ca0ab5d8eb172532a45f8b55dd37391"
+            }
+          }
+        ]
+      },
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/sdk-a": "ha",
+            "mods/sdk-b": "hb"
+          },
+          {
+            "mods/sdk-a": "pa",
+            "mods/sdk-b": "pb"
+          }
+        ],
+        "load_order": [
+          0,
+          1
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "id": "actual-name-mutation-keeps-origin",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "A.Name='Spoofed Name';A:SaveData('renamed');return A.Name,A:LoadData(),B:LoadData()"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "53706f6f666564204e616d65"
+        },
+        {
+          "type": "string",
+          "hex": "72656e616d6564"
+        },
+        {
+          "type": "string",
+          "hex": "7062"
+        }
+      ]
+    }
+  ]
+}

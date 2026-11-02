@@ -1,0 +1,331 @@
+{
+  "schema": "isaac-runtime-suite-1",
+  "view_rule": "personal-settings-authority-hud-v1",
+  "purpose": "Shared settings framework boundary model; no real MCM acceptance",
+  "cases": [
+    {
+      "id": "slice3-menu-settings-1-2",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice3_menu_provider",
+          "sha256": {
+            "main.lua": "ad428ff5b64acba9e2db9173f3119bfa9662118ce2eceed5aca8cf73f380947b"
+          }
+        },
+        {
+          "base": "research",
+          "root": "fixtures/slice3_menu_config",
+          "sha256": {
+            "main.lua": "8db1c56b41db6305ddefe618390e5e64759e1b82a4fd7b548a95c2e5d71541f7"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Slice3 Menu Config": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Slice3 Menu Config": "{\"amount\": 2, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 1,
+              "/draws/1/0/x": 124,
+              "/draws/1/1/x": 124,
+              "/stores/1/Slice3 Menu Config": "{\"amount\":2,\"key\":77,\"language\":\"en\",\"x\":124}"
+            },
+            "texts": [
+              [
+                "zh|amount=1",
+                "zh|amount=1"
+              ],
+              [
+                "en|amount=2",
+                "en|amount=1"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 2,
+              "/draws/1/0/x": 125,
+              "/draws/1/1/x": 125,
+              "/stores/1/Slice3 Menu Config": "{\"amount\":3,\"key\":77,\"language\":\"en\",\"x\":125}"
+            },
+            "texts": [
+              [
+                "zh|amount=1",
+                "zh|amount=1"
+              ],
+              [
+                "en|amount=3",
+                "en|amount=1"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 3,
+          "time_ms": 1032,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 3,
+              "/draws/1/0/x": 125,
+              "/draws/1/1/x": 125,
+              "/stores/1/Slice3 Menu Config": "{\"amount\":3,\"key\":77,\"language\":\"en\",\"x\":125}"
+            },
+            "texts": [
+              [
+                "zh|amount=1",
+                "zh|amount=1"
+              ],
+              [
+                "en|amount=3",
+                "en|amount=1"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 3,
+          "time_ms": 1032,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 3,
+              "/draws/1/0/x": 125,
+              "/draws/1/1/x": 125,
+              "/stores/1/Slice3 Menu Config": "{\"amount\":3,\"key\":77,\"language\":\"en\",\"x\":125}",
+              "/duplicate": true
+            },
+            "texts": [
+              [
+                "zh|amount=1",
+                "zh|amount=1"
+              ],
+              [
+                "en|amount=3",
+                "en|amount=1"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 3,
+          "time_ms": 1032,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "gate_required": false,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "Duplicate model frame payload changed"
+          }
+        }
+      ],
+      "case_kind": "functional"
+    },
+    {
+      "id": "slice3-menu-settings-2-1",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice3_menu_provider",
+          "sha256": {
+            "main.lua": "ad428ff5b64acba9e2db9173f3119bfa9662118ce2eceed5aca8cf73f380947b"
+          }
+        },
+        {
+          "base": "research",
+          "root": "fixtures/slice3_menu_config",
+          "sha256": {
+            "main.lua": "8db1c56b41db6305ddefe618390e5e64759e1b82a4fd7b548a95c2e5d71541f7"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Slice3 Menu Config": "{\"amount\": 2, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Slice3 Menu Config": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 2,
+              "/draws/1/0/x": 124,
+              "/draws/1/1/x": 124,
+              "/stores/1/Slice3 Menu Config": "{\"amount\":1,\"key\":77,\"language\":\"en\",\"x\":124}"
+            },
+            "texts": [
+              [
+                "zh|amount=2",
+                "zh|amount=2"
+              ],
+              [
+                "en|amount=1",
+                "en|amount=2"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 4,
+              "/draws/1/0/x": 125,
+              "/draws/1/1/x": 125,
+              "/stores/1/Slice3 Menu Config": "{\"amount\":2,\"key\":77,\"language\":\"en\",\"x\":125}"
+            },
+            "texts": [
+              [
+                "zh|amount=2",
+                "zh|amount=2"
+              ],
+              [
+                "en|amount=2",
+                "en|amount=2"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 3,
+          "time_ms": 1032,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 6,
+              "/draws/1/0/x": 125,
+              "/draws/1/1/x": 125,
+              "/stores/1/Slice3 Menu Config": "{\"amount\":2,\"key\":77,\"language\":\"en\",\"x\":125}"
+            },
+            "texts": [
+              [
+                "zh|amount=2",
+                "zh|amount=2"
+              ],
+              [
+                "en|amount=2",
+                "en|amount=2"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 3,
+          "time_ms": 1032,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 6,
+              "/draws/1/0/x": 125,
+              "/draws/1/1/x": 125,
+              "/stores/1/Slice3 Menu Config": "{\"amount\":2,\"key\":77,\"language\":\"en\",\"x\":125}",
+              "/duplicate": true
+            },
+            "texts": [
+              [
+                "zh|amount=2",
+                "zh|amount=2"
+              ],
+              [
+                "en|amount=2",
+                "en|amount=2"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 3,
+          "time_ms": 1032,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "gate_required": false,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "Duplicate model frame payload changed"
+          }
+        }
+      ],
+      "case_kind": "functional"
+    }
+  ],
+  "bootstrap_sha256": "8d3b03f1e9ee9a95775b8a2aefada880a3f8331e9ee2d5193af490bc4f0c778e",
+  "enums_sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+}

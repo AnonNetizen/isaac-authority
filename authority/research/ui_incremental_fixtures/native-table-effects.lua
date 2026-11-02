@@ -1,0 +1,1 @@
+local t={3,1,2};__tag(t,'config');local insert=table.insert;insert(t,__tag(4,'world'));table.remove(t,2);table.sort(t);__tag(t,'config');return table.concat(t,','),t[3]

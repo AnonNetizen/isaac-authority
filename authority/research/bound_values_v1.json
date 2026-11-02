@@ -1,0 +1,370 @@
+{
+  "schema": "observed-values-frozen-1",
+  "work_limit": 10000000,
+  "timeout_seconds": 5,
+  "batch_timeout_seconds": 60,
+  "origins_verified": false,
+  "authority_projection_allowed": false,
+  "cases": [
+    {
+      "id": "operands-and-bytes",
+      "source": "research/compact_reads/draw_templates.lua",
+      "source_sha256": "322712f767713f8061a68f9b4e2cdaa78680fc7ee82ab827628f539211c37718",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_bindings",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "verified"
+    },
+    {
+      "id": "unicode-personal",
+      "source": "research/compact_reads/draw_templates.lua",
+      "source_sha256": "322712f767713f8061a68f9b4e2cdaa78680fc7ee82ab827628f539211c37718",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"中文\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_bindings",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "verified",
+      "language": "中文"
+    },
+    {
+      "id": "observed-helper-parameters",
+      "source": "research/compact_reads/draw_helper.lua",
+      "source_sha256": "ce68817ff5cc7f9e7aaa29310c5f602b21d22429e7f8104ca4d06108c70c9f2d",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_bindings",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "verified"
+    },
+    {
+      "id": "tail-C-draw",
+      "source": "research/compact_reads/draw_tail.lua",
+      "source_sha256": "8bfa0504b2157a7711f5bc1acb163ddd63661aca8e7f11bce30fa5496318cce4",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_bindings",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "verified"
+    },
+    {
+      "id": "temporal",
+      "source": "research/bound_values/temporal.lua",
+      "source_sha256": "9abbc7db8beee0c05b51d305e87b30504e709461c7d9d0da1b20b57b70df6e00",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_bindings",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "verified"
+    },
+    {
+      "id": "aba",
+      "source": "research/bound_values/aba.lua",
+      "source_sha256": "80800016939f64dcf4151eb57de5e722471c5239a78f4ca6fc2840112e0340f0",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_bindings",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "verified"
+    },
+    {
+      "id": "nested",
+      "source": "research/bound_values/nested.lua",
+      "source_sha256": "4a11b17222ab4431333ae220de72b41b0e88c7efc214ea8fb492f0d29b44e846",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_bindings",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "verified"
+    },
+    {
+      "id": "activations",
+      "source": "research/bound_values/activations.lua",
+      "source_sha256": "d5454e4c3e36b1fcb74b337d6e95642570e58a9ec20f537c1ff2fbe13579082a",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_bindings",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "verified"
+    },
+    {
+      "id": "arithmetic",
+      "source": "research/bound_values/arithmetic.lua",
+      "source_sha256": "a515eaa5e0a681b1a75150a5a598e2d4b42c3a848fd17aba91d63adab57659f8",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_bindings",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "verified"
+    },
+    {
+      "id": "cached-across-frames",
+      "source": "research/bound_values/cached.lua",
+      "source_sha256": "abcf3caac64e1863f8c99a98b7bb13e04c370ac8fad0e29f69b2d000739e30d7",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_bindings",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_bindings",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "verified"
+    },
+    {
+      "id": "helper-result",
+      "source": "research/compact_reads/draw_return.lua",
+      "source_sha256": "7843d3be09acb1a8cf7dae8863eb435324b15403f527513f8415803d9b6d22ae",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_bindings",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "unresolved",
+      "reason": "call-result"
+    },
+    {
+      "id": "branch",
+      "source": "research/compact_reads/draw_branch.lua",
+      "source_sha256": "77a68e9e7e0eb8fbe2c04bda4d2d164bf514ad3a6d64f8ba4959c708ce0d4557",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_bindings",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "unresolved",
+      "reason": "control-flow"
+    },
+    {
+      "id": "loop",
+      "source": "research/compact_reads/draw_loop.lua",
+      "source_sha256": "df05a65a90f3f442b1d3761d573413fb07ff24bbe6002ef593f6ec14629aa3d4",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_bindings",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "unresolved",
+      "reason": "control-flow"
+    },
+    {
+      "id": "C-trampoline",
+      "source": "research/compact_reads/draw_trampoline.lua",
+      "source_sha256": "db326d7acb013fc61787baa94c4e2cbf978df0496b6d0f5e1d6b8abff24f24ac",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_bindings",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "unresolved",
+      "reason": "C-trampoline"
+    },
+    {
+      "id": "captured-writer",
+      "source": "research/compact_reads/draw_captured_write.lua",
+      "source_sha256": "390b5b0325b9662cc358d0048a3dbe8e0bcfecbcbb26465e69f2687849c47373",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_bindings",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "unresolved",
+      "reason": "captured-register"
+    },
+    {
+      "id": "metamethod-result",
+      "source": "research/bound_values/metamethod.lua",
+      "source_sha256": "504a52888df1c6accc753f5b50faf7ff1863977b4d668c2fbe5b1df61a21b7fa",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_bindings",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "unresolved",
+      "reason": "Metamethod result proof"
+    },
+    {
+      "id": "rollback-after-save-draw",
+      "source": "research/bound_values/rollback.lua",
+      "source_sha256": "9a33b3c56b19018723326a776c9f744f520a9b80ab29b6ea7414f79aa131572a",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_bindings",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_bindings",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "fail": true
+          },
+          "expect_error": "bound-injected"
+        },
+        {
+          "op": "capture_bindings",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "rollback"
+    },
+    {
+      "id": "payload-capacity",
+      "source": "research/bound_values/capacity.lua",
+      "source_sha256": "0b4cd5d10a7fe528f7919855a5816a3707688c4a77400728c9e175d252779d68",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_bindings",
+          "event": 2,
+          "phase": "presentation",
+          "input": {},
+          "expect_error": "Source observation capacity exceeded"
+        }
+      ],
+      "kind": "native-rejection"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+error('ordinary error')

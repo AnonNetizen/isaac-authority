@@ -1,0 +1,174 @@
+{
+  "schema": "trusted-mcm-sites-1",
+  "source": "research/menu_environment/pristine_modconfig.lua",
+  "source_sha256": "19a0366d7db6faae98a94dd46c5111f5ec4e5d4dc1bc456cb7fd3cacac3ffaf2",
+  "functions": {
+    "AddSetting": {
+      "sha256": "6e3c1a738239bf1a4e8013a2a16e49b84f339bccf47e7ed46877dce3418a9a4d",
+      "first": 836,
+      "last": 872,
+      "instructions": 113
+    },
+    "PostRender": {
+      "sha256": "6eb641009dea1a40eeec1494626a609c945d8a9af69b3b1491257da8746f25f0",
+      "first": 2101,
+      "last": 3605,
+      "instructions": 2777
+    },
+    "ConvertDisplayToTextTable": {
+      "sha256": "6dcf741d127cef6f082a6e017a954012189a7d165553159f2a34061a0288b0f0",
+      "first": 1954,
+      "last": 2089,
+      "instructions": 183
+    }
+  },
+  "sites": [
+    {
+      "caller": "PostRender",
+      "caller_sha256": "6eb641009dea1a40eeec1494626a609c945d8a9af69b3b1491257da8746f25f0",
+      "pc": 541,
+      "instruction": 8423012,
+      "line": 2374,
+      "role": "CurrentSetting",
+      "receiver_index": 26,
+      "receiver_kind": "upvalue",
+      "receiver_name": "currentMenuOption",
+      "args": 0,
+      "results": 1
+    },
+    {
+      "caller": "PostRender",
+      "caller_sha256": "6eb641009dea1a40eeec1494626a609c945d8a9af69b3b1491257da8746f25f0",
+      "pc": 742,
+      "instruction": 8422948,
+      "line": 2500,
+      "role": "CurrentSetting",
+      "receiver_index": 26,
+      "receiver_kind": "upvalue",
+      "receiver_name": "currentMenuOption",
+      "args": 0,
+      "results": 1
+    },
+    {
+      "caller": "PostRender",
+      "caller_sha256": "6eb641009dea1a40eeec1494626a609c945d8a9af69b3b1491257da8746f25f0",
+      "pc": 915,
+      "instruction": 8422948,
+      "line": 2577,
+      "role": "CurrentSetting",
+      "receiver_index": 26,
+      "receiver_kind": "upvalue",
+      "receiver_name": "currentMenuOption",
+      "args": 0,
+      "results": 1
+    },
+    {
+      "caller": "PostRender",
+      "caller_sha256": "6eb641009dea1a40eeec1494626a609c945d8a9af69b3b1491257da8746f25f0",
+      "pc": 1001,
+      "instruction": 8422948,
+      "line": 2619,
+      "role": "CurrentSetting",
+      "receiver_index": 26,
+      "receiver_kind": "upvalue",
+      "receiver_name": "currentMenuOption",
+      "args": 0,
+      "results": 1
+    },
+    {
+      "caller": "PostRender",
+      "caller_sha256": "6eb641009dea1a40eeec1494626a609c945d8a9af69b3b1491257da8746f25f0",
+      "pc": 626,
+      "instruction": 16795236,
+      "line": 2416,
+      "role": "OnChange",
+      "receiver_index": 26,
+      "receiver_kind": "upvalue",
+      "receiver_name": "currentMenuOption",
+      "args": 1,
+      "results": 0
+    },
+    {
+      "caller": "PostRender",
+      "caller_sha256": "6eb641009dea1a40eeec1494626a609c945d8a9af69b3b1491257da8746f25f0",
+      "pc": 865,
+      "instruction": 16795236,
+      "line": 2547,
+      "role": "OnChange",
+      "receiver_index": 26,
+      "receiver_kind": "upvalue",
+      "receiver_name": "currentMenuOption",
+      "args": 1,
+      "results": 0
+    },
+    {
+      "caller": "PostRender",
+      "caller_sha256": "6eb641009dea1a40eeec1494626a609c945d8a9af69b3b1491257da8746f25f0",
+      "pc": 942,
+      "instruction": 16795172,
+      "line": 2591,
+      "role": "OnChange",
+      "receiver_index": 26,
+      "receiver_kind": "upvalue",
+      "receiver_name": "currentMenuOption",
+      "args": 1,
+      "results": 0
+    },
+    {
+      "caller": "PostRender",
+      "caller_sha256": "6eb641009dea1a40eeec1494626a609c945d8a9af69b3b1491257da8746f25f0",
+      "pc": 1021,
+      "instruction": 16795172,
+      "line": 2629,
+      "role": "OnChange",
+      "receiver_index": 26,
+      "receiver_kind": "upvalue",
+      "receiver_name": "currentMenuOption",
+      "args": 1,
+      "results": 0
+    },
+    {
+      "caller": "PostRender",
+      "caller_sha256": "6eb641009dea1a40eeec1494626a609c945d8a9af69b3b1491257da8746f25f0",
+      "pc": 1956,
+      "instruction": 33590756,
+      "line": 3236,
+      "role": "Display",
+      "receiver_index": 48,
+      "receiver_kind": "local",
+      "receiver_name": "thisOption",
+      "args": 3,
+      "results": 1
+    },
+    {
+      "caller": "PostRender",
+      "caller_sha256": "6eb641009dea1a40eeec1494626a609c945d8a9af69b3b1491257da8746f25f0",
+      "pc": 2033,
+      "instruction": 33590756,
+      "line": 3272,
+      "role": "Display",
+      "receiver_index": 48,
+      "receiver_kind": "local",
+      "receiver_name": "thisOption",
+      "args": 3,
+      "results": 1
+    },
+    {
+      "caller": "ConvertDisplayToTextTable",
+      "caller_sha256": "6dcf741d127cef6f082a6e017a954012189a7d165553159f2a34061a0288b0f0",
+      "pc": 10,
+      "instruction": 8421668,
+      "line": 1960,
+      "role": "Info",
+      "receiver_index": 0,
+      "receiver_kind": "ancestor",
+      "receiver_name": "",
+      "args": 0,
+      "results": 1
+    }
+  ],
+  "settings_limit": 256,
+  "proof_count_limit": 512,
+  "proof_byte_limit": 262144,
+  "personal_result_forwarding_implemented": false
+}

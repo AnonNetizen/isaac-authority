@@ -1,0 +1,163 @@
+{
+  "schema": "frozen-world-view-1",
+  "rule": "authority-writes-personal-intents-v1",
+  "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+  "menu_sha256": "9f1f0fd3595c6c4f05035fb4576c20460c19aa2e54ec5b71cab35e13982f7fb7",
+  "hud_effect": 10,
+  "items": {
+    "1": {
+      "ID": 1,
+      "Name": "#THE_SAD_ONION_NAME",
+      "Description": "#THE_SAD_ONION_DESCRIPTION",
+      "AchievementID": -1,
+      "Hidden": false,
+      "Tags": 18350080,
+      "Type": 1,
+      "Quality": 3,
+      "MaxCharges": 0
+    },
+    "73": {
+      "ID": 73,
+      "Name": "#CUBE_OF_MEAT_NAME",
+      "Description": "#CUBE_OF_MEAT_DESCRIPTION",
+      "AchievementID": 6,
+      "Hidden": false,
+      "Tags": 16842752,
+      "Type": 4,
+      "Quality": 2,
+      "MaxCharges": 0
+    },
+    "78": {
+      "ID": 78,
+      "Name": "#BOOK_OF_REVELATIONS_NAME",
+      "Description": "#BOOK_OF_REVELATIONS_DESCRIPTION",
+      "AchievementID": 7,
+      "Hidden": false,
+      "Tags": 2218795008,
+      "Type": 3,
+      "Quality": 3,
+      "MaxCharges": 6
+    }
+  },
+  "resource_proof": {
+    "storage": "packed",
+    "range_proofs": [
+      {
+        "path": "resources/packed/repentance.a",
+        "ranges": [
+          {
+            "offset": 0,
+            "bytes": 14,
+            "sha256": "f071b6ed415818b376c9713b62a202eb02dc096fc285eb07bda9504f4e2eea75"
+          },
+          {
+            "offset": 66453482,
+            "bytes": 50452,
+            "sha256": "eb2151bd8341ca01e6e0d41a72277a23cba7d98f2f98009553c3ef61425f2776"
+          },
+          {
+            "offset": 66503934,
+            "bytes": 11042,
+            "sha256": "29cf05c77b869af96f8ae86de782fa950c482fa9ba1226283d7f6e54296edaf8"
+          },
+          {
+            "offset": 384907907,
+            "bytes": 11813,
+            "sha256": "d5bd6f797644c696f0d64d61d334a511a97c065cddf72df80179065a53c8d5ae"
+          },
+          {
+            "offset": 384919720,
+            "bytes": 83600,
+            "sha256": "1c5a1214c5f1563087bc276c4ffcd3c7e3e188178e4a05be7fd7ea5c942f0a8e"
+          }
+        ]
+      }
+    ]
+  },
+  "decoded_members": [
+    {
+      "archive": "repentance.a",
+      "entry": "resources-dlc3/items.xml",
+      "offset": 66453482,
+      "bytes": 135777,
+      "checksum": 1095905800,
+      "sha256": "ee567ed920b1bcada61f2a2d65e48563286fe7e8bf00363ad763ac2aa3ae64b7"
+    },
+    {
+      "archive": "repentance.a",
+      "entry": "resources-dlc3/items_metadata.xml",
+      "offset": 66503934,
+      "bytes": 54695,
+      "checksum": 3740243529,
+      "sha256": "42b3eb47a2f39d7120708ad32a790fc0c1129dd845f3cbdc969d702a5f17152e"
+    },
+    {
+      "archive": "repentance.a",
+      "entry": "resources-dlc3/wisps.xml",
+      "offset": 384907907,
+      "bytes": 33398,
+      "checksum": 3753395540,
+      "sha256": "22262c5d83126c48504afdd517719d5d0fb71a38b6c1531958fd48db71d6e584"
+    }
+  ],
+  "xml_field_basis": [
+    {
+      "id": 1,
+      "item_attributes": {
+        "cache": "firedelay",
+        "description": "#THE_SAD_ONION_DESCRIPTION",
+        "gfx": "Collectibles_001_TheSadOnion.png",
+        "id": "1",
+        "name": "#THE_SAD_ONION_NAME"
+      },
+      "metadata_attributes": {
+        "id": "1",
+        "quality": "3",
+        "tags": "summonable tearsup offensive"
+      },
+      "wisp_entry_present": false
+    },
+    {
+      "id": 73,
+      "item_attributes": {
+        "achievement": "6",
+        "description": "#CUBE_OF_MEAT_DESCRIPTION",
+        "gfx": "Collectibles_073_CubeOfMeat.png",
+        "id": "73",
+        "name": "#CUBE_OF_MEAT_NAME"
+      },
+      "metadata_attributes": {
+        "id": "73",
+        "quality": "2",
+        "tags": "summonable monstermanual"
+      },
+      "wisp_entry_present": false
+    },
+    {
+      "id": 78,
+      "item_attributes": {
+        "achievement": "7",
+        "description": "#BOOK_OF_REVELATIONS_DESCRIPTION",
+        "gfx": "Collectibles_078_BookOfRevelations.png",
+        "id": "78",
+        "maxcharges": "6",
+        "name": "#BOOK_OF_REVELATIONS_NAME"
+      },
+      "metadata_attributes": {
+        "id": "78",
+        "quality": "3",
+        "tags": "nolostbr book lazarussharedglobal"
+      },
+      "wisp_entry_present": true
+    }
+  ],
+  "enums_sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0",
+  "availability_basis": "explicit authority query scenario; NOT XML-derived unlock state or current personal save",
+  "metadata_basis": "XML and frozen enum mapping; active WISP tag inferred from matching wisps.xml entry; absent achievement=-1, hidden=false and maxcharges=0 follow declared XML defaults; native getters not resampled",
+  "native_tags_resampled": false,
+  "native_equivalence_verified": false,
+  "docs": [
+    "https://wofsauge.github.io/IsaacDocs/rep/Seeds.html",
+    "https://wofsauge.github.io/IsaacDocs/rep/ItemConfig_Item.html"
+  ]
+}

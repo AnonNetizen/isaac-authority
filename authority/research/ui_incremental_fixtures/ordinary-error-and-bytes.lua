@@ -1,0 +1,1 @@
+local ok,err=pcall(function() error('sentinel',0) end);return ok,err,nil,false,string.char(0,255)

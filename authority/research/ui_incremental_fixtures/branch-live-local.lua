@@ -1,0 +1,1 @@
+local function f(flag) local x=3;local y=7;if flag then x=x+y end;return x,y end;return f(__tag(false,"input"))

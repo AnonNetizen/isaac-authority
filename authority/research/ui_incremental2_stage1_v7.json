@@ -1,0 +1,826 @@
+{
+  "schema": "isaac-incremental2-stage1-1",
+  "mode": "ui-incremental2",
+  "work_limit": 10000000,
+  "cases": [
+    {
+      "id": "append-256",
+      "n": 256,
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/append.lua",
+          "sha256": "dca043aa115654260dd37248b9fcd2a67b59487f2ffa24f242838902ebbd67d1"
+        }
+      ],
+      "inspect": [
+        "observed"
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "expected": [
+        [
+          256,
+          1,
+          256,
+          257
+        ]
+      ],
+      "origins": [
+        [
+          [],
+          [
+            "reward"
+          ],
+          [
+            "reward"
+          ],
+          [
+            "reward"
+          ]
+        ]
+      ],
+      "origin_oracle": true
+    },
+    {
+      "id": "append-512",
+      "n": 512,
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/append.lua",
+          "sha256": "dca043aa115654260dd37248b9fcd2a67b59487f2ffa24f242838902ebbd67d1"
+        }
+      ],
+      "inspect": [
+        "observed"
+      ],
+      "kind": "functional",
+      "baseline": false,
+      "expected": [
+        [
+          512,
+          1,
+          512,
+          513
+        ]
+      ],
+      "origins": [
+        [
+          [],
+          [
+            "reward"
+          ],
+          [
+            "reward"
+          ],
+          [
+            "reward"
+          ]
+        ]
+      ],
+      "origin_oracle": true
+    },
+    {
+      "id": "append-1024",
+      "n": 1024,
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/append.lua",
+          "sha256": "dca043aa115654260dd37248b9fcd2a67b59487f2ffa24f242838902ebbd67d1"
+        }
+      ],
+      "inspect": [
+        "observed"
+      ],
+      "kind": "functional",
+      "baseline": false,
+      "expected": [
+        [
+          1024,
+          1,
+          1024,
+          1025
+        ]
+      ],
+      "origins": [
+        [
+          [],
+          [
+            "reward"
+          ],
+          [
+            "reward"
+          ],
+          [
+            "reward"
+          ]
+        ]
+      ],
+      "origin_oracle": true
+    },
+    {
+      "id": "overwrite-256",
+      "n": 256,
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/overwrite.lua",
+          "sha256": "608e4ac5ffdafb88b65348d17cc585d68149a5f577076df18e91c1b3426beb37"
+        }
+      ],
+      "inspect": [
+        "observed"
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "expected": [
+        [
+          256,
+          7,
+          256,
+          0
+        ]
+      ],
+      "origins": [
+        [
+          [
+            "new"
+          ],
+          [
+            "other"
+          ],
+          [
+            "new"
+          ],
+          []
+        ]
+      ],
+      "origin_oracle": true
+    },
+    {
+      "id": "overwrite-512",
+      "n": 512,
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/overwrite.lua",
+          "sha256": "608e4ac5ffdafb88b65348d17cc585d68149a5f577076df18e91c1b3426beb37"
+        }
+      ],
+      "inspect": [
+        "observed"
+      ],
+      "kind": "functional",
+      "baseline": false,
+      "expected": [
+        [
+          512,
+          7,
+          512,
+          0
+        ]
+      ],
+      "origins": [
+        [
+          [
+            "new"
+          ],
+          [
+            "other"
+          ],
+          [
+            "new"
+          ],
+          []
+        ]
+      ],
+      "origin_oracle": true
+    },
+    {
+      "id": "overwrite-1024",
+      "n": 1024,
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/overwrite.lua",
+          "sha256": "608e4ac5ffdafb88b65348d17cc585d68149a5f577076df18e91c1b3426beb37"
+        }
+      ],
+      "inspect": [
+        "observed"
+      ],
+      "kind": "functional",
+      "baseline": false,
+      "expected": [
+        [
+          1024,
+          7,
+          1024,
+          0
+        ]
+      ],
+      "origins": [
+        [
+          [
+            "new"
+          ],
+          [
+            "other"
+          ],
+          [
+            "new"
+          ],
+          []
+        ]
+      ],
+      "origin_oracle": true
+    },
+    {
+      "id": "read-256",
+      "n": 256,
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/read_setup.lua",
+          "sha256": "b4a60d38fa02a373df04542b8147ac4e187e717167a91df8e21f67cef42ae0c3"
+        },
+        {
+          "file": "research/ui_incremental2_fixtures/read_loop.lua",
+          "sha256": "165e0825116feeea2dd9f4f8bba9297cc756366a9ac099267f26aec843529f1d"
+        }
+      ],
+      "inspect": [
+        "observed"
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "expected": [
+        [
+          7
+        ],
+        [
+          1792,
+          99
+        ]
+      ],
+      "origins": [
+        [
+          [
+            "selected"
+          ]
+        ],
+        [
+          [
+            "selected"
+          ],
+          [
+            "unrelated"
+          ]
+        ]
+      ],
+      "origin_oracle": true
+    },
+    {
+      "id": "read-512",
+      "n": 512,
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/read_setup.lua",
+          "sha256": "b4a60d38fa02a373df04542b8147ac4e187e717167a91df8e21f67cef42ae0c3"
+        },
+        {
+          "file": "research/ui_incremental2_fixtures/read_loop.lua",
+          "sha256": "165e0825116feeea2dd9f4f8bba9297cc756366a9ac099267f26aec843529f1d"
+        }
+      ],
+      "inspect": [
+        "observed"
+      ],
+      "kind": "functional",
+      "baseline": false,
+      "expected": [
+        [
+          7
+        ],
+        [
+          3584,
+          99
+        ]
+      ],
+      "origins": [
+        [
+          [
+            "selected"
+          ]
+        ],
+        [
+          [
+            "selected"
+          ],
+          [
+            "unrelated"
+          ]
+        ]
+      ],
+      "origin_oracle": true
+    },
+    {
+      "id": "read-1024",
+      "n": 1024,
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/read_setup.lua",
+          "sha256": "b4a60d38fa02a373df04542b8147ac4e187e717167a91df8e21f67cef42ae0c3"
+        },
+        {
+          "file": "research/ui_incremental2_fixtures/read_loop.lua",
+          "sha256": "165e0825116feeea2dd9f4f8bba9297cc756366a9ac099267f26aec843529f1d"
+        }
+      ],
+      "inspect": [
+        "observed"
+      ],
+      "kind": "functional",
+      "baseline": false,
+      "expected": [
+        [
+          7
+        ],
+        [
+          7168,
+          99
+        ]
+      ],
+      "origins": [
+        [
+          [
+            "selected"
+          ]
+        ],
+        [
+          [
+            "selected"
+          ],
+          [
+            "unrelated"
+          ]
+        ]
+      ],
+      "origin_oracle": true
+    },
+    {
+      "id": "shift",
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/shift.lua",
+          "sha256": "02ce54b5f717855789ae130384267a748ddee1d9f600021a40b08f72354fc7be"
+        }
+      ],
+      "inspect": [
+        "observed"
+      ],
+      "kind": "functional",
+      "expected": [
+        [
+          10,
+          99,
+          30,
+          20,
+          3
+        ]
+      ],
+      "origins": [
+        [
+          [
+            "a"
+          ],
+          [
+            "new"
+          ],
+          [
+            "c"
+          ],
+          [
+            "b"
+          ],
+          []
+        ]
+      ],
+      "origin_oracle": true
+    },
+    {
+      "id": "reparent",
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/reparent_setup.lua",
+          "sha256": "d02b09b9915b9e2a3752729cd3601249e4b953821ad4e4a894b3784657f67c21"
+        },
+        {
+          "file": "research/ui_incremental2_fixtures/reparent_one.lua",
+          "sha256": "3097f43c9af74f506b7ccca59a918ee4b32d6722a73f7381499c3ca650c42312"
+        },
+        {
+          "file": "research/ui_incremental2_fixtures/reparent_both.lua",
+          "sha256": "280bc01875c89c02591dfdc190400b1ca663f0682713ecd70be82b2cfe2d5ce3"
+        },
+        {
+          "file": "research/ui_incremental2_fixtures/reparent_detached.lua",
+          "sha256": "46d3b6ccc2f9faf0c3e1ee9af819ab9611931bd8ae9f85d86ae80e1fb9cb6796"
+        }
+      ],
+      "inspect": [
+        "observed",
+        "oldchild"
+      ],
+      "kind": "functional",
+      "expected": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "origin_oracle": true
+    },
+    {
+      "id": "closure",
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/closure.lua",
+          "sha256": "aeda916542b0620ca3de599f0caf96b48a5e2cd8d46f71c20ebe0c53ace94760"
+        }
+      ],
+      "kind": "functional",
+      "expected": [
+        [
+          1,
+          9,
+          9,
+          {
+            "text_hex": "00ff41"
+          },
+          false,
+          null
+        ]
+      ],
+      "origin_oracle": true
+    },
+    {
+      "id": "metatable",
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/metatable.lua",
+          "sha256": "2a1e21a455d317905027d72fd39721c7481ab5828477dac797f95e97b5c2a8b5"
+        }
+      ],
+      "inspect": [
+        "observed",
+        "backing"
+      ],
+      "kind": "functional",
+      "expected": [
+        [
+          null,
+          13
+        ]
+      ],
+      "origin_oracle": true
+    },
+    {
+      "id": "unknown-native",
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/unknown.lua",
+          "sha256": "9898925e38b4c7e9fc27e52aa370e417125630924891aed1cde428b0b6116b1c"
+        }
+      ],
+      "kind": "safety",
+      "error_contains": "Unsupported trace C function",
+      "origin_oracle": true
+    },
+    {
+      "id": "ordinary-error",
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/lua_error.lua",
+          "sha256": "d74eeede064842cae52295e792f53ccbc30ff8319a9349afef1b8436d16276b9"
+        }
+      ],
+      "kind": "error",
+      "error_contains": "ordinary error",
+      "origin_oracle": true
+    },
+    {
+      "id": "rawset-return",
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/rawset_return.lua",
+          "sha256": "58976c4fc76480302b145993b870135a99038efaffc17a4000100e8b53d2894d"
+        }
+      ],
+      "inspect": [
+        "observed"
+      ],
+      "kind": "functional",
+      "expected": [
+        [
+          {
+            "text_hex": "7461626c65"
+          },
+          8,
+          9
+        ]
+      ],
+      "origins": [
+        [
+          [],
+          [
+            "other"
+          ],
+          [
+            "new"
+          ]
+        ]
+      ],
+      "origin_oracle": true
+    },
+    {
+      "id": "object-queries",
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/object_queries.lua",
+          "sha256": "a5b321cdb8368ca177016888db5006fb730585e2e3438885064227ce85b0b562"
+        }
+      ],
+      "kind": "functional",
+      "expected": [
+        [
+          5,
+          null,
+          null,
+          0,
+          0,
+          {
+            "text_hex": "7461626c65"
+          }
+        ]
+      ],
+      "origins": [
+        [
+          [
+            "container",
+            "field"
+          ],
+          [
+            "container"
+          ],
+          [
+            "container"
+          ],
+          [
+            "container"
+          ],
+          [
+            "container"
+          ],
+          []
+        ]
+      ],
+      "origin_oracle": true
+    },
+    {
+      "id": "tagged-function",
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/tagged_function.lua",
+          "sha256": "542210eaefa573eea44f62d9117573b6eec7c68523e7939f4b32a5b0f4482ebe"
+        }
+      ],
+      "kind": "functional",
+      "expected": [
+        [
+          7
+        ]
+      ],
+      "origins": [
+        [
+          [
+            "chosen"
+          ]
+        ]
+      ],
+      "origin_oracle": true
+    },
+    {
+      "id": "layout-migration",
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/layout_setup.lua",
+          "sha256": "631c39cb0d933d53aba5339ed5d16a43e9cb403d1c9aa9c79849671c75d8bec2"
+        },
+        {
+          "file": "research/ui_incremental2_fixtures/layout_move.lua",
+          "sha256": "0e38d57162c6b6c40abe368192d506272256e160dbf8486646fc624f5fb2cf61"
+        }
+      ],
+      "inspect": [
+        "observed"
+      ],
+      "kind": "functional",
+      "expected": [
+        [
+          10,
+          80
+        ],
+        [
+          10,
+          80,
+          1
+        ]
+      ],
+      "origins": [
+        [
+          [],
+          [
+            "retained"
+          ]
+        ],
+        [
+          [],
+          [
+            "retained"
+          ],
+          [
+            "new"
+          ]
+        ]
+      ],
+      "origin_oracle": true
+    },
+    {
+      "id": "nullable-input",
+      "n": 0,
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/nullable_input.lua",
+          "sha256": "93c386bf9ca7281ae8a002989135252d7914cb88a97262bb1eb977e926140c3f"
+        }
+      ],
+      "inspect": [
+        "observed"
+      ],
+      "kind": "functional",
+      "expected": [
+        [
+          0,
+          0,
+          null
+        ]
+      ],
+      "origins": [
+        [
+          [
+            "external"
+          ],
+          [
+            "external"
+          ],
+          [
+            "external"
+          ]
+        ]
+      ],
+      "origin_oracle": true
+    },
+    {
+      "id": "metatable-optional-redirect",
+      "n": 0,
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/metatable_optional_redirect.lua",
+          "sha256": "5081d98f4899841f5a1888efff12d43639c0014b83496c326985c1e77e90dee6"
+        }
+      ],
+      "kind": "functional",
+      "expected": [
+        [
+          0,
+          null,
+          0
+        ]
+      ],
+      "origins": [
+        [
+          [],
+          [],
+          [
+            "external"
+          ]
+        ]
+      ],
+      "origin_oracle": true,
+      "require_all_field_writes_actual": false
+    },
+    {
+      "id": "metatable-without-newindex",
+      "n": 0,
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/metatable_without_newindex.lua",
+          "sha256": "fa4f4d119c0214c03285fd16729b93131eba4a22e81b0b019edb241f7bc74db2"
+        }
+      ],
+      "kind": "functional",
+      "expected": [
+        [
+          0,
+          0,
+          null
+        ]
+      ],
+      "origins": [
+        [
+          [
+            "external"
+          ],
+          [
+            "external"
+          ],
+          [
+            "external"
+          ]
+        ]
+      ],
+      "origin_oracle": true,
+      "require_all_field_writes_actual": true
+    },
+    {
+      "id": "metatable-table-redirect",
+      "n": 0,
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/metatable_table_redirect.lua",
+          "sha256": "29175e989f27813e8c558cd2298e96d657c31010c7a96f493cd8fdb0db67fd39"
+        }
+      ],
+      "kind": "functional",
+      "expected": [
+        [
+          0,
+          null,
+          0
+        ]
+      ],
+      "origins": [
+        [
+          [],
+          [],
+          [
+            "external"
+          ]
+        ]
+      ],
+      "origin_oracle": true
+    },
+    {
+      "id": "array-optional-value",
+      "n": 0,
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/array_optional_value.lua",
+          "sha256": "156ab544ec0acc3bd436b4baf64a66d15b4949d57e9814261a4901d9693f9061"
+        }
+      ],
+      "kind": "functional",
+      "expected": [
+        [
+          0,
+          1,
+          null
+        ]
+      ],
+      "origins": [
+        [
+          [
+            "external"
+          ],
+          [
+            "external"
+          ],
+          [
+            "external"
+          ]
+        ]
+      ],
+      "origin_oracle": true
+    }
+  ],
+  "revision_note": "All prior source and expected outputs retained. Add array-to-hash migration and unproven presence predicate regressions; require independent graph/trace source parity and incremental memory/work scaling.",
+  "previous_manifest_sha256": "8d6d0aef5710e595199402c5c9555cc600824fd45c5cec929655f0b90a157633"
+}

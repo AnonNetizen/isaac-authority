@@ -1,0 +1,6 @@
+local mod=RegisterMod('Slice3 Unknown Projection',1)
+local config=require('json').decode(mod:LoadData())
+mod:AddCallback(2,function()
+    Isaac.GetPlayer(0):AddCoins(config.amount)
+    Isaac.RenderText(string.rep(config.amount,2),config.x,10,1,1,1,1)
+end)

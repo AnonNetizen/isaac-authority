@@ -1,0 +1,19 @@
+{
+  "schema": "audit-wire-tests-1",
+  "work_limit": 10000000,
+  "case_timeout_seconds": 5,
+  "batch_timeout_seconds": 60,
+  "native_source_sha256": "2aa7ce40fcba51d6c21e708101b4ceaf57fd7d8fdd6b60d5c670315bb262b231",
+  "parent_fixture_sha256": "a96a9f48fef1a2bbd07f582bdf4f70bbad1012174179228ced4464ff32ef06ab",
+  "cases": [
+    "roundtrip",
+    "workspace-bound",
+    "wire-parity",
+    "bad-tokens",
+    "physical-quota",
+    "corrupt-wire",
+    "encoded-recovery-save",
+    "encoded-recovery-private",
+    "encoded-recovery-draw"
+  ]
+}

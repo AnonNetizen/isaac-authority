@@ -1,0 +1,725 @@
+{
+  "schema": "frozen-sprite-state-1",
+  "game_root": "E:/SteamLibrary/steamapps/common/The Binding of Isaac Rebirth",
+  "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+  "evidence": [
+    {
+      "path": "runs/packed-resources-j460-20261010-final/mod-runtime.json",
+      "sha256": "f05bf89ddb9ab58358fa22c18ef76f1bb667dae4f87b8dc3a4bcee1e058be97a"
+    },
+    {
+      "path": "native/engine_api.cpp",
+      "sha256": "288f53043cd8c93cd3083c344a3130b249d954f20e92592a91c1f75ed7e0952a"
+    },
+    {
+      "path": "tools/packed_resources.py",
+      "sha256": "e6778b62f84fb8d37fc1ee4d06db4d1eb8bbfd466bbeb0b69aa76ba77c2ae099"
+    },
+    {
+      "path": "tools/catalog_resources.py",
+      "sha256": "2ea020abd6fade76fdf38f8095a8c29bc2936ed5c87cdef70119423d9cf74465"
+    }
+  ],
+  "sprites": [
+    {
+      "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/menu.anm2",
+      "aliases": [
+        "gfx/ui/modconfig/menu.anm2"
+      ],
+      "storage": "loose",
+      "default_animation": "Idle",
+      "layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "animations": {
+        "Idle": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Cursor": {
+          "declared": 1,
+          "selectable": 5,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Slider1": {
+          "declared": 11,
+          "selectable": 11,
+          "native_last_root": 10,
+          "native_zero_root": 0
+        },
+        "Slider2": {
+          "declared": 11,
+          "selectable": 11,
+          "native_last_root": 10,
+          "native_zero_root": 0
+        },
+        "Popup": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Offset": {
+          "declared": 1,
+          "selectable": 4,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Strikeout": {
+          "declared": 200,
+          "selectable": 200,
+          "native_last_root": 199,
+          "native_zero_root": 0
+        },
+        "BackSelect": {
+          "declared": 1,
+          "selectable": 4,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Divider": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "IdleOverlay": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        }
+      },
+      "range_proofs": []
+    },
+    {
+      "path": "mods/external item descriptions_836319872/resources/gfx/eid_transform_icons.anm2",
+      "aliases": [
+        "gfx/eid_transform_icons.anm2"
+      ],
+      "storage": "loose",
+      "default_animation": "active",
+      "layers": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "animations": {
+        "active": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "familiar": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Transformation1": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Transformation2": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Transformation3": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Transformation4": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Transformation5": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Transformation6": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Transformation7": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Transformation8": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Transformation9": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Transformation10": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Transformation11": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Transformation12": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Transformation13": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Transformation14": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Transformation15": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Transformation16": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "CurseOfBlind": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Arrow": {
+          "declared": 48,
+          "selectable": 48,
+          "native_last_root": 47,
+          "native_zero_root": 0
+        },
+        "TransformationCustom": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "boundingBox": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Cursor": {
+          "declared": 2,
+          "selectable": 2,
+          "native_last_root": 1,
+          "native_zero_root": 0
+        }
+      },
+      "range_proofs": []
+    },
+    {
+      "path": "mods/external item descriptions_836319872/resources/gfx/eid_inline_icons.anm2",
+      "aliases": [
+        "gfx/eid_inline_icons.anm2"
+      ],
+      "storage": "loose",
+      "default_animation": "ERROR",
+      "layers": [
+        0,
+        1
+      ],
+      "animations": {
+        "numbers": {
+          "declared": 14,
+          "selectable": 14,
+          "native_last_root": 13,
+          "native_zero_root": 0
+        },
+        "ERROR": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "hearts": {
+          "declared": 20,
+          "selectable": 25,
+          "native_last_root": 19,
+          "native_zero_root": 0
+        },
+        "ArrowUp": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "ArrowDown": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Warning": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "ArrowGray": {
+          "declared": 4,
+          "selectable": 4,
+          "native_last_root": 3,
+          "native_zero_root": 0
+        },
+        "pickups": {
+          "declared": 11,
+          "selectable": 15,
+          "native_last_root": 10,
+          "native_zero_root": 0
+        },
+        "roomicons": {
+          "declared": 31,
+          "selectable": 37,
+          "native_last_root": 30,
+          "native_zero_root": 0
+        },
+        "Collectible": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Trinket": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "roomshape": {
+          "declared": 12,
+          "selectable": 13,
+          "native_last_root": 11,
+          "native_zero_root": 0
+        },
+        "ItemIcon": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Blank": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Behavior": {
+          "declared": 1,
+          "selectable": 2,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Crafting": {
+          "declared": 27,
+          "selectable": 31,
+          "native_last_root": 26,
+          "native_zero_root": 0
+        },
+        "Quality": {
+          "declared": 5,
+          "selectable": 5,
+          "native_last_root": 4,
+          "native_zero_root": 0
+        },
+        "XboxOne": {
+          "declared": 30,
+          "selectable": 30,
+          "native_last_root": 29,
+          "native_zero_root": 0
+        },
+        "Stats": {
+          "declared": 42,
+          "selectable": 42,
+          "native_last_root": 41,
+          "native_zero_root": 0
+        },
+        "StatusEffects": {
+          "declared": 14,
+          "selectable": 18,
+          "native_last_root": 13,
+          "native_zero_root": 0
+        },
+        "Curses": {
+          "declared": 1,
+          "selectable": 16,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Misc": {
+          "declared": 1,
+          "selectable": 21,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Chests": {
+          "declared": 1,
+          "selectable": 11,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Beggars": {
+          "declared": 1,
+          "selectable": 6,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "machines": {
+          "declared": 1,
+          "selectable": 9,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Boss": {
+          "declared": 1,
+          "selectable": 22,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "PoopSpells": {
+          "declared": 1,
+          "selectable": 12,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "ItemPools": {
+          "declared": 31,
+          "selectable": 31,
+          "native_last_root": 30,
+          "native_zero_root": 0
+        },
+        "ArrowUpDown": {
+          "declared": 1,
+          "selectable": 1,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Wisps": {
+          "declared": 1,
+          "selectable": 5,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Poop": {
+          "declared": 1,
+          "selectable": 7,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "DiceFaces": {
+          "declared": 6,
+          "selectable": 6,
+          "native_last_root": 5,
+          "native_zero_root": 0
+        }
+      },
+      "range_proofs": []
+    },
+    {
+      "path": "mods/external item descriptions_836319872/resources/gfx/eid_cardspills.anm2",
+      "aliases": [
+        "gfx/eid_cardspills.anm2"
+      ],
+      "storage": "loose",
+      "default_animation": "Cards",
+      "layers": [
+        0
+      ],
+      "animations": {
+        "Pills": {
+          "declared": 14,
+          "selectable": 14,
+          "native_last_root": 13,
+          "native_zero_root": 0
+        },
+        "Cards": {
+          "declared": 97,
+          "selectable": 97,
+          "native_last_root": 96,
+          "native_zero_root": 0
+        }
+      },
+      "range_proofs": []
+    },
+    {
+      "path": "mods/external item descriptions_836319872/resources/gfx/eid_player_icons.anm2",
+      "aliases": [
+        "gfx/eid_player_icons.anm2"
+      ],
+      "storage": "loose",
+      "default_animation": "Players",
+      "layers": [
+        0,
+        1
+      ],
+      "animations": {
+        "Players": {
+          "declared": 60,
+          "selectable": 60,
+          "native_last_root": 59,
+          "native_zero_root": 0
+        }
+      },
+      "range_proofs": []
+    },
+    {
+      "path": "resources/gfx/005.100_collectible.anm2",
+      "aliases": [
+        "gfx/005.100_collectible.anm2"
+      ],
+      "storage": "packed",
+      "default_animation": "Idle",
+      "layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "animations": {
+        "Idle": {
+          "declared": 20,
+          "selectable": 20,
+          "native_last_root": 19,
+          "native_zero_root": 0
+        },
+        "Empty": {
+          "declared": 0,
+          "selectable": 20,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "ShopIdle": {
+          "declared": 3,
+          "selectable": 3,
+          "native_last_root": 2,
+          "native_zero_root": 0
+        },
+        "PlayerPickup": {
+          "declared": 3,
+          "selectable": 3,
+          "native_last_root": 2,
+          "native_zero_root": 0
+        },
+        "PlayerPickupSparkle": {
+          "declared": 36,
+          "selectable": 36,
+          "native_last_root": 35,
+          "native_zero_root": 0
+        },
+        "Alternates": {
+          "declared": 20,
+          "selectable": 20,
+          "native_last_root": 19,
+          "native_zero_root": 0
+        }
+      },
+      "range_proofs": [
+        {
+          "path": "resources/packed/afterbirthp.a",
+          "archive_sha256_at_freeze": "a7f43fdc44e594442d064779dbc701b964c96486bc7e3cf4f544555880436c07",
+          "ranges": [
+            {
+              "offset": 0,
+              "bytes": 14,
+              "sha256": "8119070dd383b2facf1ccaa5ff653c2d6a3f2fbd239b30dc9de8841c1d43c6e8"
+            },
+            {
+              "offset": 604067251,
+              "bytes": 204560,
+              "sha256": "7dc15c0ade4e8c9090b4dd991dd6bec0b4811e5e429a37d91554b58942d434c1"
+            },
+            {
+              "offset": 31074311,
+              "bytes": 7391,
+              "sha256": "047cfdee3550606c55883df4602e0f55575b930ab421c9dfe84503f3ad41d3ff"
+            },
+            {
+              "offset": 54489579,
+              "bytes": 12610,
+              "sha256": "45114d70fcc7bb3e53797f8c9509d0dd95f14afc216cffc5d95af20fd961ca77"
+            }
+          ]
+        },
+        {
+          "path": "resources/packed/graphics.a",
+          "archive_sha256_at_freeze": "b1286fcfc4f3dd899cd225d46db9132a787352b4169b9de56a5d2c65e43ee23e",
+          "ranges": [
+            {
+              "offset": 0,
+              "bytes": 14,
+              "sha256": "c1871ca9d26064527ce720a1b7fcb994ea5fa66d21e96359a4773c8b6b8db270"
+            },
+            {
+              "offset": 17508022,
+              "bytes": 46000,
+              "sha256": "f6d2c9616a41fa5f03d2759ed66709f50b7c353eb61faf5c3c73991f9921b739"
+            },
+            {
+              "offset": 5919402,
+              "bytes": 3076,
+              "sha256": "4aaa262c1c754c564b537bd526f0e364fd03659d5149803f13b92712eda14c2d"
+            },
+            {
+              "offset": 5538474,
+              "bytes": 1888,
+              "sha256": "531846f611ebfc23d4e8137457db1b0c7e7c5a716615ac33de5b8053c2d7bef4"
+            },
+            {
+              "offset": 14124046,
+              "bytes": 396,
+              "sha256": "cb90cbe6ade875186f5d9f9569d39b1be2510fbdd4319dba53c232e0141a6f9e"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "resources/gfx/ui/buttons.anm2",
+      "aliases": [
+        "gfx/ui/buttons.anm2"
+      ],
+      "storage": "packed",
+      "default_animation": "PS4",
+      "layers": [
+        0
+      ],
+      "animations": {
+        "PS4": {
+          "declared": 1,
+          "selectable": 26,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "PS5": {
+          "declared": 1,
+          "selectable": 26,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "XboxOne": {
+          "declared": 1,
+          "selectable": 24,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Vita": {
+          "declared": 1,
+          "selectable": 24,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "WiiU": {
+          "declared": 1,
+          "selectable": 24,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Switch": {
+          "declared": 1,
+          "selectable": 24,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        },
+        "Switch_SingleJoyCon": {
+          "declared": 1,
+          "selectable": 24,
+          "native_last_root": 0,
+          "native_zero_root": 0
+        }
+      },
+      "range_proofs": [
+        {
+          "path": "resources/packed/afterbirthp.a",
+          "archive_sha256_at_freeze": "a7f43fdc44e594442d064779dbc701b964c96486bc7e3cf4f544555880436c07",
+          "ranges": [
+            {
+              "offset": 0,
+              "bytes": 14,
+              "sha256": "8119070dd383b2facf1ccaa5ff653c2d6a3f2fbd239b30dc9de8841c1d43c6e8"
+            },
+            {
+              "offset": 604067251,
+              "bytes": 204560,
+              "sha256": "7dc15c0ade4e8c9090b4dd991dd6bec0b4811e5e429a37d91554b58942d434c1"
+            },
+            {
+              "offset": 163720134,
+              "bytes": 12410,
+              "sha256": "4af116fa2d0ef1ad3d3061581712f31b25ad8ff5b488685709a885bd497ca61b"
+            },
+            {
+              "offset": 174476200,
+              "bytes": 29656,
+              "sha256": "efe2490e697f142dd0049324e5d85276d63e776ab1cf6a3f64d4f18559cb9cdb"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "wrappers": [
+    {
+      "first": 639,
+      "last": 649,
+      "sha256": "c3d6e924a312d6b16dc45b0130b2cd5b77ade2d7f91501757ca32bcc960b799c"
+    },
+    {
+      "first": 687,
+      "last": 691,
+      "sha256": "26a6cda888c3435eb69f47c04b6f1227b2bc8019eaaeca6bab4bbcfdcb33e260"
+    }
+  ]
+}

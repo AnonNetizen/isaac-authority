@@ -1,0 +1,57 @@
+{
+  "schema": "isaac-incremental-oracle-suite-1",
+  "mode": "ui-incremental",
+  "work_limit": 2000000,
+  "cases": [
+    {
+      "id": "field-alias-delete-reinsert",
+      "file": "research/ui_incremental_fixtures/field-alias-delete-reinsert.lua",
+      "sha256": "4b0d21555cc742c31f39bcee80a7d25ca8315b2b92b9f53856f2b961cbe2e462"
+    },
+    {
+      "id": "structure-resize",
+      "file": "research/ui_incremental_fixtures/structure-resize.lua",
+      "sha256": "4bf8a9c7c661cc83414c328c0d8815a1b54867f6cbe1c78396fa91ee647aa37c"
+    },
+    {
+      "id": "cycle-and-shared-child",
+      "file": "research/ui_incremental_fixtures/cycle-and-shared-child.lua",
+      "sha256": "9df89ec460397705c4ef911dfe5b9a33e0d8a153dac6eeeedfff18cebc2d34ba"
+    },
+    {
+      "id": "open-upvalue-scalar",
+      "file": "research/ui_incremental_fixtures/open-upvalue-scalar.lua",
+      "sha256": "b3cddb8076213ffdab0a835c0db299f1ee15ae20d3c21b4bf2a41bf73a98d577"
+    },
+    {
+      "id": "closed-shared-upvalue",
+      "file": "research/ui_incremental_fixtures/closed-shared-upvalue.lua",
+      "sha256": "bab6f31fac9744a19fd9b7610e9e98758a2b21f1db30d4928f60e4a1f24653be"
+    },
+    {
+      "id": "native-table-effects",
+      "file": "research/ui_incremental_fixtures/native-table-effects.lua",
+      "sha256": "a5eeb2eb1dc17f1004098a27e6a86209b8fa6b6e435ee53c06780a9d0574a02e"
+    },
+    {
+      "id": "metamethod-actual-target",
+      "file": "research/ui_incremental_fixtures/metamethod-actual-target.lua",
+      "sha256": "0f1d9815df90d58d2aaa79d23275dd7fb67d05efdeed80535822f123f056478a"
+    },
+    {
+      "id": "cached-dynamic-function",
+      "file": "research/ui_incremental_fixtures/cached-dynamic-function.lua",
+      "sha256": "6e0812a762daafb669e0121c0d8ac426580e4a80463d277703adafc333b19eff"
+    },
+    {
+      "id": "stack-relocation-closed-upvalue",
+      "file": "research/ui_incremental_fixtures/stack-relocation-closed-upvalue.lua",
+      "sha256": "8e21ab44a0d954dd21c467df11c844be3d7c26378ca70ffad72df2313ee3a621"
+    },
+    {
+      "id": "ordinary-error-and-bytes",
+      "file": "research/ui_incremental_fixtures/ordinary-error-and-bytes.lua",
+      "sha256": "4e56358d367b2d918472d828c47a81d78333b4ba6e2f07cb1d607581e8ee7274"
+    }
+  ]
+}

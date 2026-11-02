@@ -1,0 +1,535 @@
+{
+  "schema": "isaac-compact-storage-cases-1",
+  "mode": "ui-compact",
+  "work_limit": 10000000,
+  "cases": [
+    {
+      "id": "churn-control",
+      "n": 0,
+      "chunks": [
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        }
+      ],
+      "kind": "functional",
+      "reclaim": false,
+      "observe_memory": true,
+      "clear_between_phases": true,
+      "expected_repeated": [
+        7,
+        0
+      ],
+      "evidence": false
+    },
+    {
+      "id": "churn-reclaim",
+      "n": 0,
+      "chunks": [
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        }
+      ],
+      "kind": "functional",
+      "reclaim": true,
+      "observe_memory": true,
+      "clear_between_phases": true,
+      "expected_repeated": [
+        7,
+        0
+      ],
+      "evidence": false
+    },
+    {
+      "id": "dual-config-2",
+      "configuration": {
+        "amount": 2,
+        "x": 137,
+        "language": "en"
+      },
+      "chunks": [
+        {
+          "file": "research/ui_compact_fixtures/configuration.lua",
+          "sha256": "9e0d06f96e7e40e759d6f6d43b2fda6c2b9d0f654ae9ee2cdab5bf8f1accef83",
+          "bind": [
+            {
+              "index": 1,
+              "evidence": {
+                "value": 1,
+                "authority_value_id": 701,
+                "authority_owner_version": 1
+              }
+            }
+          ],
+          "resolve": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "file": "research/ui_compact_fixtures/configuration_read.lua",
+          "sha256": "0d585883643eb739f6f74d92f3985a758d0de0e231efde431f96bf3d9125ad4d",
+          "resolve": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "file": "research/ui_compact_fixtures/configuration_read.lua",
+          "sha256": "0d585883643eb739f6f74d92f3985a758d0de0e231efde431f96bf3d9125ad4d",
+          "resolve": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ],
+      "kind": "functional",
+      "reclaim": true,
+      "observe_memory": true,
+      "personal": 2,
+      "authority": 1,
+      "evidence": true
+    },
+    {
+      "id": "dual-config-1",
+      "configuration": {
+        "amount": 1,
+        "x": 137,
+        "language": "en"
+      },
+      "chunks": [
+        {
+          "file": "research/ui_compact_fixtures/configuration.lua",
+          "sha256": "9e0d06f96e7e40e759d6f6d43b2fda6c2b9d0f654ae9ee2cdab5bf8f1accef83",
+          "bind": [
+            {
+              "index": 1,
+              "evidence": {
+                "value": 2,
+                "authority_value_id": 701,
+                "authority_owner_version": 1
+              }
+            }
+          ],
+          "resolve": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "file": "research/ui_compact_fixtures/configuration_read.lua",
+          "sha256": "0d585883643eb739f6f74d92f3985a758d0de0e231efde431f96bf3d9125ad4d",
+          "resolve": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "file": "research/ui_compact_fixtures/configuration_read.lua",
+          "sha256": "0d585883643eb739f6f74d92f3985a758d0de0e231efde431f96bf3d9125ad4d",
+          "resolve": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ],
+      "kind": "functional",
+      "reclaim": true,
+      "observe_memory": true,
+      "personal": 1,
+      "authority": 2,
+      "evidence": true
+    },
+    {
+      "id": "host-pin-keep",
+      "configuration": {
+        "amount": 2,
+        "x": 137,
+        "language": "en"
+      },
+      "chunks": [
+        {
+          "file": "research/ui_compact_fixtures/configuration.lua",
+          "sha256": "9e0d06f96e7e40e759d6f6d43b2fda6c2b9d0f654ae9ee2cdab5bf8f1accef83",
+          "bind": [
+            {
+              "index": 1,
+              "evidence": {
+                "value": 1,
+                "authority_value_id": 701,
+                "authority_owner_version": 1
+              }
+            }
+          ],
+          "resolve": [
+            1
+          ]
+        },
+        {
+          "file": "research/ui_compact_fixtures/drop.lua",
+          "sha256": "e1fe7cdd2d39ef17867b10a958bceab8b0a61ecb946dc7f5aa524519dba14298"
+        },
+        {
+          "file": "research/ui_compact_fixtures/empty.lua",
+          "sha256": "88a5d86b8d00a468685ca2b8d7e93ef8f26389338f9fe96fa57b36fe8fe6e90d",
+          "resolve_prior": [
+            {
+              "phase": 0,
+              "index": 0
+            }
+          ]
+        }
+      ],
+      "kind": "functional",
+      "pin_prior_frames": true,
+      "reclaim": true,
+      "observe_memory": true,
+      "evidence": true
+    },
+    {
+      "id": "host-pin-missing",
+      "configuration": {
+        "amount": 2,
+        "x": 137,
+        "language": "en"
+      },
+      "chunks": [
+        {
+          "file": "research/ui_compact_fixtures/configuration.lua",
+          "sha256": "9e0d06f96e7e40e759d6f6d43b2fda6c2b9d0f654ae9ee2cdab5bf8f1accef83",
+          "bind": [
+            {
+              "index": 1,
+              "evidence": {
+                "value": 1,
+                "authority_value_id": 701,
+                "authority_owner_version": 1
+              }
+            }
+          ],
+          "resolve": [
+            1
+          ]
+        },
+        {
+          "file": "research/ui_compact_fixtures/drop.lua",
+          "sha256": "e1fe7cdd2d39ef17867b10a958bceab8b0a61ecb946dc7f5aa524519dba14298"
+        },
+        {
+          "file": "research/ui_compact_fixtures/empty.lua",
+          "sha256": "88a5d86b8d00a468685ca2b8d7e93ef8f26389338f9fe96fa57b36fe8fe6e90d",
+          "resolve_prior": [
+            {
+              "phase": 0,
+              "index": 0
+            }
+          ]
+        }
+      ],
+      "kind": "safety",
+      "pin_prior_frames": false,
+      "reclaim": true,
+      "observe_memory": true,
+      "evidence": true
+    },
+    {
+      "id": "ambiguous-world-reference",
+      "configuration": {
+        "amount": 2,
+        "x": 137,
+        "language": "en"
+      },
+      "chunks": [
+        {
+          "file": "research/ui_compact_fixtures/configuration.lua",
+          "sha256": "9e0d06f96e7e40e759d6f6d43b2fda6c2b9d0f654ae9ee2cdab5bf8f1accef83",
+          "bind": [
+            {
+              "index": 1,
+              "evidence": {
+                "value": 1,
+                "authority_value_id": 701,
+                "authority_owner_version": 1
+              }
+            },
+            {
+              "index": 1,
+              "evidence": {
+                "value": 3,
+                "authority_value_id": 702,
+                "authority_owner_version": 1
+              }
+            }
+          ],
+          "resolve": [
+            1
+          ]
+        }
+      ],
+      "kind": "safety",
+      "evidence": true
+    },
+    {
+      "id": "fault-corruption",
+      "chunks": [
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        }
+      ],
+      "kind": "safety",
+      "evidence": true,
+      "fault_after_last_phase": 1,
+      "error_contains": "Audit payload checksum mismatch"
+    },
+    {
+      "id": "fault-closed-file",
+      "chunks": [
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        }
+      ],
+      "kind": "safety",
+      "evidence": true,
+      "fault_after_last_phase": 2,
+      "error_contains": "Audit seek failed"
+    },
+    {
+      "id": "fault-disk-limit",
+      "chunks": [
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        }
+      ],
+      "kind": "safety",
+      "evidence": true,
+      "audit_disk_limit": 4096,
+      "error_contains": "Audit record/disk budget exceeded"
+    },
+    {
+      "id": "fault-work-limit",
+      "chunks": [
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        }
+      ],
+      "kind": "safety",
+      "evidence": true,
+      "extra_work": 10000001,
+      "error_contains": "Work budget rejected"
+    },
+    {
+      "id": "fault-managed-memory-limit",
+      "chunks": [
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        }
+      ],
+      "kind": "safety",
+      "evidence": true,
+      "quota_probe": 536870913,
+      "error_contains": "Compact managed heap limit exceeded"
+    }
+  ]
+}

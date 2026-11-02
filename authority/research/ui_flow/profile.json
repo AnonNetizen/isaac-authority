@@ -1,0 +1,382 @@
+{
+  "schema": "frozen-ui-flow-1",
+  "rule": "explicit-play-anm2-loop-clock-v1",
+  "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+  "animation_sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c",
+  "sprites": [
+    {
+      "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/menu.anm2",
+      "animations": {
+        "Idle": {
+          "frames": 1,
+          "loop": false
+        },
+        "Cursor": {
+          "frames": 1,
+          "loop": false
+        },
+        "Slider1": {
+          "frames": 11,
+          "loop": false
+        },
+        "Slider2": {
+          "frames": 11,
+          "loop": false
+        },
+        "Popup": {
+          "frames": 1,
+          "loop": false
+        },
+        "Offset": {
+          "frames": 1,
+          "loop": false
+        },
+        "Strikeout": {
+          "frames": 200,
+          "loop": false
+        },
+        "BackSelect": {
+          "frames": 1,
+          "loop": false
+        },
+        "Divider": {
+          "frames": 1,
+          "loop": false
+        },
+        "IdleOverlay": {
+          "frames": 1,
+          "loop": false
+        }
+      },
+      "anm2_sha256": "d59b42706ddc939c477808bdc790962ed3c5cb28ed07754fd45d62968dbed810"
+    },
+    {
+      "path": "mods/external item descriptions_836319872/resources/gfx/eid_transform_icons.anm2",
+      "animations": {
+        "active": {
+          "frames": 1,
+          "loop": false
+        },
+        "familiar": {
+          "frames": 1,
+          "loop": false
+        },
+        "Transformation1": {
+          "frames": 1,
+          "loop": false
+        },
+        "Transformation2": {
+          "frames": 1,
+          "loop": false
+        },
+        "Transformation3": {
+          "frames": 1,
+          "loop": false
+        },
+        "Transformation4": {
+          "frames": 1,
+          "loop": false
+        },
+        "Transformation5": {
+          "frames": 1,
+          "loop": false
+        },
+        "Transformation6": {
+          "frames": 1,
+          "loop": false
+        },
+        "Transformation7": {
+          "frames": 1,
+          "loop": false
+        },
+        "Transformation8": {
+          "frames": 1,
+          "loop": false
+        },
+        "Transformation9": {
+          "frames": 1,
+          "loop": false
+        },
+        "Transformation10": {
+          "frames": 1,
+          "loop": false
+        },
+        "Transformation11": {
+          "frames": 1,
+          "loop": false
+        },
+        "Transformation12": {
+          "frames": 1,
+          "loop": false
+        },
+        "Transformation13": {
+          "frames": 1,
+          "loop": false
+        },
+        "Transformation14": {
+          "frames": 1,
+          "loop": false
+        },
+        "Transformation15": {
+          "frames": 1,
+          "loop": false
+        },
+        "Transformation16": {
+          "frames": 1,
+          "loop": false
+        },
+        "CurseOfBlind": {
+          "frames": 1,
+          "loop": false
+        },
+        "Arrow": {
+          "frames": 48,
+          "loop": true
+        },
+        "TransformationCustom": {
+          "frames": 1,
+          "loop": false
+        },
+        "boundingBox": {
+          "frames": 1,
+          "loop": false
+        },
+        "Cursor": {
+          "frames": 2,
+          "loop": false
+        }
+      },
+      "anm2_sha256": "804a11eaeb1602387849f76981e5ee6f4cb4d1a322a304f6d72db2f6ed7e4fb7"
+    },
+    {
+      "path": "mods/external item descriptions_836319872/resources/gfx/eid_inline_icons.anm2",
+      "animations": {
+        "numbers": {
+          "frames": 14,
+          "loop": false
+        },
+        "ERROR": {
+          "frames": 1,
+          "loop": false
+        },
+        "hearts": {
+          "frames": 20,
+          "loop": false
+        },
+        "ArrowUp": {
+          "frames": 1,
+          "loop": false
+        },
+        "ArrowDown": {
+          "frames": 1,
+          "loop": false
+        },
+        "Warning": {
+          "frames": 1,
+          "loop": false
+        },
+        "ArrowGray": {
+          "frames": 4,
+          "loop": false
+        },
+        "pickups": {
+          "frames": 11,
+          "loop": false
+        },
+        "roomicons": {
+          "frames": 31,
+          "loop": false
+        },
+        "Collectible": {
+          "frames": 1,
+          "loop": false
+        },
+        "Trinket": {
+          "frames": 1,
+          "loop": false
+        },
+        "roomshape": {
+          "frames": 12,
+          "loop": false
+        },
+        "ItemIcon": {
+          "frames": 1,
+          "loop": false
+        },
+        "Blank": {
+          "frames": 1,
+          "loop": false
+        },
+        "Behavior": {
+          "frames": 1,
+          "loop": false
+        },
+        "Crafting": {
+          "frames": 27,
+          "loop": false
+        },
+        "Quality": {
+          "frames": 5,
+          "loop": false
+        },
+        "XboxOne": {
+          "frames": 30,
+          "loop": false
+        },
+        "Stats": {
+          "frames": 42,
+          "loop": false
+        },
+        "StatusEffects": {
+          "frames": 14,
+          "loop": true
+        },
+        "Curses": {
+          "frames": 1,
+          "loop": false
+        },
+        "Misc": {
+          "frames": 1,
+          "loop": false
+        },
+        "Chests": {
+          "frames": 1,
+          "loop": false
+        },
+        "Beggars": {
+          "frames": 1,
+          "loop": false
+        },
+        "machines": {
+          "frames": 1,
+          "loop": false
+        },
+        "Boss": {
+          "frames": 1,
+          "loop": false
+        },
+        "PoopSpells": {
+          "frames": 1,
+          "loop": false
+        },
+        "ItemPools": {
+          "frames": 31,
+          "loop": true
+        },
+        "ArrowUpDown": {
+          "frames": 1,
+          "loop": false
+        },
+        "Wisps": {
+          "frames": 1,
+          "loop": false
+        },
+        "Poop": {
+          "frames": 1,
+          "loop": false
+        },
+        "DiceFaces": {
+          "frames": 6,
+          "loop": false
+        }
+      },
+      "anm2_sha256": "90391550d64c406a5730934d2e9186d6a0f53f1c537e34c8bddaeb0a893fd105"
+    },
+    {
+      "path": "mods/external item descriptions_836319872/resources/gfx/eid_cardspills.anm2",
+      "animations": {
+        "Pills": {
+          "frames": 14,
+          "loop": true
+        },
+        "Cards": {
+          "frames": 97,
+          "loop": true
+        }
+      },
+      "anm2_sha256": "961e3aa0412a5fbc6add76a2762482b9c4888723ef5e31706dd07d73d151d69d"
+    },
+    {
+      "path": "mods/external item descriptions_836319872/resources/gfx/eid_player_icons.anm2",
+      "animations": {
+        "Players": {
+          "frames": 60,
+          "loop": false
+        }
+      },
+      "anm2_sha256": "9d1b2eaf3865bfc65789eb77aabc47df531e5ebae26bcdc70fcde1a6709d370a"
+    },
+    {
+      "path": "resources/gfx/005.100_collectible.anm2",
+      "animations": {
+        "Idle": {
+          "frames": 20,
+          "loop": true
+        },
+        "Empty": {
+          "frames": 0,
+          "loop": false
+        },
+        "ShopIdle": {
+          "frames": 3,
+          "loop": false
+        },
+        "PlayerPickup": {
+          "frames": 3,
+          "loop": false
+        },
+        "PlayerPickupSparkle": {
+          "frames": 36,
+          "loop": true
+        },
+        "Alternates": {
+          "frames": 20,
+          "loop": false
+        }
+      },
+      "anm2_sha256": "037bc11c3f6f20cb59525cc6e6686d228b996f32d36e7f138865aa7c79050cff"
+    },
+    {
+      "path": "resources/gfx/ui/buttons.anm2",
+      "animations": {
+        "PS4": {
+          "frames": 1,
+          "loop": false
+        },
+        "PS5": {
+          "frames": 1,
+          "loop": false
+        },
+        "XboxOne": {
+          "frames": 1,
+          "loop": false
+        },
+        "Vita": {
+          "frames": 1,
+          "loop": false
+        },
+        "WiiU": {
+          "frames": 1,
+          "loop": false
+        },
+        "Switch": {
+          "frames": 1,
+          "loop": false
+        },
+        "Switch_SingleJoyCon": {
+          "frames": 1,
+          "loop": false
+        }
+      },
+      "anm2_sha256": "7becb80266c5d8e74f8b5b8c6c59f5607756f7e9fe3536445a1993854f51f526"
+    }
+  ],
+  "source_catalog_sha256": "90c40f9510c62981b2e87996e2b40a5686b12b4ab8b8b9a09796fe7f0d85b9f7",
+  "freezer_sha256": "9dbeb23d676a16e8bbeda61ffff23a566429ede8a8e71a12f16e1d51d3771899",
+  "native_update_equivalence_verified": false,
+  "non_loop_terminal_verified": false,
+  "docs": [
+    "https://wofsauge.github.io/IsaacDocs/rep/Sprite.html",
+    "https://wofsauge.github.io/IsaacDocs/rep/Game.html"
+  ]
+}

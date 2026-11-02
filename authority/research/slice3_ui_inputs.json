@@ -1,0 +1,1089 @@
+{
+  "schema": "isaac-slice3-ui-inputs-1",
+  "private_abi": "ia-lua533-slice3-ui-1",
+  "view_rule": "personal-settings-authority-hud-v1",
+  "original_game_root": "E:\\SteamLibrary\\steamapps\\common\\The Binding of Isaac Rebirth",
+  "mods": [
+    {
+      "root": "mods/mod_config_menu_cn_2494192799",
+      "sha256": {
+        "main.lua": "f50703317053cf5e7e8b13639f48d66bd4559846d3f267ce778db5f0697cbbde",
+        "scripts/customcallbacks.lua": "4e10ddf8fcfa4c83551d629329165c6c8644bdbf1271231abbf9b05465c1e95c",
+        "scripts/filepathhelper.lua": "0d39e9ae976154a6f42bb6b257d4ccf05cbbc7dd84fa2b2cf31b47665b2b8f3a",
+        "scripts/inputhelper.lua": "9ba9c7cdfdaee96d5d75ca3929c7fe88d42b5cb637c9972eb99658669ae52858",
+        "scripts/modconfig.lua": "3ace42aed3a2a74fa6d8dbc1b225aa2470b6cbcd92204b800187811fe0ea37ce",
+        "scripts/modconfigoldcompatibility.lua": "79f3dcf78563b69619864089616b070126a04ae55b913a1ea08ac3c6008588e3",
+        "scripts/savehelper.lua": "345980c5ccca5a5e9d3ec9855b6e4a997edef0dc33d6424201919f8092f1096f",
+        "scripts/screenhelper.lua": "a08cd198e82bce9a711477e48d7a2ba8399689d058c89595c40a7bb576fd3584"
+      }
+    },
+    {
+      "root": "mods/external item descriptions_836319872",
+      "sha256": {
+        "descriptions/ab+/bul.lua": "6e8d5c8252f77558cececaa1f02f8d6129c5ac438f6ee59d6e45dc8adfb93c48",
+        "descriptions/ab+/cs_cz.lua": "8e06a2e726cf353681fa65f492026cea0708fdfddde00074c7f64a019d0eff8d",
+        "descriptions/ab+/de.lua": "bc7ddda7a4b4d47341c50724877d220d01974a9840635209cc264f137c8ea385",
+        "descriptions/ab+/el_gr.lua": "cea4316f912cedc458490850cb1f9aa0bc333fcb5f018f8670b4c1807e003578",
+        "descriptions/ab+/en_us.lua": "e3d1dc30ba86c25b27897fb3d5951502c6fa8c52baad140260b97e263b010210",
+        "descriptions/ab+/fr.lua": "bc4c45561c54c03adf3fa3f64c542f5104acb03a9b2d70c01855cde9f24e81df",
+        "descriptions/ab+/it.lua": "80f5b66050df102272ef49ad5d57b00e64b870e8ad4504ba226d99e39472f463",
+        "descriptions/ab+/item_data.lua": "cd19346552f88efe1fa64cb40678ce40466c7b397310db71bdbf8eb695328815",
+        "descriptions/ab+/ja_jp.lua": "de85ff21a9c2d3e95f36bb2d8e1fa26f7ffe7795ffd1a234790f077ee797b8e7",
+        "descriptions/ab+/ko_kr.lua": "e7795ccbacde7409adeceba0a6f2dc55f402a86b40164c9825976aadfc42e1ba",
+        "descriptions/ab+/nl_nl.lua": "59ba5e418d1be308aebd11e58c9d1793a443f8dc120721b16815fd36f32c68b4",
+        "descriptions/ab+/pl.lua": "65aa08f481b6f33470b3cfb9af1c1f50b8c9f9a72eea6d05315b5fb639c785bb",
+        "descriptions/ab+/pt.lua": "bfb072fd9a73b8003c1c7ef9cbf6c2ed688ee80b15e46aefe8189a66cd8f6486",
+        "descriptions/ab+/pt_br.lua": "3571b94ac22c3e15f33688a869e8f977e0b2c84b8457f465c7352d3ece195da0",
+        "descriptions/ab+/ro_ro.lua": "60dcfce8f0274c79268424456c3a42ec4f0866412c74b441a2aabd5ed8fd089b",
+        "descriptions/ab+/ru.lua": "30721cefb69966f63a91c4fa2df213b615c6e0f2f03674a2a55044915391518f",
+        "descriptions/ab+/spa.lua": "b12db0447bc180fd157a0e1422640751076948379bf0e1e370d8283f8f7d685b",
+        "descriptions/ab+/tr_tr.lua": "d5df9bc07626cf57bdb02f8e74cff4a82cb6c2ee109f93249911fbe658bec248",
+        "descriptions/ab+/transformations.lua": "bdada66ae1faddbad93a21d44e1868f428c3b854b0c4a43cdac9317774e4edf0",
+        "descriptions/ab+/uk_ua.lua": "e36fefc7be4f9d4c8d89325db7121754d757a38c0a7bd2837be08cfd85d9b367",
+        "descriptions/ab+/vi.lua": "57dd9ee13af6e501ecbae5464f5814841b30d0ec75c494450083f5e221fbf3e6",
+        "descriptions/ab+/zh_cn.lua": "80b492cd830d327fd857f1d8b907c885091f7f8b515c8f83151433775e3809ea",
+        "descriptions/modular/bul.lua": "42c9b6a3a55c2be0cd27e651d9aed0593c5c6f82b48d84a5d3b657e7a6ba0c28",
+        "descriptions/modular/cs_cz.lua": "4831f24e91f79ff4bbeefc02776b97b98a4419966ded504d78c78b2803934a0d",
+        "descriptions/modular/de.lua": "aee965d744193904a2ccb3c83fe512a525622be2cbc43ef8830889ad46847ba6",
+        "descriptions/modular/el_gr.lua": "84ff57023d1aefd06e74d840ec25947e79b24ee648a0c09b7bad91cabb5f1cf1",
+        "descriptions/modular/en_us.lua": "3b2944b4d9bbfad1e0188bf2578f6eded2402f1354286239c48f3247144615f1",
+        "descriptions/modular/fr.lua": "9d9348150dca540d5cd084d3be0afe7c7ddec93038e7ee9bcc7d7845317fc462",
+        "descriptions/modular/it.lua": "9084d02d0d69558cfbf030f3b7dd489b6f24a7a0480f5b74c972147f23bcf9d0",
+        "descriptions/modular/ja_jp.lua": "c2002ff714dfccd25b45ab97f5a3303245cd6c48a65f8d40e94d2820af9f7a5f",
+        "descriptions/modular/ko_kr.lua": "813465f09d2965b6bc35688283ef7fd112fb49542112d16302ee591ffc018c11",
+        "descriptions/modular/pl.lua": "c257cd8557ca78647beed38273cc372560b6d3af6545378a2cad8130c98c44f1",
+        "descriptions/modular/pt.lua": "f6c940e2f58003bde22ccdde9cf6593f3f91ed4ec43ebd3f2e6b2d47530ef946",
+        "descriptions/modular/pt_br.lua": "5099f25980f77e4f9fd6faf4c9a4fa33c716abdfa46c40d64f6c6e169026a3d7",
+        "descriptions/modular/ro_ro.lua": "3a0f6f4ffa1bf9951c4f4b543d93140f9ad2755aa67125151c7f90334ea3621b",
+        "descriptions/modular/ru.lua": "8682964981be0028dc41c3d21b93f44d9a08283c3fcf7cc599e0bed515c5804f",
+        "descriptions/modular/spa.lua": "9f97e223326e2ffb2a2c1a7429ef1b5c3acc1817585a184afd0665e6fdc77a13",
+        "descriptions/modular/tr_tr.lua": "a036c9299006edb66aa7b8121ddc52a25853d690d7bc6d669ea979d5483265d4",
+        "descriptions/modular/uk_ua.lua": "323d81969a34b0db38790a6042e0c8383e9b78121faf08a0b964ad0a343da20e",
+        "descriptions/modular/vi.lua": "ccf5c58685c0299f44a43b76c55668fe09999c0695c570b56b44171515795f55",
+        "descriptions/modular/zh_cn.lua": "d48af02a8576009bc1be12edcf4fc3ae082434dab1f148475c7e6fca7fe5afc6",
+        "descriptions/names/bul.lua": "9dabd56e1b3dd0a29d1d4f564fb3d95507170ec8648a1c5a9092a52551d2e50a",
+        "descriptions/names/cs_cz.lua": "8a3e602d6679017b10e16d2ff23ddc85367e47e835c2a2924745b17defef58d7",
+        "descriptions/names/de.lua": "99f9ff8b202dbf6c629242e48f21dd29d8566f4d43d0913e51182f361f4332cb",
+        "descriptions/names/el_gr.lua": "12884d7faee35f366153c9fe45a09b9b928b2d8ceb82f4053d9631edfee7ba26",
+        "descriptions/names/en_us.lua": "f270b0f009d2872e5e89de588fb54a184e8152d4eadd73696283a2877d7bea51",
+        "descriptions/names/fr.lua": "3719cc222c56828b10d0c74f48d1c13152baeec199874e6bf6f6d4a354ff8552",
+        "descriptions/names/it.lua": "d5ce732059db0e5c2806186f2a7561945bece33926a3a8964cec0339b4e2e897",
+        "descriptions/names/ja_jp.lua": "947e6854e4a105a4d0d9e39b2ab0b7234c5db3fabe28d5e7676d3b2cde4b9468",
+        "descriptions/names/ko_kr.lua": "7a92b1437c1432999cab4c0331086ae3d544e907972f562852e761f05a53777e",
+        "descriptions/names/nl_nl.lua": "2fc49b16808d8d2f2a615b1727b20d630136752a3920ae51bf4622fec2b12986",
+        "descriptions/names/pl.lua": "8c15b66df20977013201c1f84e753f434842b36eb92ecddc6a1e6093f69d7533",
+        "descriptions/names/pt.lua": "01913ca7629eea53abfbd8e066ad0f9b09f1e7911fc94af32d4ce6e48c0bfdae",
+        "descriptions/names/pt_br.lua": "fc0b5b3b461b4bb4db31e0664f7030b439fa54edbbf5e6f0d84081b0ec55a6d3",
+        "descriptions/names/ro_ro.lua": "4fd1a5c71e4a9dc0239a3ee8879253ab50b80da3db5a5d11dfcf0232a23399ee",
+        "descriptions/names/ru.lua": "f0f9491a7a819c3e4c5ec92daa068bc45be4290c67dd066bffff30b3256176ee",
+        "descriptions/names/spa.lua": "65dad564ce96b32db68772a014069a81fe40b2d4c61c355de4fd1a1cbbd3a49d",
+        "descriptions/names/tr_tr.lua": "f8426764df3a598fb240d849ed531183dc2fa77d419c2fc3af1dd1afb227303c",
+        "descriptions/names/uk_ua.lua": "8b4721ba17800a1241cc7f880cf14fa6bd23a84afebdc23cbeb80002122663ef",
+        "descriptions/names/vi.lua": "66834ce4f2f2fc9558181766aa82d5e9a94f37b748e50cb2112405821f56ad2c",
+        "descriptions/names/zh_cn.lua": "79320bcdd5e0062843356ee963c296fa66efd0f1bc2383a3876eaabdbe121d25",
+        "descriptions/rep/cs_cz.lua": "26149c0858f21820543ede91710b907ec44809ac94db070a94b246d86341363a",
+        "descriptions/rep/de.lua": "ed1d54445905ca8741be654a8e4be8c1acf43cd1cd8e6a4a86bbcfce527b5f19",
+        "descriptions/rep/en_us.lua": "df13f66960ae30004834e52efbf729d17a3cf2607c167e0170ea89dc3c114906",
+        "descriptions/rep/fr.lua": "9a739aa5d70aaba4a2d9104619629ea55643d45965370af46973d35efcd79bc5",
+        "descriptions/rep/it.lua": "a65f215a6f956534011ee47de2261348d8a293447919cf88fca85fd5de8f13fd",
+        "descriptions/rep/item_data.lua": "1ca1e2fa30426217a93b98d49f3bb440c7df71bcef87d564542ab29536278d30",
+        "descriptions/rep/ja_jp.lua": "7a4b813daeb2a871f1938e478f7380ab3d0806652e61ce6a0ff09600afdfdf0c",
+        "descriptions/rep/ko_kr.lua": "bcccea3e99c9889f38dc53765b09c6a642a0ed964de1f0317b4e175c5093426e",
+        "descriptions/rep/pl.lua": "7a7dc8ac474d607e99483e8b8a34a63cebf5b69754f7b0f42ceeb0cbca7d3809",
+        "descriptions/rep/pt_br.lua": "7f33a7cc278586502c793c1a2cb78eb93e4a5b821a653c4ceb64a428e03b74d2",
+        "descriptions/rep/ro_ro.lua": "e7261a0534ce48e5432c7c4bbec95cfe0c157f1c7b96478f5a72e7fe7098e0d3",
+        "descriptions/rep/ru.lua": "d1ea116fc172227303929acd901aa9707bb880f57e0868217fe28796af2c5b46",
+        "descriptions/rep/spa.lua": "c778aff385b667e791bead48c8e35f00589a427f5c73fd19e8e342ea0c6133ad",
+        "descriptions/rep/tr_tr.lua": "4842212882b2c3188d1b171aed8eee6170abdf3b6309a133e80448d682d2098d",
+        "descriptions/rep/transformations.lua": "1a2e807681d54c1e6575d5650f0eaae54f94eda77be9416a2ecba9c4f691d0e1",
+        "descriptions/rep/uk_ua.lua": "c1b999b7459d94ba3bbf3190fcf9404baba0bfe0f1aff64bf84ee7c5812ab068",
+        "descriptions/rep/vi.lua": "7d1037a5455418f53debd42a4771437e8134e321fbc9af9a46870cdb45f79594",
+        "descriptions/rep/zh_cn.lua": "2350e36fba7eb856282438ee2bcbbf02ffb15adbfc6d82aead0b5bb7ad638551",
+        "descriptions/rep+/cs_cz.lua": "6007b67ff5b4458250521e76fff2f1641da1e1df2137f07ecf12b1afd8735e5b",
+        "descriptions/rep+/de.lua": "4b7c96845be0413729896f7ff40cd9fd9f04a8b93521175364183350829f6be3",
+        "descriptions/rep+/en_us.lua": "f80e6bf8198cbf611d6826f571a92b649b5125073c71679acc1f2b1151ac17da",
+        "descriptions/rep+/fr.lua": "46b955caf52a06c3239ee6a6ca62417133af543e02c492360a8474b833ba480c",
+        "descriptions/rep+/it.lua": "dc7d425e795cec0d8ee6c16ca1cc916b0064c55999825845943b23801c5aae0b",
+        "descriptions/rep+/item_data.lua": "ad14fa49bb113ba962b8341a81655250f45b9fc6a09c3df3783a6a81ecbda3f7",
+        "descriptions/rep+/ja_jp.lua": "10a8bd22423c9c9e7c2e4e37cafa60b17d626b95240bdedb44a284deced4bc34",
+        "descriptions/rep+/ko_kr.lua": "6fea95c1437d48a05e6c5432c5328d465e9afdb5843db1bf7ebd0798dd4f6834",
+        "descriptions/rep+/ro_ro.lua": "719c5ae702baae6149492c15149052b2e7606297fdc065c5d567158dafe034a5",
+        "descriptions/rep+/ru.lua": "47690ed828a18998df823b2dfab353329167f739d97fbac67b6fd125b9e1634e",
+        "descriptions/rep+/spa.lua": "aa7502ea30cf060f5bff10fd35e94aedbe091f025e8e9ceead4bf8c107760e37",
+        "descriptions/rep+/transformations.lua": "84ad365dac6e2c7c4163f5090883a8be9c11cc46f012a59d96b5d6fa711bef7a",
+        "descriptions/rep+/uk_ua.lua": "b44cbdb8b3f5ffa7b32f967c42c7c329b37d97b84a3d68beaf8d96199f5dd9fb",
+        "descriptions/rep+/vi.lua": "2dc4f3457eed9236cbc85598c4e860eb4194398e930ba99936e375b29d21197d",
+        "descriptions/rep+/zh_cn.lua": "90b03338d66ed8b4edeb4774ff885aad10d90e635f134dd7a1b00e98d9a2ddc9",
+        "descriptions/rgon/cs_cz.lua": "59551d617e92702f66c70685dd73bbf5138a34a31a1aee349007ca8e142134c5",
+        "descriptions/rgon/de.lua": "4b7c96845be0413729896f7ff40cd9fd9f04a8b93521175364183350829f6be3",
+        "descriptions/rgon/en_us.lua": "5bd1bde1bda8dce60b1aa60ca1f763601d8274bf3094f1f1bb0d5e8ecb399e1d",
+        "descriptions/rgon/fr.lua": "0068664bf6eadd1ea82ee602bad9c720f502a900c580bc9d5c0872e9aa934d00",
+        "descriptions/rgon/it.lua": "1ecbc04c06ed95a4ea0a88037e37a4094362725336794b792862e0f23df7daa4",
+        "descriptions/rgon/item_data.lua": "043058568967a0c0a935b782e0c32933e08bcc683e2539f599ae78f6d0524b49",
+        "descriptions/rgon/ja_jp.lua": "4aaa3d3e632a3f89091fd868dbc9eb58e2ca78955ea1993dae418ae0d5388874",
+        "descriptions/rgon/ko_kr.lua": "37246fdc810b1266f6be10bf324a29564fe87ed44e97172dbee833f03721aeab",
+        "descriptions/rgon/ro_ro.lua": "4da900716d15eb5616b68d5a5b33fda219fbf232d3ef91dae669b2239ac80b47",
+        "descriptions/rgon/ru.lua": "6971c8085cd1bfbee4d8b80472db9cce852822b65e9d85f31279401c2378e2c8",
+        "descriptions/rgon/spa.lua": "caed6af0c50539f3955c02135ac954fc9631660a3a2dd5b38fe81d0fa757469c",
+        "descriptions/rgon/transformations.lua": "6767f589cb26b79d48be2b16d8eaf1514e6e26d0c2dfe8464d8e41556fdd008a",
+        "descriptions/rgon/uk_ua.lua": "b44cbdb8b3f5ffa7b32f967c42c7c329b37d97b84a3d68beaf8d96199f5dd9fb",
+        "descriptions/rgon/vi.lua": "2dc4f3457eed9236cbc85598c4e860eb4194398e930ba99936e375b29d21197d",
+        "descriptions/rgon/zh_cn.lua": "ca81122f132e5c16d124bd3ce8bfd18eb2b2b42b9ce6734fb826dba2b95b736f",
+        "eid_config.lua": "14cd00a145ac026f981096e072c845a48c8d35575a30ab4518af10b1d8f749db",
+        "features/eid_api.lua": "0d7ea7cdc3173f7036a8e367a87536f20846edf0b21bda16b176d018d15aedec",
+        "features/eid_bagofcrafting.lua": "4290088660b9bc0cd1d8aa6e33e82e52f2839749f6f911a40402128295fa8bbc",
+        "features/eid_bagofcrafting_search.lua": "4d135223865223e94f14916805023376cbb3bb50758fb5004a75a2685969d136",
+        "features/eid_bagofcrafting_search_kr.lua": "ec344d96b7f532b1aa5e5c3579ac91972422a709347c2c507e359c6fc1a91c7d",
+        "features/eid_conditionals.lua": "081479addd2fb075ff1e80cdd5bfc02369e19ce710dab16a57c6fbb06618882c",
+        "features/eid_conditionals_funcs.lua": "2119e81261eb7d4cb2812cd2d0b07bf05467405441602a95e731f973501113f0",
+        "features/eid_data.lua": "aae00c8f26b5d9803d236979a609ece48e01bbe4709c7f4474278dbdd5f92365",
+        "features/eid_debugging.lua": "ae900ac72fb301a1c5d2f55ca62b4ec63136019a0acc7d00d94c3c10ca3a822f",
+        "features/eid_grid_descriptions.lua": "1bf223e480771357c5be20c2381b1814a0f270f0cbc0235d637967ed0ad642d4",
+        "features/eid_holdmapdesc.lua": "98b6a934da7ba05239d24592597fc7254b32c1c93f038cebc7b61a81d222a081",
+        "features/eid_itemprediction.lua": "a47d3209cd28f096f94d42e145a2ff678c318e4eae2bd2103b6013f11e54f763",
+        "features/eid_language_manager.lua": "f05e2efded35ec8e0c1bfb204df11d66190de3f58fd364db2183b86047f6352e",
+        "features/eid_mcm.lua": "f227eb04ef56d07c7b92c56ecbd0d42c1626101909064d7b9629c9d6383e2832",
+        "features/eid_mcm_cn.lua": "764f005479ebb6fc75f2102acfab019f5cfce1c3dd744cd10ae5bff23cd80f8c",
+        "features/eid_modifiers.lua": "41bf50b93a9b019e452350ac3e0655d3a57e193526cf2a61cc4ab66e460b6a09",
+        "features/eid_modular_data_modifiers.lua": "1fffc20f02bab271ac78da4c1fb6247c119b34710f733afa4858dbecb8636b96",
+        "features/eid_modular_descriptions.lua": "d91b0b37aeb5fe7a9841470874d2a208cbfbc877ca15aa8628090987c17e47db",
+        "features/eid_repentogon.lua": "ba930cfbbbd998b4da9ced2b2cc68a0b4954c829f0d65b271bccfe7c990d621e",
+        "features/eid_tmtrainer.lua": "b10deef086b9f516c3a00171b26445166f4fc8fb6587e5c89d987bb887b9256c",
+        "features/eid_xmldata.lua": "cf540b0b652a66b98f970b36a6efb8ef9bf9711eeb69907ba573e49a9f4e3641",
+        "features/eid_xmldata_rep+.lua": "016f9a679905e0d76e9add28456f19c4159e3681fff495c4039a45ee0ae82bf4",
+        "features/pathfinder/find_vector.lua": "10e68430918f0b88c9e7f2adccba032b42722efadc60e0e1378aea4f78074ad7",
+        "features/pathfinder/heap.lua": "d8d1014d16eaea0ce89508aa9b2bf13e3bc35c883fe4fa794ef59706af8e1da2",
+        "features/pathfinder/luafinding.lua": "0d701252faf94da35080063e803a2accbacc83625f7137b2ddca8223322d2536",
+        "main.lua": "aee59e65b722de2dfceb2dcbed6bf0e91390e1f650178bae62502f48b2fc55a7"
+      }
+    }
+  ],
+  "scripts": {
+    "resources/scripts/enums.lua": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0",
+    "resources/scripts/main.lua": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+  },
+  "resource_catalog": {
+    "schema": 1,
+    "native_compatibility_requires_live_preflight": true,
+    "resources": [
+      {
+        "kind": "sprite",
+        "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/menu.anm2",
+        "aliases": [
+          "gfx/ui/modconfig/menu.anm2"
+        ],
+        "animations": {
+          "Idle": 1,
+          "Cursor": 5,
+          "Slider1": 11,
+          "Slider2": 11,
+          "Popup": 1,
+          "Offset": 4,
+          "Strikeout": 200,
+          "BackSelect": 4,
+          "Divider": 1,
+          "IdleOverlay": 1
+        },
+        "declared_frames": {
+          "Idle": 1,
+          "Cursor": 1,
+          "Slider1": 11,
+          "Slider2": 11,
+          "Popup": 1,
+          "Offset": 1,
+          "Strikeout": 200,
+          "BackSelect": 1,
+          "Divider": 1,
+          "IdleOverlay": 1
+        },
+        "default_animation": "Idle",
+        "layers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "files": [
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/menu.anm2",
+            "sha256": "d59b42706ddc939c477808bdc790962ed3c5cb28ed07754fd45d62968dbed810"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/menu.png",
+            "sha256": "a7ac34f24aea4746b03c1bcdb780c16746ea53abc3ed780bbbf474cb7a0c816d"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/popup_thin_small.png",
+            "sha256": "705610fa091515c694c70f65f060fdd4e75d1dca6516ad4840edfe021dd19596"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/backselect.png",
+            "sha256": "a9afc2d09cbb7c2ad89d51908d4c2910c3ddd326715a7b8daabf14a053fd3464"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/black.png",
+            "sha256": "af7822aea330f0c3a4943197f93963f9d0710efeceb07d5f087f960be0e33ea6"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/arrows.png",
+            "sha256": "d12ba4cbcccdd95c2935cfdbb5b0cce5c59d4280f590123e1b20287e17183662"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/slider.png",
+            "sha256": "bc6d3ef01316a3e6afae1cc1452e523ebc878130a445801284ebb121ebed27ee"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/offset.png",
+            "sha256": "e9db3f27b501008688639e23c7d0860b72a6f1822a2dceceb5064546425640a4"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/strike.png",
+            "sha256": "722adbe802b5bec4a4bbf4dfccc8c97f310304035ee984dc704ae1007f8f4a20"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/menu_overlay.png",
+            "sha256": "2c64312093186b70ea331563b96e4327d6863211893aedab8f815d7be927bc53"
+          }
+        ]
+      },
+      {
+        "kind": "sprite",
+        "path": "mods/external item descriptions_836319872/resources/gfx/eid_transform_icons.anm2",
+        "aliases": [
+          "gfx/eid_transform_icons.anm2"
+        ],
+        "animations": {
+          "active": 1,
+          "familiar": 1,
+          "Transformation1": 1,
+          "Transformation2": 1,
+          "Transformation3": 1,
+          "Transformation4": 1,
+          "Transformation5": 1,
+          "Transformation6": 1,
+          "Transformation7": 1,
+          "Transformation8": 1,
+          "Transformation9": 1,
+          "Transformation10": 1,
+          "Transformation11": 1,
+          "Transformation12": 1,
+          "Transformation13": 1,
+          "Transformation14": 1,
+          "Transformation15": 1,
+          "Transformation16": 1,
+          "CurseOfBlind": 1,
+          "Arrow": 48,
+          "TransformationCustom": 1,
+          "boundingBox": 1,
+          "Cursor": 2
+        },
+        "declared_frames": {
+          "active": 1,
+          "familiar": 1,
+          "Transformation1": 1,
+          "Transformation2": 1,
+          "Transformation3": 1,
+          "Transformation4": 1,
+          "Transformation5": 1,
+          "Transformation6": 1,
+          "Transformation7": 1,
+          "Transformation8": 1,
+          "Transformation9": 1,
+          "Transformation10": 1,
+          "Transformation11": 1,
+          "Transformation12": 1,
+          "Transformation13": 1,
+          "Transformation14": 1,
+          "Transformation15": 1,
+          "Transformation16": 1,
+          "CurseOfBlind": 1,
+          "Arrow": 48,
+          "TransformationCustom": 1,
+          "boundingBox": 1,
+          "Cursor": 2
+        },
+        "default_animation": "active",
+        "layers": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "files": [
+          {
+            "path": "mods/external item descriptions_836319872/resources/gfx/eid_transform_icons.anm2",
+            "sha256": "804a11eaeb1602387849f76981e5ee6f4cb4d1a322a304f6d72db2f6ed7e4fb7"
+          },
+          {
+            "path": "mods/external item descriptions_836319872/resources/gfx/eid_transform_icons.png",
+            "sha256": "5d2816bfe172c50382d2531cced428aea76474ae8cc68911abd09af0563bb8c0"
+          }
+        ]
+      },
+      {
+        "kind": "sprite",
+        "path": "mods/external item descriptions_836319872/resources/gfx/eid_inline_icons.anm2",
+        "aliases": [
+          "gfx/eid_inline_icons.anm2"
+        ],
+        "animations": {
+          "numbers": 14,
+          "ERROR": 1,
+          "hearts": 25,
+          "ArrowUp": 1,
+          "ArrowDown": 1,
+          "Warning": 1,
+          "ArrowGray": 4,
+          "pickups": 15,
+          "roomicons": 37,
+          "Collectible": 1,
+          "Trinket": 1,
+          "roomshape": 13,
+          "ItemIcon": 1,
+          "Blank": 1,
+          "Behavior": 2,
+          "Crafting": 31,
+          "Quality": 5,
+          "XboxOne": 30,
+          "Stats": 42,
+          "StatusEffects": 18,
+          "Curses": 16,
+          "Misc": 21,
+          "Chests": 11,
+          "Beggars": 6,
+          "machines": 9,
+          "Boss": 22,
+          "PoopSpells": 12,
+          "ItemPools": 31,
+          "ArrowUpDown": 1,
+          "Wisps": 5,
+          "Poop": 7,
+          "DiceFaces": 6
+        },
+        "declared_frames": {
+          "numbers": 14,
+          "ERROR": 1,
+          "hearts": 20,
+          "ArrowUp": 1,
+          "ArrowDown": 1,
+          "Warning": 1,
+          "ArrowGray": 4,
+          "pickups": 11,
+          "roomicons": 31,
+          "Collectible": 1,
+          "Trinket": 1,
+          "roomshape": 12,
+          "ItemIcon": 1,
+          "Blank": 1,
+          "Behavior": 1,
+          "Crafting": 27,
+          "Quality": 5,
+          "XboxOne": 30,
+          "Stats": 42,
+          "StatusEffects": 14,
+          "Curses": 1,
+          "Misc": 1,
+          "Chests": 1,
+          "Beggars": 1,
+          "machines": 1,
+          "Boss": 1,
+          "PoopSpells": 1,
+          "ItemPools": 31,
+          "ArrowUpDown": 1,
+          "Wisps": 1,
+          "Poop": 1,
+          "DiceFaces": 6
+        },
+        "default_animation": "ERROR",
+        "layers": [
+          0,
+          1
+        ],
+        "files": [
+          {
+            "path": "mods/external item descriptions_836319872/resources/gfx/eid_inline_icons.anm2",
+            "sha256": "90391550d64c406a5730934d2e9186d6a0f53f1c537e34c8bddaeb0a893fd105"
+          },
+          {
+            "path": "mods/external item descriptions_836319872/resources/gfx/eid_inline_icons.png",
+            "sha256": "45999e3a87d39d56cb2731c6028ed63f94b0e49b77c7082e72a6a7d374200f8c"
+          }
+        ]
+      },
+      {
+        "kind": "sprite",
+        "path": "mods/external item descriptions_836319872/resources/gfx/eid_cardspills.anm2",
+        "aliases": [
+          "gfx/eid_cardspills.anm2"
+        ],
+        "animations": {
+          "Pills": 14,
+          "Cards": 97
+        },
+        "declared_frames": {
+          "Pills": 14,
+          "Cards": 97
+        },
+        "default_animation": "Cards",
+        "layers": [
+          0
+        ],
+        "files": [
+          {
+            "path": "mods/external item descriptions_836319872/resources/gfx/eid_cardspills.anm2",
+            "sha256": "961e3aa0412a5fbc6add76a2762482b9c4888723ef5e31706dd07d73d151d69d"
+          },
+          {
+            "path": "mods/external item descriptions_836319872/resources/gfx/eid_cardspills.png",
+            "sha256": "f2911e044b6480a59a54457910475f31ad5719434488c578bae383f45d9fe593"
+          }
+        ]
+      },
+      {
+        "kind": "sprite",
+        "path": "mods/external item descriptions_836319872/resources/gfx/eid_player_icons.anm2",
+        "aliases": [
+          "gfx/eid_player_icons.anm2"
+        ],
+        "animations": {
+          "Players": 60
+        },
+        "declared_frames": {
+          "Players": 60
+        },
+        "default_animation": "Players",
+        "layers": [
+          0,
+          1
+        ],
+        "files": [
+          {
+            "path": "mods/external item descriptions_836319872/resources/gfx/eid_player_icons.anm2",
+            "sha256": "9d1b2eaf3865bfc65789eb77aabc47df531e5ebae26bcdc70fcde1a6709d370a"
+          },
+          {
+            "path": "mods/external item descriptions_836319872/resources/gfx/eid_player_icons.png",
+            "sha256": "a431402d2c9966b7a969cbf22b16c8982f1270e7ae9a22a5660d455fc7498338"
+          }
+        ]
+      },
+      {
+        "kind": "font",
+        "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/fusion-pixel-font/10.fnt",
+        "aliases": [
+          "mcm_cn_font/fusion-pixel-font/10.fnt"
+        ],
+        "animations": {},
+        "declared_frames": {},
+        "default_animation": "",
+        "files": [
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/fusion-pixel-font/10.fnt",
+            "sha256": "f1e33d209761d68769a521abe3c64691ee324fcdeaae2398dbf49395f92f143f"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/fusion-pixel-font/10_0.png",
+            "sha256": "c4478472312564d31a5347158b317d34f1c9fd45933b2b1d1d19a498ec17fce1"
+          }
+        ]
+      },
+      {
+        "kind": "font",
+        "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/fusion-pixel-font/12.fnt",
+        "aliases": [
+          "mcm_cn_font/fusion-pixel-font/12.fnt"
+        ],
+        "animations": {},
+        "declared_frames": {},
+        "default_animation": "",
+        "files": [
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/fusion-pixel-font/12.fnt",
+            "sha256": "9b1b92d7a7015061fe0d865c0dcdedff89063ad64361a445fcd6da4405716a24"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/fusion-pixel-font/12_0.png",
+            "sha256": "6a4134eeb3260e3be6eadd6fcc3eba9ca6806cc392297cf087ffb88dcab61cd7"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/fusion-pixel-font/12_1.png",
+            "sha256": "d50d4e915ceef3fd34b64c7dc8977b0bb95985be44925a779c2f9c833cb17aa2"
+          }
+        ]
+      },
+      {
+        "kind": "font",
+        "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/12.fnt",
+        "aliases": [
+          "mcm_cn_font/kaiti/12.fnt"
+        ],
+        "animations": {},
+        "declared_frames": {},
+        "default_animation": "",
+        "files": [
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/12.fnt",
+            "sha256": "659b630043d55794e5ce0ad7cdc2e899a36dcddcf796e36874f92cbfa7495b6c"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/12_0.png",
+            "sha256": "2506c3bf9de0a711fc7de9741d0000ed176e8db7b733ce477f224bbe9b53fb97"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/12_1.png",
+            "sha256": "4d7002677a7a323110ab0126f46349a8f7c470f4ee8b36ef3d2856e8368e138f"
+          }
+        ]
+      },
+      {
+        "kind": "font",
+        "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/14.fnt",
+        "aliases": [
+          "mcm_cn_font/kaiti/14.fnt"
+        ],
+        "animations": {},
+        "declared_frames": {},
+        "default_animation": "",
+        "files": [
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/14.fnt",
+            "sha256": "0d32148f1faa25da1ea7341edecaecd6948354474a495fc4002d8694c925fd9d"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/14_0.png",
+            "sha256": "102835d38f4c92f0d004aefa00a0aa60fa047907638a11fdbb389431e828ad16"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/14_1.png",
+            "sha256": "d711c2af08c902d9d97af33e4f3ff128e6eec65d4f15c0349174356a3c4db39c"
+          }
+        ]
+      },
+      {
+        "kind": "font",
+        "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/16.fnt",
+        "aliases": [
+          "mcm_cn_font/kaiti/16.fnt"
+        ],
+        "animations": {},
+        "declared_frames": {},
+        "default_animation": "",
+        "files": [
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/16.fnt",
+            "sha256": "d3c6663ac0384cada0644758807f0391dd87a50a65eaebf145440378c205447f"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/16_0.png",
+            "sha256": "414cef61aed045491c6863e027e8a62120bfba53fa3517998c4c554277c5abde"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/16_1.png",
+            "sha256": "17ba3c0733b9a177ba08aab0ea4e2badd37bc4889f9d48540ef677f56662239a"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/16_2.png",
+            "sha256": "002b4c9b0bf7f3e928c2ce667fc72039a9efc3f7a1d167bdb39890efd077b38c"
+          }
+        ]
+      },
+      {
+        "kind": "font",
+        "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/pftempestasevencondensed.fnt",
+        "aliases": [
+          "mcm_cn_font/pftempestasevencondensed.fnt"
+        ],
+        "animations": {},
+        "declared_frames": {},
+        "default_animation": "",
+        "files": [
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/pftempestasevencondensed.fnt",
+            "sha256": "b9bf9e034fbfee0f7bdd3f6de9d8671d9fbd971e6cc0bc5c31341110f871e3c7"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/pftempestasevencondensed_0.png",
+            "sha256": "b541ee3d5b2e2d5369985da9e751ed9377a7e81fd6f80ad182692d7294e79f6c"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/pftempestasevencondensed-0.png",
+            "sha256": "d2b80df049d9014734b2712f6ce5b31bdc1135aacfe0bd687292c3a8002e9bf7"
+          }
+        ]
+      },
+      {
+        "kind": "font",
+        "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/12.fnt",
+        "aliases": [
+          "mcm_cn_font/songti/12.fnt"
+        ],
+        "animations": {},
+        "declared_frames": {},
+        "default_animation": "",
+        "files": [
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/12.fnt",
+            "sha256": "0f111f77a0d5f68f04f4cc72ef7757b49b1a3abba3aa208f6b2d6a49f3810c1b"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/12_0.png",
+            "sha256": "312f0d0bf07e656bb26798bec2a42a5882285b1c345c7c17294f37f603eb93a6"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/12_1.png",
+            "sha256": "8e8b6330b2ff0ff531cbc46cce9e73ca88b357d1f513f66ba170d664dbbfe76d"
+          }
+        ]
+      },
+      {
+        "kind": "font",
+        "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/14.fnt",
+        "aliases": [
+          "mcm_cn_font/songti/14.fnt"
+        ],
+        "animations": {},
+        "declared_frames": {},
+        "default_animation": "",
+        "files": [
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/14.fnt",
+            "sha256": "e0be285dc6d96065100d0973051f02a7a2e3734b8aa05e5eea62ad3d69d81bb0"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/14_0.png",
+            "sha256": "2689d893085ba08b7c70a95ab042eadfb0a30bb06579eeaa0f5ac3fb6e7c0746"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/14_1.png",
+            "sha256": "aff7c479dbaef4b95f3877f33b92f1060c76f3566ff28d7348e12083bf2a754c"
+          }
+        ]
+      },
+      {
+        "kind": "font",
+        "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/16.fnt",
+        "aliases": [
+          "mcm_cn_font/songti/16.fnt"
+        ],
+        "animations": {},
+        "declared_frames": {},
+        "default_animation": "",
+        "files": [
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/16.fnt",
+            "sha256": "2d28b5649b9ed13b536dc5961a212306e61868180a88645fe066e7dc8e60d4bc"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/16_0.png",
+            "sha256": "9f7fc85549cc8cebd3412f56303c6760010b12e78a3333fbb328eef02cf3a758"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/16_1.png",
+            "sha256": "ffa8fbc24060d73cd1f13a136e163448ea6f638b26dc932889efce63ffdcdd32"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/16_2.png",
+            "sha256": "338f78cdfc48e487b0ff6279af9d29e10e533f330270990de2a80d3724e3b26f"
+          }
+        ]
+      },
+      {
+        "kind": "font",
+        "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont10.fnt",
+        "aliases": [
+          "mcm_cn_font/teammeatfont10.fnt"
+        ],
+        "animations": {},
+        "declared_frames": {},
+        "default_animation": "",
+        "files": [
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont10.fnt",
+            "sha256": "a67e74b625900b897db63f4d1900c4951b5dfb62d7fa4f35b6beb98b0080dd83"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont10_0.png",
+            "sha256": "d29900a0385549e53164bf56ab0a197147aa3e3469d31631cec428a565e9516f"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont10-0.png",
+            "sha256": "750c7efcbbb7940ebcbd5264247b30729b6b26ffba84f501a84152ad0a66fe76"
+          }
+        ]
+      },
+      {
+        "kind": "font",
+        "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont12.fnt",
+        "aliases": [
+          "mcm_cn_font/teammeatfont12.fnt"
+        ],
+        "animations": {},
+        "declared_frames": {},
+        "default_animation": "",
+        "files": [
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont12.fnt",
+            "sha256": "270510e2d31598f506a5f8cefd80459b78e618a5fea2fd4798519bd757b3e2c4"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont12_0.png",
+            "sha256": "b91ed914e396e9446a94afbfd8b142bba5bf1d767da3b84bedc6d0a58dc54185"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont12-0.png",
+            "sha256": "85420960c71b6fd2df4806686d698643e1fb90a5635b1bf62cd98ea3197203ca"
+          }
+        ]
+      },
+      {
+        "kind": "font",
+        "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont16bold.fnt",
+        "aliases": [
+          "mcm_cn_font/teammeatfont16bold.fnt"
+        ],
+        "animations": {},
+        "declared_frames": {},
+        "default_animation": "",
+        "files": [
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont16bold.fnt",
+            "sha256": "5d72cb877f4179d2154f95d2ee58428132bba0fa391e991a2b7e8c11320d979b"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont16bold_0.png",
+            "sha256": "bee01c71f81016457ccee617482470d21729f9060adb961d47378485dcd7da0a"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont16bold_1.png",
+            "sha256": "b2a220e2545ee8ed48ffe240012bddf732a3a0b97de885516e996d6b7da56721"
+          },
+          {
+            "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont16bold-0.png",
+            "sha256": "30444806b528393d5210a2c9a7216197e11a5976c16a2edd859f92681e0a91ec"
+          }
+        ]
+      },
+      {
+        "kind": "font",
+        "path": "mods/external item descriptions_836319872/resources/font/eid_default.fnt",
+        "aliases": [
+          "font/eid_default.fnt"
+        ],
+        "animations": {},
+        "declared_frames": {},
+        "default_animation": "",
+        "files": [
+          {
+            "path": "mods/external item descriptions_836319872/resources/font/eid_default.fnt",
+            "sha256": "f0865eb462b76a608558bfc1b9991d6e8258fdb343ad42380afbd9c210571341"
+          },
+          {
+            "path": "mods/external item descriptions_836319872/resources/font/eid_default_0.png",
+            "sha256": "0a3aeec5bb3dc069c723d64ee4a3d507721c53b3c08dd9bea8950e319f5c24ca"
+          },
+          {
+            "path": "mods/external item descriptions_836319872/resources/font/eid_default_1.png",
+            "sha256": "34b0230ab6f1bd47579f06e98d377cda135896a57f1ab1d17ef187a0b217d3fa"
+          }
+        ]
+      },
+      {
+        "kind": "sprite",
+        "storage": "packed",
+        "path": "resources/gfx/005.100_collectible.anm2",
+        "engine_path": "gfx/005.100_collectible.anm2",
+        "aliases": [
+          "gfx/005.100_collectible.anm2"
+        ],
+        "packed_entries": [
+          {
+            "archive": "afterbirthp.a",
+            "entry": "resources/gfx/005.100_collectible.anm2",
+            "offset": 31074311,
+            "bytes": 31463,
+            "checksum": 1818305482,
+            "sha256": "037bc11c3f6f20cb59525cc6e6686d228b996f32d36e7f138865aa7c79050cff",
+            "archive_sha256": "a7f43fdc44e594442d064779dbc701b964c96486bc7e3cf4f544555880436c07"
+          },
+          {
+            "archive": "afterbirthp.a",
+            "entry": "resources/gfx/items/levelitem_001_itemaltar.png",
+            "offset": 268,
+            "bytes": 12558,
+            "checksum": 3652958175,
+            "sha256": "d90209ceead4fbbee9d613a5afd16b693e669e8d91cd6ec4b8653f78586dc5e5",
+            "archive_sha256": "a7f43fdc44e594442d064779dbc701b964c96486bc7e3cf4f544555880436c07"
+          },
+          {
+            "archive": "graphics.a",
+            "entry": "resources/gfx/items/collectibles/collectibles_001_thesadonion.png",
+            "offset": 5919402,
+            "bytes": 3074,
+            "checksum": 1321765262,
+            "sha256": "8c5b5461dfb3c5282a09bbe968652bb3b41e97b2ebe4cb57ed950754d11b3917",
+            "archive_sha256": "b1286fcfc4f3dd899cd225d46db9132a787352b4169b9de56a5d2c65e43ee23e"
+          },
+          {
+            "archive": "graphics.a",
+            "entry": "resources/gfx/effects/effect_023_starflash.png",
+            "offset": 5538474,
+            "bytes": 1886,
+            "checksum": 912611160,
+            "sha256": "89b38e337e1323fa8cd01a9539f83e31856103fa42fadf02f855c540d2a7b38c",
+            "archive_sha256": "b1286fcfc4f3dd899cd225d46db9132a787352b4169b9de56a5d2c65e43ee23e"
+          },
+          {
+            "archive": "graphics.a",
+            "entry": "resources/gfx/shadow.png",
+            "offset": 14124046,
+            "bytes": 394,
+            "checksum": 2930559847,
+            "sha256": "7ff402e67914e8a45824c6a8563d47423f71b9ec03ef10f72cd642b7680b8dcd",
+            "archive_sha256": "b1286fcfc4f3dd899cd225d46db9132a787352b4169b9de56a5d2c65e43ee23e"
+          }
+        ],
+        "files": [
+          {
+            "path": "resources/packed/afterbirthp.a",
+            "sha256": "a7f43fdc44e594442d064779dbc701b964c96486bc7e3cf4f544555880436c07"
+          },
+          {
+            "path": "resources/packed/graphics.a",
+            "sha256": "b1286fcfc4f3dd899cd225d46db9132a787352b4169b9de56a5d2c65e43ee23e"
+          }
+        ],
+        "animations": {
+          "Idle": 20,
+          "Empty": 20,
+          "ShopIdle": 3,
+          "PlayerPickup": 3,
+          "PlayerPickupSparkle": 36,
+          "Alternates": 20
+        },
+        "declared_frames": {
+          "Idle": 20,
+          "Empty": 0,
+          "ShopIdle": 3,
+          "PlayerPickup": 3,
+          "PlayerPickupSparkle": 36,
+          "Alternates": 20
+        },
+        "default_animation": "Idle",
+        "layers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "kind": "image",
+        "storage": "packed",
+        "path": "resources/gfx/items/collectibles/questionmark.png",
+        "engine_path": "gfx/items/collectibles/questionmark.png",
+        "aliases": [
+          "gfx/items/collectibles/questionmark.png"
+        ],
+        "packed_entries": [
+          {
+            "archive": "graphics.a",
+            "entry": "resources/gfx/items/collectibles/questionmark.png",
+            "offset": 6690466,
+            "bytes": 3047,
+            "checksum": 569059846,
+            "sha256": "09e6146cbe10beb01f7d0fca1141a864eda63fbf1e59cf7fd29318b2579c4530",
+            "archive_sha256": "b1286fcfc4f3dd899cd225d46db9132a787352b4169b9de56a5d2c65e43ee23e"
+          }
+        ],
+        "files": [
+          {
+            "path": "resources/packed/graphics.a",
+            "sha256": "b1286fcfc4f3dd899cd225d46db9132a787352b4169b9de56a5d2c65e43ee23e"
+          }
+        ]
+      },
+      {
+        "kind": "sprite",
+        "storage": "packed",
+        "path": "resources/gfx/ui/buttons.anm2",
+        "engine_path": "gfx/ui/buttons.anm2",
+        "aliases": [
+          "gfx/ui/buttons.anm2"
+        ],
+        "packed_entries": [
+          {
+            "archive": "afterbirthp.a",
+            "entry": "resources/gfx/ui/buttons.anm2",
+            "offset": 163720134,
+            "bytes": 55952,
+            "checksum": 2501346282,
+            "sha256": "7becb80266c5d8e74f8b5b8c6c59f5607756f7e9fe3536445a1993854f51f526",
+            "archive_sha256": "a7f43fdc44e594442d064779dbc701b964c96486bc7e3cf4f544555880436c07"
+          },
+          {
+            "archive": "afterbirthp.a",
+            "entry": "resources/gfx/ui/buttons.png",
+            "offset": 864,
+            "bytes": 29540,
+            "checksum": 380540033,
+            "sha256": "f2201a54abe7ab86c52d6cae403be3e03de3e3db26987252dda4f18fdcfd9095",
+            "archive_sha256": "a7f43fdc44e594442d064779dbc701b964c96486bc7e3cf4f544555880436c07"
+          }
+        ],
+        "files": [
+          {
+            "path": "resources/packed/afterbirthp.a",
+            "sha256": "a7f43fdc44e594442d064779dbc701b964c96486bc7e3cf4f544555880436c07"
+          }
+        ],
+        "animations": {
+          "PS4": 26,
+          "PS5": 26,
+          "XboxOne": 24,
+          "Vita": 24,
+          "WiiU": 24,
+          "Switch": 24,
+          "Switch_SingleJoyCon": 24
+        },
+        "declared_frames": {
+          "PS4": 1,
+          "PS5": 1,
+          "XboxOne": 1,
+          "Vita": 1,
+          "WiiU": 1,
+          "Switch": 1,
+          "Switch_SingleJoyCon": 1
+        },
+        "default_animation": "PS4",
+        "layers": [
+          0
+        ]
+      },
+      {
+        "kind": "font",
+        "path": "mods/external item descriptions_836319872/resources/font/eid_cn_alt.fnt",
+        "aliases": [
+          "font/eid_cn_alt.fnt"
+        ],
+        "animations": {},
+        "declared_frames": {},
+        "default_animation": "",
+        "files": [
+          {
+            "path": "mods/external item descriptions_836319872/resources/font/eid_cn_alt.fnt",
+            "sha256": "4d5658d2b2c5f76cde3b26035ecdd2f633b90c71260ccaa325a24cbb32e5cf74"
+          },
+          {
+            "path": "mods/external item descriptions_836319872/resources/font/eid_cn_alt_0.png",
+            "sha256": "03745e3e5800d8c3ecb9d0bebec5ed0c8bb94981ca21a153aabc55feb39e498f"
+          },
+          {
+            "path": "mods/external item descriptions_836319872/resources/font/eid_cn_fix_0.png",
+            "sha256": "5702062e6159942b82ff3c1b8916b70890d09d780195a5e2a96beb1442dc73a3"
+          }
+        ]
+      }
+    ],
+    "packed_environment": [
+      {
+        "path": "resources/packed/afterbirth.a",
+        "sha256": "ee400c960d9b6854f612f15baededbb8221920795961ba422253893557d64d8c"
+      },
+      {
+        "path": "resources/packed/afterbirth_jp.a",
+        "sha256": "9e323b3d7fb72e8e32174b3a73dd32f0b93684b0f9befd28d1f7030f938f6052"
+      },
+      {
+        "path": "resources/packed/afterbirth_kr.a",
+        "sha256": "ca655c30861eac00d7119eb510397e6ff4c3978f7253a53fd7d153e75b9ace38"
+      },
+      {
+        "path": "resources/packed/afterbirthp.a",
+        "sha256": "a7f43fdc44e594442d064779dbc701b964c96486bc7e3cf4f544555880436c07"
+      },
+      {
+        "path": "resources/packed/afterbirthp_jp.a",
+        "sha256": "7592034c8b55b09af0c9c9e54029bee15770240645c7241bf486e5b4b20091b3"
+      },
+      {
+        "path": "resources/packed/afterbirthp_kr.a",
+        "sha256": "57d1f6d792a5827030a79fa2efda4613ced20e8adaae3820ba34210795a7de0f"
+      },
+      {
+        "path": "resources/packed/animations.a",
+        "sha256": "182e071934fc2d4600506bb326bb8d3946861bfa7ce3c4404d524d68ada8abf5"
+      },
+      {
+        "path": "resources/packed/config.a",
+        "sha256": "618ff65ed855381f7e7184dcc0ce8f8b1473334cc7da94bd4f4db42b362e4479"
+      },
+      {
+        "path": "resources/packed/fonts.a",
+        "sha256": "f6f0a9280b0c066cafddc0e9ab6b59522ac4401d9168a6be81ae978d075f6f6f"
+      },
+      {
+        "path": "resources/packed/graphics.a",
+        "sha256": "b1286fcfc4f3dd899cd225d46db9132a787352b4169b9de56a5d2c65e43ee23e"
+      },
+      {
+        "path": "resources/packed/music.a",
+        "sha256": "0e8288bf503246e0c57b6a37d6d9d87ba5a07680cc120e926b3327371f305bec"
+      },
+      {
+        "path": "resources/packed/repentance.a",
+        "sha256": "b58a2c74f49f106be54021961b5bb11a8428861e125d7430efa24ded652187ea"
+      },
+      {
+        "path": "resources/packed/repentance_de.a",
+        "sha256": "a059a145e930421dc4eb0438afab65afed567fae0196728a0fd33a35c55a0af7"
+      },
+      {
+        "path": "resources/packed/repentance_es.a",
+        "sha256": "0729197a17b37884f91df62918b396bd082c555f4185a532ffc939d07192ca49"
+      },
+      {
+        "path": "resources/packed/repentance_fr.a",
+        "sha256": "a8dfde6680baf91488b7fd317c6e2e6d408e5f44bf289dc79e969ab090126bca"
+      },
+      {
+        "path": "resources/packed/repentance_jp.a",
+        "sha256": "3fd77b9b75ee8d0cac337ba2f9cf75815a0fbe08e0b9131d425b830e8c48002c"
+      },
+      {
+        "path": "resources/packed/repentance_kr.a",
+        "sha256": "c393211e9af0a3f2bd53a255e949c4d517b0de8766d223c4ce8ddbf15bc6bdfd"
+      },
+      {
+        "path": "resources/packed/repentance_ru.a",
+        "sha256": "55d56c1f9626a0053c699875a1498da5e0a42e52aaed26c6ce78bd674aea1649"
+      },
+      {
+        "path": "resources/packed/repentance_zh.a",
+        "sha256": "7f3e4d56c07b41c94137d7130405183d3c76a2ed7f9a529e85d3e3cefa758498"
+      },
+      {
+        "path": "resources/packed/rooms.a",
+        "sha256": "c6e4495b77a4ceb6742d7efeaf60a205844c08d739bcea7a95cda0d10428634e"
+      },
+      {
+        "path": "resources/packed/sfx.a",
+        "sha256": "1f66a8e6695edd332ab7b94378b0c9625deae2e04f4c95539ad5682d52a44273"
+      },
+      {
+        "path": "resources/packed/videos.a",
+        "sha256": "e7a025789a2c0b3f5de974e701039d46867e469e9b20cf68fa15fda3c41e9400"
+      }
+    ]
+  },
+  "resource_catalog_sha256": "90c40f9510c62981b2e87996e2b40a5686b12b4ab8b8b9a09796fe7f0d85b9f7",
+  "game_process_used": false,
+  "modifications_to_installed_sources": false
+}

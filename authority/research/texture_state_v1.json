@@ -1,0 +1,4630 @@
+{
+  "schema": "texture-state-contracts-1",
+  "work_limit": 10000000,
+  "timeout_seconds": 5,
+  "cases": [
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "replace-returns-changed-boolean",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "return Tex:ReplaceSpritesheet(5,'gfx/ui/modconfig/arrows.png')"
+        }
+      ],
+      "kind": "functional",
+      "selected": {
+        "5": "gfx/ui/modconfig/arrows.png"
+      },
+      "loaded": false,
+      "commands": [
+        "Load",
+        "SetFrame",
+        "ReplaceSpritesheet"
+      ],
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": true
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "same-identity-returns-false",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "return Tex:ReplaceSpritesheet(5,'gfx/ui/modconfig/popup_thin_small.png')"
+        }
+      ],
+      "kind": "functional",
+      "selected": {},
+      "loaded": false,
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": false
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "repeat-replace-return",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local a=Tex:ReplaceSpritesheet(5,'gfx/ui/modconfig/arrows.png');return a,Tex:ReplaceSpritesheet(5,'gfx/ui/modconfig/arrows.png')"
+        }
+      ],
+      "kind": "functional",
+      "selected": {
+        "5": "gfx/ui/modconfig/arrows.png"
+      },
+      "loaded": false,
+      "selection_version": 1,
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": false
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "alias-normalization",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local a=Tex:ReplaceSpritesheet(5,'GFX/UI/MODCONFIG/ARROWS.PNG');return a,Tex:ReplaceSpritesheet(5,'gfx/ui/modconfig/arrows.png')"
+        }
+      ],
+      "kind": "functional",
+      "selected": {
+        "5": "gfx/ui/modconfig/arrows.png"
+      },
+      "loaded": false,
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": false
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "shared-spritesheet-layer-independent",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "return Tex:ReplaceSpritesheet(2,'gfx/ui/modconfig/arrows.png')"
+        }
+      ],
+      "kind": "functional",
+      "selected": {
+        "2": "gfx/ui/modconfig/arrows.png"
+      },
+      "loaded": false,
+      "unchanged_layers": [
+        3
+      ],
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": true
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "load-graphics-commits-selection",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Tex:ReplaceSpritesheet(5,'gfx/ui/modconfig/arrows.png')"
+        },
+        {
+          "op": "texture_state"
+        },
+        {
+          "op": "evaluate",
+          "code": "Tex:LoadGraphics()"
+        },
+        {
+          "op": "texture_state"
+        }
+      ],
+      "kind": "functional",
+      "selected": {
+        "5": "gfx/ui/modconfig/arrows.png"
+      },
+      "loaded": true,
+      "commands": [
+        "Load",
+        "SetFrame",
+        "ReplaceSpritesheet",
+        "LoadGraphics"
+      ],
+      "pending_snapshot": true
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "load-graphics-from-false",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Tex:LoadGraphics()"
+        }
+      ],
+      "kind": "functional",
+      "selected": {},
+      "loaded": true,
+      "graphics_version": 1
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "load-true-realizes-base",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Tex:Load('gfx/ui/modconfig/menu.anm2',true)"
+        }
+      ],
+      "kind": "functional",
+      "selected": {},
+      "loaded": true,
+      "graphics_version": 1,
+      "commands": [
+        "Load"
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "replace-does-not-load",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Tex:LoadGraphics();Tex:ReplaceSpritesheet(5,'gfx/ui/modconfig/arrows.png')"
+        }
+      ],
+      "kind": "functional",
+      "selected": {
+        "5": "gfx/ui/modconfig/arrows.png"
+      },
+      "loaded": true,
+      "loaded_overrides": {},
+      "graphics_version": 1
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "second-graphics-commits-new-selection",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Tex:LoadGraphics();Tex:ReplaceSpritesheet(5,'gfx/ui/modconfig/arrows.png');Tex:LoadGraphics()"
+        }
+      ],
+      "kind": "functional",
+      "selected": {
+        "5": "gfx/ui/modconfig/arrows.png"
+      },
+      "loaded": true,
+      "graphics_version": 2
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "repeated-load-graphics-recorded",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Tex:LoadGraphics();Tex:LoadGraphics()"
+        }
+      ],
+      "kind": "functional",
+      "selected": {},
+      "loaded": true,
+      "graphics_version": 2,
+      "commands": [
+        "Load",
+        "SetFrame",
+        "LoadGraphics",
+        "LoadGraphics"
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "replacement-aba",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local a=Tex:ReplaceSpritesheet(5,'gfx/ui/modconfig/arrows.png');local b=Tex:ReplaceSpritesheet(5,'gfx/ui/modconfig/popup_thin_small.png');return a,b"
+        }
+      ],
+      "kind": "functional",
+      "selected": {},
+      "loaded": false,
+      "selection_version": 2,
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": true
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "reload-clears-selection",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Tex:ReplaceSpritesheet(5,'gfx/ui/modconfig/arrows.png');Tex:LoadGraphics();Tex:Load('gfx/ui/modconfig/menu.anm2',false)"
+        }
+      ],
+      "kind": "functional",
+      "selected": {},
+      "loaded": false,
+      "commands": [
+        "Load"
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "cached-methods",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local r,g=Tex.ReplaceSpritesheet,Tex.LoadGraphics;local changed=r(Tex,5,'gfx/ui/modconfig/arrows.png');g(Tex);return changed"
+        }
+      ],
+      "kind": "functional",
+      "selected": {
+        "5": "gfx/ui/modconfig/arrows.png"
+      },
+      "loaded": true,
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": true
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "frame-query-unchanged",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Tex:ReplaceSpritesheet(5,'gfx/ui/modconfig/arrows.png');Tex:LoadGraphics();return Tex:GetAnimation(),Tex:GetFrame()"
+        }
+      ],
+      "kind": "functional",
+      "selected": {
+        "5": "gfx/ui/modconfig/arrows.png"
+      },
+      "loaded": true,
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "437572736f72"
+        },
+        {
+          "type": "integer",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "numeric-frame-unchanged",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Tex:ReplaceSpritesheet(5,'gfx/ui/modconfig/arrows.png');Tex:SetFrame(2);Tex:LoadGraphics();return Tex:GetFrame()"
+        }
+      ],
+      "kind": "functional",
+      "selected": {
+        "5": "gfx/ui/modconfig/arrows.png"
+      },
+      "loaded": true,
+      "expected_values": [
+        {
+          "type": "integer",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "packed-questionmark",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Tex:Load('gfx/005.100_collectible.anm2',true);local a=Tex:ReplaceSpritesheet(1,'gfx/items/collectibles/questionmark.png');Tex:LoadGraphics();Tex:SetFrame('Idle',0);return a,Tex:GetAnimation()"
+        }
+      ],
+      "kind": "functional",
+      "sprite": "gfx/005.100_collectible.anm2",
+      "selected": {
+        "1": "gfx/items/collectibles/questionmark.png"
+      },
+      "loaded": true,
+      "packed": true,
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "string",
+          "hex": "49646c65"
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "packed-repeat-cache",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Tex:Load('gfx/005.100_collectible.anm2',false);local r=Tex.ReplaceSpritesheet;local a=r(Tex,1,'gfx/items/collectibles/questionmark.png');Tex:LoadGraphics();return a,r(Tex,1,'gfx/items/collectibles/questionmark.png')"
+        }
+      ],
+      "kind": "functional",
+      "sprite": "gfx/005.100_collectible.anm2",
+      "selected": {
+        "1": "gfx/items/collectibles/questionmark.png"
+      },
+      "loaded": true,
+      "packed": true,
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": false
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "independent-role-config-and-textures",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation",
+          "input": {},
+          "role": "host"
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "move": true,
+            "graphics": true
+          }
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation",
+          "input": {},
+          "role": "host"
+        }
+      ],
+      "kind": "functional",
+      "selected": {
+        "5": "gfx/ui/modconfig/arrows.png"
+      },
+      "loaded": true,
+      "host_unmodified": true,
+      "frames": [
+        [
+          "en|x=17|coins=0"
+        ],
+        [
+          "zh|x=147|coins=0"
+        ],
+        [
+          "en|x=17|coins=0"
+        ]
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "authority-world-once-personal-textures",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": 1,
+          "phase": "authority",
+          "role": "host"
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "move": true,
+            "graphics": true
+          }
+        }
+      ],
+      "kind": "functional",
+      "selected": {
+        "5": "gfx/ui/modconfig/arrows.png"
+      },
+      "loaded": true,
+      "expected_coins": 1,
+      "frames": [
+        [
+          "zh|x=147|coins=1"
+        ]
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "configuration-reloads-independently",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "move": true,
+            "graphics": true
+          }
+        },
+        {
+          "op": "reload_saved"
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "functional",
+      "selected": {},
+      "loaded": false,
+      "frames": [
+        [
+          "zh|x=147|coins=0"
+        ],
+        [
+          "zh|x=147|coins=0"
+        ]
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "accepted-history-rebuild",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "move": true,
+            "graphics": true
+          }
+        },
+        {
+          "op": "rebuild"
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "functional",
+      "selected": {
+        "5": "gfx/ui/modconfig/arrows.png"
+      },
+      "loaded": true,
+      "frames": [
+        [
+          "zh|x=147|coins=0"
+        ],
+        [
+          "zh|x=147|coins=0"
+        ]
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "rollback-after-save",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "move": true,
+            "graphics": true
+          }
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "move": true,
+            "graphics": true,
+            "fail_save": true
+          },
+          "expect_error": "texture-fail-save"
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "functional",
+      "selected": {
+        "5": "gfx/ui/modconfig/arrows.png"
+      },
+      "loaded": true,
+      "selection_version": 1,
+      "graphics_version": 1,
+      "frames": [
+        [
+          "zh|x=147|coins=0"
+        ],
+        [
+          "zh|x=147|coins=0"
+        ]
+      ],
+      "no_failed_draw": true
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "rollback-after-replace",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "move": true,
+            "graphics": true
+          }
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "move": true,
+            "graphics": true,
+            "fail_replace": true
+          },
+          "expect_error": "texture-fail-replace"
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "functional",
+      "selected": {
+        "5": "gfx/ui/modconfig/arrows.png"
+      },
+      "loaded": true,
+      "selection_version": 1,
+      "graphics_version": 1,
+      "frames": [
+        [
+          "zh|x=147|coins=0"
+        ],
+        [
+          "zh|x=147|coins=0"
+        ]
+      ],
+      "no_failed_draw": true
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "rollback-after-graphics",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "move": true,
+            "graphics": true
+          }
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "move": true,
+            "graphics": true,
+            "fail_graphics": true
+          },
+          "expect_error": "texture-fail-graphics"
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "functional",
+      "selected": {
+        "5": "gfx/ui/modconfig/arrows.png"
+      },
+      "loaded": true,
+      "selection_version": 1,
+      "graphics_version": 1,
+      "frames": [
+        [
+          "zh|x=147|coins=0"
+        ],
+        [
+          "zh|x=147|coins=0"
+        ]
+      ],
+      "no_failed_draw": true
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "rollback-after-draw",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "move": true,
+            "graphics": true
+          }
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "move": true,
+            "graphics": true,
+            "fail_draw": true
+          },
+          "expect_error": "texture-fail-draw"
+        },
+        {
+          "op": "dispatch",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "functional",
+      "selected": {
+        "5": "gfx/ui/modconfig/arrows.png"
+      },
+      "loaded": true,
+      "selection_version": 1,
+      "graphics_version": 1,
+      "frames": [
+        [
+          "zh|x=147|coins=0"
+        ],
+        [
+          "zh|x=147|coins=0"
+        ]
+      ],
+      "no_failed_draw": true
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "gc-retires-texture-state",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "for i=1,128 do local t=Sprite();t:Load('gfx/ui/modconfig/menu.anm2',false);t:ReplaceSpritesheet(5,'gfx/ui/modconfig/arrows.png');if i%16==0 then collectgarbage('collect')end end;collectgarbage('collect')"
+        },
+        {
+          "op": "texture_state"
+        }
+      ],
+      "kind": "functional",
+      "selected": {},
+      "loaded": false,
+      "live_states": 1
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "reject-invalid-layer",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Tex:ReplaceSpritesheet(999,'gfx/ui/modconfig/arrows.png')",
+          "expect_error": "Unregistered sprite layer"
+        }
+      ],
+      "kind": "functional",
+      "selected": {},
+      "loaded": false,
+      "commands": [
+        "Load",
+        "SetFrame"
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "reject-fractional-layer",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Tex:ReplaceSpritesheet(1.5,'gfx/ui/modconfig/arrows.png')",
+          "expect_error": "Expected integer"
+        }
+      ],
+      "kind": "functional",
+      "selected": {},
+      "loaded": false,
+      "commands": [
+        "Load",
+        "SetFrame"
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "reject-unknown-image",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Tex:ReplaceSpritesheet(5,'gfx/unknown.png')",
+          "expect_error": "Unregistered replacement image"
+        }
+      ],
+      "kind": "functional",
+      "selected": {},
+      "loaded": false,
+      "commands": [
+        "Load",
+        "SetFrame"
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "reject-wrong-type",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Tex:ReplaceSpritesheet(5,3)",
+          "expect_error": "Expected string"
+        }
+      ],
+      "kind": "functional",
+      "selected": {},
+      "loaded": false,
+      "commands": [
+        "Load",
+        "SetFrame"
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "reject-wrong-signature",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Tex:ReplaceSpritesheet(5,'gfx/ui/modconfig/arrows.png',true)",
+          "expect_error": "Sprite.ReplaceSpritesheet signature unsupported"
+        }
+      ],
+      "kind": "functional",
+      "selected": {},
+      "loaded": false,
+      "commands": [
+        "Load",
+        "SetFrame"
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "reject-graphics-argument",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Tex:LoadGraphics(true)",
+          "expect_error": "Sprite.LoadGraphics signature unsupported"
+        }
+      ],
+      "kind": "functional",
+      "selected": {},
+      "loaded": false,
+      "commands": [
+        "Load",
+        "SetFrame"
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "reject-foreign-receiver",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Tex.ReplaceSpritesheet(Game(),5,'gfx/ui/modconfig/arrows.png')",
+          "expect_error": "Foreign or stale object receiver"
+        }
+      ],
+      "kind": "functional",
+      "selected": {},
+      "loaded": false,
+      "commands": [
+        "Load",
+        "SetFrame"
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "reject-unloaded-receiver",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Sprite():ReplaceSpritesheet(0,'gfx/ui/modconfig/arrows.png')",
+          "expect_error": "Sprite animation resource not loaded"
+        }
+      ],
+      "kind": "functional",
+      "selected": {},
+      "loaded": false,
+      "commands": [
+        "Load",
+        "SetFrame"
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "reject-unloaded-graphics",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Sprite():LoadGraphics()",
+          "expect_error": "Sprite animation resource not loaded"
+        }
+      ],
+      "kind": "functional",
+      "selected": {},
+      "loaded": false,
+      "commands": [
+        "Load",
+        "SetFrame"
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "reject-unknown-render",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Tex:Render(Vector(0,0))",
+          "expect_error": "Sprite.Render contract not implemented"
+        }
+      ],
+      "kind": "functional",
+      "selected": {},
+      "loaded": false,
+      "commands": [
+        "Load",
+        "SetFrame"
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "id": "reject-operation-cap",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "for i=1,129 do Tex:ReplaceSpritesheet(5,'gfx/ui/modconfig/arrows.png') end"
+        }
+      ],
+      "kind": "process-rejection",
+      "error": "Sprite operation capacity exceeded"
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/loose-hash.json",
+        "sha256": "3cd30e6c568ed119144edc672c97ed3375dcdd09a774473ce57e032d96d0978e"
+      },
+      "id": "reject-loose-hash",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Tex:ReplaceSpritesheet(5,'gfx/ui/modconfig/menu.png')",
+          "expect_error": "Texture resource hash mismatch"
+        }
+      ],
+      "kind": "expected-rejection",
+      "error": "Texture resource hash mismatch",
+      "selected": {},
+      "loaded": false
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/loose-size.json",
+        "sha256": "a20b0cc9051700b55ba631dd6ac89b059232ebd049d608035619907d68d07559"
+      },
+      "id": "reject-loose-size",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Tex:ReplaceSpritesheet(5,'gfx/ui/modconfig/menu.png')",
+          "expect_error": "Texture resource size mismatch"
+        }
+      ],
+      "kind": "expected-rejection",
+      "error": "Texture resource size mismatch",
+      "selected": {},
+      "loaded": false
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/unknown-storage.json",
+        "sha256": "ff3d82e2af9acdef986e47d5bf9f3579c6edb5e0d05e13a1974fe5b9195cfeec"
+      },
+      "id": "reject-unknown-storage",
+      "steps": [],
+      "kind": "process-rejection",
+      "error": "Unknown texture resource storage",
+      "selected": {},
+      "loaded": false
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/layer-coverage.json",
+        "sha256": "a3f0c518a7f8d9c99fc41c3182ae88eddd720ad0558c1e014b1f586ae93da0ed"
+      },
+      "id": "reject-layer-coverage",
+      "steps": [],
+      "kind": "process-rejection",
+      "error": "Texture layer coverage mismatch",
+      "selected": {},
+      "loaded": false
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "source": "research/texture_state/main.lua",
+      "source_sha256": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/texture_state",
+            "display": "mods/texture-state-fixture",
+            "sha256": {
+              "main.lua": "29ecf812de3e43b6165e3819b506b55b1a12c17302832f923e7b7c3e00f4ff89"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/texture-state-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/texture-state-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "graphics_profile": {
+        "path": "research/texture_state/packed-range.json",
+        "sha256": "5bf1445afa4a67db1c775e0442a240bc25cd3fdf2a403b9dc5f30c34fa2bd976"
+      },
+      "id": "reject-packed-range",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Tex:ReplaceSpritesheet(5,'gfx/items/collectibles/questionmark.png')",
+          "expect_error": "Packed sprite range hash mismatch"
+        }
+      ],
+      "kind": "expected-rejection",
+      "error": "Packed sprite range hash mismatch",
+      "selected": {},
+      "loaded": false
+    }
+  ]
+}

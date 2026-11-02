@@ -1,0 +1,21 @@
+{
+  "schema": "mod-sdk-candidate-1",
+  "abi": "ia-lua533-mod-sdk-1",
+  "gate_passed": false,
+  "model_contracts_passed": true,
+  "real_mod_initialization_passed": false,
+  "authority_projection_passed": false,
+  "executable": "build-mod-sdk/Release/authority-sdk.exe",
+  "executable_sha256": "aa73011bb8208f83a6c519a9f73f582e4c0dbb89abc27aa0152b9f0857bc955f",
+  "reference": "build-mod-sdk/Release/authority-sdk-reference.exe",
+  "reference_sha256": "6f08cc9bac79b040d5238790e6c8b0e5b9b0b9bbeedd0207a31f3e415ce5e417",
+  "suite": "research/mod_sdk_v3.json",
+  "real_suite": "research/mod_sdk_real_v2.json",
+  "verifier": "tools/verify_mod_sdk.py",
+  "results": "docs/MOD_SDK_RESULTS.md",
+  "work_limit": 10000000,
+  "child_timeout_seconds": 5,
+  "process_private_limit_bytes": 1073741824,
+  "consumer_cache_enabled": false,
+  "prior": "research/model_object_candidate_v1.json"
+}

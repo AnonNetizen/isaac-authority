@@ -1,0 +1,3789 @@
+{
+  "schema": "isaac-runtime-suite-1",
+  "purpose": "Slice3 fixed global use policy, function compatibility separate from safe refusal",
+  "cases": [
+    {
+      "id": "slice3-original-mixed-presentation",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/legacy_chaos",
+          "sha256": {
+            "main.lua": "bebe32b85a9ca499b212f0d87625fd864f69f2c5a3caf243bdaae7c9cf040eda"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Authority Research Legacy Chaos Fixture": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Authority Research Legacy Chaos Fixture": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/effects/1/amount": 1,
+              "/draws/0/0/x": 24,
+              "/draws/1/0/x": 124
+            },
+            "text_templates": [
+              [
+                "zh|1|1000|${/effects/0/amount}"
+              ],
+              [
+                "en|1|1000|${/effects/0/amount}"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "slice3-presentation-original-config-counterexample",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/config_drives_world",
+          "sha256": {
+            "main.lua": "6a1ca18636a7b7f204f613e9aa1ea1adc3ab8d6156c15c325f534f330caec17e"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Config Drives World Fixture": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Config Drives World Fixture": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|1"
+              ],
+              [
+                "en|1"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 1
+            }
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|2"
+              ],
+              [
+                "en|2"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "slice3-presentation-config-extra-writes-cached-query-dedup",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/presentation_gate",
+          "sha256": {
+            "main.lua": "64149d85b545130f7b69d2ef305f7d9a2151c515a60d19f52af3f403ed18cc3c"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Presentation Gate Fixture": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Presentation Gate Fixture": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|coins=1|count=1"
+              ],
+              [
+                "en|coins=1|count=1"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 1
+            }
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|coins=2|count=2"
+              ],
+              [
+                "en|coins=2|count=2"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 2,
+              "/draws/1/0/x": 125,
+              "/personal_options/1/Language": "fr",
+              "/suppressed/0/args/1": 2
+            }
+          }
+        },
+        {
+          "frame": 3,
+          "time_ms": 1032,
+          "inputs": [
+            {},
+            {
+              "pressed": [
+                88
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|coins=3|count=3"
+              ],
+              [
+                "en|coins=3|count=3"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 3,
+              "/suppressed/1/args/1": 2
+            }
+          }
+        },
+        {
+          "frame": 3,
+          "time_ms": 1032,
+          "inputs": [
+            {},
+            {
+              "pressed": [
+                88
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|coins=3|count=3"
+              ],
+              [
+                "en|coins=3|count=3"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 3,
+              "/duplicate": true
+            }
+          }
+        },
+        {
+          "frame": 3,
+          "time_ms": 1032,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "gate_required": false,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "Duplicate model frame payload changed"
+          }
+        },
+        {
+          "frame": 4,
+          "time_ms": 1048,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|coins=4|count=4"
+              ],
+              [
+                "en|coins=4|count=4"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 4,
+              "/personal_options/1/Language": "fr"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "slice3-presentation-fresh-context-personal-config",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/presentation_gate",
+          "sha256": {
+            "main.lua": "64149d85b545130f7b69d2ef305f7d9a2151c515a60d19f52af3f403ed18cc3c"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Presentation Gate Fixture": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Presentation Gate Fixture": "{\"amount\": 2, \"key\": 77, \"language\": \"en\", \"x\": 125}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|coins=1|count=1"
+              ],
+              [
+                "en|coins=1|count=1"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 1,
+              "/draws/1/0/x": 125,
+              "/suppressed/0/args/1": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "slice3-presentation-random-time-cached-functions",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/presentation_random",
+          "sha256": {
+            "main.lua": "20e8eee35909c38fb6c2d84bc1ec820b2155bc6f985ced8bf31191072bc679f3"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Random Gate Fixture": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Random Gate Fixture": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/frame": 1,
+              "/world/time_ms": 1000,
+              "/personal_options/1/Language": "en",
+              "/draws/1/0/x": 124
+            },
+            "text_templates": [
+              [
+                "zh|v=${/transcript/0/result}|t=1000|clock=1.0|count=1"
+              ],
+              [
+                "en|v=${/transcript/0/result}|t=1000|clock=1.0|count=1"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/frame": 2,
+              "/world/time_ms": 1016,
+              "/personal_options/1/Language": "en",
+              "/draws/1/0/x": 124
+            },
+            "text_templates": [
+              [
+                "zh|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ],
+              [
+                "en|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/frame": 2,
+              "/world/time_ms": 1016,
+              "/personal_options/1/Language": "en",
+              "/draws/1/0/x": 124,
+              "/duplicate": true
+            },
+            "text_templates": [
+              [
+                "zh|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ],
+              [
+                "en|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "slice3-read-write-read",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/presentation_transition",
+          "sha256": {
+            "main.lua": "84d7645aa491a51c354758004ebb0b943456e36a58d1e4b1fe969e27aa035546"
+          }
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "0->1|count=1"
+              ],
+              [
+                "0->1|count=1"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 1
+            }
+          }
+        },
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "0->1|count=1"
+              ],
+              [
+                "0->1|count=1"
+              ]
+            ],
+            "values": {
+              "/duplicate": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "slice3-authority-award-presentation-random-alias",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/presentation_random_alias",
+          "sha256": {
+            "main.lua": "1f86c459aa3edc598a17cec5b0c0a3ca8ec8d4dd19c09af6c4d6d5ae924961dd"
+          }
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "text_templates": [
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ],
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ]
+            ]
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ]
+    },
+    {
+      "id": "slice3-authority-award-trace-same-line",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/trace_same_line",
+          "sha256": {
+            "main.lua": "e2aa7b20daf7e17ca547990e7f5d2fe935b1d4ed4b364982d283ae3f3cb5ec71"
+          }
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "text_templates": [
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ],
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ]
+            ]
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ]
+    },
+    {
+      "id": "slice3-authority-award-trace-helper",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/trace_helper",
+          "sha256": {
+            "main.lua": "685d8f99bba42f9d7333ecd917a7479a9d7dcfbbc0312a754281e11837b6aacc"
+          }
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "text_templates": [
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ],
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ]
+            ]
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ]
+    },
+    {
+      "id": "slice3-authority-award-trace-cached",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/trace_cached",
+          "sha256": {
+            "main.lua": "017bd0d1c044add5b4f9680ab2a6cba807869145a975bee3278ef72b26e5a979"
+          }
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "text_templates": [
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ],
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ]
+            ]
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ]
+    },
+    {
+      "id": "slice3-authority-award-trace-tail",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/trace_tail",
+          "sha256": {
+            "main.lua": "e8796383ef5ad4fa4a995aa7d60651d984bf2dbc0a19db25541a8120b93a90d5"
+          }
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "text_templates": [
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ],
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ]
+            ]
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ]
+    },
+    {
+      "id": "slice3-authority-award-trace-dynamic",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/trace_dynamic",
+          "sha256": {
+            "main.lua": "e8c51b8ff9e7e0ef6e4876cba75a9117c9c47275cf3cf4325f41b3d59d49e3e0"
+          }
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "text_templates": [
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ],
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ]
+            ]
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ]
+    },
+    {
+      "id": "slice3-config-save-roundtrip",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/trace_serialization",
+          "sha256": {
+            "main.lua": "8a089070cb1b1516f029a6bc03a7f19d4902a80aa19aa6b475e5b4ab6326004b"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Trace Serialization Fixture": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Trace Serialization Fixture": "{\"amount\": 2, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|previous=0|0->1|count=1"
+              ],
+              [
+                "en|previous=0|0->1|count=1"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 1
+            }
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|previous=1|1->2|count=2"
+              ],
+              [
+                "en|previous=1|1->2|count=2"
+              ]
+            ],
+            "values": {
+              "/world/coins/0": 2,
+              "/draws/1/0/x": 125
+            }
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|previous=1|1->2|count=2"
+              ],
+              [
+                "en|previous=1|1->2|count=2"
+              ]
+            ],
+            "values": {
+              "/duplicate": true,
+              "/world/coins/0": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "slice3-personal-new-range-keeps-ui",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/presentation_random",
+          "sha256": {
+            "main.lua": "20e8eee35909c38fb6c2d84bc1ec820b2155bc6f985ced8bf31191072bc679f3"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Random Gate Fixture": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Random Gate Fixture": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/draws/1/0/x": 124,
+              "/personal_options/1/Language": "en"
+            },
+            "text_templates": [
+              [
+                "zh|v=${/transcript/0/result}|t=1000|clock=1.0|count=1"
+              ],
+              [
+                "en|v=${/transcript/0/result}|t=1000|clock=1.0|count=1"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/draws/1/1/x": 125,
+              "/personal_options/1/Language": "fr"
+            },
+            "text_templates": [
+              [
+                "zh|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ],
+              [
+                "queued before failure",
+                "en|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/draws/1/1/x": 125,
+              "/personal_options/1/Language": "fr",
+              "/duplicate": true
+            },
+            "text_templates": [
+              [
+                "zh|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ],
+              [
+                "queued before failure",
+                "en|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "slice3-personal-extra-random-no-execution",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/presentation_random",
+          "sha256": {
+            "main.lua": "20e8eee35909c38fb6c2d84bc1ec820b2155bc6f985ced8bf31191072bc679f3"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Random Gate Fixture": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Random Gate Fixture": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/draws/1/0/x": 124,
+              "/personal_options/1/Language": "en"
+            },
+            "text_templates": [
+              [
+                "zh|v=${/transcript/0/result}|t=1000|clock=1.0|count=1"
+              ],
+              [
+                "en|v=${/transcript/0/result}|t=1000|clock=1.0|count=1"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "pressed": [
+                99
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/draws/1/0/x": 124,
+              "/personal_options/1/Language": "en"
+            },
+            "text_templates": [
+              [
+                "zh|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ],
+              [
+                "en|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "pressed": [
+                99
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/draws/1/0/x": 124,
+              "/personal_options/1/Language": "en",
+              "/duplicate": true
+            },
+            "text_templates": [
+              [
+                "zh|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ],
+              [
+                "en|v=${/transcript/0/result}|t=1016|clock=1.016|count=2"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "slice3-trace-loop",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/trace_loop",
+          "sha256": {
+            "main.lua": "bfd17113436e05cffba50c40047e91339ce55d68503bfc02599f623986dd909d"
+          }
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "text_templates": [
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ],
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ]
+            ]
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ]
+    },
+    {
+      "id": "slice3-trace-generic-loop",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/trace_generic_loop",
+          "sha256": {
+            "main.lua": "f3818f173c33ea37cc5134ecdebf03e6c119d625966fd3155df236482038f2b8"
+          }
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "text_templates": [
+              [
+                "award=${/effects/0/amount}"
+              ],
+              [
+                "award=${/effects/0/amount}"
+              ]
+            ]
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ]
+    },
+    {
+      "id": "slice3-trace-loop-tail",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/trace_loop_tail",
+          "sha256": {
+            "main.lua": "77d7624bdf0e26a473ff2f5814dd2e548641feeedb18ca751357c7c2042467b6"
+          }
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "text_templates": [
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ],
+              [
+                "award=${/effects/0/amount}|coins=${/world/coins/0}"
+              ]
+            ]
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ]
+    },
+    {
+      "id": "slice3-mixed-fields-alias-closure-save",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice_mixed_fields",
+          "sha256": {
+            "main.lua": "3f545255cc514a09f3327b67546f1d38e958a206b1fa892fb9001d34f2b88058"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Slice Mixed Fields": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Slice Mixed Fields": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/draws/1/0/x": 124
+            },
+            "text_templates": [
+              [
+                "zh|award=${/effects/0/amount}|previous=0|count=1"
+              ],
+              [
+                "en|award=${/effects/0/amount}|previous=0|count=1"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/draws/1/0/x": 125
+            },
+            "text_templates": [
+              [
+                "zh|award=${/effects/0/amount}|previous=${/transcript/0/result}|count=2"
+              ],
+              [
+                "en|award=${/effects/0/amount}|previous=${/transcript/0/result}|count=2"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "slice3-unresolved-control-recovery",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice_unresolved_control",
+          "sha256": {
+            "main.lua": "8bb450a7a3a6e93c2ed354de6f20cc47e6a58c9e99a9008847aee28e6e84707e"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Slice Control Gate": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Slice Control Gate": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "text_templates": [
+              [
+                "zh|1|reward=${/effects/0/amount}"
+              ],
+              [
+                "en|1|reward=${/effects/0/amount}"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/draws/1/1/x": 125
+            },
+            "text_templates": [
+              [
+                "zh|2|reward=${/effects/0/amount}"
+              ],
+              [
+                "queued",
+                "en|2|reward=${/effects/0/amount}"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/draws/1/1/x": 125,
+              "/duplicate": true
+            },
+            "text_templates": [
+              [
+                "zh|2|reward=${/effects/0/amount}"
+              ],
+              [
+                "queued",
+                "en|2|reward=${/effects/0/amount}"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "slice3-unmatched-query-recovery",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice_unmatched_query",
+          "sha256": {
+            "main.lua": "1ae0fefed62d3005e9f5448e4071a3e1e0a7b182e1d51e8e24984b019ea10f07"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Slice Query Gate": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Slice Query Gate": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 1
+            },
+            "text_templates": [
+              [
+                "zh|1"
+              ],
+              [
+                "en|1"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 2,
+              "/draws/1/2/x": 125
+            },
+            "texts": [
+              [
+                "zh|2"
+              ],
+              [
+                "queued",
+                "extra=2",
+                "en|2"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 2,
+              "/draws/1/2/x": 125,
+              "/duplicate": true
+            },
+            "texts": [
+              [
+                "zh|2"
+              ],
+              [
+                "queued",
+                "extra=2",
+                "en|2"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "slice3-multiple-authority-consumers",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice_multiple_consumers",
+          "sha256": {
+            "main.lua": "cb6a718ab5d749f2f8de8d06c995b5b12ab3f0d247c48d23aabaf082085d7a00"
+          }
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "text_templates": [
+              [
+                "first=${/effects/0/amount}|second=${/effects/1/amount}"
+              ],
+              [
+                "first=${/effects/0/amount}|second=${/effects/1/amount}"
+              ]
+            ]
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ]
+    },
+    {
+      "id": "slice3-setting-versus-game-result-ambiguity",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice_setting_ambiguity",
+          "sha256": {
+            "main.lua": "18e65786e297e525f9b3494fcfc8f127a19bede4d72235c7bf3b7f54c0b0e556"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Slice Setting Ambiguity": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Slice Setting Ambiguity": "{\"amount\": 2, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 1,
+              "/draws/1/0/x": 124,
+              "/stores/1/Slice Setting Ambiguity": "{\"amount\": 2, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+            },
+            "texts": [
+              [
+                "zh|amount=1"
+              ],
+              [
+                "en|amount=1"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "slice3-identical-json-distinct-producers",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice_json_versions",
+          "sha256": {
+            "main.lua": "910a0e673365bb57c6fdf8ab11915b9bbc470f8254248009b1c07acdb460ef92"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Slice JSON Versions": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Slice JSON Versions": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 1
+            },
+            "texts": [
+              [
+                "zh|world=0",
+                "zh|literal=0|17|literal"
+              ],
+              [
+                "en|world=0",
+                "en|literal=0|17|literal"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "slice3-new-queries-before-and-after",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice2_extra_queries",
+          "sha256": {
+            "main.lua": "6e7cc8cf878b4dfd6a7c5750ca075fa4af0a0fed49361eb55f4cacb7c4b98f21"
+          }
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 1
+            },
+            "texts": [
+              [],
+              [
+                "before=0",
+                "after=1"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 2
+            },
+            "texts": [
+              [],
+              [
+                "before=1",
+                "after=2"
+              ]
+            ]
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ],
+      "case_kind": "functional"
+    },
+    {
+      "id": "slice3-helper-queries-before-and-after",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice2_helper_queries",
+          "sha256": {
+            "main.lua": "480d2aa264eeccaa053ce8f0cdb4db460b80cf900616f7ce8a311756fff769e2"
+          }
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 1
+            },
+            "texts": [
+              [],
+              [
+                "before=0",
+                "after=1"
+              ]
+            ]
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ],
+      "case_kind": "functional"
+    },
+    {
+      "id": "slice3-query-frontier-ambiguity",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice2_query_frontier_ambiguity",
+          "sha256": {
+            "main.lua": "1ea14bcf51172f17ea6bd422a06facd503bd67abd368fd8f3385f637e2386683"
+          }
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "gate_required": true,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "query state point crosses unmatched"
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ],
+      "case_kind": "safety"
+    },
+    {
+      "id": "slice3-unresolved-paths",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice2_unresolved_paths",
+          "sha256": {
+            "main.lua": "3eac6b56643557a67b27dd46730a93cff8f0ee5b82ede0eb6e6383b3bcb48db7"
+          }
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "gate_required": true,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "Unbound slice world contribution"
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ],
+      "case_kind": "safety"
+    },
+    {
+      "id": "slice3-callback-anchor-ambiguity",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice2_callback_ambiguity",
+          "sha256": {
+            "main.lua": "82a179629b2f5cd70185be5bfcb881780614b09aedb2d1a369192bc45c748e3a"
+          }
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "gate_required": true,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "callback anchor"
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ],
+      "case_kind": "safety"
+    },
+    {
+      "id": "slice3-unproven-heap-instances",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice2_heap_instances",
+          "sha256": {
+            "main.lua": "0f6c0f1cc62963a756fc3358475edd3bb396e3cf1c8760bfd77ae578a219f3e5"
+          }
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "gate_required": true,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "authority heap instance"
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ],
+      "case_kind": "safety"
+    },
+    {
+      "id": "slice3-branch-budget",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice2_branch_budget",
+          "sha256": {
+            "main.lua": "cf24fa2f292c40ccf47b3a047f39f692fd1de25ce211204fdef15cdbe4d6fdd9"
+          }
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "gate_required": true,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "unresolved branch budget"
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ],
+      "case_kind": "safety"
+    },
+    {
+      "id": "slice3-path-budget",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice2_path_budget",
+          "sha256": {
+            "main.lua": "935c7be0f6d14c151c37905803357b0fbac7002604a4e2652f74d7defae7a302"
+          }
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "gate_required": true,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "exploration path budget"
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ],
+      "case_kind": "safety"
+    },
+    {
+      "id": "slice3-instruction-budget",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice2_instruction_budget",
+          "sha256": {
+            "main.lua": "53501fc27d9364e87568a281284a6c4ce8551f3a968128e6aef69692c06ab849"
+          }
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "gate_required": true,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "budget exceeded"
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ],
+      "case_kind": "safety"
+    },
+    {
+      "id": "slice3-native-deferred-key-77",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice2_native_deferred_keys",
+          "sha256": {
+            "main.lua": "83ca1be1b28c3eb17bc06170132e24a2d664c2d904bfe0035eec48bf1ff6eadb"
+          }
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {
+              "pressed": [
+                77
+              ]
+            }
+          ],
+          "gate_required": true,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "Unsupported slice2 deferred native selector"
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ],
+      "case_kind": "safety"
+    },
+    {
+      "id": "slice3-native-deferred-key-78",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice2_native_deferred_keys",
+          "sha256": {
+            "main.lua": "83ca1be1b28c3eb17bc06170132e24a2d664c2d904bfe0035eec48bf1ff6eadb"
+          }
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {
+              "pressed": [
+                78
+              ]
+            }
+          ],
+          "gate_required": true,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "Unsupported slice2 deferred native selector"
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ],
+      "case_kind": "safety"
+    },
+    {
+      "id": "slice3-native-deferred-key-79",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice2_native_deferred_keys",
+          "sha256": {
+            "main.lua": "83ca1be1b28c3eb17bc06170132e24a2d664c2d904bfe0035eec48bf1ff6eadb"
+          }
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {
+              "pressed": [
+                79
+              ]
+            }
+          ],
+          "gate_required": true,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "Unsupported slice2 deferred native selector"
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ],
+      "case_kind": "safety"
+    },
+    {
+      "id": "slice3-setting-control-ambiguity",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice2_setting_control",
+          "sha256": {
+            "main.lua": "07d005c9e17663eea8c64dc8f608056b0a377f462b9923d4c6cd921b1224476d"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Slice2 Setting Control": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Slice2 Setting Control": "{\"amount\": 2, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 1,
+              "/draws/1/0/x": 124,
+              "/stores/1/Slice2 Setting Control": "{\"amount\": 2, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+            },
+            "texts": [
+              [
+                "other"
+              ],
+              [
+                "other"
+              ]
+            ]
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ],
+      "case_kind": "functional"
+    },
+    {
+      "id": "slice3-two-rewards-upvalues-helper",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice2_two_rewards_upvalues",
+          "sha256": {
+            "main.lua": "6a3adcc7063d7488c4d509992a6c529df6552083e21ac503390a3d8bc11df381"
+          }
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "text_templates": [
+              [
+                "first=${/effects/0/amount}|second=${/effects/1/amount}"
+              ],
+              [
+                "first=${/effects/0/amount}|second=${/effects/1/amount}"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "text_templates": [
+              [
+                "first=${/effects/0/amount}|second=${/effects/1/amount}"
+              ],
+              [
+                "first=${/effects/0/amount}|second=${/effects/1/amount}"
+              ]
+            ]
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ],
+      "case_kind": "functional"
+    },
+    {
+      "id": "slice3-reversed-consumers",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice2_reversed_consumers",
+          "sha256": {
+            "main.lua": "e6d16de2209eb55ed1df64fae2946bdc00974a3dcc1c9ac4f2f77c03714163eb"
+          }
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "text_templates": [
+              [
+                "first=${/effects/1/amount}|second=${/effects/0/amount}"
+              ],
+              [
+                "first=${/effects/1/amount}|second=${/effects/0/amount}"
+              ]
+            ]
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ],
+      "case_kind": "functional"
+    },
+    {
+      "id": "slice3-lua-comparison-semantics",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice2_comparisons",
+          "sha256": {
+            "main.lua": "26ae1285c204fe6a19ce653afb1fac03d320a5fd6f93e208b5cb05b8299cee26"
+          }
+        }
+      ],
+      "stores": [
+        {},
+        {}
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "equal|less|le|truth|3"
+              ],
+              [
+                "equal|less|le|truth|3"
+              ]
+            ]
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ],
+      "case_kind": "functional"
+    },
+    {
+      "id": "slice3-two-rewards-fields-cross-frame",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice2_two_rewards_fields",
+          "sha256": {
+            "main.lua": "7d56c7160b25a15a243929910382dcf4cc613306f47412fd331a10710f2c1a21"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Slice2 Two Rewards Fields": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Slice2 Two Rewards Fields": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/frame": 1,
+              "/draws/1/0/x": 124
+            }
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/frame": 2,
+              "/draws/1/0/x": 125
+            }
+          }
+        },
+        {
+          "frame": 3,
+          "time_ms": 1032,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/frame": 3,
+              "/draws/1/0/x": 125
+            }
+          }
+        },
+        {
+          "frame": 4,
+          "time_ms": 1048,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/frame": 4,
+              "/draws/1/0/x": 125
+            }
+          }
+        },
+        {
+          "frame": 5,
+          "time_ms": 1064,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/frame": 5,
+              "/draws/1/0/x": 125
+            }
+          }
+        },
+        {
+          "frame": 6,
+          "time_ms": 1080,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/frame": 6,
+              "/draws/1/0/x": 125
+            }
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ],
+      "case_kind": "functional"
+    },
+    {
+      "id": "slice3-failure-after-save-state-draw",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice2_transaction_failure",
+          "sha256": {
+            "main.lua": "d94e21ead788569e04fad1dfc52ed1cac69d1390da41cb4525b32380e0c029dc"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Slice2 Transaction Failure": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Slice2 Transaction Failure": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "text_templates": [
+              [
+                "zh|1|reward=${/effects/0/amount}"
+              ],
+              [
+                "en|1|reward=${/effects/0/amount}"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "gate_required": false,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "slice2 injected after save private state and queued draw"
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "text_templates": [
+              [
+                "zh|2|reward=${/effects/0/amount}"
+              ],
+              [
+                "en|2|reward=${/effects/0/amount}"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/duplicate": true
+            }
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "gate_required": false,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "Duplicate model frame payload changed"
+          }
+        },
+        {
+          "frame": 3,
+          "time_ms": 1032,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "text_templates": [
+              [
+                "zh|3|reward=${/effects/0/amount}"
+              ],
+              [
+                "en|3|reward=${/effects/0/amount}"
+              ]
+            ]
+          }
+        }
+      ],
+      "options": [
+        {
+          "Language": "zh",
+          "HUDOffset": 0.2
+        },
+        {
+          "Language": "en",
+          "HUDOffset": 0.6
+        }
+      ],
+      "case_kind": "transaction"
+    },
+    {
+      "id": "slice3-slice_setting_ambiguity-2-1",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice_setting_ambiguity",
+          "sha256": {
+            "main.lua": "18e65786e297e525f9b3494fcfc8f127a19bede4d72235c7bf3b7f54c0b0e556"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Slice Setting Ambiguity": "{\"amount\": 2, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Slice Setting Ambiguity": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 2,
+              "/draws/1/0/x": 124,
+              "/stores/1/Slice Setting Ambiguity": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+            },
+            "texts": [
+              [
+                "zh|amount=2"
+              ],
+              [
+                "en|amount=2"
+              ]
+            ]
+          }
+        }
+      ],
+      "case_kind": "functional"
+    },
+    {
+      "id": "slice3-slice2_setting_control-2-1",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice2_setting_control",
+          "sha256": {
+            "main.lua": "07d005c9e17663eea8c64dc8f608056b0a377f462b9923d4c6cd921b1224476d"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Slice2 Setting Control": "{\"amount\": 2, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Slice2 Setting Control": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 2,
+              "/draws/1/0/x": 124,
+              "/stores/1/Slice2 Setting Control": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+            },
+            "texts": [
+              [
+                "branch"
+              ],
+              [
+                "branch"
+              ]
+            ]
+          }
+        }
+      ],
+      "case_kind": "functional"
+    },
+    {
+      "id": "slice3-menu-settings-1-2",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice3_menu_provider",
+          "sha256": {
+            "main.lua": "ad428ff5b64acba9e2db9173f3119bfa9662118ce2eceed5aca8cf73f380947b"
+          }
+        },
+        {
+          "base": "research",
+          "root": "fixtures/slice3_menu_config",
+          "sha256": {
+            "main.lua": "8db1c56b41db6305ddefe618390e5e64759e1b82a4fd7b548a95c2e5d71541f7"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Slice3 Menu Config": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Slice3 Menu Config": "{\"amount\": 2, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 1,
+              "/draws/1/0/x": 124,
+              "/draws/1/1/x": 124,
+              "/stores/1/Slice3 Menu Config": "{\"amount\":2,\"key\":77,\"language\":\"en\",\"x\":124}"
+            },
+            "texts": [
+              [
+                "zh|amount=1",
+                "zh|amount=1"
+              ],
+              [
+                "en|amount=2",
+                "en|amount=1"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 2,
+              "/draws/1/0/x": 125,
+              "/draws/1/1/x": 125,
+              "/stores/1/Slice3 Menu Config": "{\"amount\":3,\"key\":77,\"language\":\"en\",\"x\":125}"
+            },
+            "texts": [
+              [
+                "zh|amount=1",
+                "zh|amount=1"
+              ],
+              [
+                "en|amount=3",
+                "en|amount=1"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 3,
+          "time_ms": 1032,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 3,
+              "/draws/1/0/x": 125,
+              "/draws/1/1/x": 125,
+              "/stores/1/Slice3 Menu Config": "{\"amount\":3,\"key\":77,\"language\":\"en\",\"x\":125}"
+            },
+            "texts": [
+              [
+                "zh|amount=1",
+                "zh|amount=1"
+              ],
+              [
+                "en|amount=3",
+                "en|amount=1"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 3,
+          "time_ms": 1032,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 3,
+              "/draws/1/0/x": 125,
+              "/draws/1/1/x": 125,
+              "/stores/1/Slice3 Menu Config": "{\"amount\":3,\"key\":77,\"language\":\"en\",\"x\":125}",
+              "/duplicate": true
+            },
+            "texts": [
+              [
+                "zh|amount=1",
+                "zh|amount=1"
+              ],
+              [
+                "en|amount=3",
+                "en|amount=1"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 3,
+          "time_ms": 1032,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "gate_required": false,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "Duplicate model frame payload changed"
+          }
+        }
+      ],
+      "case_kind": "functional"
+    },
+    {
+      "id": "slice3-menu-settings-2-1",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice3_menu_provider",
+          "sha256": {
+            "main.lua": "ad428ff5b64acba9e2db9173f3119bfa9662118ce2eceed5aca8cf73f380947b"
+          }
+        },
+        {
+          "base": "research",
+          "root": "fixtures/slice3_menu_config",
+          "sha256": {
+            "main.lua": "8db1c56b41db6305ddefe618390e5e64759e1b82a4fd7b548a95c2e5d71541f7"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Slice3 Menu Config": "{\"amount\": 2, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Slice3 Menu Config": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 2,
+              "/draws/1/0/x": 124,
+              "/draws/1/1/x": 124,
+              "/stores/1/Slice3 Menu Config": "{\"amount\":1,\"key\":77,\"language\":\"en\",\"x\":124}"
+            },
+            "texts": [
+              [
+                "zh|amount=2",
+                "zh|amount=2"
+              ],
+              [
+                "en|amount=1",
+                "en|amount=2"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 4,
+              "/draws/1/0/x": 125,
+              "/draws/1/1/x": 125,
+              "/stores/1/Slice3 Menu Config": "{\"amount\":2,\"key\":77,\"language\":\"en\",\"x\":125}"
+            },
+            "texts": [
+              [
+                "zh|amount=2",
+                "zh|amount=2"
+              ],
+              [
+                "en|amount=2",
+                "en|amount=2"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 3,
+          "time_ms": 1032,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 6,
+              "/draws/1/0/x": 125,
+              "/draws/1/1/x": 125,
+              "/stores/1/Slice3 Menu Config": "{\"amount\":2,\"key\":77,\"language\":\"en\",\"x\":125}"
+            },
+            "texts": [
+              [
+                "zh|amount=2",
+                "zh|amount=2"
+              ],
+              [
+                "en|amount=2",
+                "en|amount=2"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 3,
+          "time_ms": 1032,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 6,
+              "/draws/1/0/x": 125,
+              "/draws/1/1/x": 125,
+              "/stores/1/Slice3 Menu Config": "{\"amount\":2,\"key\":77,\"language\":\"en\",\"x\":125}",
+              "/duplicate": true
+            },
+            "texts": [
+              [
+                "zh|amount=2",
+                "zh|amount=2"
+              ],
+              [
+                "en|amount=2",
+                "en|amount=2"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 3,
+          "time_ms": 1032,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "gate_required": false,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "Duplicate model frame payload changed"
+          }
+        }
+      ],
+      "case_kind": "functional"
+    },
+    {
+      "id": "slice3-cross-frame-host",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice3_cross_frame",
+          "sha256": {
+            "main.lua": "e0fe0cf34c03bec4dd13cca541e8afd10207d43726f35325c8e65bb3fefb4cb3"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Slice3 Cross Frame": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Slice3 Cross Frame": "{\"amount\": 2, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 1,
+              "/stores/1/Slice3 Cross Frame": "{\"amount\":2,\"key\":77,\"language\":\"en\",\"x\":124}"
+            },
+            "texts": [
+              [
+                "zh|amount=1",
+                "native=1"
+              ],
+              [
+                "en|amount=1",
+                "native=1"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {
+              "triggered": [
+                76
+              ]
+            },
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 3,
+              "/stores/1/Slice3 Cross Frame": "{\"amount\":2,\"key\":77,\"language\":\"en\",\"x\":124}"
+            },
+            "texts": [
+              [
+                "zh|amount=1",
+                "zh|amount=2",
+                "native=2"
+              ],
+              [
+                "en|amount=1",
+                "en|amount=2",
+                "native=2"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 3,
+          "time_ms": 1032,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 5,
+              "/stores/1/Slice3 Cross Frame": "{\"amount\":2,\"key\":77,\"language\":\"en\",\"x\":124}"
+            },
+            "texts": [
+              [
+                "zh|amount=2",
+                "zh|amount=2",
+                "native=2"
+              ],
+              [
+                "en|amount=2",
+                "en|amount=2",
+                "native=2"
+              ]
+            ]
+          }
+        }
+      ],
+      "case_kind": "functional"
+    },
+    {
+      "id": "slice3-cross-frame-personal",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice3_cross_frame",
+          "sha256": {
+            "main.lua": "e0fe0cf34c03bec4dd13cca541e8afd10207d43726f35325c8e65bb3fefb4cb3"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Slice3 Cross Frame": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Slice3 Cross Frame": "{\"amount\": 2, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 1,
+              "/stores/1/Slice3 Cross Frame": "{\"amount\":2,\"key\":77,\"language\":\"en\",\"x\":124}"
+            },
+            "texts": [
+              [
+                "zh|amount=1",
+                "native=1"
+              ],
+              [
+                "en|amount=1",
+                "native=1"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 2,
+              "/stores/1/Slice3 Cross Frame": "{\"amount\":3,\"key\":77,\"language\":\"en\",\"x\":125}"
+            },
+            "texts": [
+              [
+                "zh|amount=1",
+                "zh|amount=1",
+                "native=1"
+              ],
+              [
+                "en|amount=1",
+                "en|amount=1",
+                "native=1"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 3,
+          "time_ms": 1032,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "values": {
+              "/world/coins/0": 3,
+              "/stores/1/Slice3 Cross Frame": "{\"amount\":3,\"key\":77,\"language\":\"en\",\"x\":125}"
+            },
+            "texts": [
+              [
+                "zh|amount=1",
+                "zh|amount=1",
+                "native=1"
+              ],
+              [
+                "en|amount=1",
+                "en|amount=1",
+                "native=1"
+              ]
+            ]
+          }
+        }
+      ],
+      "case_kind": "functional"
+    },
+    {
+      "id": "slice3-dual-view-transaction",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice3_transaction",
+          "sha256": {
+            "main.lua": "61877ef34ddcd5198f5edff59a36dcb506e1baaeccfa71d142d7ef47d4078aa5"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Slice3 Transaction": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Slice3 Transaction": "{\"amount\": 2, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|amount=1|private=1"
+              ],
+              [
+                "en|amount=1|private=1"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ],
+              "pressed": [
+                88
+              ]
+            }
+          ],
+          "gate_required": false,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "slice3 injected after save state draw"
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|amount=1|private=2"
+              ],
+              [
+                "en|amount=1|private=2"
+              ]
+            ]
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|amount=1|private=2"
+              ],
+              [
+                "en|amount=1|private=2"
+              ]
+            ],
+            "values": {
+              "/duplicate": true
+            }
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "pressed": [
+                88
+              ]
+            }
+          ],
+          "gate_required": false,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "Duplicate model frame payload changed"
+          }
+        },
+        {
+          "frame": 3,
+          "time_ms": 1032,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|amount=1|private=3"
+              ],
+              [
+                "en|amount=1|private=3"
+              ]
+            ]
+          }
+        }
+      ],
+      "case_kind": "transaction"
+    },
+    {
+      "id": "slice3-ambiguous-producer-refusal",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice3_multiple_views",
+          "sha256": {
+            "main.lua": "36e0ebf378115c62aaaa4f6b20302ac275dd7f6419571164de6749411e9d755d"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Slice3 Multiple Views": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Slice3 Multiple Views": "{\"amount\": 2, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "gate_required": true,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "Ambiguous slice3 multiple authority producers"
+          }
+        }
+      ],
+      "case_kind": "safety"
+    },
+    {
+      "id": "slice3-unknown-projection-refusal",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice3_unknown_projection",
+          "sha256": {
+            "main.lua": "a4266fe39209a35d1932c96b77c0eaafe684a4ce887b0d18fdecafd5c7d62a93"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Slice3 Unknown Projection": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Slice3 Unknown Projection": "{\"amount\": 2, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "gate_required": true,
+          "expect": {
+            "outcome": "reject",
+            "error_contains": "Unsupported slice3 projected native contract: string.rep"
+          }
+        }
+      ],
+      "case_kind": "safety"
+    },
+    {
+      "id": "slice3-fake-menu-default-hud",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice3_fake_menu",
+          "sha256": {
+            "main.lua": "3e22a346e0d02c3cea1b4246fb824c6d8834c20fea86fce2f648775a00665c49"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Slice3 Fake Menu": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Slice3 Fake Menu": "{\"amount\": 2, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|amount=1"
+              ],
+              [
+                "en|amount=1"
+              ]
+            ]
+          }
+        }
+      ],
+      "case_kind": "functional"
+    },
+    {
+      "id": "slice3-reward-controls-display-1-2",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice3_display_state",
+          "sha256": {
+            "main.lua": "99eaae9543c64a3282911100c0a7e4695bacd06dac9f56deb71843b24774c753"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Slice3 Display State": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Slice3 Display State": "{\"amount\": 2, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|amount=1"
+              ],
+              [
+                "en|amount=1"
+              ]
+            ],
+            "values": {
+              "/draws/1/0/x": 124,
+              "/stores/1/Slice3 Display State": "{\"amount\":2,\"key\":77,\"language\":\"en\",\"x\":124}"
+            }
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|amount=1"
+              ],
+              [
+                "en|amount=1"
+              ]
+            ],
+            "values": {
+              "/draws/1/0/x": 125,
+              "/stores/1/Slice3 Display State": "{\"amount\":2,\"key\":77,\"language\":\"en\",\"x\":125}"
+            }
+          }
+        }
+      ],
+      "case_kind": "functional"
+    },
+    {
+      "id": "slice3-reward-controls-display-2-1",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice3_display_state",
+          "sha256": {
+            "main.lua": "99eaae9543c64a3282911100c0a7e4695bacd06dac9f56deb71843b24774c753"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Slice3 Display State": "{\"amount\": 2, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Slice3 Display State": "{\"amount\": 1, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|amount=2"
+              ],
+              [
+                "en|amount=2"
+              ]
+            ],
+            "values": {
+              "/draws/1/0/x": 129,
+              "/stores/1/Slice3 Display State": "{\"amount\":1,\"key\":77,\"language\":\"en\",\"x\":129}"
+            }
+          }
+        },
+        {
+          "frame": 2,
+          "time_ms": 1016,
+          "inputs": [
+            {},
+            {
+              "triggered": [
+                77
+              ]
+            }
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|amount=2"
+              ],
+              [
+                "en|amount=2"
+              ]
+            ],
+            "values": {
+              "/draws/1/0/x": 135,
+              "/stores/1/Slice3 Display State": "{\"amount\":1,\"key\":77,\"language\":\"en\",\"x\":135}"
+            }
+          }
+        }
+      ],
+      "case_kind": "functional"
+    },
+    {
+      "id": "slice3-ordered-operands",
+      "mode": "slice3",
+      "mods": [
+        {
+          "base": "research",
+          "root": "fixtures/slice3_operands",
+          "sha256": {
+            "main.lua": "f81a4bef5dc8dc9f158efa2d716795f366bb7cc12cd0cc03c2b008bfcf339d12"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "Slice3 Operands": "{\"amount\": 1, \"key\": 76, \"language\": \"zh\", \"x\": 24}"
+        },
+        {
+          "Slice3 Operands": "{\"amount\": 2, \"key\": 77, \"language\": \"en\", \"x\": 124}"
+        }
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "time_ms": 1000,
+          "inputs": [
+            {},
+            {}
+          ],
+          "expect": {
+            "outcome": "accept",
+            "texts": [
+              [
+                "zh|7,9,-9"
+              ],
+              [
+                "en|7,9,-9"
+              ]
+            ]
+          }
+        }
+      ],
+      "case_kind": "functional"
+    }
+  ],
+  "view_rule": "personal-settings-authority-hud-v1",
+  "bootstrap_sha256": "8d3b03f1e9ee9a95775b8a2aefada880a3f8331e9ee2d5193af490bc4f0c778e",
+  "enums_sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+}

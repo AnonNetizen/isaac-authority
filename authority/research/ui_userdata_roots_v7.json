@@ -1,0 +1,467 @@
+{
+  "schema": "isaac-ui-userdata-roots-1",
+  "mode": "ui-compact",
+  "work_limit": 10000000,
+  "root_contract": "ui-uservalue-table-1",
+  "view_rule": "personal-settings-authority-hud-v1",
+  "cases": [
+    {
+      "id": "userdata-seven-classes",
+      "kind": "functional",
+      "ui_backend": true,
+      "reclaim": true,
+      "evidence": true,
+      "chunks": [
+        {
+          "file": "research/ui_userdata_fixtures/behavior.lua",
+          "sha256": "a8105476a863af9cc1baea6eea99b3b45020e451cada3580112cba28a916ac52"
+        }
+      ],
+      "expected": [
+        35,
+        137
+      ]
+    },
+    {
+      "id": "userdata-cycle-churn",
+      "kind": "functional",
+      "ui_backend": true,
+      "reclaim": true,
+      "observe_memory": true,
+      "clear_between_phases": true,
+      "evidence": false,
+      "chunks": [
+        {
+          "file": "research/ui_userdata_fixtures/churn.lua",
+          "sha256": "bcae547f0f73f680fc1c7ea568c95976249dc58e042738b74b1a27aad5cb5ace"
+        },
+        {
+          "file": "research/ui_userdata_fixtures/churn.lua",
+          "sha256": "bcae547f0f73f680fc1c7ea568c95976249dc58e042738b74b1a27aad5cb5ace"
+        },
+        {
+          "file": "research/ui_userdata_fixtures/churn.lua",
+          "sha256": "bcae547f0f73f680fc1c7ea568c95976249dc58e042738b74b1a27aad5cb5ace"
+        },
+        {
+          "file": "research/ui_userdata_fixtures/churn.lua",
+          "sha256": "bcae547f0f73f680fc1c7ea568c95976249dc58e042738b74b1a27aad5cb5ace"
+        },
+        {
+          "file": "research/ui_userdata_fixtures/churn.lua",
+          "sha256": "bcae547f0f73f680fc1c7ea568c95976249dc58e042738b74b1a27aad5cb5ace"
+        },
+        {
+          "file": "research/ui_userdata_fixtures/churn.lua",
+          "sha256": "bcae547f0f73f680fc1c7ea568c95976249dc58e042738b74b1a27aad5cb5ace"
+        },
+        {
+          "file": "research/ui_userdata_fixtures/churn.lua",
+          "sha256": "bcae547f0f73f680fc1c7ea568c95976249dc58e042738b74b1a27aad5cb5ace"
+        },
+        {
+          "file": "research/ui_userdata_fixtures/churn.lua",
+          "sha256": "bcae547f0f73f680fc1c7ea568c95976249dc58e042738b74b1a27aad5cb5ace"
+        },
+        {
+          "file": "research/ui_userdata_fixtures/churn.lua",
+          "sha256": "bcae547f0f73f680fc1c7ea568c95976249dc58e042738b74b1a27aad5cb5ace"
+        },
+        {
+          "file": "research/ui_userdata_fixtures/churn.lua",
+          "sha256": "bcae547f0f73f680fc1c7ea568c95976249dc58e042738b74b1a27aad5cb5ace"
+        },
+        {
+          "file": "research/ui_userdata_fixtures/churn.lua",
+          "sha256": "bcae547f0f73f680fc1c7ea568c95976249dc58e042738b74b1a27aad5cb5ace"
+        },
+        {
+          "file": "research/ui_userdata_fixtures/churn.lua",
+          "sha256": "bcae547f0f73f680fc1c7ea568c95976249dc58e042738b74b1a27aad5cb5ace"
+        },
+        {
+          "file": "research/ui_userdata_fixtures/churn.lua",
+          "sha256": "bcae547f0f73f680fc1c7ea568c95976249dc58e042738b74b1a27aad5cb5ace"
+        },
+        {
+          "file": "research/ui_userdata_fixtures/churn.lua",
+          "sha256": "bcae547f0f73f680fc1c7ea568c95976249dc58e042738b74b1a27aad5cb5ace"
+        },
+        {
+          "file": "research/ui_userdata_fixtures/churn.lua",
+          "sha256": "bcae547f0f73f680fc1c7ea568c95976249dc58e042738b74b1a27aad5cb5ace"
+        },
+        {
+          "file": "research/ui_userdata_fixtures/churn.lua",
+          "sha256": "bcae547f0f73f680fc1c7ea568c95976249dc58e042738b74b1a27aad5cb5ace"
+        },
+        {
+          "file": "research/ui_userdata_fixtures/churn.lua",
+          "sha256": "bcae547f0f73f680fc1c7ea568c95976249dc58e042738b74b1a27aad5cb5ace"
+        },
+        {
+          "file": "research/ui_userdata_fixtures/churn.lua",
+          "sha256": "bcae547f0f73f680fc1c7ea568c95976249dc58e042738b74b1a27aad5cb5ace"
+        },
+        {
+          "file": "research/ui_userdata_fixtures/churn.lua",
+          "sha256": "bcae547f0f73f680fc1c7ea568c95976249dc58e042738b74b1a27aad5cb5ace"
+        },
+        {
+          "file": "research/ui_userdata_fixtures/churn.lua",
+          "sha256": "bcae547f0f73f680fc1c7ea568c95976249dc58e042738b74b1a27aad5cb5ace"
+        },
+        {
+          "file": "research/ui_userdata_fixtures/churn.lua",
+          "sha256": "bcae547f0f73f680fc1c7ea568c95976249dc58e042738b74b1a27aad5cb5ace"
+        },
+        {
+          "file": "research/ui_userdata_fixtures/churn.lua",
+          "sha256": "bcae547f0f73f680fc1c7ea568c95976249dc58e042738b74b1a27aad5cb5ace"
+        },
+        {
+          "file": "research/ui_userdata_fixtures/churn.lua",
+          "sha256": "bcae547f0f73f680fc1c7ea568c95976249dc58e042738b74b1a27aad5cb5ace"
+        },
+        {
+          "file": "research/ui_userdata_fixtures/churn.lua",
+          "sha256": "bcae547f0f73f680fc1c7ea568c95976249dc58e042738b74b1a27aad5cb5ace"
+        }
+      ],
+      "expected": [
+        7,
+        137
+      ]
+    },
+    {
+      "id": "userdata-config-2",
+      "kind": "functional",
+      "ui_backend": true,
+      "reclaim": true,
+      "observe_memory": true,
+      "clear_between_phases": true,
+      "pin_prior_frames": false,
+      "evidence": true,
+      "personal": 2,
+      "authority": 1,
+      "configuration": {
+        "amount": 2,
+        "x": 137,
+        "language": "en"
+      },
+      "chunks": [
+        {
+          "file": "research/ui_userdata_fixtures/configuration.lua",
+          "sha256": "6f3543e6354def64c7a6a947c788f751c00d65c629c49ead5135d9c4fe4b8170",
+          "bind": [
+            {
+              "index": 1,
+              "evidence": {
+                "value": 1,
+                "authority_value_id": 701,
+                "authority_owner_version": 1
+              }
+            }
+          ],
+          "resolve": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "file": "research/ui_userdata_fixtures/configuration.lua",
+          "sha256": "6f3543e6354def64c7a6a947c788f751c00d65c629c49ead5135d9c4fe4b8170",
+          "resolve": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "file": "research/ui_userdata_fixtures/configuration.lua",
+          "sha256": "6f3543e6354def64c7a6a947c788f751c00d65c629c49ead5135d9c4fe4b8170",
+          "resolve": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ],
+      "expected": [
+        2,
+        137,
+        {
+          "text_hex": "656e"
+        },
+        {
+          "text_hex": "616d6f756e743d32"
+        }
+      ]
+    },
+    {
+      "id": "userdata-config-1",
+      "kind": "functional",
+      "ui_backend": true,
+      "reclaim": true,
+      "observe_memory": true,
+      "clear_between_phases": true,
+      "pin_prior_frames": false,
+      "evidence": true,
+      "personal": 1,
+      "authority": 2,
+      "configuration": {
+        "amount": 1,
+        "x": 137,
+        "language": "en"
+      },
+      "chunks": [
+        {
+          "file": "research/ui_userdata_fixtures/configuration.lua",
+          "sha256": "6f3543e6354def64c7a6a947c788f751c00d65c629c49ead5135d9c4fe4b8170",
+          "bind": [
+            {
+              "index": 1,
+              "evidence": {
+                "value": 2,
+                "authority_value_id": 701,
+                "authority_owner_version": 1
+              }
+            }
+          ],
+          "resolve": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "file": "research/ui_userdata_fixtures/configuration.lua",
+          "sha256": "6f3543e6354def64c7a6a947c788f751c00d65c629c49ead5135d9c4fe4b8170",
+          "resolve": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "file": "research/ui_userdata_fixtures/configuration.lua",
+          "sha256": "6f3543e6354def64c7a6a947c788f751c00d65c629c49ead5135d9c4fe4b8170",
+          "resolve": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ],
+      "expected": [
+        1,
+        137,
+        {
+          "text_hex": "656e"
+        },
+        {
+          "text_hex": "616d6f756e743d31"
+        }
+      ]
+    },
+    {
+      "id": "userdata-unknown-class",
+      "kind": "safety",
+      "ui_backend": true,
+      "evidence": true,
+      "chunks": [
+        {
+          "file": "research/ui_userdata_fixtures/unknown.lua",
+          "sha256": "32825c5da89ced22ff47f6daa35f70b31652b53478eef71f502f279ed2d39d0e"
+        }
+      ],
+      "expected_error": "Unregistered UI userdata class"
+    },
+    {
+      "id": "userdata-key-identity",
+      "kind": "functional",
+      "ui_backend": true,
+      "reclaim": true,
+      "evidence": true,
+      "chunks": [
+        {
+          "file": "research/ui_userdata_fixtures/keys_raw.lua",
+          "sha256": "46e5e6610d36467592374357acbc8711623ff380367ad3fcc2e791642854c8e4"
+        }
+      ],
+      "expected": [
+        33,
+        true
+      ]
+    },
+    {
+      "id": "mod-hook-mutation-refusal",
+      "kind": "safety",
+      "ui_backend": false,
+      "reclaim": true,
+      "evidence": true,
+      "chunks": [
+        {
+          "file": "research/ui_userdata_fixtures/hook.lua",
+          "sha256": "b240afc08a81b3f910a48fd42a3d075d6caea4bb16a9d1e5b61cc7bf977e407d"
+        }
+      ],
+      "expected_error": "Unsupported mod trace hook mutation",
+      "expected_reference": [
+        2
+      ]
+    },
+    {
+      "id": "userdata-drop-pinned",
+      "kind": "functional",
+      "ui_backend": true,
+      "reclaim": true,
+      "observe_memory": true,
+      "clear_between_phases": true,
+      "pin_prior_frames": true,
+      "evidence": true,
+      "personal": 2,
+      "authority": 1,
+      "configuration": {
+        "amount": 2,
+        "x": 137,
+        "language": "en"
+      },
+      "chunks": [
+        {
+          "file": "research/ui_userdata_fixtures/configuration.lua",
+          "sha256": "6f3543e6354def64c7a6a947c788f751c00d65c629c49ead5135d9c4fe4b8170",
+          "bind": [
+            {
+              "index": 1,
+              "evidence": {
+                "value": 1,
+                "authority_value_id": 701,
+                "authority_owner_version": 1
+              }
+            }
+          ],
+          "resolve": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "file": "research/ui_userdata_fixtures/drop.lua",
+          "sha256": "03583250f05a1bddc1c409746002c4fe0b5567c050cecd7f789b669325abec6a"
+        },
+        {
+          "file": "research/ui_compact_fixtures/empty.lua",
+          "sha256": "88a5d86b8d00a468685ca2b8d7e93ef8f26389338f9fe96fa57b36fe8fe6e90d",
+          "resolve_prior": [
+            {
+              "phase": 0,
+              "index": 0
+            }
+          ]
+        }
+      ],
+      "expected_phases": [
+        [
+          2,
+          137,
+          {
+            "text_hex": "656e"
+          },
+          {
+            "text_hex": "616d6f756e743d32"
+          }
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "id": "userdata-drop-unpinned",
+      "kind": "safety",
+      "ui_backend": true,
+      "reclaim": true,
+      "observe_memory": true,
+      "clear_between_phases": true,
+      "pin_prior_frames": false,
+      "evidence": true,
+      "personal": 2,
+      "authority": 1,
+      "configuration": {
+        "amount": 2,
+        "x": 137,
+        "language": "en"
+      },
+      "chunks": [
+        {
+          "file": "research/ui_userdata_fixtures/configuration.lua",
+          "sha256": "6f3543e6354def64c7a6a947c788f751c00d65c629c49ead5135d9c4fe4b8170",
+          "bind": [
+            {
+              "index": 1,
+              "evidence": {
+                "value": 1,
+                "authority_value_id": 701,
+                "authority_owner_version": 1
+              }
+            }
+          ],
+          "resolve": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "file": "research/ui_userdata_fixtures/drop.lua",
+          "sha256": "03583250f05a1bddc1c409746002c4fe0b5567c050cecd7f789b669325abec6a"
+        },
+        {
+          "file": "research/ui_compact_fixtures/empty.lua",
+          "sha256": "88a5d86b8d00a468685ca2b8d7e93ef8f26389338f9fe96fa57b36fe8fe6e90d",
+          "resolve_prior": [
+            {
+              "phase": 0,
+              "index": 0
+            }
+          ]
+        }
+      ],
+      "expected_phases": [
+        [
+          2,
+          137,
+          {
+            "text_hex": "656e"
+          },
+          {
+            "text_hex": "616d6f756e743d32"
+          }
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ]
+    }
+  ],
+  "test_entry_correction": "v2 used an unregistered __eq operator; v3 checks identity via the admitted rawequal contract, without changing backend operators or expected identity values. v2 failure is retained.",
+  "scope_correction": "Direct mod code cannot mutate the SDK hook. v4 incorrectly expected that privilege. v5 preserves the exact source as a safety refusal and requires official Lua to return 2; real SDK hook installation is tested only by unchanged MCM/EID contexts. v4 failure remains.",
+  "drop_fixture_correction": "v6 expected no return from the reused empty.lua; that unchanged frozen file explicitly returns 0, and both official Lua and candidate returned 0. v7 corrects only this new expected value. All source hashes and view/lifetime requirements remain unchanged; v6 failure is retained."
+}

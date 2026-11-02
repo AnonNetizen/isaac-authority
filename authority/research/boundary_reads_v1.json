@@ -1,0 +1,1859 @@
+{
+  "schema": "boundary-reads-frozen-1",
+  "work_limit": 10000000,
+  "timeout_seconds": 5,
+  "batch_timeout_seconds": 60,
+  "view_rule": "personal-settings-authority-hud-v1",
+  "cases": [
+    {
+      "id": "sibling",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "mut_unused": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": true,
+      "selector": null
+    },
+    {
+      "id": "amount-aba",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "mut_amount": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": false,
+      "selector": null
+    },
+    {
+      "id": "raw-aba",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "raw": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "raw": true,
+            "mut_amount": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": false,
+      "selector": "raw"
+    },
+    {
+      "id": "missing-aba",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "missing": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "missing": true,
+            "mut_absent": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": false,
+      "selector": "missing"
+    },
+    {
+      "id": "missing-sibling",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "missing": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "missing": true,
+            "mut_unused": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": true,
+      "selector": "missing"
+    },
+    {
+      "id": "length-value",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "length": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "length": true,
+            "mut_list_value": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": true,
+      "selector": "length"
+    },
+    {
+      "id": "length-structure",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "length": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "length": true,
+            "mut_list_shape": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": false,
+      "selector": "length"
+    },
+    {
+      "id": "length-binding",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "length": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "length": true,
+            "mut_list_meta": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": false,
+      "selector": "length"
+    },
+    {
+      "id": "rawlen-binding",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "rawlen": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "rawlen": true,
+            "mut_list_meta": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": true,
+      "selector": "rawlen"
+    },
+    {
+      "id": "iteration-value",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "iter": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "iter": true,
+            "mut_list_value": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": false,
+      "selector": "iter"
+    },
+    {
+      "id": "iteration-structure",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "iter": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "iter": true,
+            "mut_list_shape": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": false,
+      "selector": "iter"
+    },
+    {
+      "id": "ipairs-value",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "ipairs": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "ipairs": true,
+            "mut_list_value": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": false,
+      "selector": "ipairs"
+    },
+    {
+      "id": "ipairs-terminal",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "ipairs": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "ipairs": true,
+            "mut_list_shape": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": false,
+      "selector": "ipairs"
+    },
+    {
+      "id": "ipairs-unread-index",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "ipairs": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "ipairs": true,
+            "mut_list_far": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": true,
+      "selector": "ipairs"
+    },
+    {
+      "id": "metatable-backing",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "indexed": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "indexed": true,
+            "mut_backing": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": false,
+      "selector": "indexed"
+    },
+    {
+      "id": "metatable-unread-field",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "indexed": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "indexed": true,
+            "mut_proxy_unused": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": true,
+      "selector": "indexed"
+    },
+    {
+      "id": "metatable-shadow-aba",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "indexed": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "indexed": true,
+            "mut_proxy_shadow": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": false,
+      "selector": "indexed"
+    },
+    {
+      "id": "metatable-binding-aba",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "indexed": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "indexed": true,
+            "mut_proxy_meta": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": false,
+      "selector": "indexed"
+    },
+    {
+      "id": "metatable-index-aba",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "indexed": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "indexed": true,
+            "mut_index": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": false,
+      "selector": "indexed"
+    },
+    {
+      "id": "raw-access-ignores-binding",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "rawproxy": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "rawproxy": true,
+            "mut_proxy_meta": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": true,
+      "selector": "rawproxy"
+    },
+    {
+      "id": "raw-access-own-field",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "rawproxy": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "rawproxy": true,
+            "mut_proxy_shadow": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": false,
+      "selector": "rawproxy"
+    },
+    {
+      "id": "scalar-aba",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "scalar": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "scalar": true,
+            "mut_scalar": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": false,
+      "selector": "scalar"
+    },
+    {
+      "id": "scalar-sibling",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "scalar": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "scalar": true,
+            "mut_unused": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": true,
+      "selector": "scalar"
+    },
+    {
+      "id": "nested-cell-aba",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "nested": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "nested": true,
+            "mut_amount": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": false,
+      "selector": "nested"
+    },
+    {
+      "id": "nested-cell-sibling",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "nested": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "nested": true,
+            "mut_unused": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": true,
+      "selector": "nested"
+    },
+    {
+      "id": "weak-value-gc",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "weak": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "weak": true,
+            "mut_weak": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": false,
+      "selector": "weak"
+    },
+    {
+      "id": "equality-metamethod",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "eq": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "eq": true,
+            "mut_eq": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": false,
+      "selector": "eq"
+    },
+    {
+      "id": "call-metamethod",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "callmeta": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "callmeta": true,
+            "mut_amount": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": false,
+      "selector": "callmeta"
+    },
+    {
+      "id": "private-load",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "load": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "load": true,
+            "mut_store": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": false,
+      "selector": "load"
+    },
+    {
+      "id": "private-has",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "has": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "has": true,
+            "mut_store": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": true,
+      "selector": "has"
+    },
+    {
+      "id": "world-revision",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "world": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "host",
+          "event": 1,
+          "phase": "authority",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": false,
+      "selector": "world"
+    },
+    {
+      "id": "unread-input-key",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "set_input",
+          "input": {
+            "unrelated-button": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": true
+    },
+    {
+      "id": "read-input-key",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "set_input",
+          "input": {
+            "raw": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "validity",
+      "kind": "functional",
+      "expected_valid": false
+    },
+    {
+      "id": "dynamic-replacement",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "dynamic": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "dynamic": true,
+            "mut_which": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "dynamic": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "dynamic": true,
+            "mut_amount": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "dynamic",
+      "kind": "functional"
+    },
+    {
+      "id": "deduplicated-20000-reads",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "repeat": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "repeat",
+      "kind": "functional"
+    },
+    {
+      "id": "replace-without-growth",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "replacement",
+      "kind": "functional"
+    },
+    {
+      "id": "shared-consumers",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "capture_reads",
+          "event": 4,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 4
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {
+            "mut_amount": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 4
+        }
+      ],
+      "check": "shared",
+      "kind": "functional"
+    },
+    {
+      "id": "self-modification",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "self": true
+          }
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "self",
+      "kind": "diagnostic-not-reusable"
+    },
+    {
+      "id": "rollback-fail",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "fail": true
+          },
+          "expect_error": "consumer-injected"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "rollback",
+      "kind": "safety-rejection",
+      "candidate_only": false
+    },
+    {
+      "id": "rollback-unknown",
+      "source": "research/boundary_reads/consumers.lua",
+      "source_sha256": "2284d44e84caacf0b819685513c87f202dfc487ce08ae59913fa1a2731d68321",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "unknown": true
+          },
+          "expect_error": "Unknown native consumer contract"
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 2
+        }
+      ],
+      "check": "rollback",
+      "kind": "safety-rejection",
+      "candidate_only": true
+    },
+    {
+      "id": "consumer-capacity",
+      "source": "research/boundary_reads/capacity.lua",
+      "source_sha256": "3800c39734a892df535cf3905e45238845cdfcaf8ac2e10536b495b2588687de",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {},
+          "expect_error": "Consumer dependency capacity exceeded"
+        }
+      ],
+      "check": "capacity",
+      "kind": "safety-rejection",
+      "candidate_only": true
+    },
+    {
+      "id": "consumer-retirement",
+      "source": "research/boundary_handoff/lifecycle.lua",
+      "source_sha256": "4075149d2af93108534fbb59c707cc81f71ec16e767d1c050fc9ed0603e32546",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 1
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 1,
+          "expect_error": "Consumer read set unavailable"
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "consumer_status",
+          "consumer": 3
+        }
+      ],
+      "check": "retirement",
+      "kind": "functional"
+    }
+  ],
+  "write_manifest_sha256": "bb944de7d2bddc7c645648808b7730a7fe034d1797753336a922894f96088836",
+  "lua_source_manifest_sha256": "a33e8a3c98d2d219b66b5d34ceb2d851c72aa4033ce4a3b2c5f3fc2ddc53326e"
+}

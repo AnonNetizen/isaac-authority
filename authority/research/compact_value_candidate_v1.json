@@ -1,0 +1,20 @@
+{
+  "schema": "compact-value-candidate-1",
+  "abi": "ia-lua533-compact-values-1",
+  "executable": "build-compact-value/Release/authority-compact-values.exe",
+  "executable_sha256": "659e6813f61ce1934b49b4e9441810129090185573eba8c14421f72c50b13e4e",
+  "stock_verifier": "build-bound-value/Release/authority-verify-values.exe",
+  "stock_verifier_sha256": "b561738fee86913ddc7bb316f258c75106eff5fc755fa81aa0d7c9e763190cc5",
+  "verifier": "tools/verify_compact_values.py",
+  "suite": "research/compact_values_v1.json",
+  "benchmark_suite": "research/compact_values_bench_v1.json",
+  "results": "docs/COMPACT_VALUE_RESULTS.md",
+  "work_limit": 10000000,
+  "child_timeout_seconds": 5,
+  "origins_verified": false,
+  "consumer_cache_enabled": false,
+  "authority_projection_passed": false,
+  "personal_draws_publishable": false,
+  "real_mod_initialization_verified": false,
+  "prior": "research/bound_value_candidate_v1.json"
+}

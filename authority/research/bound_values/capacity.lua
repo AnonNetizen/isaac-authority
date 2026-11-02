@@ -1,0 +1,7 @@
+local mod=RegisterMod('Bound Payload Capacity',1)
+local a,b=string.rep('a',65536),string.rep('b',65536)
+mod:AddCallback(2,function()
+    mod:SaveData('pending-discard')
+    Isaac.RenderText(a,0,0)
+    Isaac.RenderText(b,0,1)
+end)

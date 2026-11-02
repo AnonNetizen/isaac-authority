@@ -1,0 +1,1338 @@
+{
+  "schema": "scoped-versions-short-2",
+  "mode": "ui-execution-audit",
+  "work_limit": 10000000,
+  "case_timeout_seconds": 5,
+  "batch_timeout_seconds": 90,
+  "audit_batch_bytes": 134217728,
+  "view_rule": "personal-settings-authority-hud-v1",
+  "acceptance": {
+    "semantic_and_audit_repeat_required": true,
+    "each_run_budget_valid_required": true,
+    "identical_work_counts_required": false,
+    "work_variation_reported": true,
+    "baseline_certificate_versions": "intentionally changed; exact value/control graph and observations required",
+    "candidate_certificate_validation": "full traversal oracle, exact candidate repeat, full independent audit reconstruction",
+    "layout_epochs": "physical diagnostic only; retained in raw reports"
+  },
+  "cases": [
+    {
+      "id": "root-32",
+      "kind": "functional",
+      "n": 32,
+      "chunks": [
+        {
+          "file": "research/execution_audit_fixtures/root.lua",
+          "sha256": "9e3e9143da2e9b5e16da0878b0727feeb08714bd4ce88de39639309b3febfe59"
+        }
+      ],
+      "expected": [
+        [
+          7,
+          32
+        ]
+      ],
+      "require_cache_hits": true,
+      "audit_disk_limit": 16777216,
+      "verify_full_origins": true
+    },
+    {
+      "id": "root-64",
+      "kind": "functional",
+      "n": 64,
+      "chunks": [
+        {
+          "file": "research/execution_audit_fixtures/root.lua",
+          "sha256": "9e3e9143da2e9b5e16da0878b0727feeb08714bd4ce88de39639309b3febfe59"
+        }
+      ],
+      "expected": [
+        [
+          7,
+          64
+        ]
+      ],
+      "require_cache_hits": true,
+      "audit_disk_limit": 16777216,
+      "verify_full_origins": true
+    },
+    {
+      "id": "root-128",
+      "kind": "functional",
+      "n": 128,
+      "chunks": [
+        {
+          "file": "research/execution_audit_fixtures/root.lua",
+          "sha256": "9e3e9143da2e9b5e16da0878b0727feeb08714bd4ce88de39639309b3febfe59"
+        }
+      ],
+      "expected": [
+        [
+          7,
+          128
+        ]
+      ],
+      "require_cache_hits": true,
+      "audit_disk_limit": 16777216,
+      "verify_full_origins": true
+    },
+    {
+      "id": "leaf-32",
+      "kind": "functional",
+      "n": 32,
+      "chunks": [
+        {
+          "file": "research/execution_audit_fixtures/leaf.lua",
+          "sha256": "08706e18512cb0bff134c1119c90102f6aab01b958dddc9aa4f9a383798d928f"
+        }
+      ],
+      "expected": [
+        [
+          7,
+          32
+        ]
+      ],
+      "require_cache_hits": true,
+      "audit_disk_limit": 16777216,
+      "verify_full_origins": true
+    },
+    {
+      "id": "leaf-64",
+      "kind": "functional",
+      "n": 64,
+      "chunks": [
+        {
+          "file": "research/execution_audit_fixtures/leaf.lua",
+          "sha256": "08706e18512cb0bff134c1119c90102f6aab01b958dddc9aa4f9a383798d928f"
+        }
+      ],
+      "expected": [
+        [
+          7,
+          64
+        ]
+      ],
+      "require_cache_hits": true,
+      "audit_disk_limit": 16777216,
+      "verify_full_origins": true
+    },
+    {
+      "id": "leaf-128",
+      "kind": "functional",
+      "n": 128,
+      "chunks": [
+        {
+          "file": "research/execution_audit_fixtures/leaf.lua",
+          "sha256": "08706e18512cb0bff134c1119c90102f6aab01b958dddc9aa4f9a383798d928f"
+        }
+      ],
+      "expected": [
+        [
+          7,
+          128
+        ]
+      ],
+      "require_cache_hits": true,
+      "audit_disk_limit": 16777216,
+      "verify_full_origins": true
+    },
+    {
+      "id": "reparent",
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/reparent_setup.lua",
+          "sha256": "d02b09b9915b9e2a3752729cd3601249e4b953821ad4e4a894b3784657f67c21"
+        },
+        {
+          "file": "research/ui_incremental2_fixtures/reparent_one.lua",
+          "sha256": "3097f43c9af74f506b7ccca59a918ee4b32d6722a73f7381499c3ca650c42312"
+        },
+        {
+          "file": "research/ui_incremental2_fixtures/reparent_both.lua",
+          "sha256": "280bc01875c89c02591dfdc190400b1ca663f0682713ecd70be82b2cfe2d5ce3"
+        },
+        {
+          "file": "research/ui_incremental2_fixtures/reparent_detached.lua",
+          "sha256": "46d3b6ccc2f9faf0c3e1ee9af819ab9611931bd8ae9f85d86ae80e1fb9cb6796"
+        }
+      ],
+      "inspect": [
+        "observed",
+        "oldchild"
+      ],
+      "kind": "functional",
+      "expected": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "origin_oracle": false,
+      "frozen_source_manifest": "ui_incremental2_stage1_v7.json",
+      "baseline": false,
+      "audit_disk_limit": 16777216,
+      "verify_full_origins": true
+    },
+    {
+      "id": "closure",
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/closure.lua",
+          "sha256": "aeda916542b0620ca3de599f0caf96b48a5e2cd8d46f71c20ebe0c53ace94760"
+        }
+      ],
+      "kind": "functional",
+      "expected": [
+        [
+          1,
+          9,
+          9,
+          {
+            "text_hex": "00ff41"
+          },
+          false,
+          null
+        ]
+      ],
+      "origin_oracle": false,
+      "frozen_source_manifest": "ui_incremental2_stage1_v7.json",
+      "baseline": false,
+      "audit_disk_limit": 16777216,
+      "verify_full_origins": true
+    },
+    {
+      "id": "unknown-native",
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/unknown.lua",
+          "sha256": "9898925e38b4c7e9fc27e52aa370e417125630924891aed1cde428b0b6116b1c"
+        }
+      ],
+      "kind": "safety",
+      "error_contains": "Unsupported trace C function",
+      "origin_oracle": false,
+      "frozen_source_manifest": "ui_incremental2_stage1_v7.json",
+      "baseline": false,
+      "audit_disk_limit": 16777216
+    },
+    {
+      "id": "rawset-return",
+      "chunks": [
+        {
+          "file": "research/ui_incremental2_fixtures/rawset_return.lua",
+          "sha256": "58976c4fc76480302b145993b870135a99038efaffc17a4000100e8b53d2894d"
+        }
+      ],
+      "inspect": [
+        "observed"
+      ],
+      "kind": "functional",
+      "expected": [
+        [
+          {
+            "text_hex": "7461626c65"
+          },
+          8,
+          9
+        ]
+      ],
+      "origins": [
+        [
+          [],
+          [
+            "other"
+          ],
+          [
+            "new"
+          ]
+        ]
+      ],
+      "origin_oracle": false,
+      "frozen_source_manifest": "ui_incremental2_stage1_v7.json",
+      "baseline": false,
+      "audit_disk_limit": 16777216,
+      "verify_full_origins": true
+    },
+    {
+      "id": "legacy-closed-shared-upvalue",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/closed-shared-upvalue.lua",
+          "sha256": "bab6f31fac9744a19fd9b7610e9e98758a2b21f1db30d4928f60e4a1f24653be"
+        }
+      ],
+      "kind": "functional",
+      "baseline": false,
+      "compare_baseline_origins": false,
+      "verify_full_origins": true,
+      "origin_oracle": false,
+      "frozen_source_manifest": "ui_incremental2_legacy_oracle_v2.json",
+      "audit_disk_limit": 16777216
+    },
+    {
+      "id": "legacy-monotone-upvalue-coverage",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/monotone-upvalue-coverage.lua",
+          "sha256": "170acc7c1d31b72fa15df6b6cdaa7332fd2810f05201913405a3c08b32b76e0e"
+        }
+      ],
+      "kind": "functional",
+      "baseline": false,
+      "compare_baseline_origins": false,
+      "verify_full_origins": true,
+      "origin_oracle": false,
+      "frozen_source_manifest": "ui_incremental2_legacy_oracle_v2.json",
+      "audit_disk_limit": 16777216
+    },
+    {
+      "id": "legacy-scalar-leaf-shared-upvalue",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/scalar-leaf-shared-upvalue.lua",
+          "sha256": "ae11b9813d2267840ed6ab0eae1d9b0d01173df0dea2970cd31c3dbed3406e08"
+        }
+      ],
+      "kind": "functional",
+      "baseline": false,
+      "compare_baseline_origins": false,
+      "verify_full_origins": true,
+      "origin_oracle": false,
+      "frozen_source_manifest": "ui_incremental2_legacy_oracle_v2.json",
+      "audit_disk_limit": 16777216
+    },
+    {
+      "id": "legacy-scalar-leaf-cycle-shared",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/scalar-leaf-cycle-shared.lua",
+          "sha256": "36e1374d6b59a1c1c7d8c633b9e58156d2f67ce9dfc54454a4466c1b56a106fa"
+        }
+      ],
+      "kind": "functional",
+      "baseline": false,
+      "compare_baseline_origins": false,
+      "verify_full_origins": true,
+      "origin_oracle": false,
+      "frozen_source_manifest": "ui_incremental2_legacy_oracle_v2.json",
+      "audit_disk_limit": 16777216
+    },
+    {
+      "id": "dual-config-2",
+      "configuration": {
+        "amount": 2,
+        "x": 137,
+        "language": "en"
+      },
+      "chunks": [
+        {
+          "file": "research/ui_compact_fixtures/configuration.lua",
+          "sha256": "9e0d06f96e7e40e759d6f6d43b2fda6c2b9d0f654ae9ee2cdab5bf8f1accef83",
+          "bind": [
+            {
+              "index": 1,
+              "evidence": {
+                "value": 1,
+                "authority_value_id": 701,
+                "authority_owner_version": 1
+              }
+            }
+          ],
+          "resolve": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "file": "research/ui_compact_fixtures/configuration_read.lua",
+          "sha256": "0d585883643eb739f6f74d92f3985a758d0de0e231efde431f96bf3d9125ad4d",
+          "resolve": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "file": "research/ui_compact_fixtures/configuration_read.lua",
+          "sha256": "0d585883643eb739f6f74d92f3985a758d0de0e231efde431f96bf3d9125ad4d",
+          "resolve": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ],
+      "kind": "functional",
+      "reclaim": true,
+      "observe_memory": true,
+      "personal": 2,
+      "authority": 1,
+      "evidence": true,
+      "frozen_source_manifest": "ui_compact_storage_v3.json",
+      "audit_disk_limit": 16777216,
+      "verify_full_origins": true
+    },
+    {
+      "id": "dual-config-1",
+      "configuration": {
+        "amount": 1,
+        "x": 137,
+        "language": "en"
+      },
+      "chunks": [
+        {
+          "file": "research/ui_compact_fixtures/configuration.lua",
+          "sha256": "9e0d06f96e7e40e759d6f6d43b2fda6c2b9d0f654ae9ee2cdab5bf8f1accef83",
+          "bind": [
+            {
+              "index": 1,
+              "evidence": {
+                "value": 2,
+                "authority_value_id": 701,
+                "authority_owner_version": 1
+              }
+            }
+          ],
+          "resolve": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "file": "research/ui_compact_fixtures/configuration_read.lua",
+          "sha256": "0d585883643eb739f6f74d92f3985a758d0de0e231efde431f96bf3d9125ad4d",
+          "resolve": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "file": "research/ui_compact_fixtures/configuration_read.lua",
+          "sha256": "0d585883643eb739f6f74d92f3985a758d0de0e231efde431f96bf3d9125ad4d",
+          "resolve": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ],
+      "kind": "functional",
+      "reclaim": true,
+      "observe_memory": true,
+      "personal": 1,
+      "authority": 2,
+      "evidence": true,
+      "frozen_source_manifest": "ui_compact_storage_v3.json",
+      "audit_disk_limit": 16777216,
+      "verify_full_origins": true
+    },
+    {
+      "id": "certificate-fault-1",
+      "kind": "certificate-safety",
+      "chunks": [
+        {
+          "file": "research/execution_audit_fixtures/cert_setup.lua",
+          "sha256": "0f86694896388d28b4b1543dd3c05023b434944956573eeb65c78cbc6a307428",
+          "certificate_fault": 1
+        },
+        {
+          "file": "research/execution_audit_fixtures/cert_use.lua",
+          "sha256": "1dbc6245eed10436437117babebdad0adbdff042d5d5b8cead96186e4b7f9037"
+        }
+      ],
+      "error_contains": "Invalid resident cache completion certificate",
+      "audit_disk_limit": 16777216
+    },
+    {
+      "id": "certificate-fault-2",
+      "kind": "certificate-safety",
+      "chunks": [
+        {
+          "file": "research/execution_audit_fixtures/cert_setup.lua",
+          "sha256": "0f86694896388d28b4b1543dd3c05023b434944956573eeb65c78cbc6a307428",
+          "certificate_fault": 2
+        },
+        {
+          "file": "research/execution_audit_fixtures/cert_use.lua",
+          "sha256": "1dbc6245eed10436437117babebdad0adbdff042d5d5b8cead96186e4b7f9037"
+        }
+      ],
+      "error_contains": "Invalid resident cache completion certificate",
+      "audit_disk_limit": 16777216
+    },
+    {
+      "id": "work-limit",
+      "kind": "process-safety",
+      "chunks": [
+        {
+          "file": "research/execution_audit_fixtures/cert_setup.lua",
+          "sha256": "0f86694896388d28b4b1543dd3c05023b434944956573eeb65c78cbc6a307428"
+        }
+      ],
+      "extra_work": 10000000,
+      "error_contains": "Work budget rejected",
+      "audit_disk_limit": 16777216
+    },
+    {
+      "id": "cache-read-guard",
+      "kind": "process-safety",
+      "chunks": [
+        {
+          "file": "research/execution_audit_fixtures/cert_setup.lua",
+          "sha256": "0f86694896388d28b4b1543dd3c05023b434944956573eeb65c78cbc6a307428"
+        }
+      ],
+      "read_guard_probe": true,
+      "error_contains": "Cache hit attempted historical audit read",
+      "audit_disk_limit": 16777216
+    },
+    {
+      "id": "audit-write-failure",
+      "kind": "process-safety",
+      "chunks": [
+        {
+          "file": "research/execution_audit_fixtures/cert_setup.lua",
+          "sha256": "0f86694896388d28b4b1543dd3c05023b434944956573eeb65c78cbc6a307428"
+        }
+      ],
+      "fault_after_last_phase": 2,
+      "error_contains": "Audit seek failed",
+      "audit_disk_limit": 16777216
+    },
+    {
+      "id": "host-pin-keep",
+      "configuration": {
+        "amount": 2,
+        "x": 137,
+        "language": "en"
+      },
+      "chunks": [
+        {
+          "file": "research/ui_compact_fixtures/configuration.lua",
+          "sha256": "9e0d06f96e7e40e759d6f6d43b2fda6c2b9d0f654ae9ee2cdab5bf8f1accef83",
+          "bind": [
+            {
+              "index": 1,
+              "evidence": {
+                "value": 1,
+                "authority_value_id": 701,
+                "authority_owner_version": 1
+              }
+            }
+          ],
+          "resolve": [
+            1
+          ]
+        },
+        {
+          "file": "research/ui_compact_fixtures/drop.lua",
+          "sha256": "e1fe7cdd2d39ef17867b10a958bceab8b0a61ecb946dc7f5aa524519dba14298"
+        },
+        {
+          "file": "research/ui_compact_fixtures/empty.lua",
+          "sha256": "88a5d86b8d00a468685ca2b8d7e93ef8f26389338f9fe96fa57b36fe8fe6e90d",
+          "resolve_prior": [
+            {
+              "phase": 0,
+              "index": 0
+            }
+          ]
+        }
+      ],
+      "kind": "functional",
+      "pin_prior_frames": true,
+      "reclaim": true,
+      "observe_memory": true,
+      "evidence": true,
+      "audit_disk_limit": 16777216,
+      "verify_full_origins": true
+    },
+    {
+      "id": "graph-churn-4",
+      "n": 0,
+      "kind": "functional",
+      "chunks": [
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        }
+      ],
+      "reclaim": true,
+      "observe_memory": true,
+      "expected": [
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          0
+        ]
+      ],
+      "audit_disk_limit": 16777216,
+      "verify_full_origins": true
+    },
+    {
+      "id": "graph-churn-8",
+      "n": 0,
+      "kind": "functional",
+      "chunks": [
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        }
+      ],
+      "reclaim": true,
+      "observe_memory": true,
+      "expected": [
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          0
+        ]
+      ],
+      "audit_disk_limit": 16777216,
+      "verify_full_origins": true
+    },
+    {
+      "id": "graph-churn-16",
+      "n": 0,
+      "kind": "functional",
+      "chunks": [
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        },
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        }
+      ],
+      "reclaim": true,
+      "observe_memory": true,
+      "expected": [
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          0
+        ]
+      ],
+      "audit_disk_limit": 16777216,
+      "verify_full_origins": true
+    },
+    {
+      "id": "missing-live-producer",
+      "kind": "process-safety",
+      "chunks": [
+        {
+          "file": "research/execution_audit_fixtures/cert_setup.lua",
+          "sha256": "0f86694896388d28b4b1543dd3c05023b434944956573eeb65c78cbc6a307428"
+        }
+      ],
+      "missing_live_probe": true,
+      "error_contains": "Live producer unavailable; audit fallback forbidden",
+      "audit_disk_limit": 16777216
+    },
+    {
+      "id": "diagnostic-corruption",
+      "kind": "process-safety",
+      "chunks": [
+        {
+          "file": "research/ui_compact_fixtures/churn.lua",
+          "sha256": "af6f0c13989669fb4712a40d491fbd30a42600a64215cdf1b0c9586bcc4ec74f"
+        }
+      ],
+      "fault_after_last_phase": 1,
+      "error_contains": "Audit payload checksum mismatch",
+      "audit_disk_limit": 16777216
+    },
+    {
+      "id": "field-upvalue-version-lifetime",
+      "kind": "functional",
+      "chunks": [
+        {
+          "file": "research/scoped_version_fixtures/setup.lua",
+          "sha256": "291e82dcb702d6e14d766f2e1446b79fecc5225c9623813488a45ece8e636130",
+          "proof_probe": [
+            {
+              "phase": 0,
+              "index": 0
+            },
+            {
+              "phase": 0,
+              "index": 1
+            },
+            {
+              "phase": 0,
+              "index": 2
+            }
+          ]
+        },
+        {
+          "file": "research/scoped_version_fixtures/unrelated.lua",
+          "sha256": "ea67a22ec1095cb6b6fee92a4e5f0b49c4d7638654f2219d28c9c8c580fa34a4",
+          "proof_probe": [
+            {
+              "phase": 0,
+              "index": 0
+            },
+            {
+              "phase": 0,
+              "index": 1
+            },
+            {
+              "phase": 0,
+              "index": 2
+            },
+            {
+              "phase": 1,
+              "index": 0
+            },
+            {
+              "phase": 1,
+              "index": 1
+            },
+            {
+              "phase": 1,
+              "index": 2
+            }
+          ]
+        },
+        {
+          "file": "research/scoped_version_fixtures/related.lua",
+          "sha256": "478bbbf9731df94d6a7e79327618c0bdffe3485cdf68d11de89bef52f7284c09",
+          "proof_probe": [
+            {
+              "phase": 0,
+              "index": 0
+            },
+            {
+              "phase": 0,
+              "index": 1
+            },
+            {
+              "phase": 0,
+              "index": 2
+            },
+            {
+              "phase": 2,
+              "index": 0
+            },
+            {
+              "phase": 2,
+              "index": 1
+            },
+            {
+              "phase": 2,
+              "index": 2
+            }
+          ]
+        },
+        {
+          "file": "research/scoped_version_fixtures/deletion.lua",
+          "sha256": "2785d9cb90ae223859143ef7c5ec768e3f7ce65243abea6a019f1ba5d8263859",
+          "proof_probe": [
+            {
+              "phase": 0,
+              "index": 0
+            },
+            {
+              "phase": 0,
+              "index": 1
+            },
+            {
+              "phase": 0,
+              "index": 2
+            },
+            {
+              "phase": 3,
+              "index": 0
+            },
+            {
+              "phase": 3,
+              "index": 1
+            },
+            {
+              "phase": 3,
+              "index": 2
+            }
+          ]
+        },
+        {
+          "file": "research/scoped_version_fixtures/reshape.lua",
+          "sha256": "356286f6b0b29ec026647398da53b0996aa12aee1394d321aa4979bae338370b",
+          "proof_probe": [
+            {
+              "phase": 0,
+              "index": 0
+            },
+            {
+              "phase": 0,
+              "index": 1
+            },
+            {
+              "phase": 0,
+              "index": 2
+            },
+            {
+              "phase": 4,
+              "index": 0
+            },
+            {
+              "phase": 4,
+              "index": 1
+            },
+            {
+              "phase": 4,
+              "index": 2
+            }
+          ]
+        }
+      ],
+      "pin_prior_frames": true,
+      "reclaim": true,
+      "observe_memory": true,
+      "verify_full_origins": true,
+      "expected": [
+        [
+          7,
+          11,
+          11
+        ],
+        [
+          7,
+          11,
+          11
+        ],
+        [
+          8,
+          12,
+          12
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          9,
+          13,
+          13
+        ]
+      ],
+      "audit_disk_limit": 16777216
+    },
+    {
+      "id": "userdata-seven-classes",
+      "kind": "functional",
+      "ui_backend": true,
+      "reclaim": true,
+      "evidence": true,
+      "chunks": [
+        {
+          "file": "research/ui_userdata_fixtures/behavior.lua",
+          "sha256": "a8105476a863af9cc1baea6eea99b3b45020e451cada3580112cba28a916ac52"
+        }
+      ],
+      "expected": [
+        [
+          35,
+          137
+        ]
+      ],
+      "audit_disk_limit": 16777216,
+      "verify_full_origins": true
+    },
+    {
+      "id": "userdata-config-2",
+      "kind": "functional",
+      "ui_backend": true,
+      "reclaim": true,
+      "observe_memory": true,
+      "clear_between_phases": true,
+      "pin_prior_frames": false,
+      "evidence": true,
+      "personal": 2,
+      "authority": 1,
+      "configuration": {
+        "amount": 2,
+        "x": 137,
+        "language": "en"
+      },
+      "chunks": [
+        {
+          "file": "research/ui_userdata_fixtures/configuration.lua",
+          "sha256": "6f3543e6354def64c7a6a947c788f751c00d65c629c49ead5135d9c4fe4b8170",
+          "bind": [
+            {
+              "index": 1,
+              "evidence": {
+                "value": 1,
+                "authority_value_id": 701,
+                "authority_owner_version": 1
+              }
+            }
+          ],
+          "resolve": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "file": "research/ui_userdata_fixtures/configuration.lua",
+          "sha256": "6f3543e6354def64c7a6a947c788f751c00d65c629c49ead5135d9c4fe4b8170",
+          "resolve": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "file": "research/ui_userdata_fixtures/configuration.lua",
+          "sha256": "6f3543e6354def64c7a6a947c788f751c00d65c629c49ead5135d9c4fe4b8170",
+          "resolve": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ],
+      "expected": [
+        [
+          2,
+          137,
+          {
+            "text_hex": "656e"
+          },
+          {
+            "text_hex": "616d6f756e743d32"
+          }
+        ],
+        [
+          2,
+          137,
+          {
+            "text_hex": "656e"
+          },
+          {
+            "text_hex": "616d6f756e743d32"
+          }
+        ],
+        [
+          2,
+          137,
+          {
+            "text_hex": "656e"
+          },
+          {
+            "text_hex": "616d6f756e743d32"
+          }
+        ]
+      ],
+      "audit_disk_limit": 16777216,
+      "verify_full_origins": true
+    },
+    {
+      "id": "userdata-config-1",
+      "kind": "functional",
+      "ui_backend": true,
+      "reclaim": true,
+      "observe_memory": true,
+      "clear_between_phases": true,
+      "pin_prior_frames": false,
+      "evidence": true,
+      "personal": 1,
+      "authority": 2,
+      "configuration": {
+        "amount": 1,
+        "x": 137,
+        "language": "en"
+      },
+      "chunks": [
+        {
+          "file": "research/ui_userdata_fixtures/configuration.lua",
+          "sha256": "6f3543e6354def64c7a6a947c788f751c00d65c629c49ead5135d9c4fe4b8170",
+          "bind": [
+            {
+              "index": 1,
+              "evidence": {
+                "value": 2,
+                "authority_value_id": 701,
+                "authority_owner_version": 1
+              }
+            }
+          ],
+          "resolve": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "file": "research/ui_userdata_fixtures/configuration.lua",
+          "sha256": "6f3543e6354def64c7a6a947c788f751c00d65c629c49ead5135d9c4fe4b8170",
+          "resolve": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "file": "research/ui_userdata_fixtures/configuration.lua",
+          "sha256": "6f3543e6354def64c7a6a947c788f751c00d65c629c49ead5135d9c4fe4b8170",
+          "resolve": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ],
+      "expected": [
+        [
+          1,
+          137,
+          {
+            "text_hex": "656e"
+          },
+          {
+            "text_hex": "616d6f756e743d31"
+          }
+        ],
+        [
+          1,
+          137,
+          {
+            "text_hex": "656e"
+          },
+          {
+            "text_hex": "616d6f756e743d31"
+          }
+        ],
+        [
+          1,
+          137,
+          {
+            "text_hex": "656e"
+          },
+          {
+            "text_hex": "616d6f756e743d31"
+          }
+        ]
+      ],
+      "audit_disk_limit": 16777216,
+      "verify_full_origins": true
+    },
+    {
+      "id": "userdata-key-identity",
+      "kind": "functional",
+      "ui_backend": true,
+      "reclaim": true,
+      "evidence": true,
+      "chunks": [
+        {
+          "file": "research/ui_userdata_fixtures/keys_raw.lua",
+          "sha256": "46e5e6610d36467592374357acbc8711623ff380367ad3fcc2e791642854c8e4"
+        }
+      ],
+      "expected": [
+        [
+          33,
+          true
+        ]
+      ],
+      "audit_disk_limit": 16777216,
+      "verify_full_origins": true
+    },
+    {
+      "id": "userdata-drop-pinned",
+      "kind": "functional",
+      "ui_backend": true,
+      "reclaim": true,
+      "observe_memory": true,
+      "clear_between_phases": true,
+      "pin_prior_frames": true,
+      "evidence": true,
+      "personal": 2,
+      "authority": 1,
+      "configuration": {
+        "amount": 2,
+        "x": 137,
+        "language": "en"
+      },
+      "chunks": [
+        {
+          "file": "research/ui_userdata_fixtures/configuration.lua",
+          "sha256": "6f3543e6354def64c7a6a947c788f751c00d65c629c49ead5135d9c4fe4b8170",
+          "bind": [
+            {
+              "index": 1,
+              "evidence": {
+                "value": 1,
+                "authority_value_id": 701,
+                "authority_owner_version": 1
+              }
+            }
+          ],
+          "resolve": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "file": "research/ui_userdata_fixtures/drop.lua",
+          "sha256": "03583250f05a1bddc1c409746002c4fe0b5567c050cecd7f789b669325abec6a"
+        },
+        {
+          "file": "research/ui_compact_fixtures/empty.lua",
+          "sha256": "88a5d86b8d00a468685ca2b8d7e93ef8f26389338f9fe96fa57b36fe8fe6e90d",
+          "resolve_prior": [
+            {
+              "phase": 0,
+              "index": 0
+            }
+          ]
+        }
+      ],
+      "expected_phases": [
+        [
+          2,
+          137,
+          {
+            "text_hex": "656e"
+          },
+          {
+            "text_hex": "616d6f756e743d32"
+          }
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "audit_disk_limit": 16777216,
+      "verify_full_origins": true
+    }
+  ]
+}

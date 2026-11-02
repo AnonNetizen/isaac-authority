@@ -1,0 +1,3179 @@
+{
+  "schema": "boundary-writes-frozen-1",
+  "work_limit": 10000000,
+  "timeout_seconds": 5,
+  "batch_timeout_seconds": 60,
+  "view_rule": "personal-settings-authority-hud-v1",
+  "unit": "prepaid VM64 + API/encoding/observations + selected writes and lifecycle; not old trace units",
+  "cases": [
+    {
+      "id": "field-aba",
+      "source": "research/boundary_writes/fields.lua",
+      "source_sha256": "886f48a7b39adda405c8e6d135cc2ae73c1ed6b51a42aa919e2193826f27d56f",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language",
+            "new",
+            1,
+            2,
+            3,
+            4,
+            "1"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "aba": true
+          }
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language",
+            "new",
+            1,
+            2,
+            3,
+            4,
+            "1"
+          ]
+        }
+      ],
+      "check": "field",
+      "kind": "functional",
+      "expected": [
+        [
+          "amount",
+          2
+        ]
+      ],
+      "button": "aba"
+    },
+    {
+      "id": "field-same",
+      "source": "research/boundary_writes/fields.lua",
+      "source_sha256": "886f48a7b39adda405c8e6d135cc2ae73c1ed6b51a42aa919e2193826f27d56f",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language",
+            "new",
+            1,
+            2,
+            3,
+            4,
+            "1"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "same": true
+          }
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language",
+            "new",
+            1,
+            2,
+            3,
+            4,
+            "1"
+          ]
+        }
+      ],
+      "check": "field",
+      "kind": "functional",
+      "expected": [
+        [
+          "amount",
+          1
+        ]
+      ],
+      "button": "same"
+    },
+    {
+      "id": "field-raw",
+      "source": "research/boundary_writes/fields.lua",
+      "source_sha256": "886f48a7b39adda405c8e6d135cc2ae73c1ed6b51a42aa919e2193826f27d56f",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language",
+            "new",
+            1,
+            2,
+            3,
+            4,
+            "1"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "raw": true
+          }
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language",
+            "new",
+            1,
+            2,
+            3,
+            4,
+            "1"
+          ]
+        }
+      ],
+      "check": "field",
+      "kind": "functional",
+      "expected": [
+        [
+          "amount",
+          2
+        ]
+      ],
+      "button": "raw"
+    },
+    {
+      "id": "field-nil",
+      "source": "research/boundary_writes/fields.lua",
+      "source_sha256": "886f48a7b39adda405c8e6d135cc2ae73c1ed6b51a42aa919e2193826f27d56f",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language",
+            "new",
+            1,
+            2,
+            3,
+            4,
+            "1"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "nil": true
+          }
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language",
+            "new",
+            1,
+            2,
+            3,
+            4,
+            "1"
+          ]
+        }
+      ],
+      "check": "field",
+      "kind": "functional",
+      "expected": [
+        [
+          "new",
+          3
+        ]
+      ],
+      "button": "nil"
+    },
+    {
+      "id": "field-typed",
+      "source": "research/boundary_writes/fields.lua",
+      "source_sha256": "886f48a7b39adda405c8e6d135cc2ae73c1ed6b51a42aa919e2193826f27d56f",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language",
+            "new",
+            1,
+            2,
+            3,
+            4,
+            "1"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "typed": true
+          }
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language",
+            "new",
+            1,
+            2,
+            3,
+            4,
+            "1"
+          ]
+        }
+      ],
+      "check": "field",
+      "kind": "functional",
+      "expected": [
+        [
+          1,
+          1
+        ],
+        [
+          "1",
+          1
+        ]
+      ],
+      "button": "typed"
+    },
+    {
+      "id": "field-insert",
+      "source": "research/boundary_writes/fields.lua",
+      "source_sha256": "886f48a7b39adda405c8e6d135cc2ae73c1ed6b51a42aa919e2193826f27d56f",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language",
+            "new",
+            1,
+            2,
+            3,
+            4,
+            "1"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "insert": true
+          }
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language",
+            "new",
+            1,
+            2,
+            3,
+            4,
+            "1"
+          ]
+        }
+      ],
+      "check": "field",
+      "kind": "functional",
+      "expected": [
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ]
+      ],
+      "button": "insert"
+    },
+    {
+      "id": "field-remove",
+      "source": "research/boundary_writes/fields.lua",
+      "source_sha256": "886f48a7b39adda405c8e6d135cc2ae73c1ed6b51a42aa919e2193826f27d56f",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language",
+            "new",
+            1,
+            2,
+            3,
+            4,
+            "1"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "remove": true
+          }
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language",
+            "new",
+            1,
+            2,
+            3,
+            4,
+            "1"
+          ]
+        }
+      ],
+      "check": "field",
+      "kind": "functional",
+      "expected": [
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "button": "remove"
+    },
+    {
+      "id": "field-move",
+      "source": "research/boundary_writes/fields.lua",
+      "source_sha256": "886f48a7b39adda405c8e6d135cc2ae73c1ed6b51a42aa919e2193826f27d56f",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language",
+            "new",
+            1,
+            2,
+            3,
+            4,
+            "1"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "move": true
+          }
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language",
+            "new",
+            1,
+            2,
+            3,
+            4,
+            "1"
+          ]
+        }
+      ],
+      "check": "field",
+      "kind": "functional",
+      "expected": [
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ]
+      ],
+      "button": "move"
+    },
+    {
+      "id": "field-sibling",
+      "source": "research/boundary_writes/fields.lua",
+      "source_sha256": "886f48a7b39adda405c8e6d135cc2ae73c1ed6b51a42aa919e2193826f27d56f",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language",
+            "new",
+            1,
+            2,
+            3,
+            4,
+            "1"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "sibling": true
+          }
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language",
+            "new",
+            1,
+            2,
+            3,
+            4,
+            "1"
+          ]
+        }
+      ],
+      "check": "field",
+      "kind": "functional",
+      "expected": [],
+      "button": "sibling"
+    },
+    {
+      "id": "field-proxy",
+      "source": "research/boundary_writes/fields.lua",
+      "source_sha256": "886f48a7b39adda405c8e6d135cc2ae73c1ed6b51a42aa919e2193826f27d56f",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language",
+            "new",
+            1,
+            2,
+            3,
+            4,
+            "1"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "proxy": true
+          }
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language",
+            "new",
+            1,
+            2,
+            3,
+            4,
+            "1"
+          ]
+        }
+      ],
+      "check": "field",
+      "kind": "functional",
+      "expected": [
+        [
+          "amount",
+          2
+        ]
+      ],
+      "button": "proxy"
+    },
+    {
+      "id": "field-deny",
+      "source": "research/boundary_writes/fields.lua",
+      "source_sha256": "886f48a7b39adda405c8e6d135cc2ae73c1ed6b51a42aa919e2193826f27d56f",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language",
+            "new",
+            1,
+            2,
+            3,
+            4,
+            "1"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "deny": true
+          }
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language",
+            "new",
+            1,
+            2,
+            3,
+            4,
+            "1"
+          ]
+        }
+      ],
+      "check": "field",
+      "kind": "functional",
+      "expected": [],
+      "button": "deny"
+    },
+    {
+      "id": "field-meta",
+      "source": "research/boundary_writes/fields.lua",
+      "source_sha256": "886f48a7b39adda405c8e6d135cc2ae73c1ed6b51a42aa919e2193826f27d56f",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language",
+            "new",
+            1,
+            2,
+            3,
+            4,
+            "1"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "meta": true
+          }
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language",
+            "new",
+            1,
+            2,
+            3,
+            4,
+            "1"
+          ]
+        }
+      ],
+      "check": "field",
+      "kind": "functional",
+      "expected": [],
+      "button": "meta"
+    },
+    {
+      "id": "field-many",
+      "source": "research/boundary_writes/fields.lua",
+      "source_sha256": "886f48a7b39adda405c8e6d135cc2ae73c1ed6b51a42aa919e2193826f27d56f",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language",
+            "new",
+            1,
+            2,
+            3,
+            4,
+            "1"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "many": true
+          }
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x",
+            "language",
+            "new",
+            1,
+            2,
+            3,
+            4,
+            "1"
+          ]
+        }
+      ],
+      "check": "field",
+      "kind": "functional",
+      "expected": [
+        [
+          "amount",
+          20000
+        ]
+      ],
+      "button": "many"
+    },
+    {
+      "id": "table-sort",
+      "source": "research/boundary_writes/fields.lua",
+      "source_sha256": "886f48a7b39adda405c8e6d135cc2ae73c1ed6b51a42aa919e2193826f27d56f",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "sort": true
+          }
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            1,
+            2,
+            3
+          ]
+        }
+      ],
+      "check": "sort",
+      "kind": "functional"
+    },
+    {
+      "id": "late-registration",
+      "source": "research/boundary_writes/fields.lua",
+      "source_sha256": "886f48a7b39adda405c8e6d135cc2ae73c1ed6b51a42aa919e2193826f27d56f",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "aba": true
+          }
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "aba": true
+          }
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        }
+      ],
+      "check": "late",
+      "kind": "functional"
+    },
+    {
+      "id": "native-rawset",
+      "source": "research/boundary_writes/fields.lua",
+      "source_sha256": "886f48a7b39adda405c8e6d135cc2ae73c1ed6b51a42aa919e2193826f27d56f",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "native_write",
+          "callback": 1,
+          "upvalue": "cfg",
+          "api": "rawset",
+          "key": "amount",
+          "value": 9
+        },
+        {
+          "op": "native_write",
+          "callback": 1,
+          "upvalue": "cfg",
+          "api": "rawset",
+          "key": "amount",
+          "value": 2
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        }
+      ],
+      "check": "native",
+      "kind": "functional"
+    },
+    {
+      "id": "native-setfield",
+      "source": "research/boundary_writes/fields.lua",
+      "source_sha256": "886f48a7b39adda405c8e6d135cc2ae73c1ed6b51a42aa919e2193826f27d56f",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "native_write",
+          "callback": 1,
+          "upvalue": "cfg",
+          "api": "setfield",
+          "key": "amount",
+          "value": 9
+        },
+        {
+          "op": "native_write",
+          "callback": 1,
+          "upvalue": "cfg",
+          "api": "setfield",
+          "key": "amount",
+          "value": 2
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        }
+      ],
+      "check": "native",
+      "kind": "functional"
+    },
+    {
+      "id": "native-rawseti",
+      "source": "research/boundary_writes/fields.lua",
+      "source_sha256": "886f48a7b39adda405c8e6d135cc2ae73c1ed6b51a42aa919e2193826f27d56f",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            1
+          ]
+        },
+        {
+          "op": "native_write",
+          "callback": 1,
+          "upvalue": "cfg",
+          "api": "rawseti",
+          "key": 1,
+          "value": 9
+        },
+        {
+          "op": "native_write",
+          "callback": 1,
+          "upvalue": "cfg",
+          "api": "rawseti",
+          "key": 1,
+          "value": 2
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            1
+          ]
+        }
+      ],
+      "check": "native",
+      "kind": "functional"
+    },
+    {
+      "id": "native-seti",
+      "source": "research/boundary_writes/fields.lua",
+      "source_sha256": "886f48a7b39adda405c8e6d135cc2ae73c1ed6b51a42aa919e2193826f27d56f",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            1
+          ]
+        },
+        {
+          "op": "native_write",
+          "callback": 1,
+          "upvalue": "cfg",
+          "api": "seti",
+          "key": 1,
+          "value": 9
+        },
+        {
+          "op": "native_write",
+          "callback": 1,
+          "upvalue": "cfg",
+          "api": "seti",
+          "key": 1,
+          "value": 2
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            1
+          ]
+        }
+      ],
+      "check": "native",
+      "kind": "functional"
+    },
+    {
+      "id": "native-pointer-key",
+      "source": "research/boundary_writes/fields.lua",
+      "source_sha256": "886f48a7b39adda405c8e6d135cc2ae73c1ed6b51a42aa919e2193826f27d56f",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "native_write",
+          "callback": 1,
+          "upvalue": "cfg",
+          "api": "rawsetp",
+          "value": 9
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        }
+      ],
+      "check": "pointer",
+      "kind": "functional"
+    },
+    {
+      "id": "upvalue-aba",
+      "source": "research/boundary_writes/open.lua",
+      "source_sha256": "ab170033cf3b9915b5cac1689ef01fb00e0f5c992c0f12c487bcecf29e47ee67",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "counter",
+          "fields": []
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "aba": true
+          }
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "counter",
+          "fields": []
+        }
+      ],
+      "check": "cell",
+      "kind": "functional",
+      "delta": 2
+    },
+    {
+      "id": "upvalue-same",
+      "source": "research/boundary_writes/open.lua",
+      "source_sha256": "ab170033cf3b9915b5cac1689ef01fb00e0f5c992c0f12c487bcecf29e47ee67",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "counter",
+          "fields": []
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "same": true
+          }
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "counter",
+          "fields": []
+        }
+      ],
+      "check": "cell",
+      "kind": "functional",
+      "delta": 1
+    },
+    {
+      "id": "upvalue-change",
+      "source": "research/boundary_writes/open.lua",
+      "source_sha256": "ab170033cf3b9915b5cac1689ef01fb00e0f5c992c0f12c487bcecf29e47ee67",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "counter",
+          "fields": []
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "change": true
+          }
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "counter",
+          "fields": []
+        }
+      ],
+      "check": "cell",
+      "kind": "functional",
+      "delta": 1
+    },
+    {
+      "id": "shared-open-close-stack",
+      "source": "research/boundary_writes/open.lua",
+      "source_sha256": "ab170033cf3b9915b5cac1689ef01fb00e0f5c992c0f12c487bcecf29e47ee67",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "counter",
+          "fields": []
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 2,
+          "upvalue": "counter",
+          "fields": []
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "change": true
+          }
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "counter",
+          "fields": []
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 2,
+          "upvalue": "counter",
+          "fields": []
+        },
+        {
+          "op": "gc"
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "counter",
+          "fields": []
+        }
+      ],
+      "check": "shared",
+      "kind": "functional"
+    },
+    {
+      "id": "native-setupvalue",
+      "source": "research/boundary_writes/open.lua",
+      "source_sha256": "ab170033cf3b9915b5cac1689ef01fb00e0f5c992c0f12c487bcecf29e47ee67",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "counter",
+          "fields": []
+        },
+        {
+          "op": "native_write",
+          "callback": 1,
+          "upvalue": "counter",
+          "api": "setupvalue",
+          "value": 9
+        },
+        {
+          "op": "native_write",
+          "callback": 1,
+          "upvalue": "counter",
+          "api": "setupvalue",
+          "value": 7
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "counter",
+          "fields": []
+        }
+      ],
+      "check": "native-cell",
+      "kind": "functional"
+    },
+    {
+      "id": "weak-value-gc",
+      "source": "research/boundary_writes/gc.lua",
+      "source_sha256": "bd7bdab351d10d438bbe3f733486cd34f376a8b15e2e7881f4f9b10d71245f72",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "weak",
+          "fields": [
+            "target",
+            1
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "release": true
+          }
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "weak",
+          "fields": [
+            "target",
+            1
+          ]
+        },
+        {
+          "op": "gc"
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "weak",
+          "fields": [
+            "target",
+            1
+          ]
+        }
+      ],
+      "check": "weak",
+      "kind": "functional"
+    },
+    {
+      "id": "table-lifetime-replacement",
+      "source": "research/boundary_writes/gc.lua",
+      "source_sha256": "bd7bdab351d10d438bbe3f733486cd34f376a8b15e2e7881f4f9b10d71245f72",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "replace": true
+          }
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        }
+      ],
+      "check": "replace",
+      "kind": "functional"
+    },
+    {
+      "id": "retire-gc-reregister",
+      "source": "research/boundary_writes/churn.lua",
+      "source_sha256": "a4406f4dc4e25ac543ff270e6a7ff68dac6a7b087962dbbc924a68464ffc399f",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 3,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 4,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 5,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 6,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 7,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 8,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 9,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 10,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 11,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 12,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 13,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 14,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 15,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 16,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 17,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 18,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 19,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 20,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 21,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 22,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 23,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 24,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 25,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 26,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 27,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 28,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 29,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 30,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 31,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 3,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 32,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 32,
+          "upvalue": "cfg",
+          "fields": [
+            "amount"
+          ]
+        }
+      ],
+      "check": "churn",
+      "kind": "functional"
+    },
+    {
+      "id": "rollback-write",
+      "source": "research/boundary_handoff/rejection.lua",
+      "source_sha256": "ef144403bb0d954c365ab8643b3045482313b93137403e432f633b7d01870ccf",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 2,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x"
+          ]
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 2,
+          "upvalue": "count",
+          "fields": []
+        },
+        {
+          "op": "dispatch",
+          "role": "host",
+          "event": 1,
+          "phase": "authority",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "write": true
+          },
+          "expect_error": "World write requires authority phase"
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 2,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x"
+          ]
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 2,
+          "upvalue": "count",
+          "fields": []
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "check": "rollback",
+      "kind": "safety-rejection"
+    },
+    {
+      "id": "rollback-error",
+      "source": "research/boundary_handoff/rejection.lua",
+      "source_sha256": "ef144403bb0d954c365ab8643b3045482313b93137403e432f633b7d01870ccf",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 2,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x"
+          ]
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 2,
+          "upvalue": "count",
+          "fields": []
+        },
+        {
+          "op": "dispatch",
+          "role": "host",
+          "event": 1,
+          "phase": "authority",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "error": true
+          },
+          "expect_error": "injected callback failure"
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 2,
+          "upvalue": "cfg",
+          "fields": [
+            "amount",
+            "x"
+          ]
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 2,
+          "upvalue": "count",
+          "fields": []
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "check": "rollback",
+      "kind": "safety-rejection"
+    },
+    {
+      "id": "unsupported-watch-key",
+      "source": "research/boundary_writes/fields.lua",
+      "source_sha256": "886f48a7b39adda405c8e6d135cc2ae73c1ed6b51a42aa919e2193826f27d56f",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            true
+          ],
+          "expect_error": "Selected write key type unsupported"
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "check": "rejected",
+      "kind": "safety-rejection"
+    },
+    {
+      "id": "unsupported-native-rebind",
+      "source": "research/boundary_writes/open.lua",
+      "source_sha256": "ab170033cf3b9915b5cac1689ef01fb00e0f5c992c0f12c487bcecf29e47ee67",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "counter",
+          "fields": []
+        },
+        {
+          "op": "native_write",
+          "callback": 1,
+          "upvalue": "counter",
+          "api": "upvaluejoin",
+          "expect_error": "Native upvalue rebinding unsupported"
+        },
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "counter",
+          "fields": []
+        }
+      ],
+      "check": "join",
+      "kind": "safety-rejection",
+      "reference_step_difference": [
+        1
+      ]
+    },
+    {
+      "id": "field-capacity",
+      "source": "research/boundary_writes/fields.lua",
+      "source_sha256": "886f48a7b39adda405c8e6d135cc2ae73c1ed6b51a42aa919e2193826f27d56f",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "inspect_writes",
+          "callback": 1,
+          "upvalue": "cfg",
+          "fields": [
+            "watch0",
+            "watch1",
+            "watch2",
+            "watch3",
+            "watch4",
+            "watch5",
+            "watch6",
+            "watch7",
+            "watch8",
+            "watch9",
+            "watch10",
+            "watch11",
+            "watch12",
+            "watch13",
+            "watch14",
+            "watch15",
+            "watch16",
+            "watch17",
+            "watch18",
+            "watch19",
+            "watch20",
+            "watch21",
+            "watch22",
+            "watch23",
+            "watch24",
+            "watch25",
+            "watch26",
+            "watch27",
+            "watch28",
+            "watch29",
+            "watch30",
+            "watch31",
+            "watch32",
+            "watch33",
+            "watch34",
+            "watch35",
+            "watch36",
+            "watch37",
+            "watch38",
+            "watch39",
+            "watch40",
+            "watch41",
+            "watch42",
+            "watch43",
+            "watch44",
+            "watch45",
+            "watch46",
+            "watch47",
+            "watch48",
+            "watch49",
+            "watch50",
+            "watch51",
+            "watch52",
+            "watch53",
+            "watch54",
+            "watch55",
+            "watch56",
+            "watch57",
+            "watch58",
+            "watch59",
+            "watch60",
+            "watch61",
+            "watch62",
+            "watch63",
+            "watch64",
+            "watch65",
+            "watch66",
+            "watch67",
+            "watch68",
+            "watch69",
+            "watch70",
+            "watch71",
+            "watch72",
+            "watch73",
+            "watch74",
+            "watch75",
+            "watch76",
+            "watch77",
+            "watch78",
+            "watch79",
+            "watch80",
+            "watch81",
+            "watch82",
+            "watch83",
+            "watch84",
+            "watch85",
+            "watch86",
+            "watch87",
+            "watch88",
+            "watch89",
+            "watch90",
+            "watch91",
+            "watch92",
+            "watch93",
+            "watch94",
+            "watch95",
+            "watch96",
+            "watch97",
+            "watch98",
+            "watch99",
+            "watch100",
+            "watch101",
+            "watch102",
+            "watch103",
+            "watch104",
+            "watch105",
+            "watch106",
+            "watch107",
+            "watch108",
+            "watch109",
+            "watch110",
+            "watch111",
+            "watch112",
+            "watch113",
+            "watch114",
+            "watch115",
+            "watch116",
+            "watch117",
+            "watch118",
+            "watch119",
+            "watch120",
+            "watch121",
+            "watch122",
+            "watch123",
+            "watch124",
+            "watch125",
+            "watch126",
+            "watch127",
+            "watch128",
+            "watch129",
+            "watch130",
+            "watch131",
+            "watch132",
+            "watch133",
+            "watch134",
+            "watch135",
+            "watch136",
+            "watch137",
+            "watch138",
+            "watch139",
+            "watch140",
+            "watch141",
+            "watch142",
+            "watch143",
+            "watch144",
+            "watch145",
+            "watch146",
+            "watch147",
+            "watch148",
+            "watch149",
+            "watch150",
+            "watch151",
+            "watch152",
+            "watch153",
+            "watch154",
+            "watch155",
+            "watch156",
+            "watch157",
+            "watch158",
+            "watch159",
+            "watch160",
+            "watch161",
+            "watch162",
+            "watch163",
+            "watch164",
+            "watch165",
+            "watch166",
+            "watch167",
+            "watch168",
+            "watch169",
+            "watch170",
+            "watch171",
+            "watch172",
+            "watch173",
+            "watch174",
+            "watch175",
+            "watch176",
+            "watch177",
+            "watch178",
+            "watch179",
+            "watch180",
+            "watch181",
+            "watch182",
+            "watch183",
+            "watch184",
+            "watch185",
+            "watch186",
+            "watch187",
+            "watch188",
+            "watch189",
+            "watch190",
+            "watch191",
+            "watch192",
+            "watch193",
+            "watch194",
+            "watch195",
+            "watch196",
+            "watch197",
+            "watch198",
+            "watch199",
+            "watch200",
+            "watch201",
+            "watch202",
+            "watch203",
+            "watch204",
+            "watch205",
+            "watch206",
+            "watch207",
+            "watch208",
+            "watch209",
+            "watch210",
+            "watch211",
+            "watch212",
+            "watch213",
+            "watch214",
+            "watch215",
+            "watch216",
+            "watch217",
+            "watch218",
+            "watch219",
+            "watch220",
+            "watch221",
+            "watch222",
+            "watch223",
+            "watch224",
+            "watch225",
+            "watch226",
+            "watch227",
+            "watch228",
+            "watch229",
+            "watch230",
+            "watch231",
+            "watch232",
+            "watch233",
+            "watch234",
+            "watch235",
+            "watch236",
+            "watch237",
+            "watch238",
+            "watch239",
+            "watch240",
+            "watch241",
+            "watch242",
+            "watch243",
+            "watch244",
+            "watch245",
+            "watch246",
+            "watch247",
+            "watch248",
+            "watch249",
+            "watch250",
+            "watch251",
+            "watch252",
+            "watch253",
+            "watch254",
+            "watch255",
+            "watch256",
+            "watch257",
+            "watch258",
+            "watch259",
+            "watch260",
+            "watch261",
+            "watch262",
+            "watch263",
+            "watch264",
+            "watch265",
+            "watch266",
+            "watch267",
+            "watch268",
+            "watch269",
+            "watch270",
+            "watch271",
+            "watch272",
+            "watch273",
+            "watch274",
+            "watch275",
+            "watch276",
+            "watch277",
+            "watch278",
+            "watch279",
+            "watch280",
+            "watch281",
+            "watch282",
+            "watch283",
+            "watch284",
+            "watch285",
+            "watch286",
+            "watch287",
+            "watch288",
+            "watch289",
+            "watch290",
+            "watch291",
+            "watch292",
+            "watch293",
+            "watch294",
+            "watch295",
+            "watch296",
+            "watch297",
+            "watch298",
+            "watch299",
+            "watch300",
+            "watch301",
+            "watch302",
+            "watch303",
+            "watch304",
+            "watch305",
+            "watch306",
+            "watch307",
+            "watch308",
+            "watch309",
+            "watch310",
+            "watch311",
+            "watch312",
+            "watch313",
+            "watch314",
+            "watch315",
+            "watch316",
+            "watch317",
+            "watch318",
+            "watch319",
+            "watch320",
+            "watch321",
+            "watch322",
+            "watch323",
+            "watch324",
+            "watch325",
+            "watch326",
+            "watch327",
+            "watch328",
+            "watch329",
+            "watch330",
+            "watch331",
+            "watch332",
+            "watch333",
+            "watch334",
+            "watch335",
+            "watch336",
+            "watch337",
+            "watch338",
+            "watch339",
+            "watch340",
+            "watch341",
+            "watch342",
+            "watch343",
+            "watch344",
+            "watch345",
+            "watch346",
+            "watch347",
+            "watch348",
+            "watch349",
+            "watch350",
+            "watch351",
+            "watch352",
+            "watch353",
+            "watch354",
+            "watch355",
+            "watch356",
+            "watch357",
+            "watch358",
+            "watch359",
+            "watch360",
+            "watch361",
+            "watch362",
+            "watch363",
+            "watch364",
+            "watch365",
+            "watch366",
+            "watch367",
+            "watch368",
+            "watch369",
+            "watch370",
+            "watch371",
+            "watch372",
+            "watch373",
+            "watch374",
+            "watch375",
+            "watch376",
+            "watch377",
+            "watch378",
+            "watch379",
+            "watch380",
+            "watch381",
+            "watch382",
+            "watch383",
+            "watch384",
+            "watch385",
+            "watch386",
+            "watch387",
+            "watch388",
+            "watch389",
+            "watch390",
+            "watch391",
+            "watch392",
+            "watch393",
+            "watch394",
+            "watch395",
+            "watch396",
+            "watch397",
+            "watch398",
+            "watch399",
+            "watch400",
+            "watch401",
+            "watch402",
+            "watch403",
+            "watch404",
+            "watch405",
+            "watch406",
+            "watch407",
+            "watch408",
+            "watch409",
+            "watch410",
+            "watch411",
+            "watch412",
+            "watch413",
+            "watch414",
+            "watch415",
+            "watch416",
+            "watch417",
+            "watch418",
+            "watch419",
+            "watch420",
+            "watch421",
+            "watch422",
+            "watch423",
+            "watch424",
+            "watch425",
+            "watch426",
+            "watch427",
+            "watch428",
+            "watch429",
+            "watch430",
+            "watch431",
+            "watch432",
+            "watch433",
+            "watch434",
+            "watch435",
+            "watch436",
+            "watch437",
+            "watch438",
+            "watch439",
+            "watch440",
+            "watch441",
+            "watch442",
+            "watch443",
+            "watch444",
+            "watch445",
+            "watch446",
+            "watch447",
+            "watch448",
+            "watch449",
+            "watch450",
+            "watch451",
+            "watch452",
+            "watch453",
+            "watch454",
+            "watch455",
+            "watch456",
+            "watch457",
+            "watch458",
+            "watch459",
+            "watch460",
+            "watch461",
+            "watch462",
+            "watch463",
+            "watch464",
+            "watch465",
+            "watch466",
+            "watch467",
+            "watch468",
+            "watch469",
+            "watch470",
+            "watch471",
+            "watch472",
+            "watch473",
+            "watch474",
+            "watch475",
+            "watch476",
+            "watch477",
+            "watch478",
+            "watch479",
+            "watch480",
+            "watch481",
+            "watch482",
+            "watch483",
+            "watch484",
+            "watch485",
+            "watch486",
+            "watch487",
+            "watch488",
+            "watch489",
+            "watch490",
+            "watch491",
+            "watch492",
+            "watch493",
+            "watch494",
+            "watch495",
+            "watch496",
+            "watch497",
+            "watch498",
+            "watch499",
+            "watch500",
+            "watch501",
+            "watch502",
+            "watch503",
+            "watch504",
+            "watch505",
+            "watch506",
+            "watch507",
+            "watch508",
+            "watch509",
+            "watch510",
+            "watch511",
+            "watch512",
+            "watch513",
+            "watch514",
+            "watch515",
+            "watch516",
+            "watch517",
+            "watch518",
+            "watch519",
+            "watch520",
+            "watch521",
+            "watch522",
+            "watch523",
+            "watch524",
+            "watch525",
+            "watch526",
+            "watch527",
+            "watch528",
+            "watch529",
+            "watch530",
+            "watch531",
+            "watch532",
+            "watch533",
+            "watch534",
+            "watch535",
+            "watch536",
+            "watch537",
+            "watch538",
+            "watch539",
+            "watch540",
+            "watch541",
+            "watch542",
+            "watch543",
+            "watch544",
+            "watch545",
+            "watch546",
+            "watch547",
+            "watch548",
+            "watch549",
+            "watch550",
+            "watch551",
+            "watch552",
+            "watch553",
+            "watch554",
+            "watch555",
+            "watch556",
+            "watch557",
+            "watch558",
+            "watch559",
+            "watch560",
+            "watch561",
+            "watch562",
+            "watch563",
+            "watch564",
+            "watch565",
+            "watch566",
+            "watch567",
+            "watch568",
+            "watch569",
+            "watch570",
+            "watch571",
+            "watch572",
+            "watch573",
+            "watch574",
+            "watch575",
+            "watch576",
+            "watch577",
+            "watch578",
+            "watch579",
+            "watch580",
+            "watch581",
+            "watch582",
+            "watch583",
+            "watch584",
+            "watch585",
+            "watch586",
+            "watch587",
+            "watch588",
+            "watch589",
+            "watch590",
+            "watch591",
+            "watch592",
+            "watch593",
+            "watch594",
+            "watch595",
+            "watch596",
+            "watch597",
+            "watch598",
+            "watch599",
+            "watch600",
+            "watch601",
+            "watch602",
+            "watch603",
+            "watch604",
+            "watch605",
+            "watch606",
+            "watch607",
+            "watch608",
+            "watch609",
+            "watch610",
+            "watch611",
+            "watch612",
+            "watch613",
+            "watch614",
+            "watch615",
+            "watch616",
+            "watch617",
+            "watch618",
+            "watch619",
+            "watch620",
+            "watch621",
+            "watch622",
+            "watch623",
+            "watch624",
+            "watch625",
+            "watch626",
+            "watch627",
+            "watch628",
+            "watch629",
+            "watch630",
+            "watch631",
+            "watch632",
+            "watch633",
+            "watch634",
+            "watch635",
+            "watch636",
+            "watch637",
+            "watch638",
+            "watch639",
+            "watch640",
+            "watch641",
+            "watch642",
+            "watch643",
+            "watch644",
+            "watch645",
+            "watch646",
+            "watch647",
+            "watch648",
+            "watch649",
+            "watch650",
+            "watch651",
+            "watch652",
+            "watch653",
+            "watch654",
+            "watch655",
+            "watch656",
+            "watch657",
+            "watch658",
+            "watch659",
+            "watch660",
+            "watch661",
+            "watch662",
+            "watch663",
+            "watch664",
+            "watch665",
+            "watch666",
+            "watch667",
+            "watch668",
+            "watch669",
+            "watch670",
+            "watch671",
+            "watch672",
+            "watch673",
+            "watch674",
+            "watch675",
+            "watch676",
+            "watch677",
+            "watch678",
+            "watch679",
+            "watch680",
+            "watch681",
+            "watch682",
+            "watch683",
+            "watch684",
+            "watch685",
+            "watch686",
+            "watch687",
+            "watch688",
+            "watch689",
+            "watch690",
+            "watch691",
+            "watch692",
+            "watch693",
+            "watch694",
+            "watch695",
+            "watch696",
+            "watch697",
+            "watch698",
+            "watch699",
+            "watch700",
+            "watch701",
+            "watch702",
+            "watch703",
+            "watch704",
+            "watch705",
+            "watch706",
+            "watch707",
+            "watch708",
+            "watch709",
+            "watch710",
+            "watch711",
+            "watch712",
+            "watch713",
+            "watch714",
+            "watch715",
+            "watch716",
+            "watch717",
+            "watch718",
+            "watch719",
+            "watch720",
+            "watch721",
+            "watch722",
+            "watch723",
+            "watch724",
+            "watch725",
+            "watch726",
+            "watch727",
+            "watch728",
+            "watch729",
+            "watch730",
+            "watch731",
+            "watch732",
+            "watch733",
+            "watch734",
+            "watch735",
+            "watch736",
+            "watch737",
+            "watch738",
+            "watch739",
+            "watch740",
+            "watch741",
+            "watch742",
+            "watch743",
+            "watch744",
+            "watch745",
+            "watch746",
+            "watch747",
+            "watch748",
+            "watch749",
+            "watch750",
+            "watch751",
+            "watch752",
+            "watch753",
+            "watch754",
+            "watch755",
+            "watch756",
+            "watch757",
+            "watch758",
+            "watch759",
+            "watch760",
+            "watch761",
+            "watch762",
+            "watch763",
+            "watch764",
+            "watch765",
+            "watch766",
+            "watch767",
+            "watch768",
+            "watch769",
+            "watch770",
+            "watch771",
+            "watch772",
+            "watch773",
+            "watch774",
+            "watch775",
+            "watch776",
+            "watch777",
+            "watch778",
+            "watch779",
+            "watch780",
+            "watch781",
+            "watch782",
+            "watch783",
+            "watch784",
+            "watch785",
+            "watch786",
+            "watch787",
+            "watch788",
+            "watch789",
+            "watch790",
+            "watch791",
+            "watch792",
+            "watch793",
+            "watch794",
+            "watch795",
+            "watch796",
+            "watch797",
+            "watch798",
+            "watch799",
+            "watch800",
+            "watch801",
+            "watch802",
+            "watch803",
+            "watch804",
+            "watch805",
+            "watch806",
+            "watch807",
+            "watch808",
+            "watch809",
+            "watch810",
+            "watch811",
+            "watch812",
+            "watch813",
+            "watch814",
+            "watch815",
+            "watch816",
+            "watch817",
+            "watch818",
+            "watch819",
+            "watch820",
+            "watch821",
+            "watch822",
+            "watch823",
+            "watch824",
+            "watch825",
+            "watch826",
+            "watch827",
+            "watch828",
+            "watch829",
+            "watch830",
+            "watch831",
+            "watch832",
+            "watch833",
+            "watch834",
+            "watch835",
+            "watch836",
+            "watch837",
+            "watch838",
+            "watch839",
+            "watch840",
+            "watch841",
+            "watch842",
+            "watch843",
+            "watch844",
+            "watch845",
+            "watch846",
+            "watch847",
+            "watch848",
+            "watch849",
+            "watch850",
+            "watch851",
+            "watch852",
+            "watch853",
+            "watch854",
+            "watch855",
+            "watch856",
+            "watch857",
+            "watch858",
+            "watch859",
+            "watch860",
+            "watch861",
+            "watch862",
+            "watch863",
+            "watch864",
+            "watch865",
+            "watch866",
+            "watch867",
+            "watch868",
+            "watch869",
+            "watch870",
+            "watch871",
+            "watch872",
+            "watch873",
+            "watch874",
+            "watch875",
+            "watch876",
+            "watch877",
+            "watch878",
+            "watch879",
+            "watch880",
+            "watch881",
+            "watch882",
+            "watch883",
+            "watch884",
+            "watch885",
+            "watch886",
+            "watch887",
+            "watch888",
+            "watch889",
+            "watch890",
+            "watch891",
+            "watch892",
+            "watch893",
+            "watch894",
+            "watch895",
+            "watch896",
+            "watch897",
+            "watch898",
+            "watch899",
+            "watch900",
+            "watch901",
+            "watch902",
+            "watch903",
+            "watch904",
+            "watch905",
+            "watch906",
+            "watch907",
+            "watch908",
+            "watch909",
+            "watch910",
+            "watch911",
+            "watch912",
+            "watch913",
+            "watch914",
+            "watch915",
+            "watch916",
+            "watch917",
+            "watch918",
+            "watch919",
+            "watch920",
+            "watch921",
+            "watch922",
+            "watch923",
+            "watch924",
+            "watch925",
+            "watch926",
+            "watch927",
+            "watch928",
+            "watch929",
+            "watch930",
+            "watch931",
+            "watch932",
+            "watch933",
+            "watch934",
+            "watch935",
+            "watch936",
+            "watch937",
+            "watch938",
+            "watch939",
+            "watch940",
+            "watch941",
+            "watch942",
+            "watch943",
+            "watch944",
+            "watch945",
+            "watch946",
+            "watch947",
+            "watch948",
+            "watch949",
+            "watch950",
+            "watch951",
+            "watch952",
+            "watch953",
+            "watch954",
+            "watch955",
+            "watch956",
+            "watch957",
+            "watch958",
+            "watch959",
+            "watch960",
+            "watch961",
+            "watch962",
+            "watch963",
+            "watch964",
+            "watch965",
+            "watch966",
+            "watch967",
+            "watch968",
+            "watch969",
+            "watch970",
+            "watch971",
+            "watch972",
+            "watch973",
+            "watch974",
+            "watch975",
+            "watch976",
+            "watch977",
+            "watch978",
+            "watch979",
+            "watch980",
+            "watch981",
+            "watch982",
+            "watch983",
+            "watch984",
+            "watch985",
+            "watch986",
+            "watch987",
+            "watch988",
+            "watch989",
+            "watch990",
+            "watch991",
+            "watch992",
+            "watch993",
+            "watch994",
+            "watch995",
+            "watch996",
+            "watch997",
+            "watch998",
+            "watch999",
+            "watch1000",
+            "watch1001",
+            "watch1002",
+            "watch1003",
+            "watch1004",
+            "watch1005",
+            "watch1006",
+            "watch1007",
+            "watch1008",
+            "watch1009",
+            "watch1010",
+            "watch1011",
+            "watch1012",
+            "watch1013",
+            "watch1014",
+            "watch1015",
+            "watch1016",
+            "watch1017",
+            "watch1018",
+            "watch1019",
+            "watch1020",
+            "watch1021",
+            "watch1022",
+            "watch1023",
+            "watch1024"
+          ],
+          "expect_error": "Write field capacity exceeded"
+        },
+        {
+          "op": "dispatch",
+          "role": "personal",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "check": "rejected",
+      "kind": "safety-rejection",
+      "candidate_only": true
+    },
+    {
+      "id": "work-limit",
+      "source": "research/boundary_handoff/budget.lua",
+      "source_sha256": "aa7226164420b51bc6f33abebef7c6ada822269c3119b2bcd1cffa167d7a5bb8",
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"en\",\"x\":137}"
+      ],
+      "steps": [],
+      "check": "budget",
+      "kind": "safety-rejection",
+      "process_error": "Boundary work limit exceeded"
+    }
+  ],
+  "lua_source_manifest_sha256": "a33e8a3c98d2d219b66b5d34ceb2d851c72aa4033ce4a3b2c5f3fc2ddc53326e"
+}

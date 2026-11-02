@@ -1,0 +1,1 @@
+local flag=__tag(false,"input");local value=(flag and 3) or 7;return value

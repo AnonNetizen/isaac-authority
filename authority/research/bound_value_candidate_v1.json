@@ -1,0 +1,21 @@
+{
+  "schema": "bound-value-candidate-1",
+  "abi": "ia-lua533-bound-values-1",
+  "executable": "build-bound-value/Release/authority-bound-values.exe",
+  "executable_sha256": "894d20b075d3589d7dc1ea06182af81b6024137063008a2ba6561b0a99ea2aec",
+  "stock_verifier": "build-bound-value/Release/authority-verify-values.exe",
+  "stock_verifier_sha256": "b561738fee86913ddc7bb316f258c75106eff5fc755fa81aa0d7c9e763190cc5",
+  "verifier": "tools/verify_bound_values.py",
+  "suite": "research/bound_values_v2.json",
+  "results": "docs/BOUND_VALUE_RESULTS.md",
+  "work_limit": 10000000,
+  "child_timeout_seconds": 5,
+  "scope": "read-time observed frame scalar equality only",
+  "origins_verified": false,
+  "consumer_cache_enabled": false,
+  "authority_projection_passed": false,
+  "personal_draws_publishable": false,
+  "real_mod_initialization_verified": false,
+  "prior": "research/compact_read_candidate_v1.json",
+  "stable_baseline": "research/boundary_current.json"
+}

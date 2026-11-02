@@ -1,0 +1,2808 @@
+{
+  "schema": "frozen-modules-contract-1",
+  "work_limit": 10000000,
+  "timeout_seconds": 5,
+  "cases": [
+    {
+      "id": "cache-identity",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local a=require('lib.state');local b=require('lib.state');return rawequal(a,b),a.cfg.amount"
+        }
+      ],
+      "kind": "contract",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "integer",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "false-reexecutes",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local a=require('lib.false');local b=require('lib.false');return a,b,false_count"
+        }
+      ],
+      "kind": "contract",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": false
+        },
+        {
+          "type": "boolean",
+          "value": false
+        },
+        {
+          "type": "integer",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "nil-becomes-true",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local a=require('lib.nil');local b=require('lib.nil');return a,b,nil_count"
+        }
+      ],
+      "kind": "contract",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "integer",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "module-sets-loaded",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local a=require('lib.setloaded');return rawequal(a,package.loaded['lib.setloaded']),a.tag"
+        }
+      ],
+      "kind": "contract",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "string",
+          "hex": "6d616e75616c"
+        }
+      ]
+    },
+    {
+      "id": "loader-arguments",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local a=require('lib.args');return a.name,a.file"
+        }
+      ],
+      "kind": "contract",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "6c69622e61726773"
+        },
+        {
+          "type": "string",
+          "hex": "6d6f64732f666978747572652f6c69622f617267732e6c7561"
+        }
+      ]
+    },
+    {
+      "id": "require-first-return",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local a=require('lib.multi');return a,multi_count"
+        }
+      ],
+      "kind": "contract",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": false
+        },
+        {
+          "type": "integer",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "dofile-multi-return",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "return dofile('lib/multi.lua')"
+        }
+      ],
+      "kind": "contract",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": false
+        },
+        {
+          "type": "nil"
+        },
+        {
+          "type": "string",
+          "hex": "00ff"
+        }
+      ]
+    },
+    {
+      "id": "include-multi-return",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "return include('lib.multi')"
+        }
+      ],
+      "kind": "contract",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": false
+        },
+        {
+          "type": "nil"
+        },
+        {
+          "type": "string",
+          "hex": "00ff"
+        }
+      ]
+    },
+    {
+      "id": "include-without-cache",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "include('lib.multi');include('lib.multi');local a=require('lib.multi');return a,multi_count"
+        }
+      ],
+      "kind": "contract",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": false
+        },
+        {
+          "type": "integer",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "id": "utf8-bom",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "return require('lib.bom')"
+        }
+      ],
+      "kind": "contract",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "626f6d"
+        }
+      ]
+    },
+    {
+      "id": "ignored-source-header",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "return require('lib.header')"
+        }
+      ],
+      "kind": "contract",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "686561646572"
+        }
+      ]
+    },
+    {
+      "id": "header-without-newline",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "return include('lib.header_empty')"
+        }
+      ],
+      "kind": "contract",
+      "expected_values": []
+    },
+    {
+      "id": "explicit-dofile-root",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local a=dofile('mods/fixture/lib/args.lua');return a.name==nil,a.file==nil"
+        }
+      ],
+      "kind": "contract",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "missing-catchable",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local ok,e=pcall(require,'absent');return ok,type(e)=='string' and e:find('no file',1,true)~=nil,require('lib.state').cfg.amount"
+        }
+      ],
+      "kind": "contract",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": false
+        },
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "integer",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "empty-name-discovery",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local ok,e=pcall(require,'');local _,a=e:find(\"no file '\",1,true);local _,b=e:find(\"no file '\",a,true);local finish=e:find(\".lua'\",b,true);return ok,e:sub(b+1,finish-1)"
+        }
+      ],
+      "kind": "contract",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": false
+        },
+        {
+          "type": "string",
+          "hex": "6d6f64732f666978747572652f"
+        }
+      ]
+    },
+    {
+      "id": "syntax-retry",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local a=pcall(require,'lib.syntax');local b=pcall(require,'lib.syntax');return a,b,package.loaded['lib.syntax']==nil"
+        }
+      ],
+      "kind": "contract",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": false
+        },
+        {
+          "type": "boolean",
+          "value": false
+        },
+        {
+          "type": "boolean",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "error-object-identity",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local a,e=pcall(require,'lib.error');return a,rawequal(e,error_object),error_count,package.loaded['lib.error']==nil"
+        }
+      ],
+      "kind": "contract",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": false
+        },
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "integer",
+          "value": 1
+        },
+        {
+          "type": "boolean",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "retry-after-error",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local a=pcall(require,'lib.retry');local b=require('lib.retry');local c=require('lib.retry');return a,b.count,rawequal(b,c)"
+        }
+      ],
+      "kind": "contract",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": false
+        },
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "boolean",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "prepopulated-loaded",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "package.loaded['lib.false']=true;local a=require('lib.false');package.loaded['lib.false']=false;local b=require('lib.false');return a,b,false_count"
+        }
+      ],
+      "kind": "contract",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": false
+        },
+        {
+          "type": "integer",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "preload-contract",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "package.preload.fixture=function(n,d)preload_nil=d==nil;return {name=n}end;local a=require('fixture');return a.name,preload_nil,rawequal(a,require('fixture'))"
+        }
+      ],
+      "kind": "contract",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "66697874757265"
+        },
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "numeric-module-name",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "return require(12)"
+        }
+      ],
+      "kind": "contract",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "6e756d657269632d6e616d65"
+        }
+      ]
+    },
+    {
+      "id": "package-loaded-alias",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local old=package.loaded;package.loaded={};return rawequal(require('lib.state'),old['lib.state'])"
+        }
+      ],
+      "kind": "contract",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "caller-root-closure",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local f=dofile('mods/second/lib/function.lua');return f()"
+        }
+      ],
+      "kind": "contract",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "7365636f6e642d726f6f74"
+        }
+      ]
+    },
+    {
+      "id": "ascii-case-source",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local a=require('LIB.ARGS');return a.name,a.file"
+        }
+      ],
+      "kind": "contract",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "4c49422e41524753"
+        },
+        {
+          "type": "string",
+          "hex": "6d6f64732f666978747572652f6c69622f617267732e6c7561"
+        }
+      ]
+    },
+    {
+      "id": "resource-fallback",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "return require('lib.fallback')"
+        }
+      ],
+      "kind": "contract",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "7265736f757263652d736f75726365"
+        }
+      ]
+    },
+    {
+      "id": "no-native-searchers",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "return #package.searchers,package.loaded.os==nil,io==nil,debug==nil,load==nil,os.execute==nil"
+        }
+      ],
+      "kind": "contract",
+      "expected_values": [
+        {
+          "type": "integer",
+          "value": 2
+        },
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "private-config-closures",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {},
+          "role": "host"
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "draws",
+      "expected_draws": [
+        [
+          "module=1|en",
+          17
+        ],
+        [
+          "module=2|zh",
+          137
+        ]
+      ]
+    },
+    {
+      "id": "private-save-reload",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "move": true
+          }
+        },
+        {
+          "op": "reload_saved"
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        }
+      ],
+      "kind": "draws",
+      "expected_draws": [
+        [
+          "module=2|zh",
+          147
+        ],
+        [
+          "module=2|zh",
+          147
+        ]
+      ]
+    },
+    {
+      "id": "late-callback-load",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "late": true
+          }
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "late": true
+          }
+        }
+      ],
+      "kind": "draws",
+      "expected_draws": [
+        [
+          "late=2",
+          137
+        ],
+        [
+          "late=2",
+          137
+        ]
+      ]
+    },
+    {
+      "id": "cache-hit-stress",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "cache": true
+          }
+        }
+      ],
+      "kind": "cache-stress"
+    },
+    {
+      "id": "authority-module-once",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "dispatch",
+          "role": "host",
+          "event": 1,
+          "phase": "authority",
+          "input": {}
+        },
+        {
+          "op": "dispatch",
+          "role": "host",
+          "event": 1,
+          "phase": "authority",
+          "input": {}
+        }
+      ],
+      "kind": "authority"
+    },
+    {
+      "id": "rollback-fail",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "fail": true
+          },
+          "expect_error": "module-injected"
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "evaluate",
+          "code": "return ModuleFailureState==nil,package.loaded.uncommitted==nil,package.loaded['lib.fail']==nil"
+        }
+      ],
+      "kind": "rollback",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "rollback-escape",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "escape": true
+          },
+          "expect_error": "Frozen module path outside registered roots"
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "evaluate",
+          "code": "return ModuleFailureState==nil,package.loaded.uncommitted==nil,package.loaded['lib.fail']==nil"
+        }
+      ],
+      "kind": "rollback",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "rollback-native",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "native": true
+          },
+          "expect_error": "Native package capability unsupported"
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "evaluate",
+          "code": "return ModuleFailureState==nil,package.loaded.uncommitted==nil,package.loaded['lib.fail']==nil"
+        }
+      ],
+      "kind": "rollback",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "rollback-binary",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "binary": true
+          },
+          "expect_error": "Frozen binary module unsupported"
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "evaluate",
+          "code": "return ModuleFailureState==nil,package.loaded.uncommitted==nil,package.loaded['lib.fail']==nil"
+        }
+      ],
+      "kind": "rollback",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "rollback-random",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {
+            "random": true
+          },
+          "expect_error": "Random result has no proven authority reference"
+        },
+        {
+          "op": "capture_reads",
+          "event": 2,
+          "phase": "presentation",
+          "input": {}
+        },
+        {
+          "op": "evaluate",
+          "code": "return ModuleFailureState==nil,package.loaded.uncommitted==nil,package.loaded['lib.fail']==nil"
+        }
+      ],
+      "kind": "rollback",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "hash-mismatch",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "0000000000000000000000000000000000000000000000000000000000000000",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [],
+      "kind": "process-rejection",
+      "error": "Frozen module source hash mismatch"
+    },
+    {
+      "id": "root-outside",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "../outside",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [],
+      "kind": "process-rejection",
+      "error": "Frozen module path outside registered roots"
+    },
+    {
+      "id": "module-work-cap",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "return require('lib.busy')"
+        }
+      ],
+      "kind": "process-rejection",
+      "error": "Boundary work limit exceeded"
+    },
+    {
+      "id": "real-filepath-helper",
+      "source": "research/frozen_modules/main.lua",
+      "source_sha256": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/frozen_modules",
+            "display": "mods/fixture",
+            "sha256": {
+              "12.lua": "e0a903a1e663cad9d95f2c443c8c9a13df947d90cbc95b067b431d745901a643",
+              "main.lua": "8c8f2c2e4f3300ed715fde17899e4f11174ce4e7531106893a23f89842064853",
+              "lib/args.lua": "c84727b6e32ff99fa4aaab218be5a0489953590c025bbca796a367580b88ab96",
+              "lib/binary.lua": "152e0cedf76d9ae2da714113d53da8405f0479d5db4a328187f9d700a56fb09e",
+              "lib/bom.lua": "134bb4c3882df8b7b8c64c35ef56020a85a8d06cac79744543f05eb4a8256778",
+              "lib/busy.lua": "1cc76b32217646ac417c996d340710973bf20c54ef343164adbe58d1d57fbfea",
+              "lib/error.lua": "d2065e0e3e57e2abadf1ec5c90bbc80dd7ee5a8780180f5358a3812d9c5ba5ff",
+              "lib/fail.lua": "64a746177029a7c807953f38516adb7ad1368157d9fa298831c3f7c60f8f67b0",
+              "lib/false.lua": "af60073e3f65546d129992ced905ff974c72398f4a214edb48653c64f57cedec",
+              "lib/header.lua": "47cb5562ede49b65adecaf26e41d94c1fbc2315029123bc80447bab318df6ee4",
+              "lib/header_empty.lua": "86bb6f452c7e6f47cbd8bb0b19eb533f241a04dc38151aadb48ed8be3720d3f7",
+              "lib/late.lua": "d9f7ac7e1e23d236e5e8b43973be50bad96a6500a4791f34c85e1f61ef146f18",
+              "lib/multi.lua": "1cadf71cfc8d046de6079094206575cad915535f8eae6ee3936f7c58c8d74968",
+              "lib/nil.lua": "c86cc523cbc0206eaf6b4d13817cd778ca40c0b987dccede99a5470589b6dbac",
+              "lib/random.lua": "34a55642d2189d3e4f03aad8b2c3dc559aa40552fb37251cea05243022ea9026",
+              "lib/retry.lua": "3b05bb07fbea75317f7e4d46576bcd2ddc81875943c4a125f36a804bfe9d7c9f",
+              "lib/setloaded.lua": "fd5f424af24e84382a20191c64b4d8ed57c29a742459da4451cb72bb9cf600e9",
+              "lib/state.lua": "7ded747fb6b8d235377e9a87038319e2068437842d73a65d6a1c868ba4cb5ec2",
+              "lib/syntax.lua": "8dc8caf7571571ec108c3b0eb7d98055b27b1f5f214061a13d4a972139176c54",
+              "lib/world.lua": "f6d6dfeccf6aa23afe808517c1d5c41d9443d1ada9d9628c5893f13731f06390",
+              "resources/lib/fallback.lua": "c76a6c55560f5170633ce9df57b816958e4081f5d8b97340308bcf0bd1b81021"
+            }
+          },
+          {
+            "root": "research/frozen_modules/second",
+            "display": "mods/second",
+            "sha256": {
+              "main.lua": "4cd5907c75e4453e5cd894430f86aea4ccc5c44e4280fd0744b3ed331fe0ddf8",
+              "lib/function.lua": "0bbebc6ec81a807b8a1a58a5032cda21a34056fd73450f9df20138f96ac9e2de",
+              "private/second.lua": "52b817ce1c5dd3b9ff4e93f43cf8a41573e4e4e50d3674003cb2ef9850551b1d"
+            }
+          },
+          {
+            "root": "research/slice3_ui_inputs/mods/mod_config_menu_cn_2494192799",
+            "display": "mods/mod_config_menu_cn_2494192799",
+            "sha256": {
+              "main.lua": "f50703317053cf5e7e8b13639f48d66bd4559846d3f267ce778db5f0697cbbde",
+              "scripts/customcallbacks.lua": "4e10ddf8fcfa4c83551d629329165c6c8644bdbf1271231abbf9b05465c1e95c",
+              "scripts/filepathhelper.lua": "0d39e9ae976154a6f42bb6b257d4ccf05cbbc7dd84fa2b2cf31b47665b2b8f3a",
+              "scripts/inputhelper.lua": "9ba9c7cdfdaee96d5d75ca3929c7fe88d42b5cb637c9972eb99658669ae52858",
+              "scripts/modconfig.lua": "3ace42aed3a2a74fa6d8dbc1b225aa2470b6cbcd92204b800187811fe0ea37ce",
+              "scripts/modconfigoldcompatibility.lua": "79f3dcf78563b69619864089616b070126a04ae55b913a1ea08ac3c6008588e3",
+              "scripts/savehelper.lua": "345980c5ccca5a5e9d3ec9855b6e4a997edef0dc33d6424201919f8092f1096f",
+              "scripts/screenhelper.lua": "a08cd198e82bce9a711477e48d7a2ba8399689d058c89595c40a7bb576fd3584"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{\"amount\":1,\"language\":\"en\",\"x\":17}",
+        "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local helper=dofile('mods/mod_config_menu_cn_2494192799/scripts/filepathhelper.lua');return helper.GetCurrentModPath()"
+        }
+      ],
+      "kind": "contract",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "6d6f64732f6d6f645f636f6e6669675f6d656e755f636e5f323439343139323739392f"
+        }
+      ]
+    }
+  ]
+}

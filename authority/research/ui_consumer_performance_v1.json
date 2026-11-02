@@ -1,0 +1,365 @@
+{
+  "mode": "ui-execution-audit",
+  "schema": "consumer-performance-frozen-1",
+  "work_limit": 10000000,
+  "case_timeout_seconds": 5,
+  "batch_timeout_seconds": 20,
+  "cases": [
+    {
+      "id": "consumer-repeated-expression",
+      "kind": "functional",
+      "configuration": {
+        "amount": 2,
+        "x": 137
+      },
+      "chunks": [
+        {
+          "file": "research/consumer_fixtures/repeated_expression.lua",
+          "sha256": "296f61288c3af50eac8b97029f4bd198ffcbf5b5b3236e1b298222aa2f1d8955",
+          "consumer_steps": [
+            {
+              "action": "bind",
+              "index": 0,
+              "evidence": {
+                "value": 1,
+                "authority_value_id": 701,
+                "authority_owner_version": 1
+              }
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            },
+            {
+              "action": "resolve",
+              "index": 1,
+              "expected_view": 13
+            },
+            {
+              "action": "resolve",
+              "index": 2,
+              "expected_view": "amount=13"
+            }
+          ]
+        }
+      ],
+      "audit_disk_limit": 16777216,
+      "verify_full_origins": true,
+      "expected": [
+        [
+          2,
+          14,
+          {
+            "text_hex": "616d6f756e743d3134"
+          }
+        ]
+      ]
+    }
+  ]
+}

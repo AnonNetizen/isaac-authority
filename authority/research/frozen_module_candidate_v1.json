@@ -1,0 +1,20 @@
+{
+  "schema": "frozen-module-candidate-1",
+  "abi": "ia-lua533-frozen-modules-1",
+  "gate_passed": false,
+  "executable": "build-frozen-module/Release/authority-modules.exe",
+  "executable_sha256": "69617bc1620da15bb893a8dcc50d190e0f43d27a38cde44d7d7c024e36711b31",
+  "reference": "build-frozen-module/Release/authority-modules-reference.exe",
+  "reference_sha256": "3e35ef31ef6a23dbcd69cc922183d84653906eb0b1b0f8f0128a452cff97bcf0",
+  "verifier": "tools/verify_frozen_modules.py",
+  "suite": "research/frozen_modules_v3.json",
+  "real_suite": "research/frozen_modules_real_v1.json",
+  "results": "docs/FROZEN_MODULE_RESULTS.md",
+  "work_limit": 10000000,
+  "child_timeout_seconds": 5,
+  "real_helper_functional_failures": 1,
+  "real_mod_initialization_passed": false,
+  "authority_projection_passed": false,
+  "consumer_cache_enabled": false,
+  "prior": "research/compact_value_candidate_v1.json"
+}

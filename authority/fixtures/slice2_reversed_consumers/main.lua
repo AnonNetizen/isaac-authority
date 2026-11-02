@@ -1,0 +1,10 @@
+local mod=RegisterMod('Slice2 Reversed Consumers',1)
+mod:AddCallback(2,function()
+    local first=math.random(1,3)
+    local second=math.random(4,6)
+    if Options.Language=='en' then second=first end
+    local p=Isaac.GetPlayer(0)
+    p:AddCoins(second)
+    p:AddCoins(first)
+    Isaac.RenderText('first='..first..'|second='..second,124,10,1,1,1,1)
+end)

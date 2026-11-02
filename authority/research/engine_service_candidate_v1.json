@@ -1,0 +1,23 @@
+{
+  "schema": "engine-service-candidate-1",
+  "abi": "ia-lua533-engine-services-2",
+  "gate_passed": false,
+  "model_contracts_passed": true,
+  "real_mod_initialization_passed": false,
+  "authority_projection_passed": false,
+  "executable": "build-engine-services/Release/authority-services.exe",
+  "executable_sha256": "7d5e4c68cba5760b8bea26761e9acd2d785b6bc1961a6593228f0d662bd76560",
+  "reference": "build-engine-services/Release/authority-services-reference.exe",
+  "reference_sha256": "d90b770efebeb63ca33d0ef494f054c0b35c647527dd23d3fc86149145ae00a7",
+  "suite": "research/engine_services_v3.json",
+  "real_suite": "research/engine_services_real_v1.json",
+  "verifier": "tools/verify_engine_services.py",
+  "results": "docs/ENGINE_SERVICES_RESULTS.md",
+  "work_limit": 10000000,
+  "child_timeout_seconds": 5,
+  "process_private_limit_bytes": 1073741824,
+  "consumer_cache_enabled": false,
+  "item_config_coverage": "partial",
+  "current_native_state_verified": false,
+  "prior": "research/value_object_candidate_v1.json"
+}

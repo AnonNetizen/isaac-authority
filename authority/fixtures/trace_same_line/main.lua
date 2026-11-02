@@ -1,0 +1,7 @@
+local mod=RegisterMod('Trace Same Line Fixture',1)
+mod:AddCallback(2,function()
+    if Options.Language=='zh' then math.random(1,99) end; local award=math.random(1,99)
+    local p=Isaac.GetPlayer(0)
+    p:AddCoins(award)
+    Isaac.RenderText('award='..award..'|coins='..p:GetNumCoins(),10,10,1,1,1,1)
+end)

@@ -1,0 +1,123 @@
+{
+  "schema": "isaac-slice3-ui-contract-map-1",
+  "public_api_reference": "https://github.com/Zamiell/isaac-mod-config-menu/blob/main/docs/api.md",
+  "execution_authority": "frozen local source",
+  "contracts": [
+    {
+      "name": "AddSetting",
+      "file": "mods/mod_config_menu_cn_2494192799/scripts/modconfig.lua",
+      "source_sha256": "3ace42aed3a2a74fa6d8dbc1b225aa2470b6cbcd92204b800187811fe0ea37ce",
+      "lines_for_diagnosis": [
+        836,
+        884
+      ],
+      "arguments": [
+        "category,setting",
+        "category,subcategory_or_nil,setting"
+      ],
+      "timing_from_frozen_source": "registration; preserves the input table; nil becomes Uncategorized",
+      "dynamic_validation_scope": "direct registration tested in reference; candidate blocked before initialization"
+    },
+    {
+      "name": "CurrentSetting",
+      "file": "mods/mod_config_menu_cn_2494192799/scripts/modconfig.lua",
+      "source_sha256": "3ace42aed3a2a74fa6d8dbc1b225aa2470b6cbcd92204b800187811fe0ea37ce",
+      "lines_for_diagnosis": [
+        2351,
+        2374,
+        2491,
+        2500,
+        2577,
+        2619
+      ],
+      "arguments": [],
+      "timing_from_frozen_source": "input processing reads function result or scalar setting",
+      "dynamic_validation_scope": "direct callback false/result tested; actual input timing not executed"
+    },
+    {
+      "name": "OnChange",
+      "file": "mods/mod_config_menu_cn_2494192799/scripts/modconfig.lua",
+      "source_sha256": "3ace42aed3a2a74fa6d8dbc1b225aa2470b6cbcd92204b800187811fe0ea37ce",
+      "lines_for_diagnosis": [
+        2415,
+        2546,
+        2590,
+        2628
+      ],
+      "arguments": [
+        "newValue"
+      ],
+      "timing_from_frozen_source": "input change; return does not replace the setting contract",
+      "dynamic_validation_scope": "direct argument/result tested; actual input timing not executed"
+    },
+    {
+      "name": "Display/DisplayTranslate",
+      "file": "mods/mod_config_menu_cn_2494192799/scripts/modconfig.lua",
+      "source_sha256": "3ace42aed3a2a74fa6d8dbc1b225aa2470b6cbcd92204b800187811fe0ea37ce",
+      "lines_for_diagnosis": [
+        3221,
+        3236,
+        3272
+      ],
+      "arguments": [
+        "cursorIsAtThisOption",
+        "configMenuInOptions",
+        "lastOptionPos"
+      ],
+      "timing_from_frozen_source": "PostRender selects DisplayTranslate or Display and consumes result",
+      "dynamic_validation_scope": "Display arguments tested directly; framework dispatch and translated consumption unverified"
+    },
+    {
+      "name": "Info/InfoTranslate",
+      "file": "mods/mod_config_menu_cn_2494192799/scripts/modconfig.lua",
+      "source_sha256": "3ace42aed3a2a74fa6d8dbc1b225aa2470b6cbcd92204b800187811fe0ea37ce",
+      "lines_for_diagnosis": [
+        1954,
+        1959,
+        3395,
+        3401,
+        3406,
+        3420
+      ],
+      "arguments": [],
+      "timing_from_frozen_source": "selected option/subcategory/category InfoTranslate or Info; function called without arguments by ConvertDisplayToTextTable",
+      "dynamic_validation_scope": "static contract only; runtime drawing unverified"
+    },
+    {
+      "name": "Translation setters",
+      "file": "mods/mod_config_menu_cn_2494192799/scripts/modconfig.lua",
+      "source_sha256": "3ace42aed3a2a74fa6d8dbc1b225aa2470b6cbcd92204b800187811fe0ea37ce",
+      "lines_for_diagnosis": [
+        3931,
+        3944,
+        3957,
+        3970
+      ],
+      "arguments": [
+        "category",
+        "subcategory where applicable",
+        "translated data"
+      ],
+      "timing_from_frozen_source": "registration modifies shared menu data",
+      "dynamic_validation_scope": "static contract only; UI consumption unverified"
+    }
+  ],
+  "eid_menu": {
+    "file": "mods/external item descriptions_836319872/features/eid_mcm.lua",
+    "source_sha256": "f227eb04ef56d07c7b92c56ecbd0d42c1626101909064d7b9629c9d6383e2832",
+    "callbacks_executed": false,
+    "reference_module_initialization_tested": true
+  },
+  "j460_legacy_font_wrapper": {
+    "file": "resources/scripts/main.lua",
+    "source_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+    "lines_for_diagnosis": [
+      305,
+      350
+    ],
+    "legacy_kcolor_conversion_verified_from_source": true,
+    "captured_draws_tested": false
+  },
+  "line_numbers_are_semantic_matching_evidence": false,
+  "full_real_menu_contract_gate_passed": false
+}

@@ -1,0 +1,6 @@
+NativeMod=RegisterMod('Native Scalar Fixture',1)
+NativeMod:AddCallback(458,function()
+    local text=string.format('value:%d',ValuesConfig.amount)
+    local first,last=string.find(text,'%d+')
+    Isaac.RenderText(text..'|'..first..':'..last,ValuesConfig.x,0)
+end)

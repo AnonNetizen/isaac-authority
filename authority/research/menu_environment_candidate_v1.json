@@ -1,0 +1,26 @@
+{
+  "schema": "menu-environment-candidate-1",
+  "abi": "ia-lua533-menu-environment-1",
+  "parent": "research/ui_flow_candidate_v1.json",
+  "entry": "build-menu-environment/Release/authority-menu-environment.exe",
+  "cli": "--menu-environment-suite ROOT MANIFEST CASE boundary|reference",
+  "manifests": [
+    "research/menu_environment_v3.json",
+    "research/menu_environment_edges_v2.json",
+    "research/menu_environment_real_v3.json"
+  ],
+  "policy": "personal-settings-authority-hud-v1",
+  "work_limit": 10000000,
+  "child_timeout_seconds": 5,
+  "private_memory_limit_bytes": 1073741824,
+  "source_modification_required": false,
+  "frozen_source_is_pre_experiment_backup": true,
+  "upstream_distribution_proven": false,
+  "scene_has_nonempty_pickup": true,
+  "native_environment_equivalence_verified": false,
+  "authority_projection_passed": false,
+  "full_ui_gate_passed": false,
+  "game_attach_supported": false,
+  "playable": false,
+  "results": "docs/MENU_ENVIRONMENT_RESULTS.md"
+}

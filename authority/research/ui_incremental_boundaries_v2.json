@@ -1,0 +1,21 @@
+{
+  "schema": "isaac-incremental-boundaries-1",
+  "work_limit": 5000000,
+  "logical_walk_limit": 16384,
+  "depth_limit": 24,
+  "cases": [
+    {
+      "id": "depth",
+      "source_sha256": "8ac3e0c37f32c96cf0cf00249c53ff3b2452195ba023f401a4e544090aa803ab",
+      "expected_refusal": "Trace marking budget exceeded",
+      "program": "root={value=1};__mark_root();local leaf=root;for i=1,24 do root={next=root} end;__mark_root();return leaf.value"
+    },
+    {
+      "id": "walk",
+      "source_sha256": "6355780ad51997f2432742c953de565838ebe05fa4c6faa9ea7043643bbd7314",
+      "expected_refusal": "Trace marking budget exceeded",
+      "program": "local a,b={},{};for i=1,8192 do a[i]=i;b[i]=i end;root={left=a,right=b};__mark_left();__mark_right();__mark_root();return a[1]"
+    }
+  ],
+  "revision_note": "8200 elements allocate 16384 array slots and cannot complete the first leaf proof. Freeze 8192 elements instead: each leaf has 8193 logical visits, while the combined root has 16387. Original failed harness runs retained."
+}

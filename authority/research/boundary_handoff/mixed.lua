@@ -1,0 +1,10 @@
+local mod = RegisterMod('Unproven Mixed Use', 1)
+local reward = 0
+local player = Isaac.GetPlayer(0)
+mod:AddCallback(1, function()
+    reward = math.random(1,3)
+    player:AddCoins(reward)
+end)
+mod:AddCallback(2, function()
+    Isaac.RenderText('reward=' .. reward, 1, 0)
+end)

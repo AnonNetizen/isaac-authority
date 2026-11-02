@@ -1,0 +1,604 @@
+{
+  "schema": 1,
+  "native_compatibility_requires_live_preflight": true,
+  "resources": [
+    {
+      "kind": "sprite",
+      "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/menu.anm2",
+      "aliases": [
+        "gfx/ui/modconfig/menu.anm2"
+      ],
+      "default_animation": "Idle",
+      "animations": {
+        "Idle": 1,
+        "Cursor": 5,
+        "Slider1": 11,
+        "Slider2": 11,
+        "Popup": 1,
+        "Offset": 4,
+        "Strikeout": 200,
+        "BackSelect": 4,
+        "Divider": 1,
+        "IdleOverlay": 1
+      },
+      "declared_frames": {
+        "Idle": 1,
+        "Cursor": 1,
+        "Slider1": 11,
+        "Slider2": 11,
+        "Popup": 1,
+        "Offset": 1,
+        "Strikeout": 200,
+        "BackSelect": 1,
+        "Divider": 1,
+        "IdleOverlay": 1
+      },
+      "files": [
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/menu.anm2",
+          "sha256": "d59b42706ddc939c477808bdc790962ed3c5cb28ed07754fd45d62968dbed810"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/menu.png",
+          "sha256": "a7ac34f24aea4746b03c1bcdb780c16746ea53abc3ed780bbbf474cb7a0c816d"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/popup_thin_small.png",
+          "sha256": "705610fa091515c694c70f65f060fdd4e75d1dca6516ad4840edfe021dd19596"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/backselect.png",
+          "sha256": "a9afc2d09cbb7c2ad89d51908d4c2910c3ddd326715a7b8daabf14a053fd3464"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/black.png",
+          "sha256": "af7822aea330f0c3a4943197f93963f9d0710efeceb07d5f087f960be0e33ea6"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/arrows.png",
+          "sha256": "d12ba4cbcccdd95c2935cfdbb5b0cce5c59d4280f590123e1b20287e17183662"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/slider.png",
+          "sha256": "bc6d3ef01316a3e6afae1cc1452e523ebc878130a445801284ebb121ebed27ee"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/offset.png",
+          "sha256": "e9db3f27b501008688639e23c7d0860b72a6f1822a2dceceb5064546425640a4"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/strike.png",
+          "sha256": "722adbe802b5bec4a4bbf4dfccc8c97f310304035ee984dc704ae1007f8f4a20"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/menu_overlay.png",
+          "sha256": "2c64312093186b70ea331563b96e4327d6863211893aedab8f815d7be927bc53"
+        }
+      ]
+    },
+    {
+      "kind": "sprite",
+      "path": "mods/external item descriptions_836319872/resources/gfx/eid_transform_icons.anm2",
+      "aliases": [
+        "gfx/eid_transform_icons.anm2"
+      ],
+      "default_animation": "active",
+      "animations": {
+        "active": 1,
+        "familiar": 1,
+        "Transformation1": 1,
+        "Transformation2": 1,
+        "Transformation3": 1,
+        "Transformation4": 1,
+        "Transformation5": 1,
+        "Transformation6": 1,
+        "Transformation7": 1,
+        "Transformation8": 1,
+        "Transformation9": 1,
+        "Transformation10": 1,
+        "Transformation11": 1,
+        "Transformation12": 1,
+        "Transformation13": 1,
+        "Transformation14": 1,
+        "Transformation15": 1,
+        "Transformation16": 1,
+        "CurseOfBlind": 1,
+        "Arrow": 48,
+        "TransformationCustom": 1,
+        "boundingBox": 1,
+        "Cursor": 2
+      },
+      "declared_frames": {
+        "active": 1,
+        "familiar": 1,
+        "Transformation1": 1,
+        "Transformation2": 1,
+        "Transformation3": 1,
+        "Transformation4": 1,
+        "Transformation5": 1,
+        "Transformation6": 1,
+        "Transformation7": 1,
+        "Transformation8": 1,
+        "Transformation9": 1,
+        "Transformation10": 1,
+        "Transformation11": 1,
+        "Transformation12": 1,
+        "Transformation13": 1,
+        "Transformation14": 1,
+        "Transformation15": 1,
+        "Transformation16": 1,
+        "CurseOfBlind": 1,
+        "Arrow": 48,
+        "TransformationCustom": 1,
+        "boundingBox": 1,
+        "Cursor": 2
+      },
+      "files": [
+        {
+          "path": "mods/external item descriptions_836319872/resources/gfx/eid_transform_icons.anm2",
+          "sha256": "804a11eaeb1602387849f76981e5ee6f4cb4d1a322a304f6d72db2f6ed7e4fb7"
+        },
+        {
+          "path": "mods/external item descriptions_836319872/resources/gfx/eid_transform_icons.png",
+          "sha256": "5d2816bfe172c50382d2531cced428aea76474ae8cc68911abd09af0563bb8c0"
+        }
+      ]
+    },
+    {
+      "kind": "sprite",
+      "path": "mods/external item descriptions_836319872/resources/gfx/eid_inline_icons.anm2",
+      "aliases": [
+        "gfx/eid_inline_icons.anm2"
+      ],
+      "default_animation": "ERROR",
+      "animations": {
+        "numbers": 14,
+        "ERROR": 1,
+        "hearts": 25,
+        "ArrowUp": 1,
+        "ArrowDown": 1,
+        "Warning": 1,
+        "ArrowGray": 4,
+        "pickups": 15,
+        "roomicons": 37,
+        "Collectible": 1,
+        "Trinket": 1,
+        "roomshape": 13,
+        "ItemIcon": 1,
+        "Blank": 1,
+        "Behavior": 2,
+        "Crafting": 31,
+        "Quality": 5,
+        "XboxOne": 30,
+        "Stats": 42,
+        "StatusEffects": 18,
+        "Curses": 16,
+        "Misc": 21,
+        "Chests": 11,
+        "Beggars": 6,
+        "machines": 9,
+        "Boss": 22,
+        "PoopSpells": 12,
+        "ItemPools": 31,
+        "ArrowUpDown": 1,
+        "Wisps": 5,
+        "Poop": 7,
+        "DiceFaces": 6
+      },
+      "declared_frames": {
+        "numbers": 14,
+        "ERROR": 1,
+        "hearts": 20,
+        "ArrowUp": 1,
+        "ArrowDown": 1,
+        "Warning": 1,
+        "ArrowGray": 4,
+        "pickups": 11,
+        "roomicons": 31,
+        "Collectible": 1,
+        "Trinket": 1,
+        "roomshape": 12,
+        "ItemIcon": 1,
+        "Blank": 1,
+        "Behavior": 1,
+        "Crafting": 27,
+        "Quality": 5,
+        "XboxOne": 30,
+        "Stats": 42,
+        "StatusEffects": 14,
+        "Curses": 1,
+        "Misc": 1,
+        "Chests": 1,
+        "Beggars": 1,
+        "machines": 1,
+        "Boss": 1,
+        "PoopSpells": 1,
+        "ItemPools": 31,
+        "ArrowUpDown": 1,
+        "Wisps": 1,
+        "Poop": 1,
+        "DiceFaces": 6
+      },
+      "files": [
+        {
+          "path": "mods/external item descriptions_836319872/resources/gfx/eid_inline_icons.anm2",
+          "sha256": "90391550d64c406a5730934d2e9186d6a0f53f1c537e34c8bddaeb0a893fd105"
+        },
+        {
+          "path": "mods/external item descriptions_836319872/resources/gfx/eid_inline_icons.png",
+          "sha256": "45999e3a87d39d56cb2731c6028ed63f94b0e49b77c7082e72a6a7d374200f8c"
+        }
+      ]
+    },
+    {
+      "kind": "sprite",
+      "path": "mods/external item descriptions_836319872/resources/gfx/eid_cardspills.anm2",
+      "aliases": [
+        "gfx/eid_cardspills.anm2"
+      ],
+      "default_animation": "Cards",
+      "animations": {
+        "Pills": 14,
+        "Cards": 97
+      },
+      "declared_frames": {
+        "Pills": 14,
+        "Cards": 97
+      },
+      "files": [
+        {
+          "path": "mods/external item descriptions_836319872/resources/gfx/eid_cardspills.anm2",
+          "sha256": "961e3aa0412a5fbc6add76a2762482b9c4888723ef5e31706dd07d73d151d69d"
+        },
+        {
+          "path": "mods/external item descriptions_836319872/resources/gfx/eid_cardspills.png",
+          "sha256": "f2911e044b6480a59a54457910475f31ad5719434488c578bae383f45d9fe593"
+        }
+      ]
+    },
+    {
+      "kind": "sprite",
+      "path": "mods/external item descriptions_836319872/resources/gfx/eid_player_icons.anm2",
+      "aliases": [
+        "gfx/eid_player_icons.anm2"
+      ],
+      "default_animation": "Players",
+      "animations": {
+        "Players": 60
+      },
+      "declared_frames": {
+        "Players": 60
+      },
+      "files": [
+        {
+          "path": "mods/external item descriptions_836319872/resources/gfx/eid_player_icons.anm2",
+          "sha256": "9d1b2eaf3865bfc65789eb77aabc47df531e5ebae26bcdc70fcde1a6709d370a"
+        },
+        {
+          "path": "mods/external item descriptions_836319872/resources/gfx/eid_player_icons.png",
+          "sha256": "a431402d2c9966b7a969cbf22b16c8982f1270e7ae9a22a5660d455fc7498338"
+        }
+      ]
+    },
+    {
+      "kind": "font",
+      "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/fusion-pixel-font/10.fnt",
+      "aliases": [
+        "mcm_cn_font/fusion-pixel-font/10.fnt"
+      ],
+      "default_animation": "",
+      "animations": {},
+      "declared_frames": {},
+      "files": [
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/fusion-pixel-font/10.fnt",
+          "sha256": "f1e33d209761d68769a521abe3c64691ee324fcdeaae2398dbf49395f92f143f"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/fusion-pixel-font/10_0.png",
+          "sha256": "c4478472312564d31a5347158b317d34f1c9fd45933b2b1d1d19a498ec17fce1"
+        }
+      ]
+    },
+    {
+      "kind": "font",
+      "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/fusion-pixel-font/12.fnt",
+      "aliases": [
+        "mcm_cn_font/fusion-pixel-font/12.fnt"
+      ],
+      "default_animation": "",
+      "animations": {},
+      "declared_frames": {},
+      "files": [
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/fusion-pixel-font/12.fnt",
+          "sha256": "9b1b92d7a7015061fe0d865c0dcdedff89063ad64361a445fcd6da4405716a24"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/fusion-pixel-font/12_0.png",
+          "sha256": "6a4134eeb3260e3be6eadd6fcc3eba9ca6806cc392297cf087ffb88dcab61cd7"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/fusion-pixel-font/12_1.png",
+          "sha256": "d50d4e915ceef3fd34b64c7dc8977b0bb95985be44925a779c2f9c833cb17aa2"
+        }
+      ]
+    },
+    {
+      "kind": "font",
+      "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/12.fnt",
+      "aliases": [
+        "mcm_cn_font/kaiti/12.fnt"
+      ],
+      "default_animation": "",
+      "animations": {},
+      "declared_frames": {},
+      "files": [
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/12.fnt",
+          "sha256": "659b630043d55794e5ce0ad7cdc2e899a36dcddcf796e36874f92cbfa7495b6c"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/12_0.png",
+          "sha256": "2506c3bf9de0a711fc7de9741d0000ed176e8db7b733ce477f224bbe9b53fb97"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/12_1.png",
+          "sha256": "4d7002677a7a323110ab0126f46349a8f7c470f4ee8b36ef3d2856e8368e138f"
+        }
+      ]
+    },
+    {
+      "kind": "font",
+      "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/14.fnt",
+      "aliases": [
+        "mcm_cn_font/kaiti/14.fnt"
+      ],
+      "default_animation": "",
+      "animations": {},
+      "declared_frames": {},
+      "files": [
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/14.fnt",
+          "sha256": "0d32148f1faa25da1ea7341edecaecd6948354474a495fc4002d8694c925fd9d"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/14_0.png",
+          "sha256": "102835d38f4c92f0d004aefa00a0aa60fa047907638a11fdbb389431e828ad16"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/14_1.png",
+          "sha256": "d711c2af08c902d9d97af33e4f3ff128e6eec65d4f15c0349174356a3c4db39c"
+        }
+      ]
+    },
+    {
+      "kind": "font",
+      "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/16.fnt",
+      "aliases": [
+        "mcm_cn_font/kaiti/16.fnt"
+      ],
+      "default_animation": "",
+      "animations": {},
+      "declared_frames": {},
+      "files": [
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/16.fnt",
+          "sha256": "d3c6663ac0384cada0644758807f0391dd87a50a65eaebf145440378c205447f"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/16_0.png",
+          "sha256": "414cef61aed045491c6863e027e8a62120bfba53fa3517998c4c554277c5abde"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/16_1.png",
+          "sha256": "17ba3c0733b9a177ba08aab0ea4e2badd37bc4889f9d48540ef677f56662239a"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/kaiti/16_2.png",
+          "sha256": "002b4c9b0bf7f3e928c2ce667fc72039a9efc3f7a1d167bdb39890efd077b38c"
+        }
+      ]
+    },
+    {
+      "kind": "font",
+      "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/pftempestasevencondensed.fnt",
+      "aliases": [
+        "mcm_cn_font/pftempestasevencondensed.fnt"
+      ],
+      "default_animation": "",
+      "animations": {},
+      "declared_frames": {},
+      "files": [
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/pftempestasevencondensed.fnt",
+          "sha256": "b9bf9e034fbfee0f7bdd3f6de9d8671d9fbd971e6cc0bc5c31341110f871e3c7"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/pftempestasevencondensed_0.png",
+          "sha256": "b541ee3d5b2e2d5369985da9e751ed9377a7e81fd6f80ad182692d7294e79f6c"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/pftempestasevencondensed-0.png",
+          "sha256": "d2b80df049d9014734b2712f6ce5b31bdc1135aacfe0bd687292c3a8002e9bf7"
+        }
+      ]
+    },
+    {
+      "kind": "font",
+      "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/12.fnt",
+      "aliases": [
+        "mcm_cn_font/songti/12.fnt"
+      ],
+      "default_animation": "",
+      "animations": {},
+      "declared_frames": {},
+      "files": [
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/12.fnt",
+          "sha256": "0f111f77a0d5f68f04f4cc72ef7757b49b1a3abba3aa208f6b2d6a49f3810c1b"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/12_0.png",
+          "sha256": "312f0d0bf07e656bb26798bec2a42a5882285b1c345c7c17294f37f603eb93a6"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/12_1.png",
+          "sha256": "8e8b6330b2ff0ff531cbc46cce9e73ca88b357d1f513f66ba170d664dbbfe76d"
+        }
+      ]
+    },
+    {
+      "kind": "font",
+      "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/14.fnt",
+      "aliases": [
+        "mcm_cn_font/songti/14.fnt"
+      ],
+      "default_animation": "",
+      "animations": {},
+      "declared_frames": {},
+      "files": [
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/14.fnt",
+          "sha256": "e0be285dc6d96065100d0973051f02a7a2e3734b8aa05e5eea62ad3d69d81bb0"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/14_0.png",
+          "sha256": "2689d893085ba08b7c70a95ab042eadfb0a30bb06579eeaa0f5ac3fb6e7c0746"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/14_1.png",
+          "sha256": "aff7c479dbaef4b95f3877f33b92f1060c76f3566ff28d7348e12083bf2a754c"
+        }
+      ]
+    },
+    {
+      "kind": "font",
+      "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/16.fnt",
+      "aliases": [
+        "mcm_cn_font/songti/16.fnt"
+      ],
+      "default_animation": "",
+      "animations": {},
+      "declared_frames": {},
+      "files": [
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/16.fnt",
+          "sha256": "2d28b5649b9ed13b536dc5961a212306e61868180a88645fe066e7dc8e60d4bc"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/16_0.png",
+          "sha256": "9f7fc85549cc8cebd3412f56303c6760010b12e78a3333fbb328eef02cf3a758"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/16_1.png",
+          "sha256": "ffa8fbc24060d73cd1f13a136e163448ea6f638b26dc932889efce63ffdcdd32"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/songti/16_2.png",
+          "sha256": "338f78cdfc48e487b0ff6279af9d29e10e533f330270990de2a80d3724e3b26f"
+        }
+      ]
+    },
+    {
+      "kind": "font",
+      "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont10.fnt",
+      "aliases": [
+        "mcm_cn_font/teammeatfont10.fnt"
+      ],
+      "default_animation": "",
+      "animations": {},
+      "declared_frames": {},
+      "files": [
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont10.fnt",
+          "sha256": "a67e74b625900b897db63f4d1900c4951b5dfb62d7fa4f35b6beb98b0080dd83"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont10_0.png",
+          "sha256": "d29900a0385549e53164bf56ab0a197147aa3e3469d31631cec428a565e9516f"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont10-0.png",
+          "sha256": "750c7efcbbb7940ebcbd5264247b30729b6b26ffba84f501a84152ad0a66fe76"
+        }
+      ]
+    },
+    {
+      "kind": "font",
+      "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont12.fnt",
+      "aliases": [
+        "mcm_cn_font/teammeatfont12.fnt"
+      ],
+      "default_animation": "",
+      "animations": {},
+      "declared_frames": {},
+      "files": [
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont12.fnt",
+          "sha256": "270510e2d31598f506a5f8cefd80459b78e618a5fea2fd4798519bd757b3e2c4"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont12_0.png",
+          "sha256": "b91ed914e396e9446a94afbfd8b142bba5bf1d767da3b84bedc6d0a58dc54185"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont12-0.png",
+          "sha256": "85420960c71b6fd2df4806686d698643e1fb90a5635b1bf62cd98ea3197203ca"
+        }
+      ]
+    },
+    {
+      "kind": "font",
+      "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont16bold.fnt",
+      "aliases": [
+        "mcm_cn_font/teammeatfont16bold.fnt"
+      ],
+      "default_animation": "",
+      "animations": {},
+      "declared_frames": {},
+      "files": [
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont16bold.fnt",
+          "sha256": "5d72cb877f4179d2154f95d2ee58428132bba0fa391e991a2b7e8c11320d979b"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont16bold_0.png",
+          "sha256": "bee01c71f81016457ccee617482470d21729f9060adb961d47378485dcd7da0a"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont16bold_1.png",
+          "sha256": "b2a220e2545ee8ed48ffe240012bddf732a3a0b97de885516e996d6b7da56721"
+        },
+        {
+          "path": "mods/mod_config_menu_cn_2494192799/resources/mcm_cn_font/teammeatfont16bold-0.png",
+          "sha256": "30444806b528393d5210a2c9a7216197e11a5976c16a2edd859f92681e0a91ec"
+        }
+      ]
+    },
+    {
+      "kind": "font",
+      "path": "mods/external item descriptions_836319872/resources/font/eid_default.fnt",
+      "aliases": [
+        "font/eid_default.fnt"
+      ],
+      "default_animation": "",
+      "animations": {},
+      "declared_frames": {},
+      "files": [
+        {
+          "path": "mods/external item descriptions_836319872/resources/font/eid_default.fnt",
+          "sha256": "f0865eb462b76a608558bfc1b9991d6e8258fdb343ad42380afbd9c210571341"
+        },
+        {
+          "path": "mods/external item descriptions_836319872/resources/font/eid_default_0.png",
+          "sha256": "0a3aeec5bb3dc069c723d64ee4a3d507721c53b3c08dd9bea8950e319f5c24ca"
+        },
+        {
+          "path": "mods/external item descriptions_836319872/resources/font/eid_default_1.png",
+          "sha256": "34b0230ab6f1bd47579f06e98d377cda135896a57f1ab1d17ef187a0b217d3fa"
+        }
+      ]
+    }
+  ]
+}

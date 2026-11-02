@@ -1,0 +1,536 @@
+{
+  "schema": "frozen-texture-state-1",
+  "animation_profile_sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c",
+  "evidence": [
+    {
+      "path": "runs/packed-resources-j460-20261010-final/mod-runtime.json",
+      "sha256": "f05bf89ddb9ab58358fa22c18ef76f1bb667dae4f87b8dc3a4bcee1e058be97a"
+    },
+    {
+      "path": "native/engine_api.cpp",
+      "sha256": "288f53043cd8c93cd3083c344a3130b249d954f20e92592a91c1f75ed7e0952a"
+    },
+    {
+      "path": "research/resource_catalog.json",
+      "sha256": "90c40f9510c62981b2e87996e2b40a5686b12b4ab8b8b9a09796fe7f0d85b9f7"
+    },
+    {
+      "path": "tools/packed_resources.py",
+      "sha256": "e6778b62f84fb8d37fc1ee4d06db4d1eb8bbfd466bbeb0b69aa76ba77c2ae099"
+    },
+    {
+      "path": "tools/freeze_texture_state.py",
+      "sha256": "6c866d00b16066d9e4dbbe8b93aeadded3f901c09a3e3acfedcf9c801e7fb586"
+    }
+  ],
+  "images": [
+    {
+      "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/menu.png",
+      "aliases": [
+        "gfx/ui/modconfig/menu.png"
+      ],
+      "storage": "unknown",
+      "sha256": "a7ac34f24aea4746b03c1bcdb780c16746ea53abc3ed780bbbf474cb7a0c816d",
+      "bytes": 7224,
+      "width": 448,
+      "height": 288,
+      "range_proofs": []
+    },
+    {
+      "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/popup_thin_small.png",
+      "aliases": [
+        "gfx/ui/modconfig/popup_thin_small.png"
+      ],
+      "storage": "loose",
+      "sha256": "705610fa091515c694c70f65f060fdd4e75d1dca6516ad4840edfe021dd19596",
+      "bytes": 5226,
+      "width": 368,
+      "height": 240,
+      "range_proofs": []
+    },
+    {
+      "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/backselect.png",
+      "aliases": [
+        "gfx/ui/modconfig/backselect.png"
+      ],
+      "storage": "loose",
+      "sha256": "a9afc2d09cbb7c2ad89d51908d4c2910c3ddd326715a7b8daabf14a053fd3464",
+      "bytes": 13028,
+      "width": 256,
+      "height": 256,
+      "range_proofs": []
+    },
+    {
+      "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/black.png",
+      "aliases": [
+        "gfx/ui/modconfig/black.png"
+      ],
+      "storage": "loose",
+      "sha256": "af7822aea330f0c3a4943197f93963f9d0710efeceb07d5f087f960be0e33ea6",
+      "bytes": 2791,
+      "width": 16,
+      "height": 16,
+      "range_proofs": []
+    },
+    {
+      "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/arrows.png",
+      "aliases": [
+        "gfx/ui/modconfig/arrows.png"
+      ],
+      "storage": "loose",
+      "sha256": "d12ba4cbcccdd95c2935cfdbb5b0cce5c59d4280f590123e1b20287e17183662",
+      "bytes": 398,
+      "width": 80,
+      "height": 16,
+      "range_proofs": []
+    },
+    {
+      "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/slider.png",
+      "aliases": [
+        "gfx/ui/modconfig/slider.png"
+      ],
+      "storage": "loose",
+      "sha256": "bc6d3ef01316a3e6afae1cc1452e523ebc878130a445801284ebb121ebed27ee",
+      "bytes": 3402,
+      "width": 128,
+      "height": 32,
+      "range_proofs": []
+    },
+    {
+      "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/offset.png",
+      "aliases": [
+        "gfx/ui/modconfig/offset.png"
+      ],
+      "storage": "loose",
+      "sha256": "e9db3f27b501008688639e23c7d0860b72a6f1822a2dceceb5064546425640a4",
+      "bytes": 2905,
+      "width": 64,
+      "height": 64,
+      "range_proofs": []
+    },
+    {
+      "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/strike.png",
+      "aliases": [
+        "gfx/ui/modconfig/strike.png"
+      ],
+      "storage": "loose",
+      "sha256": "722adbe802b5bec4a4bbf4dfccc8c97f310304035ee984dc704ae1007f8f4a20",
+      "bytes": 2955,
+      "width": 256,
+      "height": 16,
+      "range_proofs": []
+    },
+    {
+      "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/menu_overlay.png",
+      "aliases": [
+        "gfx/ui/modconfig/menu_overlay.png"
+      ],
+      "storage": "loose",
+      "sha256": "2c64312093186b70ea331563b96e4327d6863211893aedab8f815d7be927bc53",
+      "bytes": 6114,
+      "width": 448,
+      "height": 288,
+      "range_proofs": []
+    },
+    {
+      "path": "mods/external item descriptions_836319872/resources/gfx/eid_transform_icons.png",
+      "aliases": [
+        "gfx/eid_transform_icons.png"
+      ],
+      "storage": "loose",
+      "sha256": "5d2816bfe172c50382d2531cced428aea76474ae8cc68911abd09af0563bb8c0",
+      "bytes": 21789,
+      "width": 95,
+      "height": 104,
+      "range_proofs": []
+    },
+    {
+      "path": "mods/external item descriptions_836319872/resources/gfx/eid_inline_icons.png",
+      "aliases": [
+        "gfx/eid_inline_icons.png"
+      ],
+      "storage": "loose",
+      "sha256": "45999e3a87d39d56cb2731c6028ed63f94b0e49b77c7082e72a6a7d374200f8c",
+      "bytes": 34051,
+      "width": 288,
+      "height": 331,
+      "range_proofs": []
+    },
+    {
+      "path": "mods/external item descriptions_836319872/resources/gfx/eid_cardspills.png",
+      "aliases": [
+        "gfx/eid_cardspills.png"
+      ],
+      "storage": "loose",
+      "sha256": "f2911e044b6480a59a54457910475f31ad5719434488c578bae383f45d9fe593",
+      "bytes": 45492,
+      "width": 256,
+      "height": 312,
+      "range_proofs": []
+    },
+    {
+      "path": "mods/external item descriptions_836319872/resources/gfx/eid_player_icons.png",
+      "aliases": [
+        "gfx/eid_player_icons.png"
+      ],
+      "storage": "loose",
+      "sha256": "a431402d2c9966b7a969cbf22b16c8982f1270e7ae9a22a5660d455fc7498338",
+      "bytes": 35353,
+      "width": 192,
+      "height": 224,
+      "range_proofs": []
+    },
+    {
+      "path": "resources/gfx/items/levelitem_001_itemaltar.png",
+      "aliases": [
+        "gfx/items/levelitem_001_itemaltar.png"
+      ],
+      "storage": "packed",
+      "sha256": "d90209ceead4fbbee9d613a5afd16b693e669e8d91cd6ec4b8653f78586dc5e5",
+      "bytes": 12558,
+      "width": 256,
+      "height": 256,
+      "range_proofs": [
+        {
+          "path": "resources/packed/afterbirthp.a",
+          "archive_sha256_at_freeze": "a7f43fdc44e594442d064779dbc701b964c96486bc7e3cf4f544555880436c07",
+          "ranges": [
+            {
+              "offset": 0,
+              "bytes": 14,
+              "sha256": "8119070dd383b2facf1ccaa5ff653c2d6a3f2fbd239b30dc9de8841c1d43c6e8"
+            },
+            {
+              "offset": 604067251,
+              "bytes": 204560,
+              "sha256": "7dc15c0ade4e8c9090b4dd991dd6bec0b4811e5e429a37d91554b58942d434c1"
+            },
+            {
+              "offset": 54489579,
+              "bytes": 12610,
+              "sha256": "45114d70fcc7bb3e53797f8c9509d0dd95f14afc216cffc5d95af20fd961ca77"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "resources/gfx/items/collectibles/collectibles_001_thesadonion.png",
+      "aliases": [
+        "gfx/items/collectibles/collectibles_001_thesadonion.png"
+      ],
+      "storage": "packed",
+      "sha256": "8c5b5461dfb3c5282a09bbe968652bb3b41e97b2ebe4cb57ed950754d11b3917",
+      "bytes": 3074,
+      "width": 32,
+      "height": 32,
+      "range_proofs": [
+        {
+          "path": "resources/packed/graphics.a",
+          "archive_sha256_at_freeze": "b1286fcfc4f3dd899cd225d46db9132a787352b4169b9de56a5d2c65e43ee23e",
+          "ranges": [
+            {
+              "offset": 0,
+              "bytes": 14,
+              "sha256": "c1871ca9d26064527ce720a1b7fcb994ea5fa66d21e96359a4773c8b6b8db270"
+            },
+            {
+              "offset": 17508022,
+              "bytes": 46000,
+              "sha256": "f6d2c9616a41fa5f03d2759ed66709f50b7c353eb61faf5c3c73991f9921b739"
+            },
+            {
+              "offset": 5919402,
+              "bytes": 3076,
+              "sha256": "4aaa262c1c754c564b537bd526f0e364fd03659d5149803f13b92712eda14c2d"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "resources/gfx/effects/effect_023_starflash.png",
+      "aliases": [
+        "gfx/effects/effect_023_starflash.png"
+      ],
+      "storage": "packed",
+      "sha256": "89b38e337e1323fa8cd01a9539f83e31856103fa42fadf02f855c540d2a7b38c",
+      "bytes": 1886,
+      "width": 128,
+      "height": 96,
+      "range_proofs": [
+        {
+          "path": "resources/packed/graphics.a",
+          "archive_sha256_at_freeze": "b1286fcfc4f3dd899cd225d46db9132a787352b4169b9de56a5d2c65e43ee23e",
+          "ranges": [
+            {
+              "offset": 0,
+              "bytes": 14,
+              "sha256": "c1871ca9d26064527ce720a1b7fcb994ea5fa66d21e96359a4773c8b6b8db270"
+            },
+            {
+              "offset": 17508022,
+              "bytes": 46000,
+              "sha256": "f6d2c9616a41fa5f03d2759ed66709f50b7c353eb61faf5c3c73991f9921b739"
+            },
+            {
+              "offset": 5538474,
+              "bytes": 1888,
+              "sha256": "531846f611ebfc23d4e8137457db1b0c7e7c5a716615ac33de5b8053c2d7bef4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "resources/gfx/shadow.png",
+      "aliases": [
+        "gfx/shadow.png"
+      ],
+      "storage": "packed",
+      "sha256": "7ff402e67914e8a45824c6a8563d47423f71b9ec03ef10f72cd642b7680b8dcd",
+      "bytes": 394,
+      "width": 120,
+      "height": 49,
+      "range_proofs": [
+        {
+          "path": "resources/packed/graphics.a",
+          "archive_sha256_at_freeze": "b1286fcfc4f3dd899cd225d46db9132a787352b4169b9de56a5d2c65e43ee23e",
+          "ranges": [
+            {
+              "offset": 0,
+              "bytes": 14,
+              "sha256": "c1871ca9d26064527ce720a1b7fcb994ea5fa66d21e96359a4773c8b6b8db270"
+            },
+            {
+              "offset": 17508022,
+              "bytes": 46000,
+              "sha256": "f6d2c9616a41fa5f03d2759ed66709f50b7c353eb61faf5c3c73991f9921b739"
+            },
+            {
+              "offset": 14124046,
+              "bytes": 396,
+              "sha256": "cb90cbe6ade875186f5d9f9569d39b1be2510fbdd4319dba53c232e0141a6f9e"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "resources/gfx/items/collectibles/questionmark.png",
+      "aliases": [
+        "gfx/items/collectibles/questionmark.png"
+      ],
+      "storage": "packed",
+      "sha256": "09e6146cbe10beb01f7d0fca1141a864eda63fbf1e59cf7fd29318b2579c4530",
+      "bytes": 3047,
+      "width": 32,
+      "height": 32,
+      "range_proofs": [
+        {
+          "path": "resources/packed/graphics.a",
+          "archive_sha256_at_freeze": "b1286fcfc4f3dd899cd225d46db9132a787352b4169b9de56a5d2c65e43ee23e",
+          "ranges": [
+            {
+              "offset": 0,
+              "bytes": 14,
+              "sha256": "c1871ca9d26064527ce720a1b7fcb994ea5fa66d21e96359a4773c8b6b8db270"
+            },
+            {
+              "offset": 17508022,
+              "bytes": 46000,
+              "sha256": "f6d2c9616a41fa5f03d2759ed66709f50b7c353eb61faf5c3c73991f9921b739"
+            },
+            {
+              "offset": 6690466,
+              "bytes": 3048,
+              "sha256": "2fe29302b638ad0ad21f936e9f4b7056e1fd8d18d6c726501cc37b22b78c4883"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "resources/gfx/ui/buttons.png",
+      "aliases": [
+        "gfx/ui/buttons.png"
+      ],
+      "storage": "packed",
+      "sha256": "f2201a54abe7ab86c52d6cae403be3e03de3e3db26987252dda4f18fdcfd9095",
+      "bytes": 29540,
+      "width": 320,
+      "height": 256,
+      "range_proofs": [
+        {
+          "path": "resources/packed/afterbirthp.a",
+          "archive_sha256_at_freeze": "a7f43fdc44e594442d064779dbc701b964c96486bc7e3cf4f544555880436c07",
+          "ranges": [
+            {
+              "offset": 0,
+              "bytes": 14,
+              "sha256": "8119070dd383b2facf1ccaa5ff653c2d6a3f2fbd239b30dc9de8841c1d43c6e8"
+            },
+            {
+              "offset": 604067251,
+              "bytes": 204560,
+              "sha256": "7dc15c0ade4e8c9090b4dd991dd6bec0b4811e5e429a37d91554b58942d434c1"
+            },
+            {
+              "offset": 174476200,
+              "bytes": 29656,
+              "sha256": "efe2490e697f142dd0049324e5d85276d63e776ab1cf6a3f64d4f18559cb9cdb"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "path": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/menu.anm2",
+      "layers": [
+        {
+          "layer": 0,
+          "image": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/black.png"
+        },
+        {
+          "layer": 1,
+          "image": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/arrows.png"
+        },
+        {
+          "layer": 2,
+          "image": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/slider.png"
+        },
+        {
+          "layer": 3,
+          "image": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/slider.png"
+        },
+        {
+          "layer": 4,
+          "image": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/menu.png"
+        },
+        {
+          "layer": 5,
+          "image": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/popup_thin_small.png"
+        },
+        {
+          "layer": 6,
+          "image": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/backselect.png"
+        },
+        {
+          "layer": 7,
+          "image": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/offset.png"
+        },
+        {
+          "layer": 8,
+          "image": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/strike.png"
+        },
+        {
+          "layer": 9,
+          "image": "mods/mod_config_menu_cn_2494192799/resources/gfx/ui/modconfig/menu_overlay.png"
+        }
+      ]
+    },
+    {
+      "path": "mods/external item descriptions_836319872/resources/gfx/eid_transform_icons.anm2",
+      "layers": [
+        {
+          "layer": 0,
+          "image": "mods/external item descriptions_836319872/resources/gfx/eid_transform_icons.png"
+        },
+        {
+          "layer": 1,
+          "image": "mods/external item descriptions_836319872/resources/gfx/eid_transform_icons.png"
+        },
+        {
+          "layer": 2,
+          "image": "mods/external item descriptions_836319872/resources/gfx/eid_transform_icons.png"
+        },
+        {
+          "layer": 3,
+          "image": "mods/external item descriptions_836319872/resources/gfx/eid_transform_icons.png"
+        }
+      ]
+    },
+    {
+      "path": "mods/external item descriptions_836319872/resources/gfx/eid_inline_icons.anm2",
+      "layers": [
+        {
+          "layer": 0,
+          "image": "mods/external item descriptions_836319872/resources/gfx/eid_inline_icons.png"
+        },
+        {
+          "layer": 1,
+          "image": "mods/external item descriptions_836319872/resources/gfx/eid_inline_icons.png"
+        }
+      ]
+    },
+    {
+      "path": "mods/external item descriptions_836319872/resources/gfx/eid_cardspills.anm2",
+      "layers": [
+        {
+          "layer": 0,
+          "image": "mods/external item descriptions_836319872/resources/gfx/eid_cardspills.png"
+        }
+      ]
+    },
+    {
+      "path": "mods/external item descriptions_836319872/resources/gfx/eid_player_icons.anm2",
+      "layers": [
+        {
+          "layer": 0,
+          "image": "mods/external item descriptions_836319872/resources/gfx/eid_player_icons.png"
+        },
+        {
+          "layer": 1,
+          "image": "mods/external item descriptions_836319872/resources/gfx/eid_player_icons.png"
+        }
+      ]
+    },
+    {
+      "path": "resources/gfx/005.100_collectible.anm2",
+      "layers": [
+        {
+          "layer": 0,
+          "image": "resources/gfx/items/levelitem_001_itemaltar.png"
+        },
+        {
+          "layer": 1,
+          "image": "resources/gfx/items/collectibles/collectibles_001_thesadonion.png"
+        },
+        {
+          "layer": 2,
+          "image": "resources/gfx/effects/effect_023_starflash.png"
+        },
+        {
+          "layer": 3,
+          "image": "resources/gfx/shadow.png"
+        },
+        {
+          "layer": 4,
+          "image": "resources/gfx/items/levelitem_001_itemaltar.png"
+        },
+        {
+          "layer": 5,
+          "image": "resources/gfx/items/levelitem_001_itemaltar.png"
+        }
+      ]
+    },
+    {
+      "path": "resources/gfx/ui/buttons.anm2",
+      "layers": [
+        {
+          "layer": 0,
+          "image": "resources/gfx/ui/buttons.png"
+        }
+      ]
+    }
+  ],
+  "api_contract": {
+    "source": "https://wofsauge.github.io/IsaacDocs/rep/Sprite.html#replacespritesheet",
+    "checked": "2026-10-16",
+    "replace_return": "Repentance+ boolean: selected canonical image identity changed",
+    "native_return_equivalence_verified": false,
+    "rendering_verified": false
+  }
+}

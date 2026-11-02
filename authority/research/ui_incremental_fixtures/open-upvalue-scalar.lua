@@ -1,0 +1,1 @@
+local x=1;local f=function() return x end;__tag(f,'closure');x=__tag(9,'world');__tag(f,'closure');return f()

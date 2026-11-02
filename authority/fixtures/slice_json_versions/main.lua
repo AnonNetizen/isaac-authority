@@ -1,0 +1,16 @@
+local mod=RegisterMod('Slice JSON Versions',1)
+local json=require('json')
+local config=json.decode(mod:LoadData())
+mod:AddCallback(2,function()
+    local p=Isaac.GetPlayer(0)
+    local first={amount=p:GetNumCoins(),marker={__ia_deferred=17,__ia_new_deferred='literal'}}
+    local second={amount=0,marker={__ia_deferred=17,__ia_new_deferred='literal'}}
+    local encodedFirst=json.encode(first)
+    local encodedSecond=json.encode(second)
+    assert(encodedFirst==encodedSecond)
+    local a=json.decode(encodedFirst)
+    local b=json.decode(encodedSecond)
+    p:AddCoins(1)
+    Isaac.RenderText(config.language..'|world='..a.amount,config.x,10,1,1,1,1)
+    Isaac.RenderText(config.language..'|literal='..b.amount..'|'..b.marker.__ia_deferred..'|'..b.marker.__ia_new_deferred,config.x,20,1,1,1,1)
+end)

@@ -1,0 +1,47 @@
+{
+  "schema": "partial-native-item-config-1",
+  "coverage": "partial",
+  "captured_game": "J460 historical native probe; not current live state",
+  "evidence": [
+    {
+      "path": "runs/engine-api-j460-20261010-03/engine-api.json",
+      "sha256": "0b8fb5e37ba381f34b61ce43a4a6e4d741c1997509fe5f9d72109d5b68580b99"
+    },
+    {
+      "path": "native/engine_api.cpp",
+      "sha256": "288f53043cd8c93cd3083c344a3130b249d954f20e92592a91c1f75ed7e0952a"
+    }
+  ],
+  "items": [
+    {
+      "kind": 0,
+      "id": 1,
+      "fields": {
+        "ID": 1,
+        "Name": "#THE_SAD_ONION_NAME",
+        "Quality": 3
+      }
+    },
+    {
+      "kind": 1,
+      "id": 1,
+      "fields": {
+        "ID": 1
+      }
+    },
+    {
+      "kind": 2,
+      "id": 1,
+      "fields": {
+        "ID": 1
+      }
+    },
+    {
+      "kind": 3,
+      "id": 0,
+      "fields": {
+        "ID": 0
+      }
+    }
+  ]
+}

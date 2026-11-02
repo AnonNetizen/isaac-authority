@@ -1,0 +1,1 @@
+local x=1;local read=function() return x end;__tag(read,'closure');local function grow(n,...) local a,b,c,d,e,f,g,h=1,2,3,4,5,6,7,8;if n>0 then local v=grow(n-1,a,b,c,d,e,f,g,h);return v end return ... end;local v=grow(40);x=7;__tag(read,'closure');return read(),v

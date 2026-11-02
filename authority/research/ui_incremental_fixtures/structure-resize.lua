@@ -1,0 +1,1 @@
+local t={};__tag(t,'config');for i=1,180 do t['k'..i]=i end;for i=1,100 do t[i]=i+1 end;__tag(t,'config');return t.k179,t[100]

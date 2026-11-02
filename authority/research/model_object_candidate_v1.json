@@ -1,0 +1,22 @@
+{
+  "schema": "model-object-candidate-1",
+  "abi": "ia-lua533-model-objects-1",
+  "gate_passed": false,
+  "model_contracts_passed": true,
+  "real_mod_initialization_passed": false,
+  "authority_projection_passed": false,
+  "executable": "build-model-objects/Release/authority-objects.exe",
+  "executable_sha256": "4a94daeb33b56f358c4053007fa8c7722302dc761f09520218d22e800ac2fe9f",
+  "reference": "build-model-objects/Release/authority-objects-reference.exe",
+  "reference_sha256": "9dbc40ee6f7b10c7e592f93248b80d2ad64d2e313e5ad5f787746047d4bf6eaa",
+  "suite": "research/model_objects_v1.json",
+  "module_suite": "research/model_objects_modules_v1.json",
+  "real_suite": "research/model_objects_real_v1.json",
+  "verifier": "tools/verify_model_objects.py",
+  "results": "docs/MODEL_OBJECT_RESULTS.md",
+  "work_limit": 10000000,
+  "child_timeout_seconds": 5,
+  "process_private_limit_bytes": 1073741824,
+  "consumer_cache_enabled": false,
+  "prior": "research/frozen_module_candidate_v1.json"
+}

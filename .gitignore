@@ -1,0 +1,18 @@
+﻿# Local toolchains, caches, and generated release artifacts
+.tools/
+__pycache__/
+*.pyc
+artifacts/
+backups/
+
+# Authority research build trees and runtime output
+authority/build/
+authority/build-*/
+authority/*_runtime/
+authority/artifacts/
+authority/reports/
+authority/runs/
+authority/*.log
+authority/**/*.log
+
+authority/research/slice3_ui_inputs/

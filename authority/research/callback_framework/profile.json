@@ -1,0 +1,11 @@
+{
+  "schema": "frozen-j460-callbacks-1",
+  "main_path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+  "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+  "first": 41,
+  "last": 163,
+  "fragment_sha256": "22b55e05329cef30d6f1003edb9c5525b7d12bdf2cb637e68a3201767c0564aa",
+  "source_unmodified": true,
+  "reference": "https://wofsauge.github.io/IsaacDocs/rep/Isaac.html#runcallback",
+  "native_engine_equivalence_verified": false
+}

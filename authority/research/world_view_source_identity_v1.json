@@ -1,0 +1,46 @@
+{
+  "schema": "world-source-identity-1",
+  "work_limit": 10000000,
+  "timeout_seconds": 5,
+  "cases": [
+    {
+      "id": "physical-alternate-resolves-own-module",
+      "source": "research/world_view/source_identity/a/main.lua",
+      "source_sha256": "a28552aa747312ac1f0736fd1f899c3023ed1e209608369b818fd720ce8f8728",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/world_view/source_identity/a",
+            "display": "mods/source-owner-a",
+            "sha256": {
+              "main.lua": "a28552aa747312ac1f0736fd1f899c3023ed1e209608369b818fd720ce8f8728",
+              "pick.lua": "1eb7316c776883216742669a12598b5b32ea9b094835bc0be94d6c4fc594ca76"
+            }
+          },
+          {
+            "root": "research/world_view/source_identity/b",
+            "display": "mods/source-owner-b",
+            "sha256": {
+              "main.lua": "e9b88df4a7f3186565a0aba6ad9368643ada733150678cad51174e1bf1745a94",
+              "pick.lua": "4b4321401dacd0157191099d770fdb1b67085c06b5b4ba1a42ab33425f324af8"
+            },
+            "source_paths": {
+              "main.lua": "research/world_view/source_identity/alternate.lua"
+            }
+          }
+        ]
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "return F()"
+        }
+      ]
+    }
+  ]
+}

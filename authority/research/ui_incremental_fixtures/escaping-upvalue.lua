@@ -1,0 +1,1 @@
+local saved;local function make(flag) local x=3;saved=function()return x end;if flag then x=7 end;return 0 end;make(__tag(false,"input"));return saved()

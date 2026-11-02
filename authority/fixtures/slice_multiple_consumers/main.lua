@@ -1,0 +1,10 @@
+local mod=RegisterMod('Slice Multiple Consumers',1)
+mod:AddCallback(2,function()
+    local first=math.random(1,3)
+    local second=math.random(4,6)
+    if Options.Language=='en' then second=first end
+    local p=Isaac.GetPlayer(0)
+    p:AddCoins(first)
+    p:AddCoins(second)
+    Isaac.RenderText('first='..first..'|second='..second,10,10,1,1,1,1)
+end)

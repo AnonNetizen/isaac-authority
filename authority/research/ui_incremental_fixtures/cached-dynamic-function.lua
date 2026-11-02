@@ -1,0 +1,1 @@
+local t={n=3};local fn=assert(load('local t=...;return t.n*2'));local alias=fn;__tag(t,'config');local first=alias(t);t.n=__tag(7,'world');__tag(t,'config');return first,alias(t),string.char(0,255)

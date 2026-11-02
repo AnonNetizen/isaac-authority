@@ -1,0 +1,361 @@
+{
+  "schema": "isaac-incremental2-legacy-oracle-1",
+  "mode": "ui-incremental2",
+  "work_limit": 10000000,
+  "origin_oracle_source": "ui_incremental_oracle_encoded_v1.json",
+  "origin_oracle_source_sha256": "7525c8d53bd1a57bdc8c31b287fcf2e228aa58d0e14e1330391f7378116ddcef",
+  "cases": [
+    {
+      "id": "legacy-field-alias-delete-reinsert",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/field-alias-delete-reinsert.lua",
+          "sha256": "4b0d21555cc742c31f39bcee80a7d25ca8315b2b92b9f53856f2b961cbe2e462"
+        }
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "compare_baseline_origins": true,
+      "verify_full_origins": true
+    },
+    {
+      "id": "legacy-structure-resize",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/structure-resize.lua",
+          "sha256": "4bf8a9c7c661cc83414c328c0d8815a1b54867f6cbe1c78396fa91ee647aa37c"
+        }
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "compare_baseline_origins": true,
+      "verify_full_origins": true
+    },
+    {
+      "id": "legacy-cycle-and-shared-child",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/cycle-and-shared-child.lua",
+          "sha256": "9df89ec460397705c4ef911dfe5b9a33e0d8a153dac6eeeedfff18cebc2d34ba"
+        }
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "compare_baseline_origins": true,
+      "verify_full_origins": true
+    },
+    {
+      "id": "legacy-open-upvalue-scalar",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/open-upvalue-scalar.lua",
+          "sha256": "b3cddb8076213ffdab0a835c0db299f1ee15ae20d3c21b4bf2a41bf73a98d577"
+        }
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "compare_baseline_origins": true,
+      "verify_full_origins": true
+    },
+    {
+      "id": "legacy-closed-shared-upvalue",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/closed-shared-upvalue.lua",
+          "sha256": "bab6f31fac9744a19fd9b7610e9e98758a2b21f1db30d4928f60e4a1f24653be"
+        }
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "compare_baseline_origins": true,
+      "verify_full_origins": true
+    },
+    {
+      "id": "legacy-native-table-effects",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/native-table-effects.lua",
+          "sha256": "a5eeb2eb1dc17f1004098a27e6a86209b8fa6b6e435ee53c06780a9d0574a02e"
+        }
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "compare_baseline_origins": true,
+      "verify_full_origins": true
+    },
+    {
+      "id": "legacy-metamethod-actual-target",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/metamethod-actual-target.lua",
+          "sha256": "0f1d9815df90d58d2aaa79d23275dd7fb67d05efdeed80535822f123f056478a"
+        }
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "compare_baseline_origins": true,
+      "verify_full_origins": true
+    },
+    {
+      "id": "legacy-cached-dynamic-function",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/cached-dynamic-function.lua",
+          "sha256": "6e0812a762daafb669e0121c0d8ac426580e4a80463d277703adafc333b19eff"
+        }
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "compare_baseline_origins": true,
+      "verify_full_origins": true
+    },
+    {
+      "id": "legacy-stack-relocation-closed-upvalue",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/stack-relocation-closed-upvalue.lua",
+          "sha256": "8e21ab44a0d954dd21c467df11c844be3d7c26378ca70ffad72df2313ee3a621"
+        }
+      ],
+      "kind": "safety",
+      "baseline": true,
+      "compare_baseline_origins": false,
+      "verify_full_origins": true,
+      "error_contains": "Trace tail context limit"
+    },
+    {
+      "id": "legacy-ordinary-error-and-bytes",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/ordinary-error-and-bytes.lua",
+          "sha256": "4e56358d367b2d918472d828c47a81d78333b4ba6e2f07cb1d607581e8ee7274"
+        }
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "compare_baseline_origins": true,
+      "verify_full_origins": true
+    },
+    {
+      "id": "legacy-stack-growth-nontail",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/stack-growth-nontail.lua",
+          "sha256": "1101c125f9ca71e951e1b6140fc78182b66164569f49176a099f657e6d4e7f8b"
+        }
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "compare_baseline_origins": true,
+      "verify_full_origins": true
+    },
+    {
+      "id": "legacy-branch-live-local",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/branch-live-local.lua",
+          "sha256": "df93c7753c96358905526990b19e7ac2f72fc8b6a8476a1650e1cd4d4956a2dc"
+        }
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "compare_baseline_origins": true,
+      "verify_full_origins": true
+    },
+    {
+      "id": "legacy-escaping-upvalue",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/escaping-upvalue.lua",
+          "sha256": "306d7270763cebad0d0693159099f86e5102d3dcfe17aca899a11f4f05f9416a"
+        }
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "compare_baseline_origins": true,
+      "verify_full_origins": true
+    },
+    {
+      "id": "legacy-expression-temporary",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/expression-temporary.lua",
+          "sha256": "0b463f0fd7eed36058fbf874874f09c333032cbada4e053bc94afd8da290c685"
+        }
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "compare_baseline_origins": true,
+      "verify_full_origins": true
+    },
+    {
+      "id": "legacy-recursive-closure-overwrite",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/recursive-closure-overwrite.lua",
+          "sha256": "2acb4d27545b2a4bb6a7910ef79f6dd046386604dba4683e28385d6c5e533f44"
+        }
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "compare_baseline_origins": true,
+      "verify_full_origins": true
+    },
+    {
+      "id": "legacy-monotone-table-coverage",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/monotone-table-coverage.lua",
+          "sha256": "e55b7a7f1b01c51d9a88d4811fbad9b31e8d388853c22d37f2c9adf7560374d8"
+        }
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "compare_baseline_origins": true,
+      "verify_full_origins": true
+    },
+    {
+      "id": "legacy-monotone-upvalue-coverage",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/monotone-upvalue-coverage.lua",
+          "sha256": "170acc7c1d31b72fa15df6b6cdaa7332fd2810f05201913405a3c08b32b76e0e"
+        }
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "compare_baseline_origins": true,
+      "verify_full_origins": true
+    },
+    {
+      "id": "legacy-monotone-cycle-rebind",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/monotone-cycle-rebind.lua",
+          "sha256": "3fec18adfde2315976e4241ee07a2b524e86b7e59ee4d19b5125bbb20c8cfa83"
+        }
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "compare_baseline_origins": true,
+      "verify_full_origins": true
+    },
+    {
+      "id": "legacy-monotone-scalar-overwrite",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/monotone-scalar-overwrite.lua",
+          "sha256": "ba5f3a58ecd49c6361554dc89bfa277dd6c51e511fe80b6ea4b3f906de5a667f"
+        }
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "compare_baseline_origins": true,
+      "verify_full_origins": true
+    },
+    {
+      "id": "legacy-scalar-leaf-siblings",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/scalar-leaf-siblings.lua",
+          "sha256": "81b9c019373038c31e827ed4e437b4949296734e228504ad75887b3219a4dc4c"
+        }
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "compare_baseline_origins": true,
+      "verify_full_origins": true
+    },
+    {
+      "id": "legacy-scalar-leaf-shared-upvalue",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/scalar-leaf-shared-upvalue.lua",
+          "sha256": "ae11b9813d2267840ed6ab0eae1d9b0d01173df0dea2970cd31c3dbed3406e08"
+        }
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "compare_baseline_origins": true,
+      "verify_full_origins": true
+    },
+    {
+      "id": "legacy-scalar-leaf-rebind-layout",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/scalar-leaf-rebind-layout.lua",
+          "sha256": "8909bfc271db9d37002c2dc5615ab4db07919901b8fea8708da9cc65b1a6e348"
+        }
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "compare_baseline_origins": true,
+      "verify_full_origins": true
+    },
+    {
+      "id": "legacy-scalar-leaf-cycle-shared",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/scalar-leaf-cycle-shared.lua",
+          "sha256": "36e1374d6b59a1c1c7d8c633b9e58156d2f67ce9dfc54454a4466c1b56a106fa"
+        }
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "compare_baseline_origins": true,
+      "verify_full_origins": true
+    },
+    {
+      "id": "legacy-index-churn",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/index-churn.lua",
+          "sha256": "b1f7b908c9863f50a181364ccc78819010b2e168388af015ac91a67fdd16d4c2"
+        }
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "compare_baseline_origins": true,
+      "verify_full_origins": true
+    },
+    {
+      "id": "legacy-index-collision-move",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/index-collision-move.lua",
+          "sha256": "d62ce1ddec39d92c2694ce5d09fa990f89efb50fefaf3d93600696a7db399b92"
+        }
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "compare_baseline_origins": true,
+      "verify_full_origins": true
+    },
+    {
+      "id": "legacy-index-array-nil-mixed",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/index-array-nil-mixed.lua",
+          "sha256": "f2e3b2886660feab224a9de27ff3185e68ccc5c2c0fe98c2d769740e06e1882e"
+        }
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "compare_baseline_origins": true,
+      "verify_full_origins": true
+    },
+    {
+      "id": "legacy-index-redirect-cache",
+      "chunks": [
+        {
+          "file": "research/ui_incremental_fixtures/index-redirect-cache.lua",
+          "sha256": "5ad00275a741c8b2f9258e604d1c89de0141bee99b743ea356178dc966489d0c"
+        }
+      ],
+      "kind": "functional",
+      "baseline": true,
+      "compare_baseline_origins": true,
+      "verify_full_origins": true
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+B=RegisterMod('Shared Name',1)
+BViaHelper=RegisterViaA('Via A Helper')
+B:AddCallback(2,function()Isaac.RenderText('B:'..B:LoadData(),110,0)end)
+B:AddCallback(20,SharedCallback)
+B:AddPriorityCallback(21,0,function()Isaac.RenderText('priority-b',0,0)end)
+B:AddCallback(22,function(_,arg)Isaac.RenderText('filtered:'..arg,0,0)end,7)
+B:AddCallback(23,function()Isaac.RenderText('must-not-run',0,0)end)
+B:AddCallback(30,function()BFromCallback=RegisterViaA('Callback via A')end)

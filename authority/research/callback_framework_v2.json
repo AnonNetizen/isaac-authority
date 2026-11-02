@@ -1,0 +1,4719 @@
+{
+  "schema": "callback-framework-contracts-2",
+  "work_limit": 10000000,
+  "timeout_seconds": 5,
+  "cases": [
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "string-id-registration",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "CallbackMod:AddCallback('EIDCallbacks.SEARCH_NAME_CONVERSION',function(_,s)return 'found:'..s end);return Isaac.RunCallback('EIDCallbacks.SEARCH_NAME_CONVERSION','foo')"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "666f756e643a666f6f"
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "numeric-and-string-identities",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "CallbackMod:AddCallback(123,function()return 'number'end);CallbackMod:AddCallback('123',function()return 'string'end);return Isaac.RunCallback(123),Isaac.RunCallback('123')"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "6e756d626572"
+        },
+        {
+          "type": "string",
+          "hex": "737472696e67"
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "binary-string-event",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local k='evt'..string.char(0,255);CallbackMod:AddCallback(k,function()return 'binary'end);return Isaac.RunCallback(k),#Isaac.GetCallbacks(k)"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "62696e617279"
+        },
+        {
+          "type": "integer",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "priority-stable-order",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local out={};local function add(p,v)CallbackMod:AddPriorityCallback('p',p,function()out[#out+1]=v end)end;add(10,'late');add(-2,'first');add(10,'late2');Isaac.RunCallback('p');return table.concat(out,'|')"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "66697273747c6c6174657c6c61746532"
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "fractional-priority",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local out={};CallbackMod:AddPriorityCallback('p',0.5,function()out[#out+1]='half'end);CallbackMod:AddPriorityCallback('p',0.25,function()out[#out+1]='quarter'end);Isaac.RunCallback('p');return table.concat(out,'|')"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "717561727465727c68616c66"
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "false-stops-chain",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local n=0;CallbackMod:AddCallback('s',function()n=n+1;return false end);CallbackMod:AddCallback('s',function()n=n+100 end);local r=Isaac.RunCallback('s');return r,n"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": false
+        },
+        {
+          "type": "integer",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "nil-continues-chain",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "CallbackMod:AddCallback('s',function()return nil end);CallbackMod:AddCallback('s',function()return 7 end);return Isaac.RunCallback('s')"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "integer",
+          "value": 7
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "filter-match",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "CallbackMod:AddCallback('f',function()return 'seven'end,7);return Isaac.RunCallbackWithParam('f',6)==nil,Isaac.RunCallbackWithParam('f',7)"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "string",
+          "hex": "736576656e"
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "filter-false-is-wildcard",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "CallbackMod:AddCallback('f',function()return 5 end,7);return Isaac.RunCallbackWithParam('f',false)"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "integer",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "filter-minus-one-wildcard",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "CallbackMod:AddCallback('f',function()return 5 end,-1);return Isaac.RunCallbackWithParam('f',9)"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "integer",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "custom-parameter-matcher",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "CallbackMod:AddCallback('f',function()return 'matched'end,'A');getmetatable(Isaac.GetCallbacks('f')).__matchParams=function(a,b)return a..b=='BA'end;return Isaac.RunCallbackWithParam('f','B')"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "6d617463686564"
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "argument-nil-preserved",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "CallbackMod:AddCallback('a',function(_,...)return select('#',...)end);return Isaac.RunCallback('a',1,nil,3)"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "integer",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "mod-self-identity",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "CallbackMod:AddCallback('s',function(m)return m==CallbackMod end);return Isaac.RunCallback('s')"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": true
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "cached-public-method",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local add,run=Isaac.AddCallback,Isaac.RunCallback;add(CallbackMod,'c',function()return 9 end);return run('c')"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "integer",
+          "value": 9
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "nested-callback-result",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "CallbackMod:AddCallback('inner',function(_,n)return n+1 end);CallbackMod:AddCallback('outer',function(_,n)return Isaac.RunCallback('inner',n)*2 end);return Isaac.RunCallback('outer',3)"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "integer",
+          "value": 8
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "nested-arguments-restored",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "CallbackMod:AddCallback('i',function(_,x)return x*2 end);CallbackMod:AddCallback('o',function(_,a,b)local i=Isaac.RunCallback('i',a);return i..':'..b end);return Isaac.RunCallback('o',4,'tail')"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "383a7461696c"
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "remove-same-function-all-duplicates",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local fn=function()return 1 end;CallbackMod:AddCallback('r',fn);CallbackMod:AddCallback('r',fn);CallbackMod:RemoveCallback('r',fn);return #Isaac.GetCallbacks('r'),Isaac.RunCallback('r')==nil"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "boolean",
+          "value": true
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "remove-shared-function-across-mods",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local other=RegisterMod('Other',1);local fn=function()return 1 end;CallbackMod:AddCallback('r',fn);other:AddCallback('r',fn);CallbackMod:RemoveCallback('r',fn);return #Isaac.GetCallbacks('r')"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "integer",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "remove-next-during-dispatch",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local out={};local nextfn=function()out[#out+1]='next'end;CallbackMod:AddCallback('r',function()out[#out+1]='first';CallbackMod:RemoveCallback('r',nextfn)end);CallbackMod:AddCallback('r',nextfn);Isaac.RunCallback('r');return table.concat(out,'|')"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "6669727374"
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "add-during-dispatch",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local out={};local once=false;CallbackMod:AddCallback('a',function()out[#out+1]='first';if not once then once=true;CallbackMod:AddCallback('a',function()out[#out+1]='added'end)end end);Isaac.RunCallback('a');return table.concat(out,'|')"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "string",
+          "hex": "66697273747c6164646564"
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "get-list-reference-and-record-shape",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local fn=function()end;CallbackMod:AddPriorityCallback('x',-3,fn,7);local a=Isaac.GetCallbacks('x');local b=Isaac.GetCallbacks('x');return a==b,a[1].Function==fn,a[1].Mod==CallbackMod,a[1].Priority,a[1].Param"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "integer",
+          "value": -3
+        },
+        {
+          "type": "integer",
+          "value": 7
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "built-in-enabled-and-removed",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local fn=function()end;CallbackMod:AddCallback(777,fn);local a=Isaac.GetBuiltInCallbackState(777);CallbackMod:RemoveCallback(777,fn);return a,Isaac.GetBuiltInCallbackState(777)"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": false
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "missing-list-is-not-registered",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local a=Isaac.GetCallbacks('missing');local b=Isaac.GetCallbacks('missing');return a==b,#a,#b"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": false
+        },
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "integer",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "original-unload-removes-mod-callbacks",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "_UnloadMod(CallbackMod);return #Isaac.GetCallbacks('fixture.ui'),#Isaac.GetCallbacks('fixture.reward')"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "integer",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "private-debug-not-exposed",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "return debug==nil,io==nil,package.loaded.debug==nil"
+        }
+      ],
+      "kind": "functional",
+      "expected_values": [
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": true
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "independent-personal-configuration",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": "fixture.ui",
+          "phase": "presentation",
+          "role": "host"
+        },
+        {
+          "op": "dispatch",
+          "event": "fixture.ui",
+          "phase": "presentation",
+          "input": {
+            "move": true
+          }
+        },
+        {
+          "op": "dispatch",
+          "event": "fixture.ui",
+          "phase": "presentation",
+          "role": "host"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "en|x=17|coins=0|private=0"
+        ],
+        [
+          "zh|x=147|coins=0|private=1"
+        ],
+        [
+          "en|x=17|coins=0|private=0"
+        ]
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "authority-world-once",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": "fixture.reward",
+          "phase": "authority",
+          "role": "host"
+        },
+        {
+          "op": "dispatch",
+          "event": "fixture.ui",
+          "phase": "presentation",
+          "input": {
+            "move": true
+          }
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "zh|x=147|coins=1|private=1"
+        ]
+      ],
+      "expected_coins": 1
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "saved-personal-configuration",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": "fixture.ui",
+          "phase": "presentation",
+          "input": {
+            "move": true
+          }
+        },
+        {
+          "op": "reload_saved"
+        },
+        {
+          "op": "dispatch",
+          "event": "fixture.ui",
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "zh|x=147|coins=0|private=1"
+        ],
+        [
+          "zh|x=147|coins=0|private=0"
+        ]
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "rollback-registry-private-save-and-draw",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": "fixture.ui",
+          "phase": "presentation",
+          "input": {
+            "move": true
+          }
+        },
+        {
+          "op": "dispatch",
+          "event": "fixture.ui",
+          "phase": "presentation",
+          "input": {
+            "move": true,
+            "fail": true
+          },
+          "expect_error": "callback-injected"
+        },
+        {
+          "op": "dispatch",
+          "event": "fixture.ui",
+          "phase": "presentation"
+        },
+        {
+          "op": "evaluate",
+          "code": "return #Isaac.GetCallbacks('transient'),CallbackMod:LoadData():find('147',1,true)~=nil"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "zh|x=147|coins=0|private=1"
+        ],
+        [
+          "zh|x=147|coins=0|private=1"
+        ]
+      ],
+      "expected_values": [
+        {
+          "type": "integer",
+          "value": 0
+        },
+        {
+          "type": "boolean",
+          "value": true
+        }
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "accepted-history-rebuild",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": "fixture.ui",
+          "phase": "presentation",
+          "input": {
+            "move": true
+          }
+        },
+        {
+          "op": "rebuild"
+        },
+        {
+          "op": "dispatch",
+          "event": "fixture.ui",
+          "phase": "presentation"
+        }
+      ],
+      "kind": "functional",
+      "frames": [
+        [
+          "zh|x=147|coins=0|private=1"
+        ],
+        [
+          "zh|x=147|coins=0|private=1"
+        ]
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "reject-personal-world-write",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": "fixture.reward",
+          "phase": "presentation",
+          "expect_error": "World write requires authority phase"
+        },
+        {
+          "op": "dispatch",
+          "event": "fixture.ui",
+          "phase": "presentation"
+        }
+      ],
+      "kind": "expected-rejection",
+      "frames": [
+        [
+          "zh|x=137|coins=0|private=0"
+        ]
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "reject-personal-authority",
+      "steps": [
+        {
+          "op": "dispatch",
+          "event": "fixture.reward",
+          "phase": "authority",
+          "expect_error": "Personal context cannot execute authority phase"
+        },
+        {
+          "op": "dispatch",
+          "event": "fixture.ui",
+          "phase": "presentation"
+        }
+      ],
+      "kind": "expected-rejection",
+      "frames": [
+        [
+          "zh|x=137|coins=0|private=0"
+        ]
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "reject-consumer-capture",
+      "steps": [
+        {
+          "op": "capture_reads",
+          "event": "fixture.ui",
+          "phase": "presentation",
+          "expect_error": "Framework callback consumer capture not implemented"
+        },
+        {
+          "op": "dispatch",
+          "event": "fixture.ui",
+          "phase": "presentation"
+        }
+      ],
+      "kind": "expected-rejection",
+      "frames": [
+        [
+          "zh|x=137|coins=0|private=0"
+        ]
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "reject-boolean-event",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Isaac.RunCallback(true)",
+          "expect_error": "Callback event must be int32 or string"
+        },
+        {
+          "op": "dispatch",
+          "event": "fixture.ui",
+          "phase": "presentation"
+        }
+      ],
+      "kind": "expected-rejection",
+      "frames": [
+        [
+          "zh|x=137|coins=0|private=0"
+        ]
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "reject-table-event",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "CallbackMod:AddCallback({},function()end)",
+          "expect_error": "Callback event must be int32 or string"
+        },
+        {
+          "op": "dispatch",
+          "event": "fixture.ui",
+          "phase": "presentation"
+        }
+      ],
+      "kind": "expected-rejection",
+      "frames": [
+        [
+          "zh|x=137|coins=0|private=0"
+        ]
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "reject-event-bytes",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Isaac.GetCallbacks(string.rep('a',4097),true)",
+          "expect_error": "Callback event byte capacity exceeded"
+        },
+        {
+          "op": "dispatch",
+          "event": "fixture.ui",
+          "phase": "presentation"
+        }
+      ],
+      "kind": "expected-rejection",
+      "frames": [
+        [
+          "zh|x=137|coins=0|private=0"
+        ]
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "reject-callback-count",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "for i=1,256 do CallbackMod:AddCallback('many',function()end)end",
+          "expect_error": "Callback registry capacity exceeded"
+        },
+        {
+          "op": "dispatch",
+          "event": "fixture.ui",
+          "phase": "presentation"
+        }
+      ],
+      "kind": "expected-rejection",
+      "frames": [
+        [
+          "zh|x=137|coins=0|private=0"
+        ]
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "reject-registry-alias-overflow",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "local a=Isaac.GetCallbacks('many',true);for i=1,257 do a[i]={}end",
+          "expect_error": "Callback registry capacity exceeded"
+        },
+        {
+          "op": "dispatch",
+          "event": "fixture.ui",
+          "phase": "presentation"
+        }
+      ],
+      "kind": "expected-rejection",
+      "frames": [
+        [
+          "zh|x=137|coins=0|private=0"
+        ]
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "reject-nested-forwarding",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "CallbackMod:AddCallback('loop',function()return Isaac.RunCallback('loop')end);Isaac.RunCallback('loop')",
+          "expect_error": "Callback forwarding depth exceeded"
+        },
+        {
+          "op": "dispatch",
+          "event": "fixture.ui",
+          "phase": "presentation"
+        }
+      ],
+      "kind": "expected-rejection",
+      "frames": [
+        [
+          "zh|x=137|coins=0|private=0"
+        ]
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "reject-nested-hook-budget",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "Isaac.GetCallbacks('none');while true do end"
+        }
+      ],
+      "kind": "process-rejection",
+      "error": "Boundary work limit exceeded"
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "id": "reject-callback-profile-hash",
+      "steps": [],
+      "kind": "process-rejection",
+      "error": "Callback profile hash mismatch"
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "reject-function-type",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "CallbackMod:AddCallback('bad',3)",
+          "expect_error": "function expected, got number"
+        },
+        {
+          "op": "dispatch",
+          "event": "fixture.ui",
+          "phase": "presentation"
+        }
+      ],
+      "kind": "expected-rejection",
+      "frames": [
+        [
+          "zh|x=137|coins=0|private=0"
+        ]
+      ]
+    },
+    {
+      "objects": {
+        "catalog": "research/model_objects/resources.json",
+        "catalog_sha256": "3286f881c7097b5143ed2b0c82191590e67ec4d10fe9ceda42c843c405e6a041",
+        "flags": {
+          "REPENTANCE_PLUS": true
+        },
+        "scene": {
+          "revision": 1,
+          "frame_count": 42,
+          "num_players": 2
+        }
+      },
+      "value_objects": {
+        "numeric_model": "ieee754-binary32-finite",
+        "main_sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631",
+        "fragments": [
+          {
+            "name": "constants",
+            "first": 171,
+            "last": 189,
+            "sha256": "b758e83bffb0df15d83dcc26237b02e4cbcf9cdac1dc90d8f8fec4ad58be1474"
+          },
+          {
+            "name": "color-vector",
+            "first": 232,
+            "last": 248,
+            "sha256": "97939c09516f267713d5429f7d583de91c41ac8fcc2fd724111e2e41ac79ac24"
+          }
+        ]
+      },
+      "engine_services": {
+        "catalog": {
+          "path": "research/engine_services/item_config.json",
+          "sha256": "8d7215d06908da2cb91b8138cb96afeb54f756d818efc33609428fd9ad9bf0d0"
+        }
+      },
+      "animation_profile": {
+        "path": "research/sprite_state/profile.json",
+        "sha256": "39f43707d6c3cb749c9760aa9646f057fc83a43eafad7bc782f9b28f76c1994c"
+      },
+      "stores": [
+        "{}",
+        "{}"
+      ],
+      "graphics_profile": {
+        "path": "research/texture_state/profile.json",
+        "sha256": "c2a916e3db00160888805275ab4e437e5d4337cb74d42a5466bcfb30fd415626"
+      },
+      "source": "research/callback_framework/main.lua",
+      "source_sha256": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de",
+      "modules": {
+        "entry": 0,
+        "roots": [
+          {
+            "root": "research/callback_framework",
+            "display": "mods/callback-framework-fixture",
+            "sha256": {
+              "main.lua": "83db930a17ff7af31fd81267a7469c96388597d4a3f253a55fbabfdd5124f3de"
+            }
+          }
+        ]
+      },
+      "mod_sdk": {
+        "slot": 1,
+        "stores": [
+          {
+            "mods/callback-framework-fixture": "{\"amount\":1,\"language\":\"en\",\"x\":17}"
+          },
+          {
+            "mods/callback-framework-fixture": "{\"amount\":2,\"language\":\"zh\",\"x\":137}"
+          }
+        ],
+        "load_order": [
+          0
+        ],
+        "main": {
+          "path": "research/slice3_ui_inputs/resources/scripts/main.lua",
+          "sha256": "4849aaef553ff30f2bce6d44291491809cf87b519882275b69c2134270dea631"
+        },
+        "registration_sha256": "b2b76bc70a43592c0ac0f57f868a569e41dc3f404985f16d92c8ea97f2330220",
+        "enums": {
+          "path": "research/slice3_ui_inputs/resources/scripts/enums.lua",
+          "sha256": "9737fc06f15ea26f397f8abe4ade01af105bdae1bec54b7ffbeacedd549dadb0"
+        }
+      },
+      "callback_contract": {
+        "path": "research/callback_framework/profile.json",
+        "sha256": "107bc2a11a9fb8d1237b8e94fee7bc93b92f06df4d2b6be4890b83e962d1a4f2"
+      },
+      "id": "reject-priority-type",
+      "steps": [
+        {
+          "op": "evaluate",
+          "code": "CallbackMod:AddPriorityCallback('bad','oops',function()end)",
+          "expect_error": "number expected, got string"
+        },
+        {
+          "op": "dispatch",
+          "event": "fixture.ui",
+          "phase": "presentation"
+        }
+      ],
+      "kind": "expected-rejection",
+      "frames": [
+        [
+          "zh|x=137|coins=0|private=0"
+        ]
+      ]
+    }
+  ]
+}

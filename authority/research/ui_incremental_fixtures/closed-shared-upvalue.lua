@@ -1,0 +1,1 @@
+local function make() local x={n=1};return function() return x.n end,function(v) x={n=v} end end;local read,write=make();__tag(read,'closure');write(__tag(8,'world'));__tag(read,'closure');__tag(read,'closure');return read()

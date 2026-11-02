@@ -1,0 +1,2 @@
+#pragma once
+inline constexpr char kLuaBootstrap[] = @LUA_PROBE_LITERALS@;

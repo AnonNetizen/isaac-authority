@@ -1,0 +1,126 @@
+{
+  "schema": "frozen-mcm-capture-contract-1",
+  "source": "research/menu_environment/pristine_modconfig.lua",
+  "source_sha256": "19a0366d7db6faae98a94dd46c5111f5ec4e5d4dc1bc456cb7fd3cacac3ffaf2",
+  "locations_are_diagnostic_only": true,
+  "runtime_purpose_enforcement_implemented": false,
+  "required_identity": [
+    "frozen framework source",
+    "actual function prototype",
+    "actual registered setting object",
+    "actual consumer call instruction"
+  ],
+  "source_sites": {
+    "function ModConfigMenu.AddSetting(": [
+      {
+        "line": 836,
+        "line_sha256": "d164f1d1c70082056e4ec9c28d26dfbe394bd1feac5be616bf3ab5732fbc6a14",
+        "text": "function ModConfigMenu.AddSetting(categoryName, subcategoryName, settingTable)"
+      }
+    ],
+    "optionCurrent()": [
+      {
+        "line": 2374,
+        "line_sha256": "06cbe9fc758ae5e154800442dd1e2f1e9f10632111c57fc986434265956562cb",
+        "text": "numberToChange = optionCurrent()"
+      },
+      {
+        "line": 2500,
+        "line_sha256": "e9a305f1d58ea7668841f6ab71ed45fa12600ea9b486f7ef1c88b1551adf82ea",
+        "text": "numberToChange = optionCurrent()"
+      },
+      {
+        "line": 2577,
+        "line_sha256": "48744f7edca97d7d0d2f0693376366b117680024a5c86ac9c0afe69bf91a2261",
+        "text": "boolToChange = optionCurrent()"
+      },
+      {
+        "line": 2619,
+        "line_sha256": "e9a305f1d58ea7668841f6ab71ed45fa12600ea9b486f7ef1c88b1551adf82ea",
+        "text": "numberToChange = optionCurrent()"
+      }
+    ],
+    "optionOnChange(": [
+      {
+        "line": 2416,
+        "line_sha256": "f34ab1abd4ff8d44360360746df3d0233f98f7b0e8c802d4001501336726ec87",
+        "text": "optionOnChange(numberToChange)"
+      },
+      {
+        "line": 2547,
+        "line_sha256": "af2943273a74c843aa8b56c432d284708fe1153a806d2275a06ba02d721498a4",
+        "text": "optionOnChange(numberToChange)"
+      },
+      {
+        "line": 2591,
+        "line_sha256": "4f585f888203fd62185bc1648433acaa1b654dd8439cef3d0180210558afe160",
+        "text": "optionOnChange(boolToChange)"
+      },
+      {
+        "line": 2629,
+        "line_sha256": "af2943273a74c843aa8b56c432d284708fe1153a806d2275a06ba02d721498a4",
+        "text": "optionOnChange(numberToChange)"
+      }
+    ],
+    "textToDraw = optionDisplay(": [
+      {
+        "line": 3236,
+        "line_sha256": "08549e22358d1aa32b0945bf1ea3c94e51979d8c3ad93b10dbe6098c473c077d",
+        "text": "textToDraw = optionDisplay(cursorIsAtThisOption, configMenuInOptions, lastOptionPos)"
+      }
+    ],
+    "numberToShow = optionDisplay(": [
+      {
+        "line": 3272,
+        "line_sha256": "ca9e6d416e679d71e3d31c1298d50cc6624a549b73334a082efaf3c4b139f38c",
+        "text": "numberToShow = optionDisplay(cursorIsAtThisOption, configMenuInOptions, lastOptionPos)"
+      }
+    ],
+    "function ModConfigMenu.ConvertDisplayToTextTable(": [
+      {
+        "line": 1954,
+        "line_sha256": "7fd2804ba415c371f4e1f7ff019dbb0cdec4373bae960720be3dab672832c5f9",
+        "text": "function ModConfigMenu.ConvertDisplayToTextTable(displayValue, lineWidth, font)"
+      }
+    ],
+    "displayValue = displayValue()": [
+      {
+        "line": 1960,
+        "line_sha256": "14ffcf3d33e4c23e68d18d9808a023b0117108a5d6f32c845239952a6d74f7c2",
+        "text": "displayValue = displayValue()"
+      }
+    ]
+  },
+  "api": {
+    "AddSetting": {
+      "forms": [
+        "category, setting",
+        "category, subcategory, setting"
+      ],
+      "nil_subcategory": "Uncategorized",
+      "returns": "original setting table"
+    },
+    "CurrentSetting": {
+      "args": [],
+      "returns": "Lua value; preserve false and nil"
+    },
+    "OnChange": {
+      "args": [
+        "selected value"
+      ],
+      "returns": "preserve callback return behavior"
+    },
+    "Display": {
+      "args": [
+        "cursorIsAtThisOption",
+        "configMenuInOptions",
+        "lastOptionPos"
+      ]
+    },
+    "translation": "DisplayTranslate or Display; InfoTranslate or Info",
+    "Info": {
+      "consumed_by": "ConvertDisplayToTextTable",
+      "callback_args": []
+    }
+  }
+}
