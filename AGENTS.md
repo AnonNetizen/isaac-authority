@@ -299,6 +299,10 @@ game. On cloud, stop after the portable checks in checklist step 2.
   already-active virtualenv. It then points `cc` at `/usr/bin/gcc` and `c++`
   at `/usr/bin/g++` with `update-alternatives`. The pip install runs before
   that compiler switch. Running the script again is safe.
+  `test_real_setup_runs_venv_module_and_pip` runs that script with real
+  `sudo`, including `apt-get` and `update-alternatives`. It skips unless
+  `ISAAC_REAL_CLOUD_SETUP=1`. The default run of this file does not change
+  system compilers or packages.
 - If CMake reports `cannot find -lstdc++` or a missing `iostream`, delete the
   failed build directory and configure again.
 - Run pytest with that venv:

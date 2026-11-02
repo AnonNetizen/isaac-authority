@@ -18,6 +18,11 @@ ROOT = Path(__file__).resolve().parent
 AGENTS = ROOT / "AGENTS.md"
 HEADING = "## Cursor Cloud specific instructions"
 REPO_FILE = re.compile(r"^(?:[\w.-]+/)*[\w.-]+\.(?:py|txt|sh|json|md|ps1|lua)$")
+REAL_SETUP_SKIP_REASON = (
+    "set ISAAC_REAL_CLOUD_SETUP=1 to run cloud_linux_setup.sh "
+    "with real sudo, apt-get, and update-alternatives"
+)
+SYSTEM_BIN_NAMES = ("sudo", "apt-get", "update-alternatives")
 
 
 def cloud_section() -> str:
@@ -305,9 +310,130 @@ print(json.dumps({
 
     @unittest.skipUnless(
         os.name == "posix" and Path("/usr/bin/gcc").is_file() and Path("/usr/bin/g++").is_file(),
+        "venv/pip stub run needs /usr/bin/gcc and /usr/bin/g++",
+    )
+    def test_real_venv_and_pip_with_stubbed_system_commands(self):
+        ensured = subprocess.run(
+            ["python3", "-c", "import ensurepip"],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if ensured.returncode != 0:
+            self.skipTest(
+                "real python3 -m venv needs ensurepip; "
+                "test_simulated_externally_managed_install covers venv/pip ordering with stubs"
+            )
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "root"
+            log = Path(tmp) / "setup.log"
+            before = _system_mutation_snapshot()
+            completed, bindir = _run_setup_with_system_stubs(root, log)
+            after = _system_mutation_snapshot()
+            output = completed.stdout
+            detail = completed.stdout + completed.stderr
+            self.assertEqual(completed.returncode, 0, detail)
+            self.assertEqual(before, after, "stubbed setup changed compilers or packages")
+            resolved = subprocess.run(
+                ["bash", "-c", "command -v sudo; command -v apt-get; command -v update-alternatives"],
+                env=_stub_env(bindir, log),
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(
+                resolved.stdout.splitlines(),
+                [str(bindir / name) for name in SYSTEM_BIN_NAMES],
+                resolved.stderr,
+            )
+            self.assertNotIn("--user", detail)
+            self.assertNotIn("externally-managed-environment", detail)
+            self.assertNotIn("update-alternatives:", detail)
+            self.assertNotIn("stub-apt-get", output)
+            pip_at = _first_index(output, ("Successfully installed", "Requirement already satisfied"))
+            cc_at = output.index("stub-update-alternatives --set cc /usr/bin/gcc")
+            cxx_at = output.index("stub-update-alternatives --set c++ /usr/bin/g++")
+            self.assertLess(pip_at, cc_at)
+            self.assertLess(cc_at, cxx_at)
+            self.assertIn("stub-sudo update-alternatives --set cc /usr/bin/gcc", output)
+            self.assertIn("stub-sudo update-alternatives --set c++ /usr/bin/g++", output)
+            assert_real_venv_install(self, root)
+
+    def test_real_setup_skips_system_commands_without_opt_in(self):
+        section = cloud_section()
+        self.assertIn("`test_real_setup_runs_venv_module_and_pip`", section)
+        self.assertIn("`ISAAC_REAL_CLOUD_SETUP=1`", section)
+        function = _real_setup_function()
+        opt_in = [
+            node
+            for node in function.decorator_list
+            if isinstance(node, ast.Call) and ast.unparse(node.func) == "unittest.skipUnless"
+        ]
+        rendered = [ast.unparse(node.args[0]).replace("'", '"') for node in opt_in if node.args]
+        self.assertIn('os.environ.get("ISAAC_REAL_CLOUD_SETUP") == "1"', rendered)
+        reason_nodes = [node.args[1] for node in opt_in if len(node.args) > 1]
+        self.assertTrue(
+            any(
+                (isinstance(node, ast.Name) and node.id == "REAL_SETUP_SKIP_REASON")
+                or (isinstance(node, ast.Constant) and node.value == REAL_SETUP_SKIP_REASON)
+                for node in reason_nodes
+            ),
+            [ast.unparse(node) for node in reason_nodes],
+        )
+        self.assertIn("ISAAC_REAL_CLOUD_SETUP=1", REAL_SETUP_SKIP_REASON)
+        self.assertIn("sudo", REAL_SETUP_SKIP_REASON)
+        self.assertIn("apt-get", REAL_SETUP_SKIP_REASON)
+        self.assertIn("update-alternatives", REAL_SETUP_SKIP_REASON)
+        statements = [
+            stmt
+            for stmt in function.body
+            if not (isinstance(stmt, ast.Expr) and isinstance(getattr(stmt, "value", None), ast.Constant))
+        ]
+        self.assertIsInstance(statements[0], ast.If)
+        guard = ast.unparse(statements[0]).replace("'", '"')
+        self.assertIn('os.environ.get("ISAAC_REAL_CLOUD_SETUP") != "1"', guard)
+        self.assertIn("skipTest", guard)
+        self.assertNotIn("_run_real_setup", guard)
+        body = "\n".join(ast.unparse(stmt) for stmt in statements)
+        self.assertLess(body.index("ISAAC_REAL_CLOUD_SETUP"), body.index("_run_real_setup"))
+
+        before = _system_mutation_snapshot()
+        env = os.environ.copy()
+        env.pop("ISAAC_REAL_CLOUD_SETUP", None)
+        env["PYTHONPATH"] = str(ROOT)
+        env["PYTHONDONTWRITEBYTECODE"] = "1"
+        completed = subprocess.run(
+            [sys.executable, "-c", _OPT_IN_GUARD_PROBE],
+            cwd=ROOT,
+            env=env,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        after = _system_mutation_snapshot()
+        self.assertEqual(before, after, "opt-in guard probe changed compilers or packages")
+        self.assertEqual(completed.returncode, 0, completed.stderr + completed.stdout)
+        report = json.loads(completed.stdout)
+        loader = report["loader"]
+        self.assertEqual(loader["ran"], 1)
+        self.assertEqual(loader["failures"], 0, report)
+        self.assertEqual(loader["errors"], 0, report)
+        self.assertEqual(loader["calls"], [], report)
+        self.assertEqual(loader["skipped"], [REAL_SETUP_SKIP_REASON], report)
+        self.assertEqual(report["unwrapped"], "skip:" + REAL_SETUP_SKIP_REASON, report)
+        self.assertEqual(report["unwrapped_calls"], [], report)
+
+    @unittest.skipUnless(
+        os.environ.get("ISAAC_REAL_CLOUD_SETUP") == "1",
+        REAL_SETUP_SKIP_REASON,
+    )
+    @unittest.skipUnless(
+        os.name == "posix" and Path("/usr/bin/gcc").is_file() and Path("/usr/bin/g++").is_file(),
         "real venv install needs /usr/bin/gcc and /usr/bin/g++",
     )
     def test_real_setup_runs_venv_module_and_pip(self):
+        if os.environ.get("ISAAC_REAL_CLOUD_SETUP") != "1":
+            self.skipTest(REAL_SETUP_SKIP_REASON)
         sudo = subprocess.run(["sudo", "-n", "true"], capture_output=True, text=True, check=False)
         if sudo.returncode != 0:
             self.skipTest("real setup needs passwordless sudo")
@@ -353,17 +479,21 @@ def assert_real_venv_install(test: unittest.TestCase, root: Path) -> None:
     test.assertTrue(location.split(": ", 1)[1].startswith(str(venv)), shown.stdout)
 
 
-def _run_real_setup(root: Path) -> subprocess.CompletedProcess[str]:
+def _prepare_setup_root(root: Path) -> Path:
     tools = root / "authority" / "tools"
     tools.mkdir(parents=True, exist_ok=True)
-    script_src = ROOT / "authority/tools/cloud_linux_setup.sh"
     script = tools / "cloud_linux_setup.sh"
-    script.write_bytes(script_src.read_bytes())
+    script.write_bytes((ROOT / "authority/tools/cloud_linux_setup.sh").read_bytes())
     script.chmod(script.stat().st_mode | stat.S_IEXEC)
     (root / "requirements-dev.txt").write_text(
         (ROOT / "requirements-dev.txt").read_text(encoding="utf-8"),
         encoding="utf-8",
     )
+    return script
+
+
+def _run_real_setup(root: Path) -> subprocess.CompletedProcess[str]:
+    script = _prepare_setup_root(root)
     env = os.environ.copy()
     env.pop("VIRTUAL_ENV", None)
     env.pop("PYTHONPATH", None)
@@ -377,6 +507,144 @@ def _run_real_setup(root: Path) -> subprocess.CompletedProcess[str]:
         check=False,
     )
 
+
+def _stub_env(bindir: Path, log: Path) -> dict[str, str]:
+    env = os.environ.copy()
+    env.pop("VIRTUAL_ENV", None)
+    env.pop("PYTHONPATH", None)
+    env["PATH"] = os.pathsep.join((str(bindir), "/usr/bin", "/bin"))
+    env["CLOUD_SETUP_LOG"] = str(log)
+    return env
+
+
+def _run_setup_with_system_stubs(
+    root: Path,
+    log: Path,
+) -> tuple[subprocess.CompletedProcess[str], Path]:
+    script = _prepare_setup_root(root)
+    bindir = root.parent / "stub-bin"
+    bindir.mkdir()
+    _write_executable(bindir / "sudo", _STUB_SUDO)
+    _write_executable(bindir / "apt-get", _STUB_APT_GET)
+    _write_executable(bindir / "update-alternatives", _STUB_UPDATE_ALTERNATIVES)
+    completed = subprocess.run(
+        ["bash", str(script)],
+        cwd=root,
+        env=_stub_env(bindir, log),
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    return completed, bindir
+
+
+def _write_executable(path: Path, text: str) -> None:
+    path.write_text(text, encoding="utf-8")
+    path.chmod(0o755)
+
+
+def _first_index(text: str, markers: tuple[str, ...]) -> int:
+    found = [text.index(marker) for marker in markers if marker in text]
+    if not found:
+        raise AssertionError("missing markers " + ", ".join(markers) + " in:\n" + text)
+    return min(found)
+
+
+def _real_setup_function() -> ast.FunctionDef:
+    tree = ast.parse((ROOT / "test_cloud_agent_notes.py").read_text(encoding="utf-8"))
+    for node in tree.body:
+        if isinstance(node, ast.ClassDef) and node.name == "CloudNoteTests":
+            for item in node.body:
+                if isinstance(item, ast.FunctionDef) and item.name == "test_real_setup_runs_venv_module_and_pip":
+                    return item
+    raise AssertionError("test_real_setup_runs_venv_module_and_pip is missing")
+
+
+def _system_mutation_snapshot() -> str:
+    lines: list[str] = []
+    for name in ("cc", "c++"):
+        link = f"/usr/bin/{name}"
+        lines.append(f"{name}={os.path.realpath(link) if os.path.exists(link) else 'missing'}")
+        alternatives = Path("/var/lib/dpkg/alternatives") / name
+        if alternatives.is_file():
+            try:
+                lines.append(alternatives.read_text(encoding="utf-8", errors="replace"))
+            except OSError as exc:
+                lines.append(f"{alternatives}: {exc}")
+    if os.path.isfile("/usr/bin/update-alternatives"):
+        for name in ("cc", "c++"):
+            queried = subprocess.run(
+                ["/usr/bin/update-alternatives", "--query", name],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            lines.append(f"query {name} rc={queried.returncode}\n{queried.stdout}{queried.stderr}")
+    packages = subprocess.run(
+        ["dpkg-query", "-W", "python3-venv", "python3.12-venv"],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    lines.append(f"dpkg rc={packages.returncode}\n{packages.stdout}{packages.stderr}")
+    return "\n".join(lines)
+
+
+_OPT_IN_GUARD_PROBE = r"""
+import json, os, subprocess, sys, unittest
+
+os.environ.pop("ISAAC_REAL_CLOUD_SETUP", None)
+calls = []
+
+def refuse(label):
+    def wrapped(*args, **kwargs):
+        record = {"label": label, "argv": [repr(arg) for arg in args]}
+        calls.append(record)
+        raise RuntimeError("command without ISAAC_REAL_CLOUD_SETUP=1: " + json.dumps(record))
+    return wrapped
+
+subprocess.run = refuse("run")
+subprocess.call = refuse("call")
+subprocess.check_call = refuse("check_call")
+subprocess.check_output = refuse("check_output")
+subprocess.Popen = refuse("Popen")
+os.system = refuse("system")
+for _name in ("execv", "execve", "execvp", "execvpe", "spawnv", "spawnve", "spawnvp", "spawnvpe", "posix_spawn"):
+    if hasattr(os, _name):
+        setattr(os, _name, refuse(_name))
+
+import test_cloud_agent_notes as notes
+
+loader_result = unittest.TextTestRunner(stream=open(os.devnull, "w"), verbosity=0).run(
+    unittest.defaultTestLoader.loadTestsFromName(
+        "CloudNoteTests.test_real_setup_runs_venv_module_and_pip", notes
+    )
+)
+loader = {
+    "ran": loader_result.testsRun,
+    "skipped": [reason for _test, reason in loader_result.skipped],
+    "failures": len(loader_result.failures),
+    "errors": len(loader_result.errors),
+    "calls": list(calls),
+}
+calls.clear()
+method = notes.CloudNoteTests.test_real_setup_runs_venv_module_and_pip
+original = method
+seen = set()
+while getattr(original, "__wrapped__", None) is not None and id(original) not in seen:
+    seen.add(id(original))
+    original = original.__wrapped__
+case = notes.CloudNoteTests("test_real_setup_runs_venv_module_and_pip")
+try:
+    original(case)
+    unwrapped = "returned"
+except unittest.SkipTest as exc:
+    unwrapped = "skip:" + str(exc)
+except Exception as exc:
+    unwrapped = type(exc).__name__ + ":" + str(exc)
+sys.stdout.write(json.dumps({"loader": loader, "unwrapped": unwrapped, "unwrapped_calls": calls}))
+"""
+
 def executable_lines(script: str) -> str:
     return "\n".join(line for line in script.splitlines() if not line.lstrip().startswith("#"))
 
@@ -388,16 +656,7 @@ def _run_setup(
     extra: dict[str, str],
 ) -> subprocess.CompletedProcess[str]:
     root = tmp / "root"
-    tools = root / "authority" / "tools"
-    tools.mkdir(parents=True, exist_ok=True)
-    script_src = ROOT / "authority/tools/cloud_linux_setup.sh"
-    script = tools / "cloud_linux_setup.sh"
-    script.write_bytes(script_src.read_bytes())
-    script.chmod(script.stat().st_mode | stat.S_IEXEC)
-    (root / "requirements-dev.txt").write_text(
-        (ROOT / "requirements-dev.txt").read_text(encoding="utf-8"),
-        encoding="utf-8",
-    )
+    script = _prepare_setup_root(root)
     bindir = tmp / "bin"
     bindir.mkdir(exist_ok=True)
     python_stub = bindir / "python3"
@@ -506,6 +765,62 @@ _FAKE_SUDO = textwrap.dedent(
     case "$*" in
       *python3-venv*) touch "$SIM_STATE/apt-venv" ;;
     esac
+    exit 0
+    """
+)
+
+_STUB_SUDO = textwrap.dedent(
+    """\
+    #!/bin/bash
+    if [[ "${1:-}" == "-n" ]]; then
+      shift
+    fi
+    if [[ "${1:-}" == "env" ]]; then
+      shift
+      while [[ "${1:-}" == *=* ]]; do
+        shift
+      done
+    fi
+    if [[ $# -lt 1 ]]; then
+      echo "stub-sudo: missing command" >&2
+      exit 99
+    fi
+    cmd="$1"
+    shift
+    printf '%s\\n' "stub-sudo ${cmd} $*"
+    if [[ -n "${CLOUD_SETUP_LOG:-}" ]]; then
+      printf '%s\\n' "stub-sudo ${cmd} $*" >> "$CLOUD_SETUP_LOG"
+    fi
+    case "$cmd" in
+      apt-get|update-alternatives)
+        exec "$(cd "$(dirname "$0")" && pwd)/${cmd}" "$@"
+        ;;
+      *)
+        echo "stub-sudo: refusing ${cmd}" >&2
+        exit 99
+        ;;
+    esac
+    """
+)
+
+_STUB_APT_GET = textwrap.dedent(
+    """\
+    #!/bin/bash
+    printf '%s\\n' "stub-apt-get $*"
+    if [[ -n "${CLOUD_SETUP_LOG:-}" ]]; then
+      printf '%s\\n' "stub-apt-get $*" >> "$CLOUD_SETUP_LOG"
+    fi
+    exit 0
+    """
+)
+
+_STUB_UPDATE_ALTERNATIVES = textwrap.dedent(
+    """\
+    #!/bin/bash
+    printf '%s\\n' "stub-update-alternatives $*"
+    if [[ -n "${CLOUD_SETUP_LOG:-}" ]]; then
+      printf '%s\\n' "stub-update-alternatives $*" >> "$CLOUD_SETUP_LOG"
+    fi
     exit 0
     """
 )
