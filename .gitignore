@@ -1,5 +1,6 @@
 ﻿# Local toolchains, caches, and generated release artifacts
 .tools/
+.venv/
 __pycache__/
 *.pyc
 artifacts/

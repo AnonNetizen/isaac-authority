@@ -283,3 +283,41 @@ They are not in-game results. `playable` stays false.
    frame delta 0, recovery, hook disabled. The high-entity batch adds
    `-PacketRva 0x2fadc0` and is a separate fresh process.
 5. Only then start a new engine-facing change. Keep backups and a disposable save.
+
+## Cursor Cloud specific instructions
+
+Linux cloud agents have no `isaac-ng.exe`, Visual Studio, or Steam workshop
+files. Sections 3–6 and checklist steps 3–4 need a Windows machine with the
+game. On cloud, stop after the portable checks in checklist step 2.
+`playable` stays false.
+
+- Run `authority/tools/cloud_linux_setup.sh` to create `.venv`. It installs
+  the `python3-venv` package when `ensurepip` is missing, creates `.venv`
+  with `python3 -m venv`, and installs the pins in `requirements-dev.txt`
+  with `.venv/bin/python -m pip` and no `--user`. That works on an externally
+  managed system Python (PEP 668 `EXTERNALLY-MANAGED`) and inside an
+  already-active virtualenv. It then points `cc` at `/usr/bin/gcc` and `c++`
+  at `/usr/bin/g++` with `update-alternatives`. The pip install runs before
+  that compiler switch. Running the script again is safe.
+  `test_real_setup_runs_venv_module_and_pip` runs that script with real
+  `sudo`, including `apt-get` and `update-alternatives`. It skips unless
+  `ISAAC_REAL_CLOUD_SETUP=1`. The default run of this file does not change
+  system compilers or packages.
+- If CMake reports `cannot find -lstdc++` or a missing `iostream`, delete the
+  failed build directory and configure again.
+- Run pytest with that venv:
+  `.venv/bin/python -m pytest -q test_stability_patch.py`, not `py -3`.
+  `requirements-dev.txt` pins `lupa==2.6`, which provides Lua 5.3. It also
+  pins `pytest==8.3.5` so the venv can run pytest. Without
+  `ISAAC_LASER_SOURCE` (the workshop main.lua is not in this repo), the
+  source-backed tests skip. The Python `py_compile` check
+  (`CompileTests.test_python_sources_compile`) passes. The Lua compile of the
+  patched workshop main.lua
+  (`StructureTests.test_patched_text_compiles_in_lua53`) also skips, because
+  that test is on `StructureTests` under `@REQUIRES_SOURCE` and `PATCHED` is
+  None. That skip is expected here.
+- Host-side demo, still not playable co-op:
+  `.venv/bin/python authority/tools/run_isolation.py --demo --output /tmp/isolation-demo.json`
+  and `.venv/bin/python authority/tests/test_isolation.py`.
+- `.venv/bin/python authority/tests/test_offline_authority.py` checks the offline
+  capture fixture only.

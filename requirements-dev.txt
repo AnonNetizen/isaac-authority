@@ -1,0 +1,4 @@
+# Offline checks. lupa 2.6 provides Lua 5.3 via lupa.lua53.
+# pytest is pinned so `.venv/bin/python -m pytest` works after cloud_linux_setup.sh.
+lupa==2.6
+pytest==8.3.5
