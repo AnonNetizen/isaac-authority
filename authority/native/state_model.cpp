@@ -573,6 +573,7 @@ void GuestIngress::resync() {
     buffered_.clear();
     applied_.clear();
     highest_seq_ = 0;
+    keyframe_seq_ = 0;
     have_ = false;
     last_frame_ = 0;
     world_ = {};
@@ -616,18 +617,25 @@ ModelError GuestIngress::drain() {
 }
 
 ModelError GuestIngress::apply_keyframe(const SnapshotPacket& packet) {
-    // Keyframes are ordered by sequence. A late older sequence must not roll
-    // the room back, including while a keyframe is required. resync() zeroes
-    // highest_seq_, so a restarted host at sequence 1 is still accepted.
+    // Keyframes from one publisher are ordered by sequence. A higher sequence
+    // is newer even when the frame counter restarted in the same room, so the
+    // frame number is not a second ordering key. A late older sequence must
+    // not roll the room back, including while a keyframe is required.
+    // resync() zeroes highest_seq_, so a restarted host at sequence 1 is
+    // still accepted.
     if (highest_seq_ != 0 && packet.sequence < highest_seq_) {
         note_applied(packet.sequence);
         return ModelError::stale;
     }
-    // A new sequence at this frame is a room change or a forced refresh.
-    // While a keyframe is required, a restarted host may send any frame number.
-    if (have_ && !needs_keyframe_ && packet.full.frame < last_frame_) {
-        note_applied(packet.sequence);
-        return ModelError::stale;
+    // Packets buffered from before this keyframe are the previous run. drain()
+    // chains by frame number, and a new run reuses those numbers.
+    for (auto it = buffered_.begin(); it != buffered_.end();) {
+        if (it->first < packet.sequence) {
+            note_applied(it->first);
+            it = buffered_.erase(it);
+        } else {
+            ++it;
+        }
     }
     world_ = packet.full;
     std::sort(world_.players.begin(), world_.players.end(), [](const NetPlayer& a, const NetPlayer& b) { return a.slot < b.slot; });
@@ -635,6 +643,7 @@ ModelError GuestIngress::apply_keyframe(const SnapshotPacket& packet) {
     last_frame_ = world_.frame;
     have_ = true;
     needs_keyframe_ = false;
+    keyframe_seq_ = packet.sequence;
     note_applied(packet.sequence);
     return drain() == ModelError::ok ? ModelError::ok : ModelError::needs_keyframe;
 }
@@ -663,6 +672,12 @@ ModelError GuestIngress::accept(const uint8_t* data, size_t size) {
     if (applied_.count(packet.sequence) || buffered_.count(packet.sequence)) return ModelError::duplicate;
     if (highest_seq_ >= 4096 && packet.sequence + 4096 < highest_seq_) return ModelError::stale;
     if (packet.keyframe) return apply_keyframe(packet);
+    // A delta published before the newest keyframe is the previous run. Frame
+    // numbers alone cannot tell it apart once the new run catches up.
+    if (keyframe_seq_ != 0 && packet.sequence < keyframe_seq_) {
+        note_applied(packet.sequence);
+        return ModelError::stale;
+    }
     if (!have_ || needs_keyframe_) { remember(packet); return ModelError::needs_keyframe; }
     if (packet.delta.frame < last_frame_ || packet.delta.base_frame < last_frame_) {
         note_applied(packet.sequence);

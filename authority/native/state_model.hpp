@@ -239,6 +239,9 @@ class GuestIngress {
     bool incompatible_{false};
     uint32_t last_frame_{0};
     uint32_t highest_seq_{0};
+    // Sequence of the newest applied keyframe. Deltas published before it belong
+    // to the previous run and must not chain once frame numbers are reused.
+    uint32_t keyframe_seq_{0};
     std::unordered_map<uint32_t, SnapshotPacket> buffered_;
     std::unordered_set<uint32_t> applied_;
     void note_applied(uint32_t sequence);
@@ -250,6 +253,7 @@ public:
     ModelError accept(const uint8_t* data, size_t size);
     // Drops the sequence window and the applied world. The next keyframe is
     // accepted at any frame, including a host that restarted at sequence 1.
+    // A same-room restart that keeps the publisher's sequence does not need this.
     void resync();
     const WorldSnapshot* snapshot() const { return have_ ? &world_ : nullptr; }
     bool needs_keyframe() const { return needs_keyframe_; }

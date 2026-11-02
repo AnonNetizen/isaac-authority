@@ -188,6 +188,119 @@ int main() {
         auto same_room_next = same_room_restart.publish(make_capture(2, 12.f, 0x3CE6A014u, 0x3CE6B028u, 0x01020304u, true, 84));
         expect(same_room_next.error == ModelError::ok && !same_room_next.sent_keyframe && same_room_next.snapshot.frame == 2,
                "same-room restart continues from the new frame");
+
+        LoopbackHub restart_hub;
+        AuthorityLink restart_host(config_for(LinkRole::capture, 7), restart_hub.left());
+        AuthorityLink restart_guest(config_for(LinkRole::preview, 7), restart_hub.right());
+        expect(restart_host.start(1) && restart_guest.start(1), "same-room restart handshake");
+        pump(restart_host, restart_guest, 1);
+        expect(restart_host.phase() == LinkPhase::active && restart_guest.phase() == LinkPhase::active,
+               "same-room restart link is active");
+        for (uint32_t frame = 500; frame <= 505; ++frame) {
+            auto sent = restart_host.publish_capture(
+                make_capture(frame, static_cast<float>(frame), 0x3CE6A014u, 0x3CE6B028u, 0x01020304u, true, 84), 1);
+            if (sent.error != LinkError::ok) throw std::runtime_error("old-run send failed");
+            restart_guest.poll(1);
+            const auto* world = restart_guest.snapshot();
+            if (world == nullptr || world->frame != frame || world->room_index != 84 ||
+                world->players[0].x != static_cast<float>(frame) || restart_guest.awaiting_keyframe())
+                throw std::runtime_error(std::string("guest missed old-run frame ") + std::to_string(frame));
+        }
+        expect(restart_guest.snapshot()->frame == 505 && restart_guest.snapshot()->room_index == 84 &&
+               !restart_guest.awaiting_keyframe(),
+               "guest reached frame 505 in room 84");
+        auto sent_frame1 = restart_host.publish_capture(
+            make_capture(1, 11.f, 0x3CE6A014u, 0x3CE6B028u, 0x01020304u, true, 84), 1);
+        expect(sent_frame1.error == LinkError::ok && sent_frame1.keyframe && sent_frame1.frame == 1,
+               "same-room frame 1 is a keyframe on the link");
+        restart_guest.poll(1);
+        expect(restart_guest.snapshot() != nullptr && restart_guest.snapshot()->frame == 1 &&
+               restart_guest.snapshot()->room_index == 84 && restart_guest.snapshot()->players[0].x == 11.f &&
+               !restart_guest.awaiting_keyframe(),
+               "guest applies frame 1 without resync");
+        auto sent_frame2 = restart_host.publish_capture(
+            make_capture(2, 12.f, 0x3CE6A014u, 0x3CE6B028u, 0x01020304u, true, 84), 1);
+        expect(sent_frame2.error == LinkError::ok && !sent_frame2.keyframe, "frame 2 stays a delta");
+        restart_guest.poll(1);
+        expect(restart_guest.snapshot()->frame == 2 && restart_guest.snapshot()->players[0].x == 12.f &&
+               restart_guest.snapshot()->room_index == 84 && !restart_guest.awaiting_keyframe(),
+               "guest applies frame 2");
+        auto sent_frame3 = restart_host.publish_capture(
+            make_capture(3, 13.f, 0x3CE6A014u, 0x3CE6B028u, 0x01020304u, true, 84), 1);
+        expect(sent_frame3.error == LinkError::ok && !sent_frame3.keyframe, "frame 3 stays a delta");
+        restart_guest.poll(1);
+        expect(restart_guest.snapshot()->frame == 3 && restart_guest.snapshot()->players[0].x == 13.f &&
+               !restart_guest.awaiting_keyframe(),
+               "guest applies frame 3");
+        bool interval_key = false;
+        for (uint32_t frame = 4; frame <= 31; ++frame) {
+            auto sent = restart_host.publish_capture(
+                make_capture(frame, static_cast<float>(frame), 0x3CE6A014u, 0x3CE6B028u, 0x01020304u, true, 84), 1);
+            if (sent.error != LinkError::ok) throw std::runtime_error("new-run send failed");
+            if (frame == 31) interval_key = sent.keyframe;
+            else if (sent.keyframe) throw std::runtime_error("unexpected keyframe before frame 31");
+            restart_guest.poll(1);
+            const auto* world = restart_guest.snapshot();
+            if (world == nullptr || world->frame != frame || world->room_index != 84 ||
+                world->players[0].x != static_cast<float>(frame) || restart_guest.awaiting_keyframe())
+                throw std::runtime_error(std::string("guest lost the new run at frame ") + std::to_string(frame));
+        }
+        expect(interval_key && restart_guest.snapshot()->frame == 31 && restart_guest.snapshot()->players[0].x == 31.f &&
+               restart_guest.snapshot()->room_index == 84 && !restart_guest.awaiting_keyframe(),
+               "guest applies the interval keyframe at frame 31");
+
+        HostPublisher buffered_host;
+        GuestIngress buffered_guest;
+        for (uint32_t frame = 500; frame <= 505; ++frame) {
+            auto published = buffered_host.publish(
+                make_capture(frame, static_cast<float>(frame), 0x3CE6A014u, 0x3CE6B028u, 0x01020304u, true, 84));
+            if (published.error != ModelError::ok) throw std::runtime_error("buffered old-run publish");
+            if (buffered_guest.accept(published.bytes.data(), published.bytes.size()) != ModelError::ok)
+                throw std::runtime_error("buffered old-run accept");
+        }
+        expect(buffered_guest.frame() == 505 && buffered_guest.snapshot()->players[0].x == 505.f &&
+               buffered_guest.snapshot()->room_index == 84,
+               "buffered guest reached frame 505");
+        auto withheld = buffered_host.publish(
+            make_capture(506, 506.f, 0x3CE6A014u, 0x3CE6B028u, 0x01020304u, true, 84));
+        expect(withheld.error == ModelError::ok && !withheld.sent_keyframe, "old frame 506 is withheld");
+        auto ahead = buffered_host.publish(
+            make_capture(507, 999.f, 0x3CE6A014u, 0x3CE6B028u, 0x01020304u, true, 84));
+        expect(ahead.error == ModelError::ok && !ahead.sent_keyframe && ahead.sequence > withheld.sequence,
+               "old frame 507 is a gap delta");
+        expect_model(buffered_guest.accept(ahead.bytes.data(), ahead.bytes.size()), ModelError::buffered,
+                     "old-run gap delta stays buffered");
+        expect(buffered_guest.frame() == 505 && buffered_guest.snapshot()->players[0].x == 505.f,
+               "buffered gap did not move the guest");
+        auto buffered_restart = buffered_host.publish(
+            make_capture(1, 11.f, 0x3CE6A014u, 0x3CE6B028u, 0x01020304u, true, 84));
+        expect(buffered_restart.error == ModelError::ok && buffered_restart.sent_keyframe &&
+               buffered_restart.sequence > ahead.sequence,
+               "restart keyframe is newer than the buffered delta");
+        expect_model(buffered_guest.accept(buffered_restart.bytes.data(), buffered_restart.bytes.size()), ModelError::ok,
+                     "restart keyframe applied over the buffered delta");
+        expect(buffered_guest.frame() == 1 && buffered_guest.snapshot()->players[0].x == 11.f &&
+               buffered_guest.snapshot()->room_index == 84 && !buffered_guest.needs_keyframe(),
+               "restart keyframe replaced the world");
+        expect_model(buffered_guest.accept(withheld.bytes.data(), withheld.bytes.size()), ModelError::stale,
+                     "late old-run delta is stale after the restart keyframe");
+        expect(buffered_guest.frame() == 1 && buffered_guest.snapshot()->players[0].x == 11.f,
+               "late old-run delta did not apply");
+        expect_model(buffered_guest.accept(ahead.bytes.data(), ahead.bytes.size()), ModelError::duplicate,
+                     "dropped buffered delta is not applied again");
+        for (uint32_t frame = 2; frame <= 507; ++frame) {
+            auto published = buffered_host.publish(
+                make_capture(frame, static_cast<float>(frame), 0x3CE6A014u, 0x3CE6B028u, 0x01020304u, true, 84));
+            if (published.error != ModelError::ok) throw std::runtime_error("buffered new-run publish");
+            const auto err = buffered_guest.accept(published.bytes.data(), published.bytes.size());
+            const auto* world = buffered_guest.snapshot();
+            if (err != ModelError::ok || world == nullptr || world->frame != frame || world->room_index != 84 ||
+                world->players.empty() || world->players[0].x != static_cast<float>(frame) || buffered_guest.needs_keyframe())
+                throw std::runtime_error(std::string("old buffered delta drained at frame ") + std::to_string(frame));
+        }
+        expect(buffered_guest.frame() == 507 && buffered_guest.snapshot()->players[0].x == 507.f &&
+               buffered_guest.snapshot()->room_index == 84 && !buffered_guest.needs_keyframe(),
+               "old buffered delta was not drained into the new run");
         HostPublisher room_rewind;
         expect_model(room_rewind.publish(make_capture(40, 1.f)).error, ModelError::ok, "room rewind base");
         auto room_back = room_rewind.publish(make_capture(3, 2.f, 0x3CE6A014u, 0x3CE6B028u, 0x01020304u, true, 80));
@@ -341,12 +454,18 @@ int main() {
         expect(gap_guest.frame() == 40 && gap_guest.snapshot()->players[0].x == 40.f, "recovery snapshot is the keyframe");
         auto older = decode_snapshot(loss1.bytes.data(), loss1.bytes.size());
         expect(older.error == ModelError::ok, "decode older keyframe");
-        SnapshotPacket stale_key = older.packet;
-        stale_key.sequence = 99;
-        auto stale_bytes = encode_snapshot(stale_key);
-        expect_model(stale_bytes.error, ModelError::ok, "encode stale keyframe");
-        expect_model(gap_guest.accept(stale_bytes.bytes.data(), stale_bytes.bytes.size()), ModelError::stale, "older keyframe does not roll the room back");
-        expect(gap_guest.snapshot()->room_index == 71 && gap_guest.frame() == 40, "stale keyframe left the world alone");
+        expect(gap_guest.snapshot()->room_index == 71 && gap_guest.frame() == 40, "gap guest still on the recovery keyframe");
+        GuestIngress newer_seq_guest;
+        expect_model(newer_seq_guest.accept(loss_key.bytes.data(), loss_key.bytes.size()), ModelError::ok, "newer-seq guest base");
+        SnapshotPacket newer_lower = older.packet;
+        newer_lower.sequence = 99;
+        auto newer_lower_bytes = encode_snapshot(newer_lower);
+        expect_model(newer_lower_bytes.error, ModelError::ok, "encode higher-sequence lower frame");
+        expect_model(newer_seq_guest.accept(newer_lower_bytes.bytes.data(), newer_lower_bytes.bytes.size()), ModelError::ok,
+                     "higher sequence keyframe applies when the frame is lower");
+        expect(newer_seq_guest.frame() == 1 && newer_seq_guest.snapshot()->room_index == 71 &&
+               newer_seq_guest.snapshot()->players[0].x == 1.f && !newer_seq_guest.needs_keyframe(),
+               "higher sequence replaced the world");
 
         auto broken = loss3.bytes;
         broken.back() ^= 0x5au;

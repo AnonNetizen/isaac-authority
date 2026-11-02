@@ -69,3 +69,5 @@
 2026-11-02 审查修复：主机在 `force_keyframe()` 或换房时接受帧号回退；客机 `resync()` 清空序号窗口，等待关键帧时接受任意帧号；同一帧换房按新序号应用；`--check-report` 遇到非对象 JSON 不再崩溃。复跑 `authority-tests` 38 项，`authority-state-tests` 213 项，`g++ -m32` 结果相同，两边仍打印 `playable=false`。没有启动游戏。
 
 2026-11-02 再修：同一房间里帧号变小也是新一局，会发关键帧；同一帧且没有强制刷新或换房仍是 `stale`。客机按序号拒绝更旧的关键帧，晚到的 seq1 不能把已经应用的 seq2 房间滚回去。复跑 `authority-tests` 38 项，`authority-state-tests` 221 项，`g++ -m32` 相同，`playable=false`。没有启动游戏。
+
+2026-11-02 再修：同一房间重开后，客机不再因为帧号变小把更大序号的关键帧判成 `stale`。不调用 `resync()` 也能跟上帧 1、2、3 和帧 31 的间隔关键帧。应用关键帧时丢掉更小序号的缓冲增量，迟到的旧局增量也是 `stale`，不会在新局帧号追上时被接上。更小序号的关键帧仍然不能把房间滚回去。复跑 `authority-tests` 38 项，`authority-state-tests` 245 项，`g++ -m32` 相同，`playable=false`。没有启动游戏。
