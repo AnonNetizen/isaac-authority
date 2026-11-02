@@ -451,9 +451,13 @@ PublishResult HostPublisher::publish(const NativeCapture& capture) {
     PublishResult result;
     if (const auto checked = precheck_capture(capture); checked != ModelError::ok) { result.error = checked; return result; }
     const bool room_changed = have_ && capture.room_index != previous_.room_index;
-    // A restarted run puts the frame counter back near 0. force_keyframe() or a
-    // room change accepts that rollback and forgets the previous snapshot.
-    if (have_ && !force_ && !room_changed && capture.frame <= previous_.frame) { result.error = ModelError::stale; return result; }
+    // The same frame without a forced refresh or a room change is a duplicate
+    // capture. A lower frame is a new run, including a restart in the same
+    // room: the link reports stale and does not call force_keyframe().
+    if (have_ && capture.frame == previous_.frame && !force_ && !room_changed) {
+        result.error = ModelError::stale;
+        return result;
+    }
     if (have_ && capture.frame < previous_.frame) {
         previous_ = {};
         last_key_frame_ = 0;
@@ -612,9 +616,15 @@ ModelError GuestIngress::drain() {
 }
 
 ModelError GuestIngress::apply_keyframe(const SnapshotPacket& packet) {
-    // Sequence dedup already happened. A new sequence at this frame is a room
-    // change or a forced refresh and must replace the world. While a keyframe
-    // is required, a restarted host may also send an older frame number.
+    // Keyframes are ordered by sequence. A late older sequence must not roll
+    // the room back, including while a keyframe is required. resync() zeroes
+    // highest_seq_, so a restarted host at sequence 1 is still accepted.
+    if (highest_seq_ != 0 && packet.sequence < highest_seq_) {
+        note_applied(packet.sequence);
+        return ModelError::stale;
+    }
+    // A new sequence at this frame is a room change or a forced refresh.
+    // While a keyframe is required, a restarted host may send any frame number.
     if (have_ && !needs_keyframe_ && packet.full.frame < last_frame_) {
         note_applied(packet.sequence);
         return ModelError::stale;

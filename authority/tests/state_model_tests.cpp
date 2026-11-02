@@ -152,7 +152,9 @@ int main() {
         HostPublisher stale_pub;
         expect_model(stale_pub.publish(make_capture(5, 1.f)).error, ModelError::ok, "stale setup");
         expect_model(stale_pub.publish(make_capture(5, 2.f)).error, ModelError::stale, "same frame without force is stale");
-        expect_model(stale_pub.publish(make_capture(4, 2.f)).error, ModelError::stale, "rewind is stale");
+        auto rewound = stale_pub.publish(make_capture(4, 2.f));
+        expect(rewound.error == ModelError::ok && rewound.sent_keyframe && rewound.snapshot.frame == 4,
+               "lower frame in the same room is a new-run keyframe");
         stale_pub.force_keyframe();
         auto refresh = stale_pub.publish(make_capture(5, 2.f));
         expect(refresh.error == ModelError::ok && refresh.sent_keyframe, "forced same-frame keyframe");
@@ -176,6 +178,16 @@ int main() {
         auto restarted_next = restart_pub.publish(make_capture(2, 12.f));
         expect(restarted_next.error == ModelError::ok && !restarted_next.sent_keyframe && restarted_next.snapshot.frame == 2,
                "motion after a restarted keyframe is a delta");
+        HostPublisher same_room_restart;
+        expect_model(same_room_restart.publish(make_capture(505, 50.f, 0x3CE6A014u, 0x3CE6B028u, 0x01020304u, true, 84)).error,
+                     ModelError::ok, "same-room frame 505");
+        auto same_room_new = same_room_restart.publish(make_capture(1, 11.f, 0x3CE6A014u, 0x3CE6B028u, 0x01020304u, true, 84));
+        expect(same_room_new.error == ModelError::ok && same_room_new.sent_keyframe && same_room_new.snapshot.frame == 1 &&
+               same_room_new.snapshot.room_index == 84 && same_room_new.snapshot.players[0].x == 11.f,
+               "same-room frame rollback publishes a keyframe");
+        auto same_room_next = same_room_restart.publish(make_capture(2, 12.f, 0x3CE6A014u, 0x3CE6B028u, 0x01020304u, true, 84));
+        expect(same_room_next.error == ModelError::ok && !same_room_next.sent_keyframe && same_room_next.snapshot.frame == 2,
+               "same-room restart continues from the new frame");
         HostPublisher room_rewind;
         expect_model(room_rewind.publish(make_capture(40, 1.f)).error, ModelError::ok, "room rewind base");
         auto room_back = room_rewind.publish(make_capture(3, 2.f, 0x3CE6A014u, 0x3CE6B028u, 0x01020304u, true, 80));
@@ -268,6 +280,20 @@ int main() {
         expect(same_frame_guest.frame() == 11 && same_frame_guest.snapshot()->room_index == 72 &&
                same_frame_guest.snapshot()->players[0].x == 16.f && !same_frame_guest.needs_keyframe(),
                "delta applied on room 72");
+
+        HostPublisher late_pub;
+        GuestIngress late_guest;
+        auto late_seq1 = late_pub.publish(make_capture(10, 10.f));
+        auto late_seq2 = late_pub.publish(make_capture(10, 15.f, 0x3CE6A014u, 0x3CE6B028u, 0x01020304u, true, 72));
+        expect(late_seq1.sequence == 1 && late_seq1.sent_keyframe && late_seq1.snapshot.room_index == 71 &&
+               late_seq2.sequence == 2 && late_seq2.sent_keyframe && late_seq2.snapshot.room_index == 72,
+               "seq1 room 71 then seq2 room 72");
+        expect_model(late_guest.accept(late_seq2.bytes.data(), late_seq2.bytes.size()), ModelError::ok, "seq2 arrives first");
+        expect(late_guest.snapshot()->room_index == 72 && late_guest.frame() == 10, "guest applied room 72");
+        expect_model(late_guest.accept(late_seq1.bytes.data(), late_seq1.bytes.size()), ModelError::stale,
+                     "older sequence keyframe is stale");
+        expect(late_guest.snapshot()->room_index == 72 && late_guest.frame() == 10 && late_guest.snapshot()->players[0].x == 15.f,
+               "late seq1 does not roll the room back to 71");
 
         auto bad = make_capture(1, 1.f);
         bad.players[0].x = std::numeric_limits<float>::infinity();
