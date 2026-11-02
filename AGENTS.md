@@ -291,17 +291,16 @@ files. Sections 3–6 and checklist steps 3–4 need a Windows machine with the
 game. On cloud, stop after the portable checks in checklist step 2.
 `playable` stays false.
 
-- If CMake reports `cannot find -lstdc++` or a missing `iostream`, the default
-  `c++` is Clang without libstdc++ headers. Run
-  `authority/tools/cloud_linux_setup.sh`. It installs the `python3-venv`
-  package when `ensurepip` is missing, creates `.venv` with `python3 -m venv`,
-  and installs the pins in `requirements-dev.txt` with
-  `.venv/bin/python -m pip` and no `--user`. That works on an externally
+- Run `authority/tools/cloud_linux_setup.sh` to create `.venv`. It installs
+  the `python3-venv` package when `ensurepip` is missing, creates `.venv`
+  with `python3 -m venv`, and installs the pins in `requirements-dev.txt`
+  with `.venv/bin/python -m pip` and no `--user`. That works on an externally
   managed system Python (PEP 668 `EXTERNALLY-MANAGED`) and inside an
   already-active virtualenv. It then points `cc` at `/usr/bin/gcc` and `c++`
   at `/usr/bin/g++` with `update-alternatives`. The pip install runs before
-  that compiler switch. Running the script again is safe. Delete the failed
-  build directory and configure again.
+  that compiler switch. Running the script again is safe.
+- If CMake reports `cannot find -lstdc++` or a missing `iostream`, delete the
+  failed build directory and configure again.
 - Run pytest with that venv:
   `.venv/bin/python -m pytest -q test_stability_patch.py`, not `py -3`.
   `requirements-dev.txt` pins `lupa==2.6`, which provides Lua 5.3. It also

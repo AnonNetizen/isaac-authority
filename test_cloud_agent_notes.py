@@ -34,6 +34,27 @@ def collapsed(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
+def top_level_bullets(section: str) -> list[str]:
+    bullets: list[str] = []
+    current: list[str] | None = None
+    for line in section.splitlines():
+        if re.match(r"^- ", line):
+            if current is not None:
+                bullets.append("\n".join(current))
+            current = [line]
+            continue
+        if current is None:
+            continue
+        if line.startswith("  ") or line.strip() == "":
+            current.append(line)
+            continue
+        bullets.append("\n".join(current))
+        current = None
+    if current is not None:
+        bullets.append("\n".join(current))
+    return bullets
+
+
 def named_repo_files(section: str) -> list[str]:
     found: list[str] = []
     for token in re.findall(r"`([^`]+)`", section):
@@ -223,6 +244,138 @@ print(json.dumps({
             text.index("update-alternatives --set c++ /usr/bin/g++"),
         )
 
+    def test_pytest_commands_use_venv_python_after_unconditional_setup(self):
+        section = cloud_section()
+        self.assertNotIn("python3 -m pytest", section)
+        bullets = top_level_bullets(section)
+        setup_at = [
+            index
+            for index, bullet in enumerate(bullets)
+            if "to create `.venv`" in collapsed(bullet) and "If CMake" not in bullet
+        ]
+        self.assertEqual(setup_at, [0])
+        command_indexes = [
+            index
+            for index, bullet in enumerate(bullets)
+            if ".venv/bin/python -m pytest" in bullet
+            or "run_isolation.py" in bullet
+            or "test_isolation.py" in bullet
+            or "test_offline_authority.py" in bullet
+        ]
+        self.assertGreaterEqual(len(command_indexes), 3)
+        self.assertTrue(all(index > setup_at[0] for index in command_indexes))
+        pytest_bullets = [bullet for bullet in bullets if "pytest" in bullet]
+        self.assertGreaterEqual(len(pytest_bullets), 1)
+        for bullet in pytest_bullets:
+            self.assertNotIn("python3 -m pytest", bullet)
+            self.assertIn(".venv/bin/python -m pytest", bullet)
+
+    def test_setup_step_precedes_cmake_error_and_is_not_nested(self):
+        section = cloud_section()
+        bullets = top_level_bullets(section)
+        self.assertGreaterEqual(len(bullets), 2)
+        setup = bullets[0]
+        self.assertIn(
+            "Run `authority/tools/cloud_linux_setup.sh` to create `.venv`",
+            collapsed(setup),
+        )
+        self.assertNotIn("If CMake", setup)
+        self.assertNotIn("cannot find -lstdc++", setup)
+        for line in setup.splitlines():
+            if "cloud_linux_setup.sh" in line:
+                self.assertTrue(line.startswith("- "), line)
+
+        cmake_at = [
+            index for index, bullet in enumerate(bullets) if "cannot find -lstdc++" in bullet
+        ]
+        self.assertEqual(len(cmake_at), 1)
+        self.assertGreater(cmake_at[0], 0)
+        cmake = bullets[cmake_at[0]]
+        self.assertEqual(
+            collapsed(cmake),
+            "- If CMake reports `cannot find -lstdc++` or a missing `iostream`, "
+            "delete the failed build directory and configure again.",
+        )
+        self.assertNotIn("cloud_linux_setup.sh", cmake)
+        self.assertNotIn("python3 -m venv", cmake)
+        self.assertNotIn(".venv", cmake)
+        self.assertNotRegex(cmake, r"(?m)^[ \t]+- ")
+        self.assertLess(section.index("to create `.venv`"), section.index("cannot find -lstdc++"))
+        self.assertNotIn("cloud_linux_setup.sh", section[section.index("cannot find -lstdc++") :])
+
+    @unittest.skipUnless(
+        os.name == "posix" and Path("/usr/bin/gcc").is_file() and Path("/usr/bin/g++").is_file(),
+        "real venv install needs /usr/bin/gcc and /usr/bin/g++",
+    )
+    def test_real_setup_runs_venv_module_and_pip(self):
+        sudo = subprocess.run(["sudo", "-n", "true"], capture_output=True, text=True, check=False)
+        if sudo.returncode != 0:
+            self.skipTest("real setup needs passwordless sudo")
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "root"
+            completed = _run_real_setup(root)
+            self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
+            output = completed.stdout + completed.stderr
+            self.assertNotIn("--user", output)
+            self.assertNotIn("externally-managed-environment", output)
+            self.assertTrue(
+                "Successfully installed" in output or "Requirement already satisfied: lupa==2.6" in output,
+                output,
+            )
+            assert_real_venv_install(self, root)
+
+
+def assert_real_venv_install(test: unittest.TestCase, root: Path) -> None:
+    venv = root / ".venv"
+    cfg_path = venv / "pyvenv.cfg"
+    test.assertTrue(cfg_path.is_file(), "python3 -m venv did not write pyvenv.cfg")
+    cfg = cfg_path.read_text(encoding="utf-8")
+    test.assertRegex(cfg, r"(?m)^command = .* -m venv ")
+    python = venv / "bin" / "python"
+    test.assertTrue(os.access(python, os.X_OK))
+    probe = subprocess.run(
+        [str(python), "-c", "import lupa.lua53, pytest; print(lupa.lua53.LUA_VERSION)"],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    test.assertEqual(probe.returncode, 0, probe.stderr)
+    test.assertEqual(probe.stdout.strip(), "(5, 3)")
+    shown = subprocess.run(
+        [str(python), "-m", "pip", "show", "lupa"],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    test.assertEqual(shown.returncode, 0, shown.stderr)
+    test.assertIn("Version: 2.6", shown.stdout)
+    location = next(line for line in shown.stdout.splitlines() if line.startswith("Location: "))
+    test.assertTrue(location.split(": ", 1)[1].startswith(str(venv)), shown.stdout)
+
+
+def _run_real_setup(root: Path) -> subprocess.CompletedProcess[str]:
+    tools = root / "authority" / "tools"
+    tools.mkdir(parents=True, exist_ok=True)
+    script_src = ROOT / "authority/tools/cloud_linux_setup.sh"
+    script = tools / "cloud_linux_setup.sh"
+    script.write_bytes(script_src.read_bytes())
+    script.chmod(script.stat().st_mode | stat.S_IEXEC)
+    (root / "requirements-dev.txt").write_text(
+        (ROOT / "requirements-dev.txt").read_text(encoding="utf-8"),
+        encoding="utf-8",
+    )
+    env = os.environ.copy()
+    env.pop("VIRTUAL_ENV", None)
+    env.pop("PYTHONPATH", None)
+    env["PATH"] = "/usr/bin:/bin"
+    return subprocess.run(
+        ["bash", str(script)],
+        cwd=root,
+        env=env,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
 
 def executable_lines(script: str) -> str:
     return "\n".join(line for line in script.splitlines() if not line.lstrip().startswith("#"))
