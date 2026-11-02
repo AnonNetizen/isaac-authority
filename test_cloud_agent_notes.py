@@ -6,8 +6,11 @@ import ast
 import json
 import os
 import re
+import stat
 import subprocess
 import sys
+import tempfile
+import textwrap
 import unittest
 from pathlib import Path
 
@@ -150,6 +153,211 @@ print(json.dumps({
         self.assertIn("test_patched_text_compiles_in_lua53", report["skipped"][0])
         self.assertIn("source not available", report["skipped"][0])
 
+    def test_setup_script_installs_venv_before_compiler_switch(self):
+        section = cloud_section()
+        script = executable_lines(
+            (ROOT / "authority/tools/cloud_linux_setup.sh").read_text(encoding="utf-8")
+        )
+        # The old script was `python3 -m pip install --user -r ...` with no venv.
+        # That line is rejected on PEP 668 Pythons and inside a virtualenv.
+        self.assertNotRegex(script, r"pip install --user(?! --break-system-packages)\b")
+        self.assertIn("python3 -m venv", script)
+        self.assertIn(".venv", script)
+        self.assertIn("import ensurepip", script)
+        self.assertIn("python3-venv", script)
+        self.assertLess(script.index("pip install"), script.index("update-alternatives --set cc"))
+        self.assertIn(
+            "`.venv/bin/python -m pytest -q test_stability_patch.py`",
+            section,
+        )
+        self.assertNotIn("pip install --user", section)
+
+    @unittest.skipUnless(
+        os.name == "posix" and Path("/usr/bin/gcc").is_file() and Path("/usr/bin/g++").is_file(),
+        "behavioral install check needs /usr/bin/gcc and /usr/bin/g++",
+    )
+    def test_simulated_externally_managed_install(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            state = Path(tmp) / "state"
+            state.mkdir()
+            log = Path(tmp) / "setup.log"
+            first = _run_setup(Path(tmp), state, log, {"SIM_EXTERNALLY_MANAGED": "1", "SIM_NO_ENSUREPIP": "1"})
+            self.assertEqual(first.returncode, 0, first.stderr + first.stdout)
+            self._assert_venv_install(log.read_text(encoding="utf-8"), require_apt=True)
+            log.write_text("", encoding="utf-8")
+            second = _run_setup(Path(tmp), state, log, {"SIM_EXTERNALLY_MANAGED": "1", "SIM_NO_ENSUREPIP": "1"})
+            self.assertEqual(second.returncode, 0, second.stderr + second.stdout)
+            self._assert_venv_install(log.read_text(encoding="utf-8"), require_apt=False)
+
+    @unittest.skipUnless(
+        os.name == "posix" and Path("/usr/bin/gcc").is_file() and Path("/usr/bin/g++").is_file(),
+        "behavioral install check needs /usr/bin/gcc and /usr/bin/g++",
+    )
+    def test_pip_failure_leaves_compilers_unchanged(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            state = Path(tmp) / "state"
+            state.mkdir()
+            log = Path(tmp) / "setup.log"
+            completed = _run_setup(
+                Path(tmp),
+                state,
+                log,
+                {"SIM_EXTERNALLY_MANAGED": "1", "SIM_NO_ENSUREPIP": "1", "SIM_FAIL_PIP": "1"},
+            )
+            text = log.read_text(encoding="utf-8")
+            self.assertNotEqual(completed.returncode, 0, completed.stdout + completed.stderr)
+            self.assertNotIn("update-alternatives", text)
+            self.assertNotIn("--user", text)
+            self.assertIn("pip install -r", text)
+
+    def _assert_venv_install(self, text: str, require_apt: bool) -> None:
+        self.assertNotIn("--user", text)
+        self.assertNotIn("system-pip", text)
+        self.assertNotIn("externally-managed-environment", text)
+        if require_apt:
+            self.assertLess(text.index("apt-get install -y python3-venv"), text.index("\nvenv "))
+        self.assertLess(text.index("\nvenv "), text.index("pip install -r"))
+        self.assertLess(text.index("pip install -r"), text.index("update-alternatives --set cc /usr/bin/gcc"))
+        self.assertLess(
+            text.index("update-alternatives --set cc /usr/bin/gcc"),
+            text.index("update-alternatives --set c++ /usr/bin/g++"),
+        )
+
+
+def executable_lines(script: str) -> str:
+    return "\n".join(line for line in script.splitlines() if not line.lstrip().startswith("#"))
+
+
+def _run_setup(
+    tmp: Path,
+    state: Path,
+    log: Path,
+    extra: dict[str, str],
+) -> subprocess.CompletedProcess[str]:
+    root = tmp / "root"
+    tools = root / "authority" / "tools"
+    tools.mkdir(parents=True, exist_ok=True)
+    script_src = ROOT / "authority/tools/cloud_linux_setup.sh"
+    script = tools / "cloud_linux_setup.sh"
+    script.write_bytes(script_src.read_bytes())
+    script.chmod(script.stat().st_mode | stat.S_IEXEC)
+    (root / "requirements-dev.txt").write_text(
+        (ROOT / "requirements-dev.txt").read_text(encoding="utf-8"),
+        encoding="utf-8",
+    )
+    bindir = tmp / "bin"
+    bindir.mkdir(exist_ok=True)
+    python_stub = bindir / "python3"
+    python_stub.write_text(_FAKE_PYTHON, encoding="utf-8")
+    python_stub.chmod(0o755)
+    sudo_stub = bindir / "sudo"
+    sudo_stub.write_text(_FAKE_SUDO, encoding="utf-8")
+    sudo_stub.chmod(0o755)
+    env = os.environ.copy()
+    env.pop("VIRTUAL_ENV", None)
+    env["PATH"] = str(bindir) + os.pathsep + env.get("PATH", "")
+    env["CLOUD_SETUP_LOG"] = str(log)
+    env["SIM_STATE"] = str(state)
+    env.update(extra)
+    return subprocess.run(
+        ["bash", str(script)],
+        cwd=root,
+        env=env,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+
+_FAKE_PYTHON = textwrap.dedent(
+    """\
+    #!/usr/bin/python3
+    import os
+    import sys
+
+    log_path = os.environ["CLOUD_SETUP_LOG"]
+    state = os.environ["SIM_STATE"]
+
+    def record(line):
+        with open(log_path, "a", encoding="utf-8") as handle:
+            handle.write(line + "\\n")
+
+    def ensurepip_ready():
+        if os.environ.get("SIM_NO_ENSUREPIP") != "1":
+            return True
+        return os.path.isfile(os.path.join(state, "apt-venv"))
+
+    args = sys.argv[1:]
+    if args[:1] == ["-c"]:
+        code = args[1]
+        if "ensurepip" in code and not ensurepip_ready():
+            sys.stderr.write("ModuleNotFoundError: No module named 'ensurepip'\\n")
+            sys.exit(1)
+        record("py -c " + code)
+        sys.exit(0)
+
+    if args[:2] == ["-m", "venv"]:
+        if not ensurepip_ready():
+            sys.stderr.write("ensurepip is not available\\n")
+            sys.exit(1)
+        if len(args) != 3:
+            sys.stderr.write("unexpected venv args: %s\\n" % (args,))
+            sys.exit(2)
+        dest = args[2]
+        bindir = os.path.join(dest, "bin")
+        os.makedirs(bindir, exist_ok=True)
+        launcher = os.path.join(bindir, "python")
+        with open(launcher, "w", encoding="utf-8") as handle:
+            handle.write(
+                "#!/usr/bin/python3\\n"
+                "import os, sys\\n"
+                "log_path = os.environ['CLOUD_SETUP_LOG']\\n"
+                "args = sys.argv[1:]\\n"
+                "payload = args[2:] if args[:2] == ['-m', 'pip'] else args\\n"
+                "with open(log_path, 'a', encoding='utf-8') as handle:\\n"
+                "    handle.write('pip ' + ' '.join(payload) + '\\\\n')\\n"
+                "if args[:2] != ['-m', 'pip'] or '--user' in args:\\n"
+                "    sys.stderr.write(\\"refusing venv pip args: %s\\\\n\\" % (args,))\\n"
+                "    sys.exit(1)\\n"
+                "if os.environ.get('SIM_FAIL_PIP') == '1':\\n"
+                "    sys.stderr.write('simulated pip failure\\\\n')\\n"
+                "    sys.exit(1)\\n"
+                "raise SystemExit(0)\\n"
+            )
+        os.chmod(launcher, 0o755)
+        record("venv " + dest)
+        sys.exit(0)
+
+    if args[:2] == ["-m", "pip"]:
+        record("system-pip " + " ".join(args))
+        if "--user" in args and "--break-system-packages" not in args:
+            sys.stderr.write("error: externally-managed-environment\\n")
+            sys.exit(1)
+        if "--user" in args and os.environ.get("SIM_IN_VENV") == "1":
+            sys.stderr.write("ERROR: Can not perform a '--user' install.\\n")
+            sys.exit(1)
+        if os.environ.get("SIM_EXTERNALLY_MANAGED") == "1" and "--break-system-packages" not in args:
+            sys.stderr.write("error: externally-managed-environment\\n")
+            sys.exit(1)
+        sys.exit(0)
+
+    sys.stderr.write("unexpected python args: %s\\n" % (args,))
+    sys.exit(2)
+    """
+)
+
+_FAKE_SUDO = textwrap.dedent(
+    """\
+    #!/bin/bash
+    printf 'sudo %s\\n' "$*" >> "$CLOUD_SETUP_LOG"
+    case "$*" in
+      *python3-venv*) touch "$SIM_STATE/apt-venv" ;;
+    esac
+    exit 0
+    """
+)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
+

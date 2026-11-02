@@ -293,11 +293,19 @@ game. On cloud, stop after the portable checks in checklist step 2.
 
 - If CMake reports `cannot find -lstdc++` or a missing `iostream`, the default
   `c++` is Clang without libstdc++ headers. Run
-  `authority/tools/cloud_linux_setup.sh`. It points `cc` at `/usr/bin/gcc` and
-  `c++` at `/usr/bin/g++` with `update-alternatives`, then installs the pins in
-  `requirements-dev.txt`. Delete the failed build directory and configure again.
-- Use `python3 -m pytest -q test_stability_patch.py`, not `py -3`.
-  `requirements-dev.txt` pins `lupa==2.6`, which provides Lua 5.3. Without
+  `authority/tools/cloud_linux_setup.sh`. It installs the `python3-venv`
+  package when `ensurepip` is missing, creates `.venv` with `python3 -m venv`,
+  and installs the pins in `requirements-dev.txt` with
+  `.venv/bin/python -m pip` and no `--user`. That works on an externally
+  managed system Python (PEP 668 `EXTERNALLY-MANAGED`) and inside an
+  already-active virtualenv. It then points `cc` at `/usr/bin/gcc` and `c++`
+  at `/usr/bin/g++` with `update-alternatives`. The pip install runs before
+  that compiler switch. Running the script again is safe. Delete the failed
+  build directory and configure again.
+- Run pytest with that venv:
+  `.venv/bin/python -m pytest -q test_stability_patch.py`, not `py -3`.
+  `requirements-dev.txt` pins `lupa==2.6`, which provides Lua 5.3. It also
+  pins `pytest==8.3.5` so the venv can run pytest. Without
   `ISAAC_LASER_SOURCE` (the workshop main.lua is not in this repo), the
   source-backed tests skip. The Python `py_compile` check
   (`CompileTests.test_python_sources_compile`) passes. The Lua compile of the
@@ -306,7 +314,7 @@ game. On cloud, stop after the portable checks in checklist step 2.
   that test is on `StructureTests` under `@REQUIRES_SOURCE` and `PATCHED` is
   None. That skip is expected here.
 - Host-side demo, still not playable co-op:
-  `python3 authority/tools/run_isolation.py --demo --output /tmp/isolation-demo.json`
-  and `python3 authority/tests/test_isolation.py`.
-- `python3 authority/tests/test_offline_authority.py` checks the offline
+  `.venv/bin/python authority/tools/run_isolation.py --demo --output /tmp/isolation-demo.json`
+  and `.venv/bin/python authority/tests/test_isolation.py`.
+- `.venv/bin/python authority/tests/test_offline_authority.py` checks the offline
   capture fixture only.
